@@ -48,9 +48,11 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 function RootComponent() {
 	const { convex } = Route.useRouteContext();
 	const isHomePage = useMatch({ from: "/", shouldThrow: false });
+	const isHirePage = useMatch({ from: "/hire", shouldThrow: false });
+	const isLandingPage = isHomePage || isHirePage;
 
 	return (
-		<html lang="en" suppressHydrationWarning className={isHomePage ? "dark" : ""}>
+		<html lang="en" suppressHydrationWarning className={isLandingPage ? "dark" : ""}>
 			<head>
 				<HeadContent />
 			</head>
@@ -62,7 +64,7 @@ function RootComponent() {
 						enableSystem
 						disableTransitionOnChange
 					>
-						{isHomePage ? (
+						{isLandingPage ? (
 							<main>
 								<Outlet />
 							</main>
