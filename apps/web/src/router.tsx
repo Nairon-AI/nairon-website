@@ -4,7 +4,7 @@ import { ConvexQueryClient } from "@convex-dev/react-query";
 import { ConvexReactClient } from "convex/react";
 import { routeTree } from "./routeTree.gen";
 
-export function getRouter() {
+export async function getRouter() {
 	const convexUrl = import.meta.env.VITE_CONVEX_URL;
 	if (!convexUrl) {
 		throw new Error("VITE_CONVEX_URL environment variable is required");
@@ -27,6 +27,7 @@ export function getRouter() {
 		routeTree,
 		context: { queryClient, convex },
 		defaultPreload: "intent",
+		scrollRestoration: true,
 	});
 }
 

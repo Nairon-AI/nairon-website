@@ -3,7 +3,6 @@ import {
 	HeadContent,
 	Outlet,
 	Scripts,
-	ScrollRestoration,
 } from "@tanstack/react-router";
 import type { QueryClient } from "@tanstack/react-query";
 import type { ConvexReactClient } from "convex/react";
@@ -60,7 +59,6 @@ function RootComponent() {
 						<Toaster />
 					</ThemeProvider>
 				</ConvexProvider>
-				<ScrollRestoration />
 				<Scripts />
 			</body>
 		</html>
