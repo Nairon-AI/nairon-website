@@ -1,0 +1,189 @@
+import { ArrowUpRight } from "lucide-react";
+import { Section, SectionTag, SectionHeading, DimText, GlassCard, colors } from "../landing/primitives";
+import { HIRE_TIERS, HIRE_COMPARISON } from "@/data/hire";
+import type { HireTier, ComparisonSection } from "@/data/hire";
+
+function TierCard({ tier }: { tier: HireTier }) {
+	return (
+		<div className="flex flex-col relative">
+			{/* "Most Popular" badge above card */}
+			{tier.popular && (
+				<span className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 text-xs uppercase tracking-wider bg-white/20 backdrop-blur-sm text-white px-4 py-1.5 rounded-full whitespace-nowrap">
+					Most Popular
+				</span>
+			)}
+			{/* Top card with gradient */}
+			<div className={`${tier.gradient} rounded-t-2xl p-8 pt-10 relative overflow-hidden min-h-[280px] flex flex-col`}>
+				<span className="text-xs bg-black/30 text-white/80 px-3 py-1 rounded-md w-fit mb-4">
+					{tier.badge}
+				</span>
+				<h3
+					className="text-4xl md:text-5xl font-medium text-white"
+					style={{ letterSpacing: "-2px" }}
+				>
+					{tier.name}
+				</h3>
+				<h4
+					className={`text-base font-medium ${colors.textBody} mt-2`}
+				>
+					{tier.commitment}
+				</h4>
+
+				{/* CTA — full width */}
+				<a
+					href="/bookacall"
+					className="flex items-center justify-between bg-white/10 border border-white/20 text-white font-semibold text-sm px-5 py-3 rounded-xl hover:bg-white/20 transition-colors mt-auto"
+				>
+					Book a hiring call
+					<ArrowUpRight className="w-4 h-4" />
+				</a>
+			</div>
+
+			{/* Bottom card */}
+			<GlassCard className="rounded-t-none rounded-b-2xl p-8 flex-1">
+				<h4
+					className={`text-lg font-semibold ${colors.text} mb-3`}
+					style={{ letterSpacing: "-0.72px" }}
+				>
+					{tier.tagline}
+				</h4>
+				<p className={`text-sm ${colors.textBody} mb-6`}>{tier.description}</p>
+
+				<div className="space-y-3">
+					{tier.features.map((feature) => (
+						<div key={feature} className="flex items-start gap-3">
+							<div className="w-1 h-1 rounded-full bg-amber-400 mt-2 shrink-0" />
+							<p className={`text-sm ${colors.textBody}`}>{feature}</p>
+						</div>
+					))}
+				</div>
+			</GlassCard>
+		</div>
+	);
+}
+
+function ComparisonTable() {
+	return (
+		<div className="mt-16">
+			<GlassCard className="overflow-hidden rounded-2xl">
+				<table className="w-full">
+					{/* Header */}
+					<thead>
+						<tr className="border-b border-white/8">
+							<th className={`text-left p-6 text-base font-semibold ${colors.text}`}>
+								Features
+							</th>
+							<th className={`text-center p-6`}>
+								<p className={`text-lg font-semibold ${colors.text}`}>Starter</p>
+								<p className={`text-sm ${colors.textMuted}`}>1 Hire</p>
+							</th>
+							<th className={`text-center p-6`}>
+								<p className={`text-lg font-semibold ${colors.text}`}>Priority</p>
+								<p className={`text-sm ${colors.textMuted}`}>3 Hires</p>
+							</th>
+							<th className={`text-center p-6`}>
+								<p className={`text-lg font-semibold ${colors.text}`}>Exclusive</p>
+								<p className={`text-sm ${colors.textMuted}`}>5+ Hires</p>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						{HIRE_COMPARISON.map((section) => (
+							<ComparisonSectionRows key={section.title} section={section} />
+						))}
+						{/* Bottom CTAs */}
+						<tr className="border-t border-white/8">
+							<td className="p-6" />
+							<td className="p-6 text-center">
+								<a
+									href="/bookacall"
+									className="inline-flex items-center gap-2 bg-white/10 border border-white/12 text-white font-semibold text-sm px-4 py-2 rounded-full hover:bg-white/15 transition-colors"
+								>
+									Book a call
+									<ArrowUpRight className="w-3 h-3" />
+								</a>
+							</td>
+							<td className="p-6 text-center">
+								<a
+									href="/bookacall"
+									className="inline-flex items-center gap-2 bg-white/10 border border-white/12 text-white font-semibold text-sm px-4 py-2 rounded-full hover:bg-white/15 transition-colors"
+								>
+									Book a call
+									<ArrowUpRight className="w-3 h-3" />
+								</a>
+							</td>
+							<td className="p-6 text-center">
+								<a
+									href="/bookacall"
+									className="inline-flex items-center gap-2 bg-white/10 border border-white/12 text-white font-semibold text-sm px-4 py-2 rounded-full hover:bg-white/15 transition-colors"
+								>
+									Book a call
+									<ArrowUpRight className="w-3 h-3" />
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</GlassCard>
+		</div>
+	);
+}
+
+function ComparisonSectionRows({ section }: { section: ComparisonSection }) {
+	return (
+		<>
+			{/* Section header */}
+			<tr className="border-t border-white/8">
+				<td
+					colSpan={4}
+					className={`px-6 py-4 text-sm font-semibold ${colors.text} bg-white/[0.02]`}
+				>
+					{section.title}
+				</td>
+			</tr>
+			{/* Rows */}
+			{section.rows.map((row) => (
+				<tr key={row.feature} className="border-t border-white/5">
+					<td className={`px-6 py-4 text-sm ${colors.textBody}`}>{row.feature}</td>
+					<td className={`px-6 py-4 text-sm text-center ${colors.textBody}`}>
+						{row.starter}
+					</td>
+					<td className={`px-6 py-4 text-sm text-center ${colors.textBody}`}>
+						{row.priority}
+					</td>
+					<td className={`px-6 py-4 text-sm text-center ${colors.textBody}`}>
+						{row.exclusive}
+					</td>
+				</tr>
+			))}
+		</>
+	);
+}
+
+export function HireTiers() {
+	return (
+		<Section className={colors.pageBg}>
+			<SectionTag label="Tiers" />
+			<SectionHeading className="mt-4 mb-16">
+				Pick your Tier for <DimText>Nairon's AI Cohort</DimText>
+			</SectionHeading>
+
+			{/* Tier cards */}
+			<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+				{HIRE_TIERS.map((tier) => (
+					<TierCard key={tier.name} tier={tier} />
+				))}
+			</div>
+
+			{/* Credits note */}
+			<GlassCard className="p-6 mt-8">
+				<p className={`text-sm ${colors.textBody}`}>
+					100% of Hiring credits rollover to subsequent cohorts.
+				</p>
+			</GlassCard>
+
+			{/* Comparison table */}
+			<ComparisonTable />
+		</Section>
+	);
+}
