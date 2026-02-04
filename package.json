@@ -20,6 +20,7 @@
 		"zod": "^4.0.0"
 	},
 	"devDependencies": {
+		"convex": "catalog:",
 		"turbo": "^2.4.0",
 		"typescript": "catalog:"
 	},

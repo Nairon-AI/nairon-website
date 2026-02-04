@@ -5,6 +5,7 @@
     "": {
       "name": "nairon-website",
       "devDependencies": {
+        "convex": "catalog:",
         "turbo": "^2.4.0",
         "typescript": "catalog:",
       },

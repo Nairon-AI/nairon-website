@@ -6,6 +6,11 @@
 			"command": "bun run dev:web",
 			"cwd": ".",
 			"port": 3001
+		},
+		{
+			"name": "Convex",
+			"command": "bunx convex dev",
+			"cwd": "."
 		}
 	]
 }
