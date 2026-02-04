@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env
+.env.local
+.env.*.local
+.convex/
+.turbo/
+.vercel/
+*.tsbuildinfo
+app.config.timestamp_*

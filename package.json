@@ -1,0 +1,27 @@
+{
+	"name": "nairon-website",
+	"type": "module",
+	"private": true,
+	"workspaces": ["apps/*", "packages/*"],
+	"scripts": {
+		"dev": "turbo dev",
+		"dev:web": "turbo dev --filter=@nairon-website/web",
+		"dev:server": "turbo dev --filter=@nairon-website/backend",
+		"build": "turbo build",
+		"check-types": "turbo check-types"
+	},
+	"catalog": {
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"@types/react": "^19.0.0",
+		"@types/react-dom": "^19.0.0",
+		"typescript": "^5.7.0",
+		"convex": "^1.17.0",
+		"zod": "^4.0.0"
+	},
+	"devDependencies": {
+		"turbo": "^2.4.0",
+		"typescript": "catalog:"
+	},
+	"packageManager": "bun@1.2.0"
+}

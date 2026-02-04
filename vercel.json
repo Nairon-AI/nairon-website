@@ -1,0 +1,5 @@
+{
+	"installCommand": "cd nairon-website && bun install",
+	"buildCommand": "cd nairon-website/apps/web && bun run build && cp -r .vercel/output ../../../.vercel/output",
+	"outputDirectory": ".vercel/output"
+}

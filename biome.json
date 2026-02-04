@@ -1,0 +1,56 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"formatter": {
+		"indentStyle": "tab"
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"style": {
+				"noInferrableTypes": "error",
+				"noUnusedTemplateLiteral": "error",
+				"useSelfClosingElements": "error"
+			},
+			"nursery": {
+				"useSortedClasses": {
+					"level": "warn",
+					"fix": "safe"
+				}
+			}
+		}
+	},
+	"css": {
+		"formatter": {
+			"indentStyle": "tab"
+		},
+		"linter": {
+			"enabled": true
+		}
+	},
+	"json": {
+		"formatter": {
+			"indentStyle": "tab"
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"indentStyle": "tab"
+		}
+	},
+	"files": {
+		"ignore": [
+			"node_modules",
+			"dist",
+			"build",
+			".turbo",
+			".vercel",
+			".convex",
+			"*.gen.*",
+			"routeTree.gen.ts"
+		]
+	}
+}

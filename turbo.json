@@ -1,0 +1,18 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"ui": "tui",
+	"tasks": {
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": ["dist/**", ".vercel/output/**"],
+			"env": ["VITE_CONVEX_URL", "VITE_CONVEX_SITE_URL"]
+		},
+		"dev": {
+			"cache": false,
+			"persistent": true
+		},
+		"check-types": {
+			"dependsOn": ["^build"]
+		}
+	}
+}

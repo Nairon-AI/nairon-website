@@ -1,0 +1,11 @@
+{
+	"packageManager": "bun",
+	"services": [
+		{
+			"name": "Web",
+			"command": "bun run dev:web",
+			"cwd": ".",
+			"port": 3001
+		}
+	]
+}
