@@ -6,22 +6,24 @@ import { routeTree } from "./routeTree.gen";
 
 export async function getRouter() {
 	const convexUrl = import.meta.env.VITE_CONVEX_URL;
-	if (!convexUrl) {
-		throw new Error("VITE_CONVEX_URL environment variable is required");
-	}
 
-	const convex = new ConvexReactClient(convexUrl);
-	const convexQueryClient = new ConvexQueryClient(convex);
+	const queryClient = new QueryClient();
+	let convex: ConvexReactClient;
 
-	const queryClient = new QueryClient({
-		defaultOptions: {
+	if (convexUrl) {
+		convex = new ConvexReactClient(convexUrl);
+		const convexQueryClient = new ConvexQueryClient(convex);
+		queryClient.setDefaultOptions({
 			queries: {
 				queryKeyHashFn: convexQueryClient.hashFn(),
 				queryFn: convexQueryClient.queryFn(),
 			},
-		},
-	});
-	convexQueryClient.connect(queryClient);
+		});
+		convexQueryClient.connect(queryClient);
+	} else {
+		// Use a placeholder client for routes that don't need Convex (e.g. landing page)
+		convex = new ConvexReactClient("https://placeholder.convex.cloud");
+	}
 
 	return createTanStackRouter({
 		routeTree,
