@@ -42,37 +42,17 @@ function RequirementCard({
 	const icon = CARD_ICONS[iconName];
 
 	return (
-		<div className="relative w-[269px] h-[269px]">
-			<div
-				className={`relative w-[269px] h-[269px] flex flex-col items-center justify-center gap-2.5 p-5 overflow-hidden ${
-					isFirst ? "rounded-full" : "rounded-[70px] border-2 border-[#262626]"
-				}`}
-			>
-				{/* Background image */}
-				<img
-					src={
-						isFirst
-							? "https://framerusercontent.com/images/xLrjdpNQ6eOOdla0YNUQo6jMIY.png"
-							: "https://framerusercontent.com/images/wX62SMRMN1v1X6SFoJaoNdwo.webp"
-					}
-					alt=""
-					className={`absolute object-cover ${
-						isFirst
-							? "w-[135%] h-[135%] -top-[17.5%] -left-[17.5%]"
-							: "w-[84%] h-[84%] top-[8%] left-[8%]"
-					}`}
-				/>
-				{/* SVG Icon */}
+		<>
+			{/* Mobile card - simple line icon style */}
+			<div className="md:hidden flex flex-col items-center justify-center p-5 rounded-[24px] border border-white/10 bg-black aspect-square">
 				{icon && (
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 256 256"
-						className="relative z-10"
+						className="w-10 h-10 mb-3"
 						style={{
-							width: icon.size,
-							height: icon.size,
-							fill: icon.color,
-							color: icon.color,
+							fill: "rgba(255, 255, 255, 0.6)",
+							color: "rgba(255, 255, 255, 0.6)",
 						}}
 					>
 						<g>
@@ -80,16 +60,61 @@ function RequirementCard({
 						</g>
 					</svg>
 				)}
-				{/* Text inside the card */}
-				<h4
-					className={`relative z-10 text-lg font-normal text-center leading-[1.4] ${
-						isFirst ? "text-white" : "text-white/55"
-					}`}
-				>
+				<h4 className="text-sm font-normal text-center leading-[1.4] text-white/80">
 					{text}
 				</h4>
 			</div>
-		</div>
+
+			{/* Desktop card - original large style with background images */}
+			<div className="hidden md:block relative w-[269px] h-[269px]">
+				<div
+					className={`relative w-[269px] h-[269px] flex flex-col items-center justify-center gap-2.5 p-5 overflow-hidden ${
+						isFirst ? "rounded-full" : "rounded-[70px] border-2 border-[#262626]"
+					}`}
+				>
+					{/* Background image */}
+					<img
+						src={
+							isFirst
+								? "https://framerusercontent.com/images/xLrjdpNQ6eOOdla0YNUQo6jMIY.png"
+								: "https://framerusercontent.com/images/wX62SMRMN1v1X6SFoJaoNdwo.webp"
+						}
+						alt=""
+						className={`absolute object-cover ${
+							isFirst
+								? "w-[135%] h-[135%] -top-[17.5%] -left-[17.5%]"
+								: "w-[84%] h-[84%] top-[8%] left-[8%]"
+						}`}
+					/>
+					{/* SVG Icon */}
+					{icon && (
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 256 256"
+							className="relative z-10"
+							style={{
+								width: icon.size,
+								height: icon.size,
+								fill: icon.color,
+								color: icon.color,
+							}}
+						>
+							<g>
+								<path d={icon.path} />
+							</g>
+						</svg>
+					)}
+					{/* Text inside the card */}
+					<h4
+						className={`relative z-10 text-lg font-normal text-center leading-[1.4] ${
+							isFirst ? "text-white" : "text-white/55"
+						}`}
+					>
+						{text}
+					</h4>
+				</div>
+			</div>
+		</>
 	);
 }
 
@@ -101,8 +126,8 @@ export function Qualifies() {
 				Who Qualifies <DimText>for the Program?</DimText>
 			</SectionHeading>
 
-			{/* Cards row */}
-			<div className="flex flex-row justify-start gap-12">
+			{/* Cards - 2x2 grid on mobile, row on desktop */}
+			<div className="grid grid-cols-2 gap-3 md:flex md:flex-row md:justify-start md:gap-12">
 				{REQUIREMENTS.map((r, i) => (
 					<RequirementCard
 						key={r.text}
@@ -123,8 +148,8 @@ export function Qualifies() {
 			</div>
 
 			{/* Bottom bar */}
-			<div className="mt-[43px] flex items-center justify-center gap-2.5">
-				<span className={`text-base ${colors.text}`}>
+			<div className="mt-8 md:mt-[43px] flex flex-col md:flex-row items-center justify-center gap-4 md:gap-2.5">
+				<span className={`text-sm md:text-base ${colors.text}`}>
 					Forever Free for engineers
 				</span>
 				<OutlineButton href="/program">

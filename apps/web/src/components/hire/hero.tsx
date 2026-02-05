@@ -3,8 +3,7 @@ import { AnimatedGradient } from "../landing/animated-gradient";
 export function HireHero() {
 	return (
 		<header
-			className="relative flex items-center justify-center overflow-hidden"
-			style={{ height: "350px", padding: "260px 40px 0px" }}
+			className="relative flex items-center justify-center overflow-hidden h-[250px] md:h-[350px] pt-24 md:pt-[260px] px-6 md:px-10"
 		>
 			{/* Animated gradient background */}
 			<div className="absolute inset-0 z-0">
@@ -12,11 +11,10 @@ export function HireHero() {
 			</div>
 			<div className="relative z-10 w-full max-w-[1440px]">
 				<h1
-					className="font-semibold text-white text-center"
+					className="font-semibold text-white text-center text-4xl md:text-7xl lg:text-[120px]"
 					style={{
-						fontSize: "120px",
-						letterSpacing: "-8.4px",
-						lineHeight: "90px",
+						letterSpacing: "-4px",
+						lineHeight: "1",
 					}}
 				>
 					Hiring Nairon Engineers

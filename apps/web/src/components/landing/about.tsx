@@ -15,8 +15,8 @@ function FeatureCard({
 	description,
 }: { icon: string; title: string; description: string }) {
 	return (
-		<div className="p-2">
-			<div className="mb-6">
+		<div className="p-2 text-center md:text-left">
+			<div className="mb-6 flex justify-center md:justify-start">
 				<img src={icon} alt="" className="w-[60px] h-[60px]" />
 			</div>
 			<CardTitle className="mb-3">{title}</CardTitle>

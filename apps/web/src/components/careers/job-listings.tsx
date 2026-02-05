@@ -25,22 +25,22 @@ function LinkedInBanner() {
 
 function FilterBar() {
 	return (
-		<div className="flex gap-4 mt-10">
-			<div className="flex-1 h-[54px] bg-white/5 rounded-xl px-4 flex items-center">
-				<span className={`text-base ${colors.text}`}>Job title</span>
+		<div className="flex flex-col md:flex-row gap-3 md:gap-4 mt-8 md:mt-10">
+			<div className="flex-1 h-[48px] md:h-[54px] bg-white/5 rounded-xl px-4 flex items-center">
+				<span className={`text-sm md:text-base ${colors.text}`}>Job title</span>
 			</div>
-			<div className="flex-1 h-[54px] bg-white/5 rounded-xl px-4 flex items-center">
-				<span className={`text-base ${colors.text}`}>Job type</span>
+			<div className="flex-1 h-[48px] md:h-[54px] bg-white/5 rounded-xl px-4 flex items-center">
+				<span className={`text-sm md:text-base ${colors.text}`}>Job type</span>
 			</div>
-			<div className="flex-1 h-[54px] bg-white/5 rounded-xl px-4 flex items-center">
-				<span className={`text-base ${colors.text}`}>Location</span>
+			<div className="flex-1 h-[48px] md:h-[54px] bg-white/5 rounded-xl px-4 flex items-center">
+				<span className={`text-sm md:text-base ${colors.text}`}>Location</span>
 			</div>
 			<button
 				type="button"
-				className="h-[48px] px-6 bg-white hover:bg-white/90 rounded-xl flex items-center gap-2 transition-colors self-center"
+				className="h-[44px] md:h-[48px] px-6 bg-white hover:bg-white/90 rounded-xl flex items-center justify-center gap-2 transition-colors"
 			>
 				<Search className="w-5 h-5 text-black" />
-				<span className="text-base font-medium text-black">Search</span>
+				<span className="text-sm md:text-base font-medium text-black">Search</span>
 			</button>
 		</div>
 	);
@@ -69,19 +69,19 @@ function JobCard({ job }: { job: JobListing }) {
 	return (
 		<a
 			href={job.href}
-			className="group flex items-center justify-between py-8 px-4 border-b border-white/12 hover:bg-white/[0.02] transition-colors"
+			className="group flex flex-col md:flex-row md:items-center justify-between py-6 md:py-8 px-2 md:px-4 border-b border-white/12 hover:bg-white/[0.02] transition-colors gap-4"
 		>
 			<div className="flex-1">
 				<h3
-					className={`text-2xl font-semibold ${colors.text} mb-2`}
+					className={`text-lg md:text-2xl font-semibold ${colors.text} mb-2`}
 					style={{ letterSpacing: "-0.72px" }}
 				>
 					{job.title}
 				</h3>
-				<p className="text-base text-[#bababa] leading-relaxed mb-4 max-w-3xl">
+				<p className="text-sm md:text-base text-[#bababa] leading-relaxed mb-3 md:mb-4 max-w-3xl">
 					{job.description}
 				</p>
-				<div className="flex items-center gap-2">
+				<div className="flex flex-wrap items-center gap-2">
 					<Badge>{job.type}</Badge>
 					<Badge>{job.location}</Badge>
 					{job.tags?.map((tag) => <Badge key={tag}>{tag}</Badge>)}

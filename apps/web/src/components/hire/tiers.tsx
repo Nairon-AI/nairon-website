@@ -77,8 +77,8 @@ function TierCard({ tier }: { tier: HireTier }) {
 
 function ComparisonTable() {
 	return (
-		<div className="mt-16">
-			<GlassCard className="overflow-hidden rounded-2xl">
+		<div className="mt-16 overflow-x-auto">
+			<GlassCard className="overflow-hidden rounded-2xl min-w-[600px]">
 				<table className="w-full">
 					{/* Header */}
 					<thead>
