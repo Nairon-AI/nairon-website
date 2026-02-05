@@ -3,14 +3,11 @@ import {
 	HeadContent,
 	Outlet,
 	Scripts,
-	useMatch,
 } from "@tanstack/react-router";
 import type { QueryClient } from "@tanstack/react-query";
 import type { ConvexReactClient } from "convex/react";
 import { ConvexProvider } from "convex/react";
 import { ThemeProvider } from "@/components/theme-provider";
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
 import { Toaster } from "sonner";
 import "@/styles/globals.css";
 
@@ -47,14 +44,9 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 
 function RootComponent() {
 	const { convex } = Route.useRouteContext();
-	const isHomePage = useMatch({ from: "/", shouldThrow: false });
-	const isHirePage = useMatch({ from: "/hire", shouldThrow: false });
-	const isProgramPage = useMatch({ from: "/program", shouldThrow: false });
-	const isContactPage = useMatch({ from: "/contact", shouldThrow: false });
-	const isLandingPage = isHomePage || isHirePage || isProgramPage || isContactPage;
 
 	return (
-		<html lang="en" suppressHydrationWarning className={isLandingPage ? "dark" : ""}>
+		<html lang="en" suppressHydrationWarning className="dark">
 			<head>
 				<HeadContent />
 			</head>
@@ -62,27 +54,13 @@ function RootComponent() {
 				<ConvexProvider client={convex}>
 					<ThemeProvider
 						attribute="class"
-						defaultTheme="system"
-						enableSystem
+						defaultTheme="dark"
+						enableSystem={false}
 						disableTransitionOnChange
 					>
-						{isLandingPage ? (
-							<main>
-								<Outlet />
-							</main>
-						) : (
-							<SidebarProvider>
-								<AppSidebar />
-								<SidebarInset>
-									<header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-										<SidebarTrigger className="-ml-1" />
-									</header>
-									<main className="flex-1">
-										<Outlet />
-									</main>
-								</SidebarInset>
-							</SidebarProvider>
-						)}
+						<main>
+							<Outlet />
+						</main>
 						<Toaster />
 					</ThemeProvider>
 				</ConvexProvider>
