@@ -12,8 +12,11 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProgramRouteImport } from './routes/program'
 import { Route as HireRouteImport } from './routes/hire'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as CareersRouteImport } from './routes/careers'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CareersIndexRouteImport } from './routes/careers.index'
 import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
+import { Route as CareersJobIdRouteImport } from './routes/careers.$jobId'
 
 const ProgramRoute = ProgramRouteImport.update({
   id: '/program',
@@ -30,55 +33,97 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const CareersIndexRoute = CareersIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CareersRoute,
 } as any)
 const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
   id: '/settings',
   path: '/settings',
   getParentRoute: () => DashboardRoute,
 } as any)
+const CareersJobIdRoute = CareersJobIdRouteImport.update({
+  id: '/$jobId',
+  path: '/$jobId',
+  getParentRoute: () => CareersRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/careers': typeof CareersRouteWithChildren
   '/dashboard': typeof DashboardRouteWithChildren
   '/hire': typeof HireRoute
   '/program': typeof ProgramRoute
+  '/careers/$jobId': typeof CareersJobIdRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
+  '/careers/': typeof CareersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/hire': typeof HireRoute
   '/program': typeof ProgramRoute
+  '/careers/$jobId': typeof CareersJobIdRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
+  '/careers': typeof CareersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/careers': typeof CareersRouteWithChildren
   '/dashboard': typeof DashboardRouteWithChildren
   '/hire': typeof HireRoute
   '/program': typeof ProgramRoute
+  '/careers/$jobId': typeof CareersJobIdRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
+  '/careers/': typeof CareersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/hire' | '/program' | '/dashboard/settings'
+  fullPaths:
+    | '/'
+    | '/careers'
+    | '/dashboard'
+    | '/hire'
+    | '/program'
+    | '/careers/$jobId'
+    | '/dashboard/settings'
+    | '/careers/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/hire' | '/program' | '/dashboard/settings'
-  id:
-    | '__root__'
+  to:
     | '/'
     | '/dashboard'
     | '/hire'
     | '/program'
+    | '/careers/$jobId'
     | '/dashboard/settings'
+    | '/careers'
+  id:
+    | '__root__'
+    | '/'
+    | '/careers'
+    | '/dashboard'
+    | '/hire'
+    | '/program'
+    | '/careers/$jobId'
+    | '/dashboard/settings'
+    | '/careers/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CareersRoute: typeof CareersRouteWithChildren
   DashboardRoute: typeof DashboardRouteWithChildren
   HireRoute: typeof HireRoute
   ProgramRoute: typeof ProgramRoute
@@ -107,12 +152,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/careers/': {
+      id: '/careers/'
+      path: '/'
+      fullPath: '/careers/'
+      preLoaderRoute: typeof CareersIndexRouteImport
+      parentRoute: typeof CareersRoute
     }
     '/dashboard/settings': {
       id: '/dashboard/settings'
@@ -121,8 +180,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardSettingsRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/careers/$jobId': {
+      id: '/careers/$jobId'
+      path: '/$jobId'
+      fullPath: '/careers/$jobId'
+      preLoaderRoute: typeof CareersJobIdRouteImport
+      parentRoute: typeof CareersRoute
+    }
   }
 }
+
+interface CareersRouteChildren {
+  CareersJobIdRoute: typeof CareersJobIdRoute
+  CareersIndexRoute: typeof CareersIndexRoute
+}
+
+const CareersRouteChildren: CareersRouteChildren = {
+  CareersJobIdRoute: CareersJobIdRoute,
+  CareersIndexRoute: CareersIndexRoute,
+}
+
+const CareersRouteWithChildren =
+  CareersRoute._addFileChildren(CareersRouteChildren)
 
 interface DashboardRouteChildren {
   DashboardSettingsRoute: typeof DashboardSettingsRoute
@@ -138,6 +217,7 @@ const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CareersRoute: CareersRouteWithChildren,
   DashboardRoute: DashboardRouteWithChildren,
   HireRoute: HireRoute,
   ProgramRoute: ProgramRoute,
