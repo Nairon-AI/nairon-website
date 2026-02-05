@@ -1,5 +1,5 @@
 {
 	"installCommand": "bun install",
-	"buildCommand": "ls -la && ls -la apps/ && cd apps/web && bun run build",
+	"buildCommand": "bunx turbo build --filter=@nairon-website/web",
 	"outputDirectory": "apps/web/.vercel/output"
 }
