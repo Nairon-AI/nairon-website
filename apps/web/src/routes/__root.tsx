@@ -51,7 +51,9 @@ function RootComponent() {
 	const isHirePage = useMatch({ from: "/hire", shouldThrow: false });
 	const isProgramPage = useMatch({ from: "/program", shouldThrow: false });
 	const isContactPage = useMatch({ from: "/contact", shouldThrow: false });
-	const isLandingPage = isHomePage || isHirePage || isProgramPage || isContactPage;
+	const isCareersPage = useMatch({ from: "/careers", shouldThrow: false });
+	const isTeamPage = useMatch({ from: "/team", shouldThrow: false });
+	const isLandingPage = isHomePage || isHirePage || isProgramPage || isContactPage || isCareersPage || isTeamPage;
 
 	return (
 		<html lang="en" suppressHydrationWarning className={isLandingPage ? "dark" : ""}>

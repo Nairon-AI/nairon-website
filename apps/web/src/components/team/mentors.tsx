@@ -57,12 +57,12 @@ function TeamMemberCard({
 				</a>
 			</div>
 			<h4
-				className="font-semibold text-xl text-white"
+				className="font-semibold text-sm md:text-xl text-white"
 				style={{ letterSpacing: "-0.72px" }}
 			>
 				{name}
 			</h4>
-			<p className="text-base text-white/55">{role}</p>
+			<p className="text-xs md:text-base text-white/55">{role}</p>
 		</div>
 	);
 }
@@ -154,8 +154,8 @@ export function Mentors() {
 				<DimText>Behind The Vision</DimText>
 			</SectionHeading>
 
-			{/* Team grid - 4 columns */}
-			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+			{/* Team grid - 2 cols mobile, 4 cols desktop */}
+			<div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5 mb-10">
 				{TEAM_PAGE_MEMBERS.map((member) => (
 					<TeamMemberCard
 						key={member.name}
