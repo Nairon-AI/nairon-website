@@ -23,20 +23,15 @@ function NavLink({ label, href }: { label: string; href: string }) {
 	);
 }
 
-function ArrowRightIcon() {
+function ArrowRightIcon({ className = "" }: { className?: string }) {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 256 256"
-			className="w-full h-full"
-			style={{
-				fill: "rgb(255, 255, 255)",
-				color: "rgb(255, 255, 255)",
-			}}
+			className={`w-full h-full ${className}`}
+			fill="currentColor"
 		>
-			<g color="rgb(255, 255, 255)">
-				<path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z" />
-			</g>
+			<path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z" />
 		</svg>
 	);
 }
@@ -81,18 +76,16 @@ export function Navbar() {
 						))}
 					</nav>
 
-					{/* Apply button */}
+					{/* Apply button - Green pill with white text and white circle with green arrow */}
 					<a
 						href="https://apply.naironai.com"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="inline-flex items-center gap-2.5 bg-white text-[#262626] font-semibold text-base pl-4 pr-1.5 py-1.5 rounded-full hover:bg-white/90 transition-colors"
+						className="inline-flex items-center gap-2.5 bg-[#22DB18] text-white font-semibold text-base pl-4 pr-1.5 py-1.5 rounded-full hover:bg-[#1fc516] transition-colors"
 					>
 						Apply
-						<span
-							className="w-[38px] h-[38px] rounded-full bg-[#22DB18] flex items-center justify-center"
-						>
-							<span className="w-4 h-4 block -rotate-45">
+						<span className="w-[38px] h-[38px] rounded-full bg-white flex items-center justify-center">
+							<span className="w-4 h-4 block text-[#22DB18]">
 								<ArrowRightIcon />
 							</span>
 						</span>

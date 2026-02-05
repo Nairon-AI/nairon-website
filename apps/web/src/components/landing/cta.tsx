@@ -41,105 +41,111 @@ function PricingLabel({ label }: { label: string }) {
 function BarBullet({ children }: { children: React.ReactNode }) {
 	return (
 		<div className="flex items-center gap-2.5">
-			<div className="w-1 h-6 bg-white/12 shrink-0" />
+			<div className="w-1 h-6 bg-white/20 shrink-0" />
 			<span className={`text-base ${colors.text}`}>{children}</span>
 		</div>
 	);
 }
 
-function ApplicationCard() {
+// Engineer CTA Row - Left dark, Right green gradient
+function EngineerCTARow() {
 	return (
-		<div className="rounded-l-3xl p-[30px_24px] lg:w-[65%]">
-			<h4
-				className={`font-semibold text-2xl mb-2 ${colors.text}`}
-				style={{ letterSpacing: "-0.72px" }}
-			>
-				Start the Application
-			</h4>
-			<p className={`text-base leading-relaxed ${colors.text} mb-8`}>
-				Upload your CV and take the first step toward joining the most
-				selective AI engineering program in the Middle East.
-			</p>
-			<div className="space-y-3">
-				{ENGINEER_BENEFITS.map((point) => (
-					<BarBullet key={point}>{point}</BarBullet>
-				))}
-			</div>
-		</div>
-	);
-}
-
-function FreeCard() {
-	return (
-		<div className="relative rounded-r-3xl overflow-hidden p-8 md:p-10 flex flex-col justify-between bg-[#262626] lg:w-[35%]">
-			<img
-				src="https://framerusercontent.com/images/cCL2QZFtjBzhpu3HuM4JaLndar8.png"
-				alt=""
-				className="absolute inset-0 w-full h-full object-cover"
-			/>
-			<div className="relative z-10">
-				<PricingLabel label="For Engineers" />
-				<h2
-					className="text-[60px] font-urbanist font-medium text-[#ededed] mb-2"
-					style={{ letterSpacing: "-2.4px" }}
+		<div className="flex flex-col lg:flex-row gap-2.5">
+			{/* Left: Dark card with content */}
+			<div className="rounded-3xl bg-black border border-white/10 p-8 md:p-10 lg:w-[60%]">
+				<h4
+					className={`font-semibold text-2xl mb-2 ${colors.text}`}
+					style={{ letterSpacing: "-0.72px" }}
 				>
-					Free
-				</h2>
-				<p className={colors.textMuted}>Only your commitment</p>
+					Start the Application
+				</h4>
+				<p className="text-base leading-relaxed text-white/70 mb-8">
+					Upload your CV and take the first step toward joining the most
+					selective AI engineering program in the Middle East.
+				</p>
+				<div className="space-y-3">
+					{ENGINEER_BENEFITS.map((point) => (
+						<BarBullet key={point}>{point}</BarBullet>
+					))}
+				</div>
 			</div>
-			<div className="relative z-10">
-				<PricingAction
-					href="https://apply.naironai.com"
-					label="Apply Now"
-					target="_blank"
+
+			{/* Right: Green gradient card with pricing */}
+			<div className="relative rounded-3xl overflow-hidden lg:w-[40%] min-h-[300px]">
+				{/* Green gradient background image */}
+				<img
+					src="https://framerusercontent.com/images/cCL2QZFtjBzhpu3HuM4JaLndar8.png"
+					alt=""
+					className="absolute inset-0 w-full h-full object-cover"
 				/>
+				<div className="relative z-10 p-8 md:p-10 flex flex-col justify-between h-full">
+					<div>
+						<PricingLabel label="For Engineers" />
+						<h2
+							className="text-[60px] font-urbanist font-medium text-[#ededed] mb-2"
+							style={{ letterSpacing: "-2.4px" }}
+						>
+							Free
+						</h2>
+						<p className="text-white/40">Only your commitment</p>
+					</div>
+					<PricingAction
+						href="https://apply.naironai.com"
+						label="Apply Now"
+						target="_blank"
+					/>
+				</div>
 			</div>
 		</div>
 	);
 }
 
-function PartnerCard() {
+// Client CTA Row - Left dark, Right gold gradient
+function ClientCTARow() {
 	return (
-		<div className="rounded-l-3xl p-[30px_24px] lg:w-[65%]">
-			<h4
-				className={`font-semibold text-2xl mb-2 ${colors.text}`}
-				style={{ letterSpacing: "-0.72px" }}
-			>
-				Partner With Nairon's Hiring Network
-			</h4>
-			<p className={`text-base leading-relaxed ${colors.text} mb-8`}>
-				Gain exclusive access to pre-vetted AI engineers who have survived one
-				of the world's most demanding programs.
-			</p>
-			<div className="space-y-3">
-				{CLIENT_BENEFITS.map((point) => (
-					<BarBullet key={point}>{point}</BarBullet>
-				))}
-			</div>
-		</div>
-	);
-}
-
-function ExclusiveAccessCard() {
-	return (
-		<div className="relative rounded-r-3xl overflow-hidden p-8 md:p-10 flex flex-col justify-between bg-[#262626] lg:w-[35%]">
-			<img
-				src="https://framerusercontent.com/images/pshetKl5VEKwnAW1nwizR8675w.png"
-				alt=""
-				className="absolute inset-0 w-full h-full object-cover"
-			/>
-			<div className="relative z-10">
-				<PricingLabel label="For Clients" />
-				<h2
-					className="text-[60px] font-urbanist font-medium text-[#ededed] mb-2"
-					style={{ letterSpacing: "-2.4px" }}
+		<div className="flex flex-col lg:flex-row gap-2.5">
+			{/* Left: Dark card with content */}
+			<div className="rounded-3xl bg-black border border-white/10 p-8 md:p-10 lg:w-[60%]">
+				<h4
+					className={`font-semibold text-2xl mb-2 ${colors.text}`}
+					style={{ letterSpacing: "-0.72px" }}
 				>
-					Exclusive Access
-				</h2>
-				<p className={colors.textMuted}>Contact us for partnership</p>
+					Partner With Nairon's Hiring Network
+				</h4>
+				<p className="text-base leading-relaxed text-white/70 mb-8">
+					Gain exclusive access to pre-vetted AI engineers who have survived one
+					of the world's most demanding programs.
+				</p>
+				<div className="space-y-3">
+					{CLIENT_BENEFITS.map((point) => (
+						<BarBullet key={point}>{point}</BarBullet>
+					))}
+				</div>
 			</div>
-			<div className="relative z-10">
-				<PricingAction href="/hire" label="Book a hiring call" />
+
+			{/* Right: Gold gradient card with pricing */}
+			<div className="relative rounded-3xl overflow-hidden lg:w-[40%] min-h-[300px]">
+				{/* Gold gradient background image */}
+				<img
+					src="https://framerusercontent.com/images/pshetKl5VEKwnAW1nwizR8675w.png"
+					alt=""
+					className="absolute inset-0 w-full h-full object-cover"
+				/>
+				<div className="relative z-10 p-8 md:p-10 flex flex-col justify-between h-full">
+					<div>
+						<PricingLabel label="For Clients" />
+						<h2
+							className="text-[60px] font-urbanist font-medium text-[#ededed] mb-2 leading-none"
+							style={{ letterSpacing: "-2.4px" }}
+						>
+							Exclusive
+							<br />
+							Access
+						</h2>
+						<p className="text-white/40">Contact us for partnership</p>
+					</div>
+					<PricingAction href="/hire" label="Book a hiring call" />
+				</div>
 			</div>
 		</div>
 	);
@@ -154,14 +160,8 @@ export function CTA() {
 			</SectionHeading>
 
 			<div className="flex flex-col gap-[60px]">
-				<div className="flex flex-col lg:flex-row gap-2.5">
-					<ApplicationCard />
-					<FreeCard />
-				</div>
-				<div className="flex flex-col lg:flex-row gap-2.5">
-					<PartnerCard />
-					<ExclusiveAccessCard />
-				</div>
+				<EngineerCTARow />
+				<ClientCTARow />
 			</div>
 		</Section>
 	);
