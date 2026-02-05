@@ -1,10 +1,11 @@
 {
 	"packageManager": "bun",
+	"setup": "bun install",
 	"services": [
 		{
 			"name": "Web",
-			"command": "bun run dev:web",
-			"cwd": ".",
+			"command": "bun run dev",
+			"cwd": "apps/web",
 			"port": 3001
 		},
 		{
