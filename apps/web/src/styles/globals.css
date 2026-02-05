@@ -235,10 +235,10 @@ html {
 }
 
 /* Pricing card gradients - matching live site */
-.pricing-gradient-green {
-	background: radial-gradient(78.6% 118% at -9.8% 112.1%, rgb(32, 140, 27) 0%, rgb(10, 26, 9) 100%);
+.pricing-gradient-gray {
+	background: rgb(38, 38, 38);
 }
 
 .pricing-gradient-gold {
-	background: radial-gradient(110% 165% at 3.2% 143.1%, rgb(158, 115, 14) 0%, rgb(0, 0, 0) 100%);
+	background: rgb(38, 38, 38);
 }
