@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TeamRouteImport } from './routes/team'
 import { Route as ProgramRouteImport } from './routes/program'
 import { Route as HireRouteImport } from './routes/hire'
 import { Route as DashboardRouteImport } from './routes/dashboard'
@@ -19,6 +20,11 @@ import { Route as CareersIndexRouteImport } from './routes/careers.index'
 import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
 import { Route as CareersJobIdRouteImport } from './routes/careers.$jobId'
 
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProgramRoute = ProgramRouteImport.update({
   id: '/program',
   path: '/program',
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRouteWithChildren
   '/hire': typeof HireRoute
   '/program': typeof ProgramRoute
+  '/team': typeof TeamRoute
   '/careers/$jobId': typeof CareersJobIdRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/careers/': typeof CareersIndexRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRouteWithChildren
   '/hire': typeof HireRoute
   '/program': typeof ProgramRoute
+  '/team': typeof TeamRoute
   '/careers/$jobId': typeof CareersJobIdRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/careers': typeof CareersIndexRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRouteWithChildren
   '/hire': typeof HireRoute
   '/program': typeof ProgramRoute
+  '/team': typeof TeamRoute
   '/careers/$jobId': typeof CareersJobIdRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/careers/': typeof CareersIndexRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/hire'
     | '/program'
+    | '/team'
     | '/careers/$jobId'
     | '/dashboard/settings'
     | '/careers/'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/hire'
     | '/program'
+    | '/team'
     | '/careers/$jobId'
     | '/dashboard/settings'
     | '/careers'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/hire'
     | '/program'
+    | '/team'
     | '/careers/$jobId'
     | '/dashboard/settings'
     | '/careers/'
@@ -140,10 +152,18 @@ export interface RootRouteChildren {
   DashboardRoute: typeof DashboardRouteWithChildren
   HireRoute: typeof HireRoute
   ProgramRoute: typeof ProgramRoute
+  TeamRoute: typeof TeamRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/program': {
       id: '/program'
       path: '/program'
@@ -242,6 +262,7 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardRoute: DashboardRouteWithChildren,
   HireRoute: HireRoute,
   ProgramRoute: ProgramRoute,
+  TeamRoute: TeamRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
