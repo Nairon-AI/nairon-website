@@ -10,3 +10,5 @@ export { Partners } from "./partners";
 export { FAQ } from "./faq";
 export { CTA } from "./cta";
 export { Footer } from "./footer";
+export { ContactHero } from "./contact-hero";
+export { ContactSection } from "./contact-form";
