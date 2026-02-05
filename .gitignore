@@ -10,3 +10,4 @@ convex/_generated/
 .vercel/
 *.tsbuildinfo
 app.config.timestamp_*
+tmp/
