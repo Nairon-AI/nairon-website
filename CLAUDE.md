@@ -49,3 +49,10 @@ bun run check-types  # Type-check all packages
 bun install               # Install dependencies
 bun run dev               # Start development
 ```
+
+## Supermemory
+
+All organizational knowledge (strategy, targets, decisions, processes) lives in Supermemory.
+**Always search Supermemory first** when you need context about Nairon.
+
+Use `/claude-supermemory:super-search` to search organizational knowledge.
