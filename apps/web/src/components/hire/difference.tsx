@@ -1,4 +1,4 @@
-import { ArrowUpRight, CircleCheck } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import {
 	Section,
 	SectionTag,
@@ -8,6 +8,16 @@ import {
 	colors,
 } from "../landing/primitives";
 import { HIRE_CAPABILITIES } from "@/data/hire";
+
+function GoldCheckCircle() {
+	return (
+		<svg width="40" height="40" viewBox="0 0 40 40" fill="none" className="shrink-0">
+			<circle cx="20" cy="20" r="20" fill="#CF9611" fillOpacity="0.1" />
+			<circle cx="20" cy="20" r="10" fill="#CF9611" fillOpacity="0.3" />
+			<path d="M15 20L18.75 23.75L25 16.25" stroke="#CF9611" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	);
+}
 
 function CapabilityCard({
 	number,
@@ -26,9 +36,9 @@ function CapabilityCard({
 
 			{/* Icon */}
 			<div className="relative z-10">
-				<CircleCheck className="w-7 h-7 text-green-500 mb-6" />
+				<GoldCheckCircle />
 				<h4
-					className={`text-xl font-semibold ${colors.text} mb-3`}
+					className={`text-xl font-semibold ${colors.text} mt-6 mb-3`}
 					style={{ letterSpacing: "-0.72px" }}
 				>
 					→ {title}

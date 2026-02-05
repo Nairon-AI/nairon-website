@@ -148,12 +148,28 @@ function hexToVec4(hex: string): [number, number, number, number] {
 }
 
 // Framer settings mapped to shader uniforms
-const PARAMS = {
+const PARAMS_GREEN = {
 	scale: 0.45,
 	rotation: 0,
-	speed: 10,
+	speed: 53,
 	color1: hexToVec4("192613"),
 	color2: hexToVec4("22DB18"),
+	color3: hexToVec4("FFFFFF"),
+	proportion: 0.28,
+	softness: 1.0,
+	distortion: 0,
+	swirl: 0.31,
+	swirlIterations: 10,
+	shapeScale: 0.1,
+	shape: 0, // Checks = 0
+};
+
+const PARAMS_GOLD = {
+	scale: 0.45,
+	rotation: 0,
+	speed: 53,
+	color1: hexToVec4("1A1609"),
+	color2: hexToVec4("FFB300"),
 	color3: hexToVec4("FFFFFF"),
 	proportion: 0.28,
 	softness: 1.0,
@@ -191,12 +207,14 @@ function createProgram(gl: WebGL2RenderingContext, vs: WebGLShader, fs: WebGLSha
 	return program;
 }
 
-export function AnimatedGradient() {
+export function AnimatedGradient({ variant = "green" }: { variant?: "green" | "gold" }) {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
 		if (!canvas) return;
+
+		const PARAMS = variant === "gold" ? PARAMS_GOLD : PARAMS_GREEN;
 
 		const gl = canvas.getContext("webgl2", { premultipliedAlpha: true, alpha: true });
 		if (!gl) return;

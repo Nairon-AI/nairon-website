@@ -8,39 +8,52 @@ function TierCard({ tier }: { tier: HireTier }) {
 		<div className="flex flex-col relative">
 			{/* "Most Popular" badge above card */}
 			{tier.popular && (
-				<span className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 text-xs uppercase tracking-wider bg-white/20 backdrop-blur-sm text-white px-4 py-1.5 rounded-full whitespace-nowrap">
+				<span className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 text-xs uppercase tracking-wider bg-white/24 backdrop-blur-sm text-white px-4 py-1.5 rounded-lg whitespace-nowrap">
 					Most Popular
 				</span>
 			)}
-			{/* Top card with gradient */}
-			<div className={`${tier.gradient} rounded-t-2xl p-8 pt-10 relative overflow-hidden min-h-[280px] flex flex-col`}>
-				<span className="text-xs bg-black/30 text-white/80 px-3 py-1 rounded-md w-fit mb-4">
-					{tier.badge}
-				</span>
-				<h3
-					className="text-4xl md:text-5xl font-medium text-white"
-					style={{ letterSpacing: "-2px" }}
-				>
-					{tier.name}
-				</h3>
-				<h4
-					className={`text-base font-medium ${colors.textBody} mt-2`}
-				>
-					{tier.commitment}
-				</h4>
+			{/* Top card with image */}
+			<div
+				className={`${tier.gradient} rounded-t-3xl p-8 pt-10 relative overflow-hidden min-h-[280px] flex flex-col`}
+			>
+				{/* Background image */}
+				<img
+					src={tier.image}
+					alt=""
+					className="absolute inset-0 w-full h-full object-cover opacity-60"
+				/>
+				<div className="relative z-10 flex flex-col flex-1">
+					<span className="text-xs bg-black/30 text-white/80 px-3 py-1 rounded-md w-fit mb-4">
+						{tier.badge}
+					</span>
+					<h3
+						className="text-4xl md:text-5xl font-medium text-white"
+						style={{ letterSpacing: "-2px" }}
+					>
+						{tier.name}
+					</h3>
+					<h4
+						className={`text-base font-medium ${colors.textBody} mt-2`}
+					>
+						{tier.commitment}
+					</h4>
 
-				{/* CTA — full width */}
-				<a
-					href="/bookacall"
-					className="flex items-center justify-between bg-white/10 border border-white/20 text-white font-semibold text-sm px-5 py-3 rounded-xl hover:bg-white/20 transition-colors mt-auto"
-				>
-					Book a hiring call
-					<ArrowUpRight className="w-4 h-4" />
-				</a>
+					{/* CTA — full width */}
+					<a
+						href="/bookacall"
+						className="flex items-center justify-between bg-white/10 border border-white/20 text-white font-semibold text-sm px-5 py-3 rounded-xl hover:bg-white/20 transition-colors mt-auto"
+					>
+						Book a hiring call
+						<ArrowUpRight className="w-4 h-4" />
+					</a>
+				</div>
 			</div>
 
 			{/* Bottom card */}
-			<GlassCard className="rounded-t-none rounded-b-2xl p-8 flex-1">
+			<div
+				className="rounded-b-3xl p-8 flex-1"
+				style={{ background: tier.bottomGradient }}
+			>
 				<h4
 					className={`text-lg font-semibold ${colors.text} mb-3`}
 					style={{ letterSpacing: "-0.72px" }}
@@ -52,12 +65,12 @@ function TierCard({ tier }: { tier: HireTier }) {
 				<div className="space-y-3">
 					{tier.features.map((feature) => (
 						<div key={feature} className="flex items-start gap-3">
-							<div className="w-1 h-1 rounded-full bg-amber-400 mt-2 shrink-0" />
+							<div className="w-1 h-6 bg-white/12 shrink-0" />
 							<p className={`text-sm ${colors.textBody}`}>{feature}</p>
 						</div>
 					))}
 				</div>
-			</GlassCard>
+			</div>
 		</div>
 	);
 }

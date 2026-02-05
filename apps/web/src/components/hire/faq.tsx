@@ -1,7 +1,21 @@
 import { useState } from "react";
-import { Plus, Minus, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Section, SectionTag, SectionHeading, DimText, colors } from "../landing/primitives";
 import { HIRE_FAQ_ITEMS } from "@/data/hire";
+
+function PlusIcon({ isOpen }: { isOpen: boolean }) {
+	return (
+		<div className="w-9 h-9 rounded-full bg-white/12 flex items-center justify-center shrink-0 relative">
+			{/* Horizontal bar */}
+			<div className="absolute w-3.5 h-[2px] bg-[#ededed] rounded-full" />
+			{/* Vertical bar (hidden when open) */}
+			<div
+				className="absolute w-[2px] h-3.5 bg-[#ededed] rounded-full transition-transform duration-200"
+				style={{ transform: isOpen ? "rotate(90deg)" : "rotate(0deg)" }}
+			/>
+		</div>
+	);
+}
 
 function FAQItem({
 	question,
@@ -16,29 +30,26 @@ function FAQItem({
 }) {
 	return (
 		<div
-			className={`border ${colors.border} rounded-2xl overflow-hidden transition-colors ${
-				isOpen ? "bg-white/[0.03]" : ""
-			}`}
+			className="rounded-3xl overflow-hidden transition-colors cursor-pointer"
+			style={{ backgroundColor: "rgb(17, 17, 20)", padding: "24px" }}
+			onClick={onToggle}
+			onKeyDown={(e) => {
+				if (e.key === "Enter" || e.key === " ") onToggle();
+			}}
+			role="button"
+			tabIndex={0}
 		>
-			<button
-				type="button"
-				onClick={onToggle}
-				className="w-full flex items-center justify-between p-6 text-left cursor-pointer"
-			>
+			<div className="flex items-center justify-between gap-4">
 				<h4
-					className={`text-base font-medium ${colors.text} pr-4`}
+					className={`text-base font-medium ${colors.text}`}
 					style={{ letterSpacing: "-0.3px" }}
 				>
 					{question}
 				</h4>
-				{isOpen ? (
-					<Minus className="w-5 h-5 text-white/60 shrink-0" />
-				) : (
-					<Plus className="w-5 h-5 text-white/60 shrink-0" />
-				)}
-			</button>
+				<PlusIcon isOpen={isOpen} />
+			</div>
 			{isOpen && (
-				<div className="px-6 pb-6">
+				<div className="mt-4">
 					<p className={`text-sm leading-relaxed ${colors.textBody}`}>{answer}</p>
 				</div>
 			)}

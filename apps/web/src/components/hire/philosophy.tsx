@@ -1,6 +1,14 @@
-import { CircleCheck } from "lucide-react";
 import { Section, SectionTag, SectionHeading, DimText, colors } from "../landing/primitives";
 import { HIRE_RESUME_QUOTES, HIRE_CANT_DO } from "@/data/hire";
+
+function GoldCheckIcon({ size = 16 }: { size?: number }) {
+	return (
+		<svg width={size} height={size} viewBox="0 0 16 16" fill="none" className="shrink-0">
+			<circle cx="8" cy="8" r="8" fill="#CF9611" fillOpacity="0.2" />
+			<path d="M5 8L7 10L11 6" stroke="#CF9611" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	);
+}
 
 function ResumeQuote({ text }: { text: string }) {
 	return (
@@ -13,7 +21,7 @@ function ResumeQuote({ text }: { text: string }) {
 function CantDoItem({ text }: { text: string }) {
 	return (
 		<div className="flex items-center gap-3">
-			<CircleCheck className="w-5 h-5 text-green-500 shrink-0" />
+			<GoldCheckIcon size={20} />
 			<p className={`text-base ${colors.textBody}`}>{text}</p>
 		</div>
 	);
