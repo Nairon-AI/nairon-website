@@ -55,7 +55,7 @@ export const REQUIREMENTS = [
 	{ iconName: "mic" as const, text: "Strong written and verbal communication skills" },
 ] as const;
 
-// ─── Team members ────────────────────────────────────────────────
+// ─── Team members (for homepage section) ────────────────────────
 export const TEAM_MEMBERS = [
 	{
 		name: "Luka Erić",
@@ -76,6 +76,54 @@ export const TEAM_MEMBERS = [
 		linkedin: "https://www.linkedin.com/in/ar-abdi/",
 	},
 ];
+
+// ─── Team page: Full team grid ──────────────────────────────────
+export const TEAM_PAGE_MEMBERS = [
+	{
+		name: "Abdulrahman Abdi",
+		role: "Founding AI Engineer",
+		image: "https://framerusercontent.com/images/VkXk2rDNGzBySnbTZ9H4v4dMdE.jpeg",
+		linkedin: "https://www.linkedin.com/in/ar-abdi",
+	},
+	{
+		name: "Luka Eric",
+		role: "CEO | Serial Founder",
+		image: "https://framerusercontent.com/images/SSmGx1bjs3koY1aPdILAeuc.jpeg",
+		linkedin: "https://www.linkedin.com/in/lukaeric",
+	},
+	{
+		name: "Obaid Ur-Rahmaan",
+		role: "CTO / Head of Product",
+		image: "https://framerusercontent.com/images/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
+		linkedin: "https://www.linkedin.com/in/obaid-ur-rahmaan-5bb29814b",
+	},
+	{
+		name: "Special Guest",
+		role: "AI Engineer",
+		image: "https://framerusercontent.com/images/47jhKH0AA1f2ZNcovBPcmjTlLM.png",
+		linkedin: "https://www.linkedin.com/in/jitendra-raut/",
+	},
+] as const;
+
+// ─── Team page: Featured member ─────────────────────────────────
+export const FEATURED_MEMBER = {
+	name: "Luka Eric",
+	title: "Serial Founder",
+	image: "https://framerusercontent.com/images/SSmGx1bjs3koY1aPdILAeuc.jpeg",
+	linkedin: "https://www.linkedin.com/in/lukaeric/",
+	twitter: "https://x.com/founderLuka",
+	bio: [
+		"Luka Eric is the founder of Abundance AI and a consultant who has led product, marketing, and innovation work across the UAE, U.S., and Europe. He has designed and scaled ventures in AI, education, real estate, logistics, and e-commerce, partnering with both startups and established brands.",
+		"Luka previously built Rhetora AI, a Techstars-backed company developing conversational AI models for call centers. His work blends strategic clarity with hands-on execution. Luka helps companies turn ideas into real products, strong funnels, and measurable growth — from product design and hiring to branding, go-to-market, and operational systems. He enjoys building alongside ambitious teams and tackling complex problems where technology, business, and creativity intersect.",
+	],
+	logos: [
+		{ name: "Techstars", src: "https://framerusercontent.com/images/pUNtUdgSwe33FoYh1m5LpqWPnCg.png" },
+		{ name: "Rhetora AI", src: "https://framerusercontent.com/images/fh0BAFiSLjGHDRpCleZIUYZsuD8.png" },
+		{ name: "Question Base", src: "https://framerusercontent.com/images/gCoRIliVPUssDE4xI8Sgarcds.png" },
+		{ name: "CodeGPT", src: "https://framerusercontent.com/images/Ubzltin4ACP1ExeTGTyxOMVLg4.png" },
+		{ name: "Smartsy", src: "https://framerusercontent.com/images/8qMWlLSlx0NOdAKU6xzxJx8w6dk.png" },
+	],
+} as const;
 
 // ─── Program phases ──────────────────────────────────────────────
 export interface GuestData {
