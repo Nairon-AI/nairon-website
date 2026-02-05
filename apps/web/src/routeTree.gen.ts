@@ -9,11 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ProgramRouteImport } from './routes/program'
 import { Route as HireRouteImport } from './routes/hire'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
 
+const ProgramRoute = ProgramRouteImport.update({
+  id: '/program',
+  path: '/program',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HireRoute = HireRouteImport.update({
   id: '/hire',
   path: '/hire',
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/hire': typeof HireRoute
+  '/program': typeof ProgramRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/hire': typeof HireRoute
+  '/program': typeof ProgramRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
 }
 export interface FileRoutesById {
@@ -52,24 +60,39 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/hire': typeof HireRoute
+  '/program': typeof ProgramRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/hire' | '/dashboard/settings'
+  fullPaths: '/' | '/dashboard' | '/hire' | '/program' | '/dashboard/settings'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/hire' | '/dashboard/settings'
-  id: '__root__' | '/' | '/dashboard' | '/hire' | '/dashboard/settings'
+  to: '/' | '/dashboard' | '/hire' | '/program' | '/dashboard/settings'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/hire'
+    | '/program'
+    | '/dashboard/settings'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRouteWithChildren
   HireRoute: typeof HireRoute
+  ProgramRoute: typeof ProgramRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/program': {
+      id: '/program'
+      path: '/program'
+      fullPath: '/program'
+      preLoaderRoute: typeof ProgramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hire': {
       id: '/hire'
       path: '/hire'
@@ -117,6 +140,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRouteWithChildren,
   HireRoute: HireRoute,
+  ProgramRoute: ProgramRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

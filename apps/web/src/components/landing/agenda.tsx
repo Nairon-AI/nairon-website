@@ -38,6 +38,9 @@ function WeekCard({ week }: { week: WeekData }) {
 				{week.guest && week.guestRole && (
 					<GuestCard guest={week.guest} role={week.guestRole} />
 				)}
+				{week.guest2 && week.guest2Role && (
+					<GuestCard guest={week.guest2} role={week.guest2Role} />
+				)}
 			</GlassCard>
 		</div>
 	);

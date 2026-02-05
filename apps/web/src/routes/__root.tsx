@@ -49,7 +49,8 @@ function RootComponent() {
 	const { convex } = Route.useRouteContext();
 	const isHomePage = useMatch({ from: "/", shouldThrow: false });
 	const isHirePage = useMatch({ from: "/hire", shouldThrow: false });
-	const isLandingPage = isHomePage || isHirePage;
+	const isProgramPage = useMatch({ from: "/program", shouldThrow: false });
+	const isLandingPage = isHomePage || isHirePage || isProgramPage;
 
 	return (
 		<html lang="en" suppressHydrationWarning className={isLandingPage ? "dark" : ""}>
