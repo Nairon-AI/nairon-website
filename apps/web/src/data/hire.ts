@@ -67,7 +67,7 @@ export const HIRE_PROCESS_STEPS = [
 		title: "Hire & Build",
 		description:
 			"Select your engineers, sign, and start integrating them into your product team with our support.",
-		image: "https://framerusercontent.com/images/jyMp9OqNFeIiNZgYSYTjgHZnhyQ.png",
+		image: "https://framerusercontent.com/images/LWS5A3AFRDm7CFokzD4zZhFJb7g.png",
 	},
 ] as const;
 
@@ -80,6 +80,8 @@ export interface HireTier {
 	description: string;
 	features: string[];
 	gradient: string;
+	bottomGradient: string;
+	image: string;
 	popular?: boolean;
 }
 
@@ -97,7 +99,9 @@ export const HIRE_TIERS: HireTier[] = [
 			"Standard Hiring Rate",
 			"100% success guarantee",
 		],
-		gradient: "pricing-gradient-green",
+		gradient: "pricing-gradient-gray",
+		bottomGradient: "radial-gradient(110% 165% at 3.2% 143.1%, rgb(38, 38, 38) 0%, rgb(0, 0, 0) 100%)",
+		image: "https://framerusercontent.com/images/jyMp9OqNFeIiNZgYSYTjgHZnhyQ.png",
 	},
 	{
 		badge: "Ultra Growth Startups",
@@ -113,6 +117,8 @@ export const HIRE_TIERS: HireTier[] = [
 			"100% success guarantee",
 		],
 		gradient: "pricing-gradient-gold",
+		bottomGradient: "radial-gradient(110% 165% at 3.2% 143.1%, rgb(158, 115, 14) 0%, rgb(0, 0, 0) 100%)",
+		image: "https://framerusercontent.com/images/pshetKl5VEKwnAW1nwizR8675w.png",
 		popular: true,
 	},
 	{
@@ -128,7 +134,9 @@ export const HIRE_TIERS: HireTier[] = [
 			"Dedicated partnership manager",
 			"100% success guarantee",
 		],
-		gradient: "pricing-gradient-gold",
+		gradient: "pricing-gradient-gray",
+		bottomGradient: "radial-gradient(110% 165% at 3.2% 143.1%, rgb(38, 38, 38) 0%, rgb(0, 0, 0) 100%)",
+		image: "https://framerusercontent.com/images/jyMp9OqNFeIiNZgYSYTjgHZnhyQ.png",
 	},
 ];
 
