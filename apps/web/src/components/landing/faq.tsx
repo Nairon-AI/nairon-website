@@ -1,42 +1,50 @@
 import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
 import {
 	Section,
 	SectionTag,
 	SectionHeading,
 	DimText,
-	GlassCard,
 	OutlineButton,
 	BodyText,
 	colors,
 } from "./primitives";
 import { FAQ_ITEMS } from "@/data/landing";
 
-function FAQItem({ question, answer }: { question: string; answer: string }) {
-	const [open, setOpen] = useState(false);
+function PlusIcon({ open }: { open: boolean }) {
+	return (
+		<div className="w-9 h-9 rounded-full bg-white/12 flex items-center justify-center shrink-0 relative">
+			<div className="w-0.5 h-5 bg-[#ededed] rounded-full" />
+			<div
+				className="absolute w-0.5 h-5 bg-[#ededed] rounded-full transition-transform duration-300"
+				style={{ transform: open ? "rotate(0deg)" : "rotate(90deg)" }}
+			/>
+		</div>
+	);
+}
+
+function FAQItem({
+	question,
+	answer,
+	defaultOpen = false,
+}: { question: string; answer: string; defaultOpen?: boolean }) {
+	const [open, setOpen] = useState(defaultOpen);
 
 	return (
-		<GlassCard className="overflow-hidden">
+		<div className="rounded-3xl bg-[#111114] overflow-hidden">
 			<button
 				type="button"
-				className="w-full flex items-center justify-between p-6 cursor-pointer text-left"
+				className="w-full flex items-center justify-between p-6 cursor-pointer text-left gap-2.5"
 				onClick={() => setOpen(!open)}
 			>
-				<h4 className={`text-base font-medium pr-4 ${colors.text}`}>
-					{question}
-				</h4>
-				{open ? (
-					<Minus className="w-5 h-5 text-white/60 shrink-0" />
-				) : (
-					<Plus className="w-5 h-5 text-white/60 shrink-0" />
-				)}
+				<h4 className={`text-lg font-normal ${colors.text}`}>{question}</h4>
+				<PlusIcon open={open} />
 			</button>
 			{open && (
 				<div className="px-6 pb-6 pt-0">
 					<BodyText>{answer}</BodyText>
 				</div>
 			)}
-		</GlassCard>
+		</div>
 	);
 }
 
@@ -56,12 +64,13 @@ export function FAQ() {
 						</OutlineButton>
 					</div>
 				</div>
-				<div className="space-y-3">
-					{FAQ_ITEMS.map((faq) => (
+				<div className="flex flex-col gap-4">
+					{FAQ_ITEMS.map((faq, i) => (
 						<FAQItem
 							key={faq.question}
 							question={faq.question}
 							answer={faq.answer}
+							defaultOpen={i === 0}
 						/>
 					))}
 				</div>

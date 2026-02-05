@@ -1,5 +1,3 @@
-import type { ReactNode } from "react";
-import { Check, Brain, Cog, MessageSquare, Zap } from "lucide-react";
 import {
 	Section,
 	SectionTag,
@@ -11,22 +9,16 @@ import {
 } from "./primitives";
 import { FEATURES } from "@/data/landing";
 
-const ICON_MAP: Record<string, ReactNode> = {
-	check: <Check className="w-8 h-8 text-green-400" />,
-	brain: <Brain className="w-8 h-8 text-green-400" />,
-	cog: <Cog className="w-8 h-8 text-green-400" />,
-	message: <MessageSquare className="w-8 h-8 text-green-400" />,
-	zap: <Zap className="w-8 h-8 text-green-400" />,
-};
-
 function FeatureCard({
-	iconName,
+	icon,
 	title,
 	description,
-}: { iconName: string; title: string; description: string }) {
+}: { icon: string; title: string; description: string }) {
 	return (
 		<div className="p-2">
-			<div className="mb-6">{ICON_MAP[iconName]}</div>
+			<div className="mb-6">
+				<img src={icon} alt="" className="w-[60px] h-[60px]" />
+			</div>
 			<CardTitle className="mb-3">{title}</CardTitle>
 			<BodyText>{description}</BodyText>
 		</div>
@@ -44,11 +36,11 @@ export function About() {
 				</SectionHeading>
 			</div>
 
-			<div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
 				{FEATURES.map((f) => (
 					<FeatureCard
 						key={f.title}
-						iconName={f.iconName}
+						icon={f.icon}
 						title={f.title}
 						description={f.description}
 					/>
