@@ -11,6 +11,8 @@ import { ConvexProvider } from "convex/react";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import { ViewModeProvider } from "@/contexts/view-mode-context";
+import { ViewModeToggle } from "@/components/view-mode-toggle";
 import { Toaster } from "sonner";
 import "@/styles/globals.css";
 
@@ -69,9 +71,12 @@ function RootComponent() {
 						disableTransitionOnChange
 					>
 						{isLandingPage ? (
-							<main>
-								<Outlet />
-							</main>
+							<ViewModeProvider>
+								<main>
+									<Outlet />
+								</main>
+								<ViewModeToggle />
+							</ViewModeProvider>
 						) : (
 							<SidebarProvider>
 								<AppSidebar />

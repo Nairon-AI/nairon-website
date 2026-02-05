@@ -4,6 +4,8 @@ import { useRotatingText } from "@/hooks/use-rotating-text";
 import { AnimatedGradient } from "./animated-gradient";
 import { colors } from "./primitives";
 import { APPLICATION_DEADLINE, HERO_WORDS } from "@/data/landing";
+import { useViewMode } from "@/contexts/view-mode-context";
+import { DigitalText } from "@/components/digital-text";
 
 function CountdownUnit({ value, label }: { value: number; label: string }) {
 	return (
@@ -66,6 +68,21 @@ function InfoBar() {
 
 export function Hero() {
 	const currentWord = useRotatingText(HERO_WORDS);
+	const { isEngineer } = useViewMode();
+
+	// Different content based on view mode
+	const heroContent = {
+		engineer: {
+			tagline: "AI Bootcamp for the",
+			highlight: currentWord,
+		},
+		hiringManager: {
+			tagline: "Where top companies hire the",
+			highlight: "1% Engineer",
+		},
+	};
+
+	const content = isEngineer ? heroContent.engineer : heroContent.hiringManager;
 
 	return (
 		<header className="relative min-h-screen flex flex-col justify-center hero-gradient overflow-hidden">
@@ -74,11 +91,11 @@ export function Hero() {
 				<AnimatedGradient />
 			</div>
 			<div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-12 w-full flex flex-col items-center">
-				{/* Large nairon. logo image */}
+				{/* Nairon logo image */}
 				<img
 					src="https://framerusercontent.com/images/VHRAdVMCwEE6Q9afizgYDgxitUU.png"
 					alt="nairon."
-					className="w-[60vw] max-w-[900px] h-auto"
+					className="w-[40vw] max-w-[600px] h-auto"
 				/>
 
 				<div className="mt-2 text-center flex flex-col md:flex-row items-center justify-center md:gap-3">
@@ -86,13 +103,13 @@ export function Hero() {
 						className="text-xl md:text-[34px] font-medium text-white"
 						style={{ letterSpacing: "-1.36px", lineHeight: "1.3" }}
 					>
-						AI Bootcamp for the
+						<DigitalText text={content.tagline} duration={600} />
 					</h3>
 					<span
 						className="text-3xl md:text-[44px] font-semibold italic text-white inline-block md:min-w-[220px] text-center md:text-left"
 						style={{ letterSpacing: "-1.36px", lineHeight: "1.3" }}
 					>
-						{currentWord}
+						<DigitalText text={content.highlight} duration={600} />
 					</span>
 				</div>
 
