@@ -16,31 +16,31 @@ export const NAV_LINKS = [
 // ─── About section features ─────────────────────────────────────
 export const FEATURES = [
 	{
-		iconName: "check" as const,
+		icon: "https://framerusercontent.com/images/4UluxPGUnuHGRTAiDCLlXAout4.png",
 		title: "They Own the Outcome",
 		description:
 			"Our engineers do not wait for a spec. They talk to users, find the real problem, and ship the solution.",
 	},
 	{
-		iconName: "brain" as const,
+		icon: "https://framerusercontent.com/images/RQID0uOGeWqF21qgFLskUbILQ.png",
 		title: "They are AI-Native",
 		description:
 			"While others prompt engineer, they design full AI systems. They know when to use RAG, fine-tuning, or agents, and how to make them work in production.",
 	},
 	{
-		iconName: "cog" as const,
+		icon: "https://framerusercontent.com/images/kB9SzsGVhcw6S54lxC5CMmP9d5o.png",
 		title: "They Think in Systems",
 		description:
 			"They don't just ask if something works; they ask how it scales, what it costs, and what happens when it breaks.",
 	},
 	{
-		iconName: "message" as const,
+		icon: "https://framerusercontent.com/images/vE5Nw48WnSWq4GMj8gJryzGDxWg.png",
 		title: "They Communicate like CTOs",
 		description:
 			"They speak product, business, and engineering in one language. They can explain technical debt and architecture decisions to investors and founders.",
 	},
 	{
-		iconName: "zap" as const,
+		icon: "https://framerusercontent.com/images/NT0VTDsDN6iltFr3iwAKmpltg.png",
 		title: "They Deliver Under Pressure",
 		description:
 			"Real founders. Real deadlines. Real consequences. After 8 weeks of shipping under these conditions, your startup's pace will not faze them.",
@@ -78,14 +78,18 @@ export const TEAM_MEMBERS = [
 ];
 
 // ─── Program phases ──────────────────────────────────────────────
+export interface GuestData {
+	name: string;
+	role: string;
+}
+
 export interface WeekData {
 	week: string;
 	title: string;
 	description: string;
 	guest?: string;
 	guestRole?: string;
-	guest2?: string;
-	guest2Role?: string;
+	guests?: GuestData[];
 }
 
 export interface PhaseData {
@@ -156,10 +160,10 @@ export const PROGRAM_PHASES: PhaseData[] = [
 				title: "Hiring Partner Projects Sprint",
 				description:
 					"Real-world client briefs test your professional delivery capabilities as you build production MVPs under enterprise constraints demonstrating your adaptability and stakeholder communication skills.",
-				guest: "Special Guest",
-				guestRole: "Head of AI at Growth-Stage SaaS Company",
-				guest2: "Special Guest",
-				guest2Role: "Research Engineer at AI Lab",
+				guests: [
+					{ name: "Special Guest", role: "Head of AI at Growth-Stage SaaS Company" },
+					{ name: "Special Guest", role: "Research Engineer at AI Lab" },
+				],
 			},
 			{
 				week: "Week 7",
@@ -175,18 +179,29 @@ export const PROGRAM_PHASES: PhaseData[] = [
 				description:
 					"Your final sprint, built to refine projects to production standards, demoing on the spot, and presenting to hiring partners.",
 			},
-			{
-				week: "Demo Day",
-				title: "Demo Day & Graduation",
-				description:
-					"Final pass on your portfolio and demo. Refine your case studies, clean up repos, and rehearse how you present your work to founders and hiring partners.",
-			},
 		],
 	},
 ];
 
 // ─── Partners ────────────────────────────────────────────────────
-export const PARTNERS = ["Keylead", "Question Base", "CodeGPT", "NEOM"] as const;
+export const PARTNERS = [
+	{
+		name: "Keylead",
+		logo: "https://framerusercontent.com/images/8iawpdspB7oNrbkg9yVbuNsT7lU.png",
+	},
+	{
+		name: "Question Base",
+		logo: "https://framerusercontent.com/images/3yRGTa8SbDMNcHD0Z9htHa4mti0.png",
+	},
+	{
+		name: "CodeGPT",
+		logo: "https://framerusercontent.com/images/XXv1BKrLDM97th8HhgjBiFfeeUo.png",
+	},
+	{
+		name: "NEOM",
+		logo: "https://framerusercontent.com/images/7c0S1a6D6BW6O548tD40fZDqDg.png",
+	},
+] as const;
 
 // ─── FAQ items ───────────────────────────────────────────────────
 export const FAQ_ITEMS = [
@@ -348,5 +363,5 @@ export const CLIENT_BENEFITS = [
 	"Priority access to top 1% engineers",
 	"One-on-one talent matching calls",
 	"Dedicated partnership manager",
-	"100% success guarantee",
+	"100% success guarrantee",
 ] as const;

@@ -1,31 +1,63 @@
+import { ArrowUpRight } from "lucide-react";
 import { colors } from "./primitives";
 import { FOOTER_LINKS } from "@/data/landing";
 
 function SocialLinks() {
 	return (
 		<div>
-			<p className={`text-sm mb-4 ${colors.textMuted}`}>Social</p>
+			<p className={`text-base mb-4 ${colors.text}`}>Social</p>
 			<div className="flex gap-3">
 				<a
-					href="https://linkedin.com/company/naironai"
+					href="https://www.linkedin.com/company/nairon-ai"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors"
+					className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-[#ededed] hover:bg-white/5 transition-colors"
 					aria-label="LinkedIn"
 				>
-					<span className="text-white/70 text-sm font-bold">in</span>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 256 256"
+						className="w-5 h-5"
+						fill="currentColor"
+					>
+						<path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24ZM96,176a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0ZM88,96a12,12,0,1,1,12-12A12,12,0,0,1,88,96Zm96,80a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140Z" />
+					</svg>
 				</a>
 				<a
-					href="https://x.com/naironai"
+					href="https://x.com/nairon__ai"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors"
+					className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-[#ededed] hover:bg-white/5 transition-colors"
 					aria-label="X / Twitter"
 				>
-					<span className="text-white/70 text-sm font-bold">X</span>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 256 256"
+						className="w-5 h-5"
+						fill="currentColor"
+					>
+						<path d="M218.12,209.56l-61-95.8,59.72-69.36a12,12,0,1,0-18.2-15.64L142.82,93.08,99.56,25.16A12,12,0,0,0,89.13,20H48a12,12,0,0,0-10.12,18.44l61,95.8L39.16,203.6a12,12,0,0,0,18.2,15.64l55.82-64.88L156.44,222.84A12,12,0,0,0,166.87,228H208a12,12,0,0,0,10.12-18.44ZM97.29,44l55.22,88-20.67,24L68.83,44ZM158.71,204l-55.22-88,20.67-24L187.17,204Z" />
+					</svg>
 				</a>
 			</div>
 		</div>
+	);
+}
+
+function FooterNavLink({ label, href }: { label: string; href: string }) {
+	return (
+		<a
+			href={href}
+			className="group relative flex items-center justify-center h-10 px-4 rounded-full bg-white/12 overflow-hidden transition-colors"
+		>
+			<span className="text-base text-white transition-transform duration-300 group-hover:-translate-y-10">
+				{label}
+			</span>
+			<span className="absolute inset-x-[-1px] top-full h-[45px] rounded-full bg-[#22DB18] transition-all duration-300 group-hover:top-[-3px]" />
+			<span className="absolute text-base text-white top-12 transition-all duration-300 group-hover:top-2">
+				{label}
+			</span>
+		</a>
 	);
 }
 
@@ -33,13 +65,7 @@ function FooterNav() {
 	return (
 		<nav className="flex flex-wrap gap-3">
 			{FOOTER_LINKS.map((item) => (
-				<a
-					key={item.label}
-					href={item.href}
-					className={`px-4 py-2 text-sm hover:text-white border border-white/10 rounded-full transition-colors hover:bg-white/5 ${colors.textMuted}`}
-				>
-					{item.label}
-				</a>
+				<FooterNavLink key={item.label} label={item.label} href={item.href} />
 			))}
 		</nav>
 	);
@@ -47,37 +73,54 @@ function FooterNav() {
 
 function FooterBottom() {
 	return (
-		<div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-			<p className="text-white/30 text-sm">All copyrights @naironai</p>
-			<a
-				href="/terms-and-conditions"
-				className="text-white/30 text-sm hover:text-white/50 transition-colors"
+		<div className="mt-16 pt-8 border-t border-white/5 flex items-center justify-between">
+			<div className="flex items-center gap-6">
+				<p className={`text-base ${colors.text}`}>All copyrights @naironai</p>
+				<a
+					href="/terms-and-conditions"
+					className="text-xs text-[#ededed] hover:text-white/70 transition-colors"
+				>
+					Terms and Conditions
+				</a>
+			</div>
+			<button
+				type="button"
+				onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+				className="flex items-center gap-2 text-[#ededed] hover:text-white transition-colors"
+				aria-label="Back to top"
 			>
-				Terms and Conditions
-			</a>
+				<span className="w-20 h-px bg-white/30" />
+				<ArrowUpRight className="w-4 h-4" />
+			</button>
 		</div>
 	);
 }
 
 function LargeLogoBackground() {
 	return (
-		<div className="relative h-[300px] md:h-[400px] overflow-hidden">
-			<div className="absolute inset-0 bg-gradient-to-t from-green-500/10 to-transparent" />
-			<div className="absolute bottom-0 left-0 right-0 flex items-end justify-center overflow-hidden">
-				<img
-					src="https://framerusercontent.com/images/VHRAdVMCwEE6Q9afizgYDgxitUU.png"
-					alt=""
-					className="w-full max-w-none opacity-[0.07] translate-y-[20%]"
-					style={{ minWidth: "150%" }}
-				/>
-			</div>
+		<div className="relative h-[500px] overflow-hidden">
+			{/* Green gradient background image (contains nairon logo square) */}
+			<img
+				src="https://framerusercontent.com/images/enyh4nWMxHyEude0e3qPKlPss.png"
+				alt=""
+				className="absolute inset-0 w-full h-full object-cover object-center"
+			/>
+			{/* Large "nairon." text overlay */}
+			<img
+				src="https://framerusercontent.com/images/VHRAdVMCwEE6Q9afizgYDgxitUU.png"
+				alt=""
+				className="absolute bottom-0 left-1/2 -translate-x-1/2 max-w-none translate-y-[20%]"
+				style={{ width: "min(126%, 1920px)" }}
+			/>
 		</div>
 	);
 }
 
 export function Footer() {
 	return (
-		<footer className={`${colors.pageBg} border-t border-white/5 relative overflow-hidden`}>
+		<footer
+			className={`${colors.pageBg} border-t border-white/5 relative overflow-hidden`}
+		>
 			<div className="max-w-7xl mx-auto px-6 py-16">
 				<div className="flex flex-col md:flex-row justify-between gap-12">
 					<SocialLinks />
