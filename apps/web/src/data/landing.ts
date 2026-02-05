@@ -84,6 +84,8 @@ export interface WeekData {
 	description: string;
 	guest?: string;
 	guestRole?: string;
+	guest2?: string;
+	guest2Role?: string;
 }
 
 export interface PhaseData {
@@ -122,7 +124,7 @@ export const PROGRAM_PHASES: PhaseData[] = [
 		weeks: [
 			{
 				week: "Week 3",
-				title: "Developer Tooling & AI-First Startup Workshop",
+				title: "AI-First Enterprise Development",
 				description:
 					"Your introduction to AI-First engineering where you'll master cutting-edge Developer tooling, establish optimal workflows, and build enterprise-grade applications at accelerated speeds.",
 			},
@@ -156,15 +158,25 @@ export const PROGRAM_PHASES: PhaseData[] = [
 					"Real-world client briefs test your professional delivery capabilities as you build production MVPs under enterprise constraints demonstrating your adaptability and stakeholder communication skills.",
 				guest: "Special Guest",
 				guestRole: "Head of AI at Growth-Stage SaaS Company",
+				guest2: "Special Guest",
+				guest2Role: "Research Engineer at AI Lab",
 			},
 			{
 				week: "Week 7",
-				title: "Interview Preparation & Technical Portfolio Sprint",
+				title: "Enterprise AI & Multi-Agent Coordination",
 				description:
-					"Intensive preparation combining mock technical interviews, system design sessions, and portfolio refinement as you prepare to demonstrate your capabilities to our partner companies.",
+					"You'll explore enterprise-scale systems where you architect coordinated agent teams, modernise legacy codebases, and implement production-scale AI infrastructure.",
+				guest: "Special Guest",
+				guestRole: "Principal Data Scientist at Unicorn Fintech",
 			},
 			{
 				week: "Week 8",
+				title: "Portfolio Polish & Hiring Partner Showcase",
+				description:
+					"Your final sprint, built to refine projects to production standards, demoing on the spot, and presenting to hiring partners.",
+			},
+			{
+				week: "Demo Day",
 				title: "Demo Day & Graduation",
 				description:
 					"Final pass on your portfolio and demo. Refine your case studies, clean up repos, and rehearse how you present your work to founders and hiring partners.",
@@ -226,6 +238,109 @@ export const ENGINEER_BENEFITS = [
 	"Direct access to our mentor network",
 	"Full Relocation to Dubai",
 	"Guaranteed hiring positions at leading AI Startups",
+] as const;
+
+// ─── Program page: About section quote ──────────────────────────
+export const PROGRAM_QUOTE = {
+	text: "Talent shouldn't be decided by resumes or interviews. Give an engineer a real problem, a deadline, and you'll know who they are.",
+	author: "Luka",
+	role: "Founder & CEO",
+	image:
+		"https://framerusercontent.com/images/dJLzlQGws846Nd571RpJg07iwfo.jpeg",
+} as const;
+
+// ─── Program page: Our mission paragraphs ───────────────────────
+export const PROGRAM_MISSION = [
+	"Traditional hiring is broken for engineers. Mass-applying into the void, endless recruiter screens, ghosted after six interviews, assignments, then being reduced to a ticket machine inside companies that don't ship fast.",
+	{
+		before:
+			"We built Nairon as a place where engineers earn their value in one dimension only — ",
+		bold: "can you ship reliable, production AI under pressure?",
+		after:
+			" No resume theater, no recruiter games, no endless take-homes.",
+	},
+	"If you're great, you don't need to beg for opportunity. You need one intense arena that proves it.",
+] as const;
+
+// ─── Program page: Our approach bullets ─────────────────────────
+export const PROGRAM_APPROACH = [
+	"One intense program, engineered for failure. Not everyone makes it, and that's the point.",
+	"Ship under real ambiguity and deadlines.",
+	"Production before theory.",
+	"Collaborative, founder-level environment — Tight rooms, daily builds, async ownership, and no hand-holding.",
+] as const;
+
+// ─── Program page: Stats ────────────────────────────────────────
+export const PROGRAM_STATS = {
+	duration: { value: "8", suffix: "wks", label: "Intensive Program" },
+	clients: { value: "17+", label: "Happy clients worldwide" },
+	partners: { value: "10+", label: "Hiring Partners" },
+	cohortSize: { value: "20+", label: "Elite Engineers" },
+	workType: { value: "100", suffix: "%", label: "Remote Work" },
+	avatars: [
+		"https://framerusercontent.com/images/SSmGx1bjs3koY1aPdILAeuc.jpeg",
+		"https://framerusercontent.com/images/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
+		"https://framerusercontent.com/images/VkXk2rDNGzBySnbTZ9H4v4dMdE.jpeg",
+	],
+} as const;
+
+// ─── Program page: How to get in ────────────────────────────────
+export const PROGRAM_STEPS = [
+	{ number: "(01)", title: "Submit Application" },
+	{ number: "(02)", title: "CCAT Test" },
+	{ number: "(03)", title: "Hackathon Challenge" },
+	{ number: "(04)", title: "Join the Cohort" },
+] as const;
+
+export const PROGRAM_REVIEW = {
+	intro: "We review your ",
+	boldWords: ["background", "GitHub", "projects"],
+	suffix: ", and ",
+	boldEnd: "motivation",
+	afterBold:
+		" for joining a selective AI engineering cohort.",
+	criteria: [
+		"Strong execution mindset",
+		"Proof of building real things",
+		"Curiosity and problem-solving",
+	],
+	responseTime: "Within 24 Hours — By real human",
+} as const;
+
+// ─── Program page: Benefit cards ────────────────────────────────
+export const PROGRAM_BENEFIT_CARDS = [
+	{
+		tag: "The Experience",
+		heading:
+			"Dubai is the experience — The opportunity is Global.",
+		items: [
+			{ icon: "home" as const, text: "Free housing during Dubai intensive weeks" },
+			{ icon: "plane" as const, text: "Flights + transportation covered" },
+			{ icon: "food" as const, text: "Food + laundry service included" },
+		],
+	},
+	{
+		tag: "Premium Access",
+		heading: "Unlimited Resources for Success",
+		items: [
+			"Unlimited API credits for training & projects",
+			"Premium AI tool access",
+		],
+	},
+	{
+		tag: "Community",
+		heading: "Global Network Access",
+		items: [
+			"Slack community of global engineers",
+			"Real projects from partner companies",
+			"Priority for top ranks",
+		],
+	},
+	{
+		tag: "Guaranteed",
+		heading: "$100k+",
+		subtext: "Minimum earning potential",
+	},
 ] as const;
 
 // ─── Client benefits ─────────────────────────────────────────────
