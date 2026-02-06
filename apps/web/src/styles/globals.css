@@ -360,3 +360,90 @@ html {
 .animate-light-ray-2 {
 	animation: light-ray-2 1.8s ease-out 0.15s forwards;
 }
+
+/* Program page — Timeline connector */
+.timeline-line {
+	width: 2px;
+	background: rgba(255, 255, 255, 0.08);
+}
+
+.timeline-dot {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 2px solid rgba(255, 255, 255, 0.12);
+	background: rgba(255, 255, 255, 0.03);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 600;
+	font-size: 14px;
+	color: #ededed;
+	flex-shrink: 0;
+}
+
+.timeline-dot-active {
+	border-color: #22DB18;
+	background: rgba(34, 219, 24, 0.1);
+	color: #22DB18;
+}
+
+/* Stat number highlight */
+.stat-number {
+	font-family: var(--font-display);
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -2px;
+}
+
+/* iPhone frame */
+.phone-frame {
+	width: 280px;
+	height: 560px;
+	border-radius: 40px;
+	border: 3px solid rgba(255, 255, 255, 0.12);
+	background: rgba(255, 255, 255, 0.03);
+	overflow: hidden;
+	position: relative;
+}
+
+.phone-notch {
+	width: 120px;
+	height: 28px;
+	background: black;
+	border-radius: 0 0 16px 16px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
+}
+
+/* Float animation for phone mockup */
+@keyframes float {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-8px);
+	}
+}
+
+.animate-float {
+	animation: float 4s ease-in-out infinite;
+}
+
+/* FAQ accordion expand */
+.faq-answer {
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 300ms ease;
+}
+
+.faq-answer[data-open="true"] {
+	grid-template-rows: 1fr;
+}
+
+.faq-answer > div {
+	overflow: hidden;
+}

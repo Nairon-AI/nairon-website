@@ -52,10 +52,12 @@ function RootComponent() {
 	const isHomePage = useMatch({ from: "/", shouldThrow: false });
 	const isHirePage = useMatch({ from: "/hire", shouldThrow: false });
 	const isProgramPage = useMatch({ from: "/program", shouldThrow: false });
+	const isResidencePage = useMatch({ from: "/residence", shouldThrow: false });
+	const isApprenticeshipPage = useMatch({ from: "/apprenticeship", shouldThrow: false });
 	const isContactPage = useMatch({ from: "/contact", shouldThrow: false });
 	const isCareersPage = useMatch({ from: "/careers", shouldThrow: false });
 	const isTeamPage = useMatch({ from: "/team", shouldThrow: false });
-	const isLandingPage = isHomePage || isHirePage || isProgramPage || isContactPage || isCareersPage || isTeamPage;
+	const isLandingPage = isHomePage || isHirePage || isProgramPage || isResidencePage || isApprenticeshipPage || isContactPage || isCareersPage || isTeamPage;
 
 	return (
 		<html lang="en" suppressHydrationWarning className={isLandingPage ? "dark" : ""}>
