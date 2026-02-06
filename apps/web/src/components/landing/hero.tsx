@@ -85,7 +85,7 @@ export function Hero() {
 		<header className="relative min-h-screen flex flex-col justify-center hero-gradient overflow-hidden">
 			{/* Animated gradient background */}
 			<div className="absolute inset-0 z-0">
-				<AnimatedGradient />
+				<AnimatedGradient variant={isEngineer ? "green" : "gold"} />
 			</div>
 			<div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-12 w-full flex flex-col items-center">
 				{/* Nairon logo image */}

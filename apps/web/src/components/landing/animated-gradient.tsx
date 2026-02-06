@@ -307,7 +307,7 @@ export function AnimatedGradient({ variant = "green" }: { variant?: "green" | "g
 			gl.deleteShader(fs);
 			gl.deleteBuffer(buffer);
 		};
-	}, []);
+	}, [variant]);
 
 	return (
 		<>
