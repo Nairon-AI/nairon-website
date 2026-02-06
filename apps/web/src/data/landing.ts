@@ -532,3 +532,289 @@ export const CLIENT_BENEFITS = [
 	"Dedicated partnership manager",
 	"100% success guarrantee",
 ] as const;
+
+// ═══════════════════════════════════════════════════════════════════
+// HOMEPAGE REDESIGN — View-mode-aware data
+// ═══════════════════════════════════════════════════════════════════
+
+// ─── Hero subtext + CTA ─────────────────────────────────────────
+export const HERO_CONTENT = {
+	engineer: {
+		subtext: "The world's most selective AI engineering program",
+		cta: { label: "Apply Now", href: "/residence" },
+	},
+	hiringManager: {
+		subtext: "The only pipeline producing verified AI-native engineers",
+		cta: { label: "Submit a Role", href: "/approach" },
+	},
+} as const;
+
+// ─── Problem → Solution blocks (2 sections) ────────────────────
+export const PROBLEMS = {
+	engineer: [
+		{
+			problemHeadline: "The best engineers are invisible",
+			problemBody:
+				"Traditional hiring filters out great engineers. Resumes, leetcode, and credentials don't measure what matters — ownership, systems thinking, and the ability to ship.",
+			solutionHeadline: "Nairon proves what you're worth",
+			solutionBody:
+				"We don't care about your resume. We test ownership, AI-native thinking, systems design, and the ability to deliver under pressure. If you pass, the best companies come to you.",
+		},
+		{
+			problemHeadline: "AI is rewriting the rules — most engineers aren't ready",
+			problemBody:
+				"The industry is shifting faster than careers. Engineers who don't become AI-native in the next 2 years will be left behind. Frameworks change, but the engineers who think in systems and own outcomes will always be in demand.",
+			solutionHeadline: "Become the engineer companies fight over",
+			solutionBody:
+				"Nairon doesn't teach you a framework. We rewire how you think — AI-native from day one, systems-level thinking, CTO-level communication. You leave as the kind of engineer who gets recruited, not the kind who applies.",
+		},
+	],
+	hiringManager: [
+		{
+			problemHeadline: "Hiring engineering talent is broken",
+			problemBody:
+				"You're drowning in applications but starving for quality. Resume screening, generic coding tests, and recruiter pipelines keep delivering engineers who can't deliver.",
+			solutionHeadline: "Nairon solves hiring at the source",
+			solutionBody:
+				"We don't send you resumes. We put engineers through 8 weeks of real-world AI projects, hackathons, and pressure tests. You only see the ones who survived.",
+		},
+		{
+			problemHeadline: "There aren't enough AI-native engineers",
+			problemBody:
+				"Every company needs AI-native engineers. Almost none exist. The ones who do are already employed and not looking. Traditional training programs produce engineers who know tools, not engineers who think differently.",
+			solutionHeadline: "We produce what the market can't",
+			solutionBody:
+				"Nairon engineers are trained through live projects, AI-native workflows, and intense evaluation. They don't just know AI — they think in systems, communicate like CTOs, and deliver under pressure.",
+		},
+	],
+} as const;
+
+// ─── Sprinkled CTA after second problem block ──────────────────
+export const PROBLEM_CTA = {
+	engineer: { primary: { label: "Apply Now", href: "/residence" } },
+	hiringManager: { primary: { label: "See Our Approach", href: "/approach" } },
+} as const;
+
+// ─── Outcome metrics ───────────────────────────────────────────
+export const METRICS = {
+	engineer: {
+		largeCard: {
+			headline: "10,000+ applicants",
+			subtext: "12 selected",
+			description: "The acceptance funnel",
+		},
+		stats: [
+			{ value: "<3%", label: "Acceptance Rate" },
+			{ value: "12", label: "Engineers per Cohort" },
+			{ value: "8 weeks", label: "Program Duration" },
+			{ value: "100%", label: "Placement Rate" },
+		],
+	},
+	hiringManager: {
+		largeCard: {
+			headline: "Trained → Matched → Hired",
+			subtext: "End-to-end pipeline",
+			description: "The placement pipeline",
+		},
+		stats: [
+			{ value: "100%", label: "Placement Rate" },
+			{ value: "<14 days", label: "Average Time to Hire" },
+			{ value: "8 weeks", label: "Training Before Interview" },
+			{ value: "0", label: "Bad Hires" },
+		],
+	},
+} as const;
+
+// ─── How it works steps ────────────────────────────────────────
+export const STEPS = {
+	engineer: [
+		{
+			icon: "ClipboardText" as const,
+			title: "Apply",
+			description: "Submit your profile and take the CCAT assessment",
+		},
+		{
+			icon: "Trophy" as const,
+			title: "Prove yourself",
+			description: "Win a hackathon and survive 8 weeks of intense AI training",
+		},
+		{
+			icon: "Briefcase" as const,
+			title: "Get hired",
+			description: "Partner companies compete to hire you",
+		},
+	],
+	hiringManager: [
+		{
+			icon: "PaperPlaneTilt" as const,
+			title: "Submit a role",
+			description: "Tell us what you need and your engineering requirements",
+		},
+		{
+			icon: "MagnifyingGlass" as const,
+			title: "We match",
+			description: "We select from our trained, vetted engineer pool",
+		},
+		{
+			icon: "Handshake" as const,
+			title: "You hire",
+			description: "Interview pre-qualified candidates and hire with confidence",
+		},
+	],
+} as const;
+
+export const STEPS_CTA = {
+	engineer: { label: "Start Your Application", href: "/residence" },
+	hiringManager: { label: "Submit a Role", href: "/approach" },
+} as const;
+
+// ─── Residence section ─────────────────────────────────────────
+export const RESIDENCE = {
+	engineer: {
+		title: "The Residence",
+		subtitle: "8 weeks. Dubai. Free. Only 12 spots.",
+		points: [
+			"Free program (fully funded)",
+			"Fly to Dubai, full relocation",
+			"Work on real AI projects with partners",
+			"Direct intros to hiring partners",
+		],
+		cta: { label: "Apply to Residence", href: "/residence" },
+	},
+	hiringManager: {
+		title: "The Residence: Our Flagship Pipeline",
+		subtitle: "How we produce the top 1% of AI engineers",
+		points: [
+			"8-week intensive in Dubai",
+			"Hackathons, live projects, peer pressure",
+			"Only 12 per cohort — extreme selectivity",
+			"Every graduate is verified by us",
+		],
+		cta: { label: "Learn About Our Process", href: "/approach" },
+	},
+} as const;
+
+// ─── Apprenticeship section ────────────────────────────────────
+export const APPRENTICESHIP_CONTENT = {
+	engineer: {
+		title: "The Apprenticeship",
+		description: "Remote. Flexible. Your path to standing out.",
+		pills: ["Remote", "$1,500", "Same Curriculum"],
+		cta: { label: "Learn More", href: "/apprenticeship" },
+	},
+	hiringManager: {
+		title: "The Apprenticeship",
+		description: "A broader pool of trained AI engineers.",
+		pills: ["Remote", "Pre-Screened", "Trained"],
+		cta: { label: "Access This Pool", href: "/pricing" },
+	},
+} as const;
+
+// ─── Partners section — view-mode-aware title + quote ──────────
+export const PARTNER_CONTENT = {
+	engineer: {
+		title: "Built with industry leaders",
+		quote:
+			"The engineers who came through Nairon were the most prepared we've ever worked with.",
+	},
+	hiringManager: {
+		title: "Trusted by leading companies",
+		quote:
+			"We hired 3 engineers from Cohort 1. All of them shipped production features in week 1.",
+	},
+} as const;
+
+// ─── FAQ — separate question sets per view ─────────────────────
+export const FAQ_ENGINEER = [
+	{
+		question: "What are the eligibility requirements?",
+		answer:
+			"3+ years of software engineering experience, 95th percentile or higher on the CCAT, strong communication skills, and a hackathon win or equivalent demonstration of building under pressure.",
+	},
+	{
+		question: "Is the Residence really free?",
+		answer:
+			"Yes. The Residence is completely free for engineers — housing, flights, food, and training are all covered. We make money when our hiring partners hire you after graduation.",
+	},
+	{
+		question: "What happens if I don't get into the Residence?",
+		answer:
+			"You can join the Apprenticeship — a remote, self-paced version of the same curriculum for $1,500. You still get access to our hiring partner network upon completion.",
+	},
+	{
+		question: "What does the selection process look like?",
+		answer:
+			"After applying, you'll take the CCAT cognitive assessment, complete a timed hackathon challenge, and go through a final review. We accept fewer than 3% of applicants.",
+	},
+	{
+		question: "Where is the program based?",
+		answer:
+			"The Residence is based in Dubai, UAE. You'll fly out for the full 8-week intensive. The Apprenticeship is fully remote.",
+	},
+	{
+		question: "What happens after graduation?",
+		answer:
+			"Our hiring partners interview and compete to hire you. Every Residence graduate is guaranteed placement at a partner company.",
+	},
+] as const;
+
+export const FAQ_HIRING_MANAGER = [
+	{
+		question: "How are Nairon engineers different from other candidates?",
+		answer:
+			"Nairon engineers have survived 8 weeks of real-world AI projects, hackathons, and intense evaluation. They think in systems, communicate like CTOs, and deliver under pressure — not just pass interviews.",
+	},
+	{
+		question: "What does the matching process look like?",
+		answer:
+			"You submit your role requirements and we match you with engineers from our trained, vetted pool. You interview only pre-qualified candidates who fit your technical and cultural needs.",
+	},
+	{
+		question: "What does it cost to hire through Nairon?",
+		answer:
+			"We charge a placement fee when you hire a Nairon engineer. Contact us for pricing details based on your hiring volume and requirements.",
+	},
+	{
+		question: "Do you offer a hiring guarantee?",
+		answer:
+			"Yes. Every engineer we place has been vetted through our 8-week program. If they don't perform, we'll work with you to find a replacement.",
+	},
+	{
+		question: "How quickly can I hire an engineer?",
+		answer:
+			"Our average time to hire is under 14 days from role submission to signed offer. You skip the sourcing, screening, and vetting — we've already done it.",
+	},
+	{
+		question: "Can I specify technical requirements for my role?",
+		answer:
+			"Absolutely. You tell us exactly what you need — tech stack, seniority, domain expertise — and we match from our pool of trained engineers.",
+	},
+] as const;
+
+export const FAQ_CONTENT = {
+	engineer: {
+		heading: "Everything you need to know",
+		headingDim: "before applying to Nairon",
+	},
+	hiringManager: {
+		heading: "How hiring through Nairon works",
+		headingDim: "— from role submission to signed offer",
+	},
+} as const;
+
+// ─── Final CTA section ─────────────────────────────────────────
+export const FINAL_CTA = {
+	engineer: {
+		headline: "Ready to prove you're in the 1%?",
+		subtext: "Applications for Q1 2026 are open. Limited spots remaining.",
+		primaryCta: { label: "Apply Now", href: "/residence" },
+		secondaryCta: { label: "Learn about the Residence", href: "/residence" },
+	},
+	hiringManager: {
+		headline: "Ready to hire engineers who actually deliver?",
+		subtext:
+			"Submit your role requirements. We'll match you with verified AI-native engineers.",
+		primaryCta: { label: "Submit a Role", href: "/approach" },
+		secondaryCta: { label: "See Pricing", href: "/pricing" },
+	},
+} as const;
