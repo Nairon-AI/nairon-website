@@ -12,3 +12,11 @@ export { CTA } from "./cta";
 export { Footer } from "./footer";
 export { ContactHero } from "./contact-hero";
 export { ContactSection } from "./contact-form";
+
+// Homepage redesign sections
+export { ProblemSolution } from "./problem-solution";
+export { OutcomeMetrics } from "./outcome-metrics";
+export { HowItWorks } from "./how-it-works";
+export { Residence } from "./residence";
+export { Apprenticeship } from "./apprenticeship";
+export { FinalCTA } from "./final-cta";

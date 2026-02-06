@@ -2,8 +2,8 @@ import { ArrowDown } from "lucide-react";
 import { useCountdown } from "@/hooks/use-countdown";
 import { useRotatingText } from "@/hooks/use-rotating-text";
 import { AnimatedGradient } from "./animated-gradient";
-import { colors } from "./primitives";
-import { APPLICATION_DEADLINE, HERO_WORDS } from "@/data/landing";
+import { colors, PrimaryButton } from "./primitives";
+import { APPLICATION_DEADLINE, HERO_WORDS, HERO_CONTENT } from "@/data/landing";
 import { useViewMode } from "@/contexts/view-mode-context";
 import { DigitalText } from "@/components/digital-text";
 
@@ -80,6 +80,7 @@ export function Hero() {
 	};
 
 	const content = isEngineer ? heroContent.engineer : heroContent.hiringManager;
+	const heroExtra = isEngineer ? HERO_CONTENT.engineer : HERO_CONTENT.hiringManager;
 
 	return (
 		<header className="relative min-h-screen flex flex-col justify-center hero-gradient overflow-hidden">
@@ -108,6 +109,18 @@ export function Hero() {
 					>
 						<DigitalText text={content.highlight} duration={600} />
 					</span>
+				</div>
+
+				{/* Subtext */}
+				<p className={`mt-4 text-base md:text-lg ${colors.textBody} text-center max-w-xl`}>
+					<DigitalText text={heroExtra.subtext} duration={600} />
+				</p>
+
+				{/* CTA */}
+				<div className="mt-6">
+					<PrimaryButton href={heroExtra.cta.href}>
+						{heroExtra.cta.label}
+					</PrimaryButton>
 				</div>
 
 				<Countdown />

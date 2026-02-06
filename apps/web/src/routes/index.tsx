@@ -2,15 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
 	Navbar,
 	Hero,
-	Philosophy,
-	About,
-	Qualifies,
-	Marquee,
-	Team,
-	Agenda,
+	ProblemSolution,
+	OutcomeMetrics,
+	HowItWorks,
+	Residence,
+	Apprenticeship,
 	Partners,
 	FAQ,
-	CTA,
+	FinalCTA,
 	Footer,
 } from "@/components/landing";
 
@@ -23,15 +22,15 @@ function HomePage() {
 		<div className="bg-black text-white min-h-screen font-urbanist">
 			<Navbar />
 			<Hero />
-			<Philosophy />
-			<About />
-			<Qualifies />
-			<Marquee />
-			<Team />
-			<Agenda />
+			<ProblemSolution index={0} />
+			<ProblemSolution index={1} />
+			<OutcomeMetrics />
+			<HowItWorks />
+			<Residence />
+			<Apprenticeship />
 			<Partners />
 			<FAQ />
-			<CTA />
+			<FinalCTA />
 			<Footer />
 		</div>
 	);

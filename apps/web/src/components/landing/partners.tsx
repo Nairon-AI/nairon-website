@@ -2,11 +2,12 @@ import {
 	Section,
 	SectionTag,
 	SectionHeading,
-	DimText,
-	OutlineButton,
+	GlassCard,
+	BodyText,
 	colors,
 } from "./primitives";
-import { PARTNERS } from "@/data/landing";
+import { PARTNERS, PARTNER_CONTENT } from "@/data/landing";
+import { useViewMode } from "@/contexts/view-mode-context";
 
 function PartnerLogo({ name, logo }: { name: string; logo: string }) {
 	return (
@@ -17,13 +18,13 @@ function PartnerLogo({ name, logo }: { name: string; logo: string }) {
 }
 
 export function Partners() {
+	const { isEngineer } = useViewMode();
+	const content = isEngineer ? PARTNER_CONTENT.engineer : PARTNER_CONTENT.hiringManager;
+
 	return (
 		<Section className={colors.pageBg}>
-			<SectionTag label="Talent Partners" />
-			<SectionHeading className="mb-16">
-				Meet our talent partners who help bring{" "}
-				<DimText>Nairon to life</DimText>
-			</SectionHeading>
+			<SectionTag label="Partners" />
+			<SectionHeading className="mb-16">{content.title}</SectionHeading>
 
 			<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
 				{PARTNERS.map((p) => (
@@ -31,9 +32,10 @@ export function Partners() {
 				))}
 			</div>
 
-			<div className="mt-8 flex justify-center">
-				<OutlineButton href="/hire">Learn more about hiring</OutlineButton>
-			</div>
+			{/* Quote card */}
+			<GlassCard className="mt-10 p-6 md:p-8 max-w-3xl mx-auto text-center">
+				<BodyText className="text-lg italic">"{content.quote}"</BodyText>
+			</GlassCard>
 		</Section>
 	);
 }

@@ -8,7 +8,8 @@ import {
 	BodyText,
 	colors,
 } from "./primitives";
-import { FAQ_ITEMS } from "@/data/landing";
+import { FAQ_ENGINEER, FAQ_HIRING_MANAGER, FAQ_CONTENT } from "@/data/landing";
+import { useViewMode } from "@/contexts/view-mode-context";
 
 function PlusIcon({ open }: { open: boolean }) {
 	return (
@@ -49,14 +50,18 @@ function FAQItem({
 }
 
 export function FAQ() {
+	const { isEngineer } = useViewMode();
+	const items = isEngineer ? FAQ_ENGINEER : FAQ_HIRING_MANAGER;
+	const content = isEngineer ? FAQ_CONTENT.engineer : FAQ_CONTENT.hiringManager;
+
 	return (
 		<Section className={colors.pageBg}>
 			<div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
 				<div>
 					<SectionTag label="Questions" />
 					<SectionHeading>
-						All the Important Details Before Attending{" "}
-						<DimText>Nairon's AI Bootcamp in Dubai, UAE</DimText>
+						{content.heading}{" "}
+						<DimText>{content.headingDim}</DimText>
 					</SectionHeading>
 					<div className="mt-8">
 						<OutlineButton href="/program">
@@ -65,7 +70,7 @@ export function FAQ() {
 					</div>
 				</div>
 				<div className="flex flex-col gap-4">
-					{FAQ_ITEMS.map((faq, i) => (
+					{items.map((faq, i) => (
 						<FAQItem
 							key={faq.question}
 							question={faq.question}
