@@ -11,11 +11,8 @@ export function TeamHero() {
 			</div>
 			<div className="relative z-10 w-full max-w-[1440px]">
 				<h1
-					className="font-semibold text-white text-center text-6xl md:text-[120px]"
-					style={{
-						letterSpacing: "-4px",
-						lineHeight: "1",
-					}}
+					className="font-semibold text-white text-center text-6xl md:text-display-2xl tracking-tight-2xl"
+					style={{ lineHeight: "1" }}
 				>
 					Team
 				</h1>

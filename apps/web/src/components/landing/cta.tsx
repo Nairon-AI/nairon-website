@@ -54,8 +54,7 @@ function EngineerCTARow() {
 			{/* Left: Dark card with content */}
 			<div className="rounded-3xl bg-black border border-white/10 p-8 md:p-10 lg:w-[60%]">
 				<h4
-					className={`font-semibold text-2xl mb-2 ${colors.text}`}
-					style={{ letterSpacing: "-0.72px" }}
+					className={`font-semibold text-2xl mb-2 tracking-tighter ${colors.text}`}
 				>
 					Start the Application
 				</h4>
@@ -82,8 +81,7 @@ function EngineerCTARow() {
 					<div>
 						<PricingLabel label="For Engineers" />
 						<h2
-							className="text-[60px] font-urbanist font-medium text-[#ededed] mb-2"
-							style={{ letterSpacing: "-2.4px" }}
+							className="text-display-md font-display font-medium text-landing-text mb-2 tracking-tight-xl"
 						>
 							Free
 						</h2>
@@ -107,8 +105,7 @@ function ClientCTARow() {
 			{/* Left: Dark card with content */}
 			<div className="rounded-3xl bg-black border border-white/10 p-8 md:p-10 lg:w-[60%]">
 				<h4
-					className={`font-semibold text-2xl mb-2 ${colors.text}`}
-					style={{ letterSpacing: "-0.72px" }}
+					className={`font-semibold text-2xl mb-2 tracking-tighter ${colors.text}`}
 				>
 					Partner With Nairon's Hiring Network
 				</h4>
@@ -135,8 +132,7 @@ function ClientCTARow() {
 					<div>
 						<PricingLabel label="For Clients" />
 						<h2
-							className="text-[60px] font-urbanist font-medium text-[#ededed] mb-2 leading-none"
-							style={{ letterSpacing: "-2.4px" }}
+							className="text-display-md font-display font-medium text-landing-text mb-2 leading-none tracking-tight-xl"
 						>
 							Exclusive
 							<br />

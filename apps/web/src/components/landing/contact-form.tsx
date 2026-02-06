@@ -42,15 +42,13 @@ function ContactInfoCard({
 			</div>
 			<div className="flex flex-col">
 				<h4
-					className={`text-2xl font-semibold ${colors.text} group-hover:text-white/80 transition-colors`}
-					style={{ letterSpacing: "-0.72px" }}
+					className={`text-2xl font-semibold ${colors.text} group-hover:text-white/80 transition-colors tracking-tighter`}
 				>
 					{title}
 				</h4>
 				<p className={`text-base ${colors.textBody} mt-1`}>{description}</p>
 				<h4
-					className={`text-2xl font-semibold ${colors.text} mt-4`}
-					style={{ letterSpacing: "-0.72px" }}
+					className={`text-2xl font-semibold ${colors.text} mt-4 tracking-tighter`}
 				>
 					{value}
 				</h4>
@@ -66,8 +64,7 @@ function CommunityCard() {
 			<div className="flex flex-col gap-4">
 				<div>
 					<h4
-						className={`text-2xl font-semibold ${colors.text}`}
-						style={{ letterSpacing: "-0.72px" }}
+						className={`text-2xl font-semibold ${colors.text} tracking-tighter`}
 					>
 						{COMMUNITY_SECTION.title}
 					</h4>
@@ -92,7 +89,7 @@ function CommunityCard() {
 							className="inline-flex items-center gap-2 bg-white/12 hover:bg-white/20 text-white text-base pl-4 pr-1.5 py-1.5 rounded-full transition-colors"
 						>
 							<span>{COMMUNITY_SECTION.buttonText}</span>
-							<span className="w-8 h-8 rounded-full bg-[#22DB18] flex items-center justify-center shrink-0">
+							<span className="w-8 h-8 rounded-full bg-brand flex items-center justify-center shrink-0">
 								<ArrowUpRight className="w-4 h-4 text-black" />
 							</span>
 						</a>
@@ -128,7 +125,7 @@ function FormInput({
 	onChange: (value: string) => void;
 	disabled?: boolean;
 }) {
-	const inputClasses = `w-full bg-transparent border-b border-white/20 text-[#ededed] text-base py-3 px-0 focus:outline-none focus:border-white/40 transition-colors placeholder:text-white/30 disabled:opacity-50`;
+	const inputClasses = `w-full bg-transparent border-b border-white/20 text-landing-text text-base py-3 px-0 focus:outline-none focus:border-white/40 transition-colors placeholder:text-white/30 disabled:opacity-50`;
 
 	return (
 		<div className="flex flex-col gap-1">

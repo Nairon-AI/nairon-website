@@ -33,7 +33,7 @@ function TeamMemberCard({
 					/>
 				) : (
 					<div className="w-full aspect-[380/427] bg-gradient-to-b from-gray-700/50 to-gray-900/50 flex items-center justify-center">
-						<span className="text-6xl text-white/20 font-urbanist font-bold">
+						<span className="text-6xl text-white/20 font-display font-bold">
 							{name.charAt(0)}
 						</span>
 					</div>
@@ -43,7 +43,7 @@ function TeamMemberCard({
 						href={linkedin}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="absolute bottom-4 right-4 w-10 h-10 flex items-center justify-center text-[#ededed] hover:text-white transition-colors"
+						className="absolute bottom-4 right-4 w-10 h-10 flex items-center justify-center text-landing-text hover:text-white transition-colors"
 						aria-label={`${name} LinkedIn`}
 					>
 						<LinkedInIcon />
@@ -51,8 +51,7 @@ function TeamMemberCard({
 				)}
 			</div>
 			<h4
-				className="font-semibold text-2xl font-urbanist text-white"
-				style={{ letterSpacing: "-0.72px" }}
+				className="font-semibold text-2xl font-display tracking-tighter text-white"
 			>
 				{name}
 			</h4>

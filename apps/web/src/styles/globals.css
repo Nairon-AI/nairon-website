@@ -40,10 +40,58 @@
 	--radius-md: calc(var(--radius) - 2px);
 	--radius-lg: var(--radius);
 	--radius-xl: calc(var(--radius) + 4px);
+
+	/* Brand colors */
+	--color-brand: var(--brand);
+	--color-brand-hover: var(--brand-hover);
+	--color-brand-dark: var(--brand-dark);
+	--color-brand-dark-hover: var(--brand-dark-hover);
+	--color-brand-gold: var(--brand-gold);
+	--color-brand-gold-light: var(--brand-gold-light);
+
+	/* Landing colors */
+	--color-landing-text: var(--landing-text);
+	--color-landing-text-body: var(--landing-text-body);
+	--color-landing-card: var(--landing-card);
+	--color-landing-card-border: var(--landing-card-border);
+
+	/* Font families */
+	--font-display: "Urbanist", sans-serif;
+	--font-body: "Inter", sans-serif;
+	--font-sans: "Inter", sans-serif;
+
+	/* Letter spacing */
+	--tracking-tighter: -0.72px;
+	--tracking-tight-lg: -1.36px;
+	--tracking-tight-xl: -2.4px;
+	--tracking-tight-2xl: -4px;
+	--tracking-tight-3xl: -7.14px;
+	--tracking-hero: -0.12em;
+
+	/* Display font sizes */
+	--text-display-sm: 34px;
+	--text-display-md: 60px;
+	--text-display-lg: 80px;
+	--text-display-xl: 102px;
+	--text-display-2xl: 120px;
+	--text-display-3xl: 160px;
 }
 
 @layer base {
 	:root {
+		/* Brand */
+		--brand: #22DB18;
+		--brand-hover: #1fc516;
+		--brand-dark: #2db22a;
+		--brand-dark-hover: #25a023;
+		--brand-gold: #CF9611;
+		--brand-gold-light: #D4A518;
+
+		/* Landing semantic */
+		--landing-text: #ededed;
+		--landing-text-body: #bfbfbf;
+		--landing-card: #111114;
+		--landing-card-border: #262626;
 		--background: oklch(1 0 0);
 		--foreground: oklch(0.145 0 0);
 		--card: oklch(1 0 0);
@@ -126,11 +174,11 @@
 
 /* Landing page styles */
 .font-urbanist {
-	font-family: "Urbanist", sans-serif;
+	font-family: var(--font-display);
 }
 
 .font-inter {
-	font-family: "Inter", sans-serif;
+	font-family: var(--font-body);
 }
 
 /* Marquee animation */

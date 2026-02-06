@@ -5,12 +5,12 @@ import { cn } from "@/lib/utils";
 // ─── Design Tokens ──────────────────────────────────────────────
 // Consistent color palette matching the live naironai.com
 export const colors = {
-	/** Primary text — near-white #ededed */
-	text: "text-[#ededed]",
+	/** Primary text — near-white */
+	text: "text-landing-text",
 	/** Dimmed heading text — white at 55% */
 	textDim: "text-white/55",
-	/** Body / secondary text — #bfbfbf */
-	textBody: "text-[#bfbfbf]",
+	/** Body / secondary text */
+	textBody: "text-landing-text-body",
 	/** Muted text — white at 40% */
 	textMuted: "text-white/40",
 	/** Card/glass border — white at 8% */
@@ -54,11 +54,10 @@ export function SectionHeading({
 	return (
 		<h2
 			className={cn(
-				"text-4xl md:text-[60px] font-medium leading-tight",
+				"text-4xl md:text-display-md font-medium leading-tight tracking-tight-xl",
 				colors.text,
 				className,
 			)}
-			style={{ letterSpacing: "-2.4px" }}
 		>
 			{children}
 		</h2>
@@ -142,7 +141,7 @@ export function PrimaryButton({
 			target={target}
 			rel={target === "_blank" ? "noopener noreferrer" : undefined}
 			className={cn(
-				"inline-flex items-center gap-2 bg-white hover:bg-white/90 text-[#262626] font-semibold text-base px-5 py-2.5 rounded-full transition-colors",
+				"inline-flex items-center gap-2 bg-white hover:bg-white/90 text-landing-card-border font-semibold text-base px-5 py-2.5 rounded-full transition-colors",
 				className,
 			)}
 		>
@@ -159,8 +158,7 @@ export function CardTitle({
 }: { children: ReactNode; className?: string }) {
 	return (
 		<h4
-			className={cn("text-2xl font-semibold", colors.text, className)}
-			style={{ letterSpacing: "-0.72px" }}
+			className={cn("text-2xl font-semibold tracking-tighter", colors.text, className)}
 		>
 			{children}
 		</h4>

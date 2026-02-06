@@ -10,8 +10,7 @@ export function ProgramHero() {
 
 			{/* Large "Program Details" heading */}
 			<h1
-				className="relative z-10 text-5xl md:text-[clamp(3rem,10vw,9rem)] font-urbanist font-bold text-white leading-none text-center px-4"
-				style={{ letterSpacing: "-4px" }}
+				className="relative z-10 text-5xl md:text-[clamp(3rem,10vw,9rem)] font-display font-bold text-white leading-none text-center px-4 tracking-tight-2xl"
 			>
 				<span className="block md:inline">Program</span>{" "}
 				<span className="block md:inline">Details</span>
