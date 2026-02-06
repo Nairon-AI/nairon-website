@@ -4,7 +4,7 @@ export const APPLICATION_DEADLINE = new Date("2026-02-12T00:00:00");
 // ─── Rotating hero words ─────────────────────────────────────────
 export const HERO_WORDS = ["Founder", "AI Enthusiast", "1% Engineer"];
 
-// ─── Navigation links ────────────────────────────────────────────
+// ─── Navigation links (legacy — used by footer) ────────────────
 export const NAV_LINKS = [
 	{ label: "Hire", href: "/hire" },
 	{ label: "Team", href: "/team" },
@@ -12,6 +12,125 @@ export const NAV_LINKS = [
 	{ label: "Contact", href: "/contact" },
 	{ label: "Careers", href: "/careers" },
 ] as const;
+
+// ─── View-mode navigation config ────────────────────────────────
+export interface NavLinkSimple {
+	kind: "link";
+	label: string;
+	href: string;
+}
+
+export interface NavDropdownItem {
+	label: string;
+	href: string;
+	description?: string;
+	icon?: string;
+}
+
+export interface NavDropdownColumn {
+	heading: string;
+	items: NavDropdownItem[];
+}
+
+export interface NavDropdownCta {
+	headline: string;
+	description: string;
+	href: string;
+	buttonLabel: string;
+}
+
+export interface NavLinkDropdown {
+	kind: "dropdown";
+	label: string;
+	columns: NavDropdownColumn[];
+	cta?: NavDropdownCta;
+}
+
+export type NavItem = NavLinkSimple | NavLinkDropdown;
+
+export interface NavConfig {
+	items: NavItem[];
+	cta: {
+		label: string;
+		href: string;
+		color: "green" | "gold";
+		external?: boolean;
+	};
+}
+
+export function isDropdownItem(item: NavItem): item is NavLinkDropdown {
+	return item.kind === "dropdown";
+}
+
+export const ENGINEER_NAV: NavConfig = {
+	items: [
+		{
+			kind: "dropdown",
+			label: "Programs",
+			columns: [
+				{
+					heading: "Programs",
+					items: [
+						{
+							label: "Residence",
+							href: "/program",
+							description: "8-week intensive AI engineering program in Dubai",
+							icon: "building",
+						},
+						{
+							label: "Apprenticeship",
+							href: "/apprenticeship",
+							description: "Remote apprenticeship with top AI startups",
+							icon: "laptop",
+						},
+					],
+				},
+				{
+					heading: "Resources",
+					items: [
+						{ label: "Blog", href: "/blog" },
+						{ label: "FAQ", href: "/faq" },
+						{ label: "Alumni", href: "/alumni" },
+						{ label: "Design by Nairon", href: "/design" },
+						{ label: "Podcast", href: "/podcast" },
+						{ label: "Events", href: "/events" },
+					],
+				},
+			],
+			cta: {
+				headline: "Join Cohort 2",
+				description: "Applications close Feb 12. Limited to 20 engineers.",
+				href: "https://apply.naironai.com",
+				buttonLabel: "Apply Now",
+			},
+		},
+		{ kind: "link", label: "Team", href: "/team" },
+		{ kind: "link", label: "Alumni", href: "/alumni" },
+		{ kind: "link", label: "Careers", href: "/careers" },
+		{ kind: "link", label: "Contact", href: "/contact" },
+	],
+	cta: {
+		label: "Apply",
+		href: "https://apply.naironai.com",
+		color: "green",
+		external: true,
+	},
+};
+
+export const HIRING_MANAGER_NAV: NavConfig = {
+	items: [
+		{ kind: "link", label: "Our Approach", href: "/hire" },
+		{ kind: "link", label: "Pricing", href: "/pricing" },
+		{ kind: "link", label: "Success Stories", href: "/success-stories" },
+		{ kind: "link", label: "Team", href: "/team" },
+		{ kind: "link", label: "Contact", href: "/contact" },
+	],
+	cta: {
+		label: "Find Talent",
+		href: "/find-talent",
+		color: "gold",
+	},
+};
 
 // ─── About section features ─────────────────────────────────────
 export const FEATURES = [

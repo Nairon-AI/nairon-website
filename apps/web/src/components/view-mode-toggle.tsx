@@ -3,15 +3,43 @@ import { useViewMode, type ViewMode } from "@/contexts/view-mode-context";
 import { cn } from "@/lib/utils";
 import { Code2, Users } from "lucide-react";
 
+const COLOR_PALETTES = {
+	engineer: {
+		pixels: [
+			"rgba(34, 197, 94, 0.45)",   // primary green
+			"rgba(22, 163, 74, 0.35)",   // darker green
+			"rgba(74, 222, 128, 0.3)",   // bright green
+			"rgba(134, 239, 172, 0.25)", // pale green
+		],
+		spotlight: { r: 34, g: 197, b: 94 },
+		ray: "rgba(34,197,94,0.4)",
+		glowBorder: "border-green-500/30",
+		glowShadow: "shadow-[0_0_40px_rgba(34,197,94,0.2)]",
+	},
+	"hiring-manager": {
+		pixels: [
+			"rgba(207, 150, 17, 0.45)",  // primary gold
+			"rgba(180, 130, 10, 0.35)",  // darker gold
+			"rgba(220, 175, 50, 0.3)",   // bright gold
+			"rgba(235, 200, 100, 0.25)", // pale gold
+		],
+		spotlight: { r: 207, g: 150, b: 17 },
+		ray: "rgba(207,150,17,0.4)",
+		glowBorder: "border-yellow-600/30",
+		glowShadow: "shadow-[0_0_40px_rgba(207,150,17,0.2)]",
+	},
+} as const;
+
 export function ViewModeToggle() {
 	const { viewMode, setViewMode } = useViewMode();
 	const [isTransitioning, setIsTransitioning] = useState(false);
+	const [targetMode, setTargetMode] = useState<ViewMode>(viewMode);
 	const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0 });
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const toggleRef = useRef<HTMLDivElement>(null);
 
 	// Canvas dot reveal animation - digital/matrix style
-	const animateCanvas = useCallback((originX: number, originY: number) => {
+	const animateCanvas = useCallback((originX: number, originY: number, mode: ViewMode) => {
 		const canvas = canvasRef.current;
 		if (!canvas) return;
 
@@ -32,13 +60,7 @@ export function ViewModeToggle() {
 
 		// Tight grid for prominent pixel effect
 		const spacing = 6;
-		// Visible green palette
-		const colors = [
-			"rgba(34, 197, 94, 0.45)",   // primary green
-			"rgba(22, 163, 74, 0.35)",   // darker green
-			"rgba(74, 222, 128, 0.3)",   // bright green
-			"rgba(134, 239, 172, 0.25)", // pale green
-		];
+		const colors = COLOR_PALETTES[mode].pixels;
 
 		for (let x = 0; x < canvas.width; x += spacing) {
 			for (let y = 0; y < canvas.height; y += spacing) {
@@ -114,9 +136,10 @@ export function ViewModeToggle() {
 			const x = event.clientX;
 			const y = event.clientY;
 			setSpotlightPos({ x, y });
+			setTargetMode(newMode);
 
 			setIsTransitioning(true);
-			animateCanvas(x, y);
+			animateCanvas(x, y, newMode);
 
 			// Change mode at animation midpoint
 			setTimeout(() => {
@@ -161,8 +184,8 @@ export function ViewModeToggle() {
 						background: `
 							radial-gradient(
 								ellipse 40% 60% at center,
-								rgba(34, 197, 94, 0.15) 0%,
-								rgba(34, 197, 94, 0.08) 30%,
+								rgba(${COLOR_PALETTES[targetMode].spotlight.r}, ${COLOR_PALETTES[targetMode].spotlight.g}, ${COLOR_PALETTES[targetMode].spotlight.b}, 0.15) 0%,
+								rgba(${COLOR_PALETTES[targetMode].spotlight.r}, ${COLOR_PALETTES[targetMode].spotlight.g}, ${COLOR_PALETTES[targetMode].spotlight.b}, 0.08) 30%,
 								transparent 70%
 							)
 						`,
@@ -186,7 +209,7 @@ export function ViewModeToggle() {
 						left: spotlightPos.x,
 						top: spotlightPos.y,
 						transformOrigin: "left center",
-						background: "linear-gradient(90deg, rgba(34,197,94,0.4), transparent)",
+						background: `linear-gradient(90deg, ${COLOR_PALETTES[targetMode].ray}, transparent)`,
 					}}
 				/>
 			</div>
@@ -210,7 +233,7 @@ export function ViewModeToggle() {
 						"border border-white/8",
 						"shadow-lg shadow-black/20",
 						"transition-all duration-300",
-						isTransitioning && "scale-105 border-green-500/30 shadow-[0_0_40px_rgba(34,197,94,0.2)]",
+						isTransitioning && `scale-105 ${COLOR_PALETTES[targetMode].glowBorder} ${COLOR_PALETTES[targetMode].glowShadow}`,
 					)}
 				>
 					<span className="text-white/40 text-sm font-medium">View as:</span>
