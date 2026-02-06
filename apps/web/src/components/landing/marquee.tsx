@@ -5,8 +5,8 @@ export function Marquee() {
 				{[1, 2, 3].map((i) => (
 					<span
 						key={i}
-						className="text-[102px] font-urbanist font-semibold text-[#ededed] whitespace-pre"
-						style={{ letterSpacing: "-7.14px", lineHeight: "1.7" }}
+						className="text-display-xl font-display font-semibold text-landing-text whitespace-pre tracking-tight-3xl"
+						style={{ lineHeight: "1.7" }}
 					>
 						Innovation. Obsession. Discipline. Intelligence. Passion.{" "}
 					</span>

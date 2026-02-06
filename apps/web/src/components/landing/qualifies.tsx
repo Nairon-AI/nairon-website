@@ -69,7 +69,7 @@ function RequirementCard({
 			<div className="hidden md:block relative w-[269px] h-[269px]">
 				<div
 					className={`relative w-[269px] h-[269px] flex flex-col items-center justify-center gap-2.5 p-5 overflow-hidden ${
-						isFirst ? "rounded-full" : "rounded-[70px] border-2 border-[#262626]"
+						isFirst ? "rounded-full" : "rounded-[70px] border-2 border-landing-card-border"
 					}`}
 				>
 					{/* Background image */}
@@ -139,7 +139,7 @@ export function Qualifies() {
 			</div>
 
 			{/* Description box */}
-			<div className="mt-6 rounded-3xl bg-black border-2 border-[#262626] py-6 px-8">
+			<div className="mt-6 rounded-3xl bg-black border-2 border-landing-card-border py-6 px-8">
 				<p className={`text-base leading-normal ${colors.text}`}>
 					We're looking for engineers who've shipped code to production and
 					understand the full development lifecycle. Experience with real users,
@@ -159,11 +159,11 @@ export function Qualifies() {
 					href="https://apply.naironai.com"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="inline-flex items-center gap-2.5 bg-[#22DB18] text-white font-semibold text-base pl-4 pr-1.5 py-1.5 rounded-full hover:bg-[#1fc516] transition-colors"
+					className="inline-flex items-center gap-2.5 bg-brand text-white font-semibold text-base pl-4 pr-1.5 py-1.5 rounded-full hover:bg-brand-hover transition-colors"
 				>
 					Apply
 					<span className="w-[38px] h-[38px] rounded-full bg-white flex items-center justify-center">
-						<span className="w-4 h-4 block text-[#22DB18]">
+						<span className="w-4 h-4 block text-brand">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 256 256"

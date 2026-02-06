@@ -7,10 +7,10 @@ function PlusIcon({ isOpen }: { isOpen: boolean }) {
 	return (
 		<div className="w-9 h-9 rounded-full bg-white/12 flex items-center justify-center shrink-0 relative">
 			{/* Horizontal bar */}
-			<div className="absolute w-3.5 h-[2px] bg-[#ededed] rounded-full" />
+			<div className="absolute w-3.5 h-[2px] bg-landing-text rounded-full" />
 			{/* Vertical bar (hidden when open) */}
 			<div
-				className="absolute w-[2px] h-3.5 bg-[#ededed] rounded-full transition-transform duration-200"
+				className="absolute w-[2px] h-3.5 bg-landing-text rounded-full transition-transform duration-200"
 				style={{ transform: isOpen ? "rotate(90deg)" : "rotate(0deg)" }}
 			/>
 		</div>
@@ -30,8 +30,7 @@ function FAQItem({
 }) {
 	return (
 		<div
-			className="rounded-3xl overflow-hidden transition-colors cursor-pointer"
-			style={{ backgroundColor: "rgb(17, 17, 20)", padding: "24px" }}
+			className="rounded-3xl overflow-hidden transition-colors cursor-pointer bg-landing-card p-6"
 			onClick={onToggle}
 			onKeyDown={(e) => {
 				if (e.key === "Enter" || e.key === " ") onToggle();

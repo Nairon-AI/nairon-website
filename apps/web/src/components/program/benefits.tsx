@@ -51,8 +51,7 @@ function PremiumAccessCard() {
 		<GlassCard className="p-6 md:p-8 lg:p-10">
 			<Tag label={card.tag} />
 			<h3
-				className={`text-lg md:text-xl lg:text-2xl font-semibold mt-2 mb-4 md:mb-6 ${colors.text}`}
-				style={{ letterSpacing: "-0.72px" }}
+				className={`text-lg md:text-xl lg:text-2xl font-semibold mt-2 mb-4 md:mb-6 tracking-tighter ${colors.text}`}
 			>
 				{card.heading}
 			</h3>
@@ -71,8 +70,7 @@ function CommunityCard() {
 		<GlassCard className="p-6 md:p-8 lg:p-10">
 			<Tag label={card.tag} />
 			<h3
-				className={`text-lg md:text-xl lg:text-2xl font-semibold mt-2 mb-4 md:mb-6 ${colors.text}`}
-				style={{ letterSpacing: "-0.72px" }}
+				className={`text-lg md:text-xl lg:text-2xl font-semibold mt-2 mb-4 md:mb-6 tracking-tighter ${colors.text}`}
 			>
 				{card.heading}
 			</h3>

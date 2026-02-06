@@ -12,8 +12,7 @@ function JobDetailHero({ title }: { title: string }) {
 				<AnimatedGradient />
 			</div>
 			<h1
-				className="relative z-10 text-[60px] md:text-[120px] lg:text-[160px] font-semibold text-white text-center px-4"
-				style={{ letterSpacing: "-0.12em" }}
+				className="relative z-10 text-display-md md:text-display-2xl lg:text-display-3xl font-semibold text-white text-center px-4 tracking-hero"
 			>
 				{title}
 			</h1>
@@ -55,7 +54,7 @@ function LinkedInBanner() {
 			href={LINKEDIN_PRIORITY_LINK.href}
 			target="_blank"
 			rel="noopener noreferrer"
-			className="flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-[#2db22a] hover:bg-[#25a023] transition-colors rounded-lg text-black text-sm font-medium mt-4"
+			className="flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-brand-dark hover:bg-brand-dark-hover transition-colors rounded-lg text-black text-sm font-medium mt-4"
 		>
 			<span>{LINKEDIN_PRIORITY_LINK.text}</span>
 			<ArrowUpRight className="w-4 h-4" />
@@ -72,8 +71,7 @@ function JobHeader({ job }: { job: JobDetail }) {
 		<div className="mb-8">
 			<SectionTag label="Job Opening" />
 			<h2
-				className={`text-4xl md:text-5xl font-medium ${colors.text} mb-4`}
-				style={{ letterSpacing: "-2.4px" }}
+				className={`text-4xl md:text-5xl font-medium ${colors.text} mb-4 tracking-tight-xl`}
 			>
 				{job.title}
 			</h2>
@@ -96,8 +94,7 @@ function ContentSection({
 	return (
 		<div className="mb-10">
 			<h3
-				className={`text-2xl font-semibold ${colors.text} mb-4`}
-				style={{ letterSpacing: "-0.72px" }}
+				className={`text-2xl font-semibold ${colors.text} mb-4 tracking-tighter`}
 			>
 				{title}
 			</h3>
@@ -254,8 +251,7 @@ export function JobDetailNotFound() {
 					<AnimatedGradient />
 				</div>
 				<h1
-					className="relative z-10 text-[60px] md:text-[120px] font-semibold text-white text-center"
-					style={{ letterSpacing: "-0.12em" }}
+					className="relative z-10 text-display-md md:text-display-2xl font-semibold text-white text-center tracking-hero"
 				>
 					Not Found
 				</h1>

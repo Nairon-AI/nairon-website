@@ -13,7 +13,7 @@ function NavLink({ label, href }: { label: string; href: string }) {
 			</span>
 
 			{/* Green pill background (slides up on hover) */}
-			<span className="absolute inset-x-[-1px] top-full h-[45px] rounded-full bg-[#22DB18] transition-all duration-300 group-hover:top-[-3px]" />
+			<span className="absolute inset-x-[-1px] top-full h-[45px] rounded-full bg-brand transition-all duration-300 group-hover:top-[-3px]" />
 
 			{/* Hover label (slides up with green pill) */}
 			<span className="absolute text-base text-white top-12 transition-all duration-300 group-hover:top-2">
@@ -81,11 +81,11 @@ export function Navbar() {
 						href="https://apply.naironai.com"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="inline-flex items-center gap-2.5 bg-[#22DB18] text-white font-semibold text-base pl-4 pr-1.5 py-1.5 rounded-full hover:bg-[#1fc516] transition-colors"
+						className="inline-flex items-center gap-2.5 bg-brand text-white font-semibold text-base pl-4 pr-1.5 py-1.5 rounded-full hover:bg-brand-hover transition-colors"
 					>
 						Apply
 						<span className="w-[38px] h-[38px] rounded-full bg-white flex items-center justify-center">
-							<span className="w-4 h-4 block text-[#22DB18]">
+							<span className="w-4 h-4 block text-brand">
 								<ArrowRightIcon />
 							</span>
 						</span>

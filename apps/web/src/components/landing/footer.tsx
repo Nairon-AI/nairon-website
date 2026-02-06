@@ -11,7 +11,7 @@ function SocialLinks() {
 					href="https://www.linkedin.com/company/nairon-ai"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-[#ededed] hover:bg-white/5 transition-colors"
+					className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-landing-text hover:bg-white/5 transition-colors"
 					aria-label="LinkedIn"
 				>
 					<svg
@@ -27,7 +27,7 @@ function SocialLinks() {
 					href="https://x.com/nairon__ai"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-[#ededed] hover:bg-white/5 transition-colors"
+					className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-landing-text hover:bg-white/5 transition-colors"
 					aria-label="X / Twitter"
 				>
 					<svg
@@ -53,7 +53,7 @@ function FooterNavLink({ label, href }: { label: string; href: string }) {
 			<span className="text-base text-white transition-transform duration-300 group-hover:-translate-y-10">
 				{label}
 			</span>
-			<span className="absolute inset-x-[-1px] top-full h-[45px] rounded-full bg-[#22DB18] transition-all duration-300 group-hover:top-[-3px]" />
+			<span className="absolute inset-x-[-1px] top-full h-[45px] rounded-full bg-brand transition-all duration-300 group-hover:top-[-3px]" />
 			<span className="absolute text-base text-white top-12 transition-all duration-300 group-hover:top-2">
 				{label}
 			</span>
@@ -78,7 +78,7 @@ function FooterBottom() {
 				<p className={`text-base ${colors.text}`}>All copyrights @naironai</p>
 				<a
 					href="/terms-and-conditions"
-					className="text-xs text-[#ededed] hover:text-white/70 transition-colors"
+					className="text-xs text-landing-text hover:text-white/70 transition-colors"
 				>
 					Terms and Conditions
 				</a>
@@ -86,7 +86,7 @@ function FooterBottom() {
 			<button
 				type="button"
 				onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-				className="flex items-center gap-2 text-[#ededed] hover:text-white transition-colors"
+				className="flex items-center gap-2 text-landing-text hover:text-white transition-colors"
 				aria-label="Back to top"
 			>
 				<span className="w-20 h-px bg-white/30" />

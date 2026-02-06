@@ -57,8 +57,7 @@ function TeamMemberCard({
 				</a>
 			</div>
 			<h4
-				className="font-semibold text-sm md:text-xl text-white"
-				style={{ letterSpacing: "-0.72px" }}
+				className="font-semibold text-sm md:text-xl text-white tracking-tighter"
 			>
 				{name}
 			</h4>
@@ -83,7 +82,7 @@ function FeaturedMemberCard() {
 						href={FEATURED_MEMBER.linkedin}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-[#ededed] hover:bg-white/5 transition-colors"
+						className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-landing-text hover:bg-white/5 transition-colors"
 						aria-label="LinkedIn"
 					>
 						<LinkedInIcon className="w-5 h-5" />
@@ -92,7 +91,7 @@ function FeaturedMemberCard() {
 						href={FEATURED_MEMBER.twitter}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-[#ededed] hover:bg-white/5 transition-colors"
+						className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-landing-text hover:bg-white/5 transition-colors"
 						aria-label="X / Twitter"
 					>
 						<XIcon className="w-5 h-5" />
@@ -104,14 +103,12 @@ function FeaturedMemberCard() {
 			<div className="flex-1 flex flex-col">
 				<div className="mb-6">
 					<h2
-						className="text-4xl md:text-[56px] font-medium text-white leading-tight"
-						style={{ letterSpacing: "-2.4px" }}
+						className="text-4xl md:text-[56px] font-medium text-white leading-tight tracking-tight-xl"
 					>
 						{FEATURED_MEMBER.name}
 					</h2>
 					<h3
-						className="text-xl md:text-2xl font-medium text-white/55 mt-2"
-						style={{ letterSpacing: "-0.72px" }}
+						className="text-xl md:text-2xl font-medium text-white/55 mt-2 tracking-tighter"
 					>
 						{FEATURED_MEMBER.title}
 					</h3>
@@ -121,7 +118,7 @@ function FeaturedMemberCard() {
 					{FEATURED_MEMBER.bio.map((paragraph, index) => (
 						<p
 							key={index}
-							className="text-base leading-relaxed text-[#bfbfbf]"
+							className="text-base leading-relaxed text-landing-text-body"
 						>
 							{paragraph}
 						</p>

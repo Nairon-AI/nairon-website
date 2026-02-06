@@ -26,8 +26,7 @@ function Countdown() {
 	return (
 		<div className="mt-8 text-center">
 			<h4
-				className="text-white text-2xl mb-6 tracking-tight"
-				style={{ letterSpacing: "-0.72px" }}
+				className="text-white text-2xl mb-6 tracking-tighter"
 			>
 				Applications close:
 			</h4>
@@ -45,14 +44,12 @@ function InfoBar() {
 	return (
 		<div className="mt-16 w-full flex flex-col items-center md:flex-row md:items-center md:justify-between border-t border-white/10 pt-6">
 			<div
-				className="text-white text-xl md:text-2xl tracking-tight text-center md:text-left"
-				style={{ letterSpacing: "-0.72px" }}
+				className="text-white text-xl md:text-2xl tracking-tighter text-center md:text-left"
 			>
 				Q1 2026
 			</div>
 			<div
-				className="text-white text-xl md:text-2xl tracking-tight overflow-hidden text-center md:text-left mt-4 md:mt-0"
-				style={{ letterSpacing: "-0.72px" }}
+				className="text-white text-xl md:text-2xl tracking-tighter overflow-hidden text-center md:text-left mt-4 md:mt-0"
 			>
 				Dubai, United Arab Emirates
 			</div>
@@ -100,14 +97,14 @@ export function Hero() {
 
 				<div className="mt-2 text-center flex flex-col md:flex-row items-center justify-center md:gap-3">
 					<h3
-						className="text-xl md:text-[34px] font-medium text-white"
-						style={{ letterSpacing: "-1.36px", lineHeight: "1.3" }}
+						className="text-xl md:text-display-sm font-medium text-white tracking-tight-lg"
+						style={{ lineHeight: "1.3" }}
 					>
 						<DigitalText text={content.tagline} duration={600} />
 					</h3>
 					<span
-						className="text-3xl md:text-[44px] font-semibold italic text-white inline-block md:min-w-[220px] text-center md:text-left"
-						style={{ letterSpacing: "-1.36px", lineHeight: "1.3" }}
+						className="text-3xl md:text-[44px] font-semibold italic text-white tracking-tight-lg inline-block md:min-w-[220px] text-center md:text-left"
+						style={{ lineHeight: "1.3" }}
 					>
 						<DigitalText text={content.highlight} duration={600} />
 					</span>

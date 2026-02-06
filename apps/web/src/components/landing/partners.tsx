@@ -10,7 +10,7 @@ import { PARTNERS } from "@/data/landing";
 
 function PartnerLogo({ name, logo }: { name: string; logo: string }) {
 	return (
-		<div className="rounded-3xl bg-[#111114] p-8 flex items-center justify-center h-[104px]">
+		<div className="rounded-3xl bg-landing-card p-8 flex items-center justify-center h-[104px]">
 			<img src={logo} alt={name} className="h-12 w-auto opacity-80" />
 		</div>
 	);

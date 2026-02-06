@@ -9,8 +9,7 @@ export function CareersHero() {
 			</div>
 			{/* Large "Careers" text */}
 			<h1
-				className="relative z-10 text-6xl md:text-[100px] lg:text-[160px] font-semibold text-white text-center"
-				style={{ letterSpacing: "-4px" }}
+				className="relative z-10 text-6xl md:text-[100px] lg:text-display-3xl font-semibold text-white text-center tracking-tight-2xl"
 			>
 				Careers
 			</h1>

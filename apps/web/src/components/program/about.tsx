@@ -48,8 +48,7 @@ function MissionSection() {
 	return (
 		<div>
 			<h4
-				className={`text-lg font-semibold mb-6 ${colors.text}`}
-				style={{ letterSpacing: "-0.72px" }}
+				className={`text-lg font-semibold mb-6 tracking-tighter ${colors.text}`}
 			>
 				Our mission
 			</h4>
@@ -82,8 +81,7 @@ function ApproachSection() {
 	return (
 		<div>
 			<h4
-				className={`text-lg font-semibold mb-6 ${colors.text}`}
-				style={{ letterSpacing: "-0.72px" }}
+				className={`text-lg font-semibold mb-6 tracking-tighter ${colors.text}`}
 			>
 				Our approach
 			</h4>

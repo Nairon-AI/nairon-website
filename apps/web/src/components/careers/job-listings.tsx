@@ -15,7 +15,7 @@ function LinkedInBanner() {
 			href={LINKEDIN_PRIORITY_LINK.href}
 			target="_blank"
 			rel="noopener noreferrer"
-			className="flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-[#2db22a] hover:bg-[#25a023] transition-colors rounded-lg text-black text-sm font-medium"
+			className="flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-brand-dark hover:bg-brand-dark-hover transition-colors rounded-lg text-black text-sm font-medium"
 		>
 			<span>{LINKEDIN_PRIORITY_LINK.text}</span>
 			<ArrowUpRight className="w-4 h-4" />
@@ -73,12 +73,11 @@ function JobCard({ job }: { job: JobListing }) {
 		>
 			<div className="flex-1">
 				<h3
-					className={`text-lg md:text-2xl font-semibold ${colors.text} mb-2`}
-					style={{ letterSpacing: "-0.72px" }}
+					className={`text-lg md:text-2xl font-semibold ${colors.text} mb-2 tracking-tighter`}
 				>
 					{job.title}
 				</h3>
-				<p className="text-sm md:text-base text-[#bababa] leading-relaxed mb-3 md:mb-4 max-w-3xl">
+				<p className="text-sm md:text-base text-landing-text-body leading-relaxed mb-3 md:mb-4 max-w-3xl">
 					{job.description}
 				</p>
 				<div className="flex flex-wrap items-center gap-2">

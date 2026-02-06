@@ -82,7 +82,7 @@ function ProcessCard({
 			<GlassCard className="aspect-square flex items-center justify-center relative overflow-hidden mb-6">
 				{/* Large number watermark */}
 				<span
-					className="absolute top-4 left-6 text-[80px] font-bold leading-none text-amber-600/30 select-none pointer-events-none"
+					className="absolute top-4 left-6 text-display-lg font-bold leading-none text-amber-600/30 select-none pointer-events-none"
 				>
 					{number}
 				</span>
@@ -93,8 +93,7 @@ function ProcessCard({
 
 			{/* Text */}
 			<h4
-				className={`text-lg font-semibold ${colors.text} mb-2`}
-				style={{ letterSpacing: "-0.72px" }}
+				className={`text-lg font-semibold tracking-tighter ${colors.text} mb-2`}
 			>
 				{title}
 			</h4>
@@ -127,8 +126,7 @@ export function HireProcess() {
 			<GlassCard className="mt-16 border-l-2 border-amber-500/50 pl-6 p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
 				<div>
 					<h4
-						className={`text-xl font-semibold ${colors.text} mb-2`}
-						style={{ letterSpacing: "-0.72px" }}
+						className={`text-xl font-semibold tracking-tighter ${colors.text} mb-2`}
 					>
 						Submit Real Projects to the Cohort
 					</h4>

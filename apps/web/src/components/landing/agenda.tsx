@@ -30,16 +30,15 @@ function WeekCard({ week }: { week: WeekData }) {
 		<div className="flex flex-col md:flex-row gap-6 md:gap-[74px]">
 			<div className="min-w-[233px] shrink-0">
 				<h4
-					className={`text-2xl font-normal font-urbanist ${colors.text}`}
-					style={{ letterSpacing: "-0.72px" }}
+					className={`text-2xl font-normal font-display ${colors.text} tracking-tighter`}
 				>
 					{week.week}
 				</h4>
 			</div>
-			<div className="flex-1 rounded-3xl bg-[#111114] p-6 md:py-6 md:px-8">
+			<div className="flex-1 rounded-3xl bg-landing-card p-6 md:py-6 md:px-8">
 				<h3
-					className={`font-urbanist text-2xl md:text-[34px] font-medium mb-4 ${colors.text}`}
-					style={{ letterSpacing: "-1.36px", lineHeight: "1.3" }}
+					className={`font-display text-2xl md:text-display-sm font-medium mb-4 ${colors.text} tracking-tight-lg`}
+					style={{ lineHeight: "1.3" }}
 				>
 					{week.title}
 				</h3>
@@ -64,18 +63,16 @@ function WeekCard({ week }: { week: WeekData }) {
 function PhaseHeader({ phase }: { phase: PhaseData }) {
 	return (
 		<div className="flex overflow-hidden">
-			<div className="bg-[#2db22a] rounded-l-3xl px-6 py-[18px] min-w-[160px] md:min-w-[259px] flex items-center">
+			<div className="bg-brand-dark rounded-l-3xl px-6 py-[18px] min-w-[160px] md:min-w-[259px] flex items-center">
 				<h3
-					className="text-2xl md:text-[34px] font-medium font-urbanist text-white"
-					style={{ letterSpacing: "-1.36px" }}
+					className="text-2xl md:text-display-sm font-medium font-display text-white tracking-tight-lg"
 				>
 					{phase.phase}
 				</h3>
 			</div>
 			<div className="bg-white/12 rounded-r-3xl flex-1 flex items-center px-8 md:px-[74px]">
 				<h3
-					className={`text-2xl md:text-[34px] font-medium font-urbanist ${colors.text}`}
-					style={{ letterSpacing: "-1.36px" }}
+					className={`text-2xl md:text-display-sm font-medium font-display ${colors.text} tracking-tight-lg`}
 				>
 					{phase.title}
 				</h3>

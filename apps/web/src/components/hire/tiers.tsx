@@ -55,8 +55,7 @@ function TierCard({ tier }: { tier: HireTier }) {
 				style={{ background: tier.bottomGradient }}
 			>
 				<h4
-					className={`text-lg font-semibold ${colors.text} mb-3`}
-					style={{ letterSpacing: "-0.72px" }}
+					className={`text-lg font-semibold tracking-tighter ${colors.text} mb-3`}
 				>
 					{tier.tagline}
 				</h4>

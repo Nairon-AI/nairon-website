@@ -28,8 +28,7 @@ function CapabilityCard({
 		<GlassCard className="p-8 md:p-10 relative overflow-hidden">
 			{/* Large background number */}
 			<span
-				className="absolute top-4 right-6 text-[120px] font-bold leading-none text-amber-600/20 select-none pointer-events-none"
-				style={{ letterSpacing: "-4px" }}
+				className="absolute top-4 right-6 text-display-2xl font-bold leading-none text-amber-600/20 select-none pointer-events-none tracking-tight-2xl"
 			>
 				{number}
 			</span>
@@ -38,8 +37,7 @@ function CapabilityCard({
 			<div className="relative z-10">
 				<GoldCheckCircle />
 				<h4
-					className={`text-xl font-semibold ${colors.text} mt-6 mb-3`}
-					style={{ letterSpacing: "-0.72px" }}
+					className={`text-xl font-semibold ${colors.text} mt-6 mb-3 tracking-tighter`}
 				>
 					→ {title}
 				</h4>
@@ -56,8 +54,7 @@ function BeforeAfterComparison() {
 			<GlassCard className="p-8 text-center flex-1 w-full">
 				<p className="text-xs uppercase tracking-widest text-amber-400/60 mb-3">Before</p>
 				<h4
-					className={`text-2xl font-semibold ${colors.text} mb-2`}
-					style={{ letterSpacing: "-0.72px" }}
+					className={`text-2xl font-semibold ${colors.text} mb-2 tracking-tighter`}
 				>
 					Experienced Engineers
 				</h4>
@@ -81,8 +78,7 @@ function BeforeAfterComparison() {
 			<div className="flex-1 w-full rounded-2xl p-8 text-center bg-gradient-to-br from-amber-600/50 via-amber-700/35 to-amber-900/25 border border-amber-500/30">
 				<p className="text-xs uppercase tracking-widest text-amber-400 mb-3">After</p>
 				<h4
-					className={`text-2xl font-semibold ${colors.text} mb-2`}
-					style={{ letterSpacing: "-0.72px" }}
+					className={`text-2xl font-semibold ${colors.text} mb-2 tracking-tighter`}
 				>
 					AI-First Engineers
 				</h4>
