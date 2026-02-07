@@ -14,14 +14,32 @@ export const colors = {
 	textBody: "text-landing-text-body",
 	/** Muted text — white at 40% */
 	textMuted: "text-white/40",
+	/** Secondary text — white at 50% */
+	textSecondary: "text-white/50",
 	/** Card/glass border — white at 8% */
 	border: "border-white/8",
 	/** Interactive border — white at 12% */
 	borderInteractive: "border-white/12",
+	/** Emphasis border — white at 16% (tags, badges) */
+	borderEmphasis: "border-white/16",
 	/** Glass background — white at 3% */
 	glassBg: "bg-white/[0.03]",
+	/** Secondary surface — white at 6% */
+	secondaryBg: "bg-white/[0.06]",
+	/** Hover surface — white at 10% */
+	hoverBg: "bg-white/10",
 	/** Page background */
 	pageBg: "bg-black",
+} as const;
+
+// Typography class bundles for reuse across pages
+export const typography = {
+	/** Serif section heading base — tracking + leading + color only */
+	serif: "font-serif tracking-serif leading-serif text-landing-text",
+	/** Uppercase label — tight */
+	label: "uppercase tracking-label",
+	/** Uppercase label — wide */
+	labelWide: "uppercase tracking-label-wide",
 } as const;
 
 // ─── Section Container ───────────────────────────────────────────

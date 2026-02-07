@@ -12,7 +12,7 @@ function SocialLinks() {
 					href="https://www.linkedin.com/company/nairon-ai"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-landing-text hover:bg-white/5 transition-colors"
+					className="w-10 h-10 rounded-lg border border-white/12 flex items-center justify-center text-landing-text hover:bg-white/5 transition-colors"
 					aria-label="LinkedIn"
 				>
 					<svg
@@ -28,7 +28,7 @@ function SocialLinks() {
 					href="https://x.com/nairon__ai"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-landing-text hover:bg-white/5 transition-colors"
+					className="w-10 h-10 rounded-lg border border-white/12 flex items-center justify-center text-landing-text hover:bg-white/5 transition-colors"
 					aria-label="X / Twitter"
 				>
 					<svg

@@ -65,7 +65,7 @@ function CTAContent() {
 	return (
 		<div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
 			{/* Pulsing badge */}
-			<div className="flex items-center gap-2 mb-8 px-5 py-2.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-sm">
+			<div className="flex items-center gap-2 mb-8 px-5 py-2.5 rounded-full border border-white/12 bg-white/[0.04] backdrop-blur-sm">
 				<span className="relative flex h-2 w-2">
 					<span className={`absolute inline-flex h-full w-full animate-ping rounded-full ${dotColor} opacity-75`} />
 					<span className={`relative inline-flex h-2 w-2 rounded-full ${dotColor}`} />
@@ -102,7 +102,7 @@ function CTAContent() {
 				</a>
 				<a
 					href={data.secondaryCta.href}
-					className="inline-flex items-center gap-2 bg-white/[0.06] hover:bg-white/[0.1] backdrop-blur-sm border border-white/10 text-white font-semibold text-base px-8 py-4 rounded-full transition-colors"
+					className="inline-flex items-center gap-2 bg-white/[0.06] hover:bg-white/[0.1] backdrop-blur-sm border border-white/12 text-white font-semibold text-base px-8 py-4 rounded-full transition-colors"
 				>
 					{data.secondaryCta.label}
 					<ArrowUpRight className="w-4 h-4" />

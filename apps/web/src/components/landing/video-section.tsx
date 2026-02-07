@@ -18,7 +18,7 @@ export function VideoSection() {
 			}}
 		>
 			<div className="max-w-6xl mx-auto">
-				<div className="relative rounded-2xl overflow-hidden aspect-video border border-white/10 shadow-2xl shadow-black/50 bg-black">
+				<div className="relative rounded-2xl overflow-hidden aspect-video border border-white/12 shadow-2xl shadow-black/50 bg-black">
 					{playing ? (
 						<iframe
 							src={`${videoUrl}?autoplay=1`}

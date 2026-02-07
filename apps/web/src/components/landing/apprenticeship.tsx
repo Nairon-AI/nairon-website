@@ -12,12 +12,12 @@ export function Apprenticeship() {
 		<div className="pb-16 pt-0 md:pb-24 md:pt-0">
 			<div className="mx-auto max-w-7xl px-6">
 				<div className="mx-auto max-w-6xl">
-					<GlassCard className="w-full rounded-[28px] p-6 md:p-8">
+					<GlassCard className="w-full rounded-card p-6 md:p-8">
 					<div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
 						<div className="max-w-2xl md:flex-1">
 							{isEngineer ? (
 								<>
-									<h3 className="text-[1.75rem] leading-tight tracking-tight text-landing-text md:text-[2.1rem]">
+									<h3 className="text-subheading leading-tight tracking-tight text-landing-text md:text-heading-md">
 										Not residency-ready yet?
 									</h3>
 									<p className="mt-2 text-lg leading-tight text-landing-text">{data.title}</p>
@@ -25,8 +25,8 @@ export function Apprenticeship() {
 								</>
 							) : (
 								<>
-									<p className="text-xs uppercase tracking-[0.14em] text-white/45">{eyebrow}</p>
-									<h3 className="mt-2 text-[1.75rem] leading-tight tracking-tight text-landing-text md:text-[2.1rem]">
+									<p className="text-xs uppercase tracking-label text-white/45">{eyebrow}</p>
+									<h3 className="mt-2 text-subheading leading-tight tracking-tight text-landing-text md:text-heading-md">
 										{data.title}
 									</h3>
 									<p className="mt-3 text-base leading-relaxed text-landing-text-body">{data.description}</p>

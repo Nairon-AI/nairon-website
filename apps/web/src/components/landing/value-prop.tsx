@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Section } from "./primitives";
+import { Section, colors } from "./primitives";
 import { VALUE_PROP_SECTION } from "@/data/landing";
 import { useViewMode } from "@/contexts/view-mode-context";
 import { cn } from "@/lib/utils";
@@ -17,7 +17,7 @@ function ValuePropMedia({
 	const hasSource = Boolean(step.asset.src);
 
 	return (
-		<div className="relative overflow-hidden rounded-[28px] border border-white/12 bg-white/[0.03]">
+		<div className="relative overflow-hidden rounded-card border border-white/12 bg-white/[0.03]">
 			<div className="relative h-[360px] md:h-[430px] overflow-hidden">
 				{hasSource ? (
 					<img
@@ -37,11 +37,11 @@ function ValuePropMedia({
 			</div>
 
 			<div className="p-6 md:p-7">
-				<h3 className="text-[2rem] leading-[1.06] tracking-tight text-landing-text md:text-[2.35rem]">{step.title}</h3>
-				<p className="mt-4 max-w-[60ch] text-[15px] leading-relaxed text-landing-text-body md:text-base">{step.description}</p>
+				<h3 className="text-subheading leading-[1.06] tracking-tight text-landing-text md:text-heading-md">{step.title}</h3>
+				<p className="mt-4 max-w-[60ch] text-body-fine leading-relaxed text-landing-text-body md:text-base">{step.description}</p>
 				<div className="mt-5 flex flex-wrap gap-2">
 					{step.tags.map((tag: string) => (
-						<span key={tag} className="rounded-full border border-white/16 bg-black/35 px-3 py-1 text-xs text-white/80">
+						<span key={tag} className={`rounded-full border ${colors.borderEmphasis} bg-black/35 px-3 py-1 text-xs text-white/80`}>
 							{tag}
 						</span>
 					))}
@@ -107,10 +107,10 @@ export function ValueProp() {
 			<div className="mx-auto max-w-6xl px-1 md:px-2">
 				<div className="hidden items-start gap-10 lg:grid lg:grid-cols-[0.72fr_1.28fr]">
 					<div className="sticky top-36">
-						<h2 className="font-serif text-[3.7rem] leading-[0.98] tracking-[-0.02em] text-landing-text">
+						<h2 className="font-serif text-heading-lg leading-[0.98] tracking-serif text-landing-text">
 							{section.headline}
 						</h2>
-						<p className="mt-5 max-w-[45ch] text-[15px] leading-relaxed text-landing-text-body">
+						<p className="mt-5 max-w-[45ch] text-body-fine leading-relaxed text-landing-text-body">
 							{section.subline}
 						</p>
 
@@ -130,7 +130,7 @@ export function ValueProp() {
 									>
 										<div className={cn("h-7 w-[2px] rounded-full transition-opacity", isActive ? "opacity-100" : "opacity-0")} style={{ background: accent }} />
 										<div>
-											<div className={cn("text-[1.45rem] leading-tight tracking-tight", isActive ? "text-landing-text" : "text-white/52")}>{step.title}</div>
+											<div className={cn("text-[1.45rem] leading-tight tracking-tight", isActive ? "text-landing-text" : "text-white/50")}>{step.title}</div>
 										</div>
 									</button>
 								);
@@ -157,7 +157,7 @@ export function ValueProp() {
 				</div>
 
 				<div className="lg:hidden">
-					<h2 className="font-serif text-[2.35rem] leading-[1.02] tracking-[-0.02em] text-landing-text">{section.headline}</h2>
+					<h2 className="font-serif text-heading-md leading-serif tracking-serif text-landing-text">{section.headline}</h2>
 					<p className="mt-4 text-sm leading-relaxed text-landing-text-body">{section.subline}</p>
 					<div className="mt-8 space-y-3">
 						{section.steps.map((step: ValuePropStep, index: number) => {
@@ -165,7 +165,7 @@ export function ValueProp() {
 							return (
 								<div key={`${step.title}-label`} className="flex items-center gap-3">
 									<div className={cn("h-6 w-[2px] rounded-full", isActive ? "opacity-100" : "opacity-0")} style={{ background: accent }} />
-									<div className={cn("text-[1.1rem]", isActive ? "text-landing-text" : "text-white/52")}>{step.title}</div>
+									<div className={cn("text-[1.1rem]", isActive ? "text-landing-text" : "text-white/50")}>{step.title}</div>
 								</div>
 							);
 						})}

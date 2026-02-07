@@ -42,7 +42,7 @@ function Countdown() {
 
 function InfoBar() {
 	return (
-		<div className="mt-16 w-full flex flex-col items-center md:flex-row md:items-center md:justify-between border-t border-white/10 pt-6">
+		<div className="mt-16 w-full flex flex-col items-center md:flex-row md:items-center md:justify-between border-t border-white/12 pt-6">
 			<div
 				className="text-white text-xl md:text-2xl tracking-tighter text-center md:text-left"
 			>

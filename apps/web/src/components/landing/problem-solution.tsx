@@ -52,7 +52,7 @@ function ProblemVisual({
 				<div className="absolute left-4 top-28 text-sm text-white/60">{items[1]}</div>
 				<div className="absolute left-10 top-44 text-sm text-white/60">{items[2]}</div>
 				<div className="absolute left-6 bottom-8 right-6">
-					<div className="text-[10px] uppercase tracking-[0.2em] text-white/50">What matters</div>
+					<div className="text-micro uppercase tracking-label-wide text-white/50">What matters</div>
 					<div className="mt-2 text-2xl md:text-3xl text-landing-text leading-tight">{items[3]}</div>
 					<div className="mt-3 h-[2px] w-full" style={{ background: `linear-gradient(90deg, ${highlight}00, ${highlight}a6, ${highlight}00)` }} />
 				</div>
@@ -68,7 +68,7 @@ function ProblemVisual({
 					<LogoDot key={logo.name} name={logo.name} src={logo.src} x={logo.x} y={logo.y} />
 				))}
 				<div className="absolute left-6 right-6 bottom-8">
-					<div className="text-[10px] uppercase tracking-[0.2em] text-white/50">Clear signal</div>
+					<div className="text-micro uppercase tracking-label-wide text-white/50">Clear signal</div>
 					<div className="mt-2 text-2xl md:text-3xl text-landing-text leading-tight">{items[3]}</div>
 					<div className="mt-3 h-[2px] w-full" style={{ background: `linear-gradient(90deg, ${highlight}00, ${highlight}a6, ${highlight}00)` }} />
 				</div>
@@ -110,10 +110,10 @@ export function ProblemSolution() {
 
 	return (
 		<Section className="py-12 md:py-16">
-			<div className="glass-card mx-auto max-w-6xl rounded-[32px] md:rounded-[40px] px-5 py-8 md:px-10 md:py-10 shadow-[0_30px_80px_rgba(0,0,0,0.28)]">
+			<div className="glass-card mx-auto max-w-6xl rounded-card-lg px-5 py-8 md:px-10 md:py-10 shadow-[0_30px_80px_rgba(0,0,0,0.28)]">
 				<div className="mx-auto max-w-3xl text-center">
-					<div className="mb-3 text-xs md:text-sm font-semibold tracking-[0.2em] text-white/55">Problem</div>
-					<h2 className="font-serif text-[1.95rem] leading-[1.08] tracking-[-0.02em] text-landing-text md:text-[3.6rem]">
+					<div className="mb-3 text-xs md:text-sm font-semibold tracking-label-wide text-white/55">Problem</div>
+					<h2 className="font-serif text-heading-md leading-serif tracking-serif text-landing-text md:text-heading-lg">
 						{section.observation}
 					</h2>
 					<div className="mt-6 flex justify-center">
@@ -142,14 +142,14 @@ export function ProblemSolution() {
 					</div>
 
 					<div className="flex flex-col justify-center lg:pl-6">
-						<div className="flex items-center gap-2 text-xs md:text-sm uppercase tracking-[0.18em] text-white/55">
+						<div className="flex items-center gap-2 text-xs md:text-sm uppercase tracking-label text-white/55">
 							{visualIcon}
 							<span>{current.visualTag}</span>
 						</div>
-						<h3 className="mt-4 text-[1.8rem] leading-[1.1] tracking-tight text-landing-text md:text-[2.35rem]">
+						<h3 className="mt-4 text-subheading leading-[1.1] tracking-tight text-landing-text md:text-heading-md">
 							{current.title}
 						</h3>
-						<p className="mt-4 max-w-[48ch] text-[15px] leading-relaxed text-landing-text-body md:text-base">
+						<p className="mt-4 max-w-[48ch] text-body-fine leading-relaxed text-landing-text-body md:text-base">
 							{current.description}
 						</p>
 						<div className="mt-7">

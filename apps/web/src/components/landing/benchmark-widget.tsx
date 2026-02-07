@@ -138,7 +138,7 @@ export function BenchmarkWidget() {
 							<div className="flex items-center justify-center w-9 h-9 rounded-xl bg-brand/[0.1] border border-brand/[0.15]">
 								<Radar className="w-[18px] h-[18px] text-brand" />
 							</div>
-							<span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold tracking-wide uppercase bg-brand/[0.12] text-brand border border-brand/[0.15]">
+							<span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-micro font-semibold tracking-wide uppercase bg-brand/[0.12] text-brand border border-brand/[0.15]">
 								Coming Soon
 							</span>
 						</div>
@@ -152,7 +152,7 @@ export function BenchmarkWidget() {
 					</div>
 
 					{/* Title */}
-					<h3 className="text-[15px] font-semibold text-landing-text leading-snug tracking-tight mb-1.5">
+					<h3 className="text-body-fine font-semibold text-landing-text leading-snug tracking-tight mb-1.5">
 						AI-Native Developer Assessment
 					</h3>
 
@@ -167,7 +167,7 @@ export function BenchmarkWidget() {
 							(dim) => (
 								<span
 									key={dim}
-									className="px-2 py-0.5 rounded-md text-[11px] font-medium text-white/50 bg-white/[0.04] border border-white/[0.06]"
+									className="px-2 py-0.5 rounded-md text-micro font-medium text-white/50 bg-white/[0.04] border border-white/[0.06]"
 								>
 									{dim}
 								</span>

@@ -30,9 +30,9 @@ export function CertificateSection() {
 		<section className="pt-14 pb-3 md:pt-24 md:pb-6">
 			<div className="mx-auto max-w-7xl px-6">
 				<div className="mb-0 text-center">
-					<div className="text-xs uppercase tracking-[0.24em] text-white/55">{data.eyebrow}</div>
+					<div className="text-xs uppercase tracking-label-wide text-white/55">{data.eyebrow}</div>
 					<h2
-						className={`mx-auto mt-4 max-w-4xl font-serif text-[2.2rem] leading-[1.03] tracking-[-0.02em] text-landing-text md:text-[3.8rem] ${headlineOffset}`}
+						className={`mx-auto mt-4 max-w-4xl font-serif text-heading-md leading-serif tracking-serif text-landing-text md:text-heading-lg ${headlineOffset}`}
 					>
 						{data.title}
 					</h2>
@@ -76,18 +76,18 @@ export function CertificateSection() {
 							<div className={`absolute -right-12 bottom-5 h-32 w-32 rounded-full ${glowRightClass} blur-2xl`} />
 							<div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
 							<div className="relative">
-								<div className={`inline-flex items-center gap-2 rounded-full border px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.24em] sm:text-[10px] ${badgeClass}`}>
+								<div className={`inline-flex items-center gap-2 rounded-full border px-2.5 py-1 text-[9px] font-semibold uppercase tracking-label-wide sm:text-[10px] ${badgeClass}`}>
 									<span className={`h-1.5 w-1.5 rounded-full ${badgeDotClass}`} />
 									Nairon Certificate
 								</div>
 								<div className="mt-2 font-serif text-[1.1rem] leading-tight text-white sm:text-[1.35rem] md:text-[1.85rem]">
 									{data.certificateTitle}
 								</div>
-								<div className={`mt-2 text-[10px] uppercase tracking-[0.18em] sm:text-[11px] ${trackClass}`}>
+								<div className={`mt-2 text-micro uppercase tracking-label ${trackClass}`}>
 									{data.track}
 								</div>
 							</div>
-							<div className="relative mt-4 text-[10px] leading-relaxed text-white/72 sm:text-xs md:mt-5">
+							<div className="relative mt-4 text-micro leading-relaxed text-white/72 sm:text-xs md:mt-5">
 								{data.certificateBody}
 							</div>
 							<div className={`relative mt-auto border-t pt-6 md:pt-7 ${dividerClass}`}>
@@ -97,7 +97,7 @@ export function CertificateSection() {
 							>
 								Job Offer
 							</div>
-								<div className="flex flex-wrap items-center justify-between gap-2 text-[9px] uppercase tracking-[0.16em] text-white/58 sm:text-[10px]">
+								<div className="flex flex-wrap items-center justify-between gap-2 text-[9px] uppercase tracking-label text-white/58 sm:text-[10px]">
 									<span>Recipient: {data.recipientName}</span>
 									<span>Total Compensation: $100k USD</span>
 									<span>ID: {data.credentialId}</span>

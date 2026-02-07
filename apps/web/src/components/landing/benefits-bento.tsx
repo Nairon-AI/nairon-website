@@ -6,7 +6,7 @@ import { useViewMode } from "@/contexts/view-mode-context";
 
 function Tag({ label }: { label: string }) {
 	return (
-		<span className="inline-flex w-fit rounded-full border border-white/16 bg-black/25 px-3 py-1 text-[11px] text-white/75">
+		<span className="inline-flex w-fit rounded-full border border-white/16 bg-black/25 px-3 py-1 text-micro text-white/75">
 			{label}
 		</span>
 	);
@@ -23,7 +23,7 @@ function BentoCard({
 }) {
 	return (
 		<div
-			className={`relative overflow-hidden rounded-[26px] border border-white/12 p-7 md:p-8 ${className ?? ""}`}
+			className={`relative overflow-hidden rounded-card border border-white/12 p-7 md:p-8 ${className ?? ""}`}
 			style={{
 				background: `radial-gradient(circle at 100% 100%, ${accentGlow}, rgba(0,0,0,0) 46%), linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))`,
 			}}
@@ -50,8 +50,8 @@ export function BenefitsBento() {
 		<Section className="py-8 md:py-12">
 			<div className="mx-auto max-w-5xl">
 				<div className="mb-7 md:mb-8 text-center">
-					<div className="text-xs uppercase tracking-[0.2em] text-white/55">{section.eyebrow}</div>
-					<h2 className="mt-3 font-serif text-[2.35rem] leading-[1.02] tracking-[-0.02em] text-landing-text md:text-[3.7rem]">
+					<div className="text-xs uppercase tracking-label-wide text-white/55">{section.eyebrow}</div>
+					<h2 className="mt-3 font-serif text-heading-md leading-serif tracking-serif text-landing-text md:text-heading-lg">
 						{section.title}
 					</h2>
 				</div>
@@ -65,7 +65,7 @@ export function BenefitsBento() {
 							className="pointer-events-none absolute right-[-12rem] bottom-[-38rem] h-[860px] w-[860px] object-contain opacity-55 mix-blend-screen"
 						/>
 						<Tag label={section.cards.experience.tag} />
-						<h3 className="mt-4 text-[1.9rem] leading-[1.07] tracking-tight text-landing-text md:text-[3rem]">
+						<h3 className="mt-4 text-subheading leading-[1.07] tracking-tight text-landing-text md:text-[3rem]">
 							{section.cards.experience.heading}
 						</h3>
 						<div className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-3">
@@ -75,7 +75,7 @@ export function BenefitsBento() {
 										const Icon = benefitIcons[item.icon];
 										return <Icon className="h-6 w-6" style={{ color: accent }} />;
 									})()}
-									<div className="mt-3 text-[0.95rem] leading-relaxed text-landing-text-body">{item.text}</div>
+									<div className="mt-3 text-body-fine leading-relaxed text-landing-text-body">{item.text}</div>
 								</div>
 							))}
 						</div>
@@ -83,7 +83,7 @@ export function BenefitsBento() {
 
 					<BentoCard accentGlow={isEngineer ? "rgba(34,219,24,0.24)" : "rgba(207,150,17,0.28)"}>
 						<Tag label={section.cards.resources.tag} />
-						<h3 className="mt-4 text-[1.6rem] leading-tight tracking-tight text-landing-text md:text-[1.75rem]">
+						<h3 className="mt-4 text-subheading leading-tight tracking-tight text-landing-text">
 							{section.cards.resources.heading}
 						</h3>
 						<div className="mt-5 space-y-3 text-base text-landing-text-body">
@@ -95,7 +95,7 @@ export function BenefitsBento() {
 
 					<BentoCard accentGlow={isEngineer ? "rgba(34,219,24,0.24)" : "rgba(207,150,17,0.28)"}>
 						<Tag label={section.cards.community.tag} />
-						<h3 className="mt-4 text-[1.6rem] leading-tight tracking-tight text-landing-text md:text-[1.75rem]">
+						<h3 className="mt-4 text-subheading leading-tight tracking-tight text-landing-text">
 							{section.cards.community.heading}
 						</h3>
 						<div className="mt-5 space-y-3 text-base text-landing-text-body">
@@ -108,7 +108,7 @@ export function BenefitsBento() {
 
 				<div className="mt-4">
 					<div
-						className="relative overflow-hidden rounded-[26px] border border-white/12 p-6 md:p-8"
+						className="relative overflow-hidden rounded-card border border-white/12 p-6 md:p-8"
 						style={{
 							background: `radial-gradient(circle at 100% 100%, ${isEngineer ? "rgba(34,219,24,0.52)" : "rgba(207,150,17,0.56)"}, rgba(0,0,0,0) 42%), linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))`,
 						}}

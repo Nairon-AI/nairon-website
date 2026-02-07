@@ -75,6 +75,30 @@
 	--text-display-xl: 102px;
 	--text-display-2xl: 120px;
 	--text-display-3xl: 160px;
+
+	/* Heading scale — serif display headings */
+	--text-heading-md: 2.35rem;
+	--text-heading-lg: 3.7rem;
+	--text-heading-xl: 4.4rem;
+
+	/* Sub-heading */
+	--text-subheading: 1.75rem;
+
+	/* Fine body + micro */
+	--text-body-fine: 15px;
+	--text-micro: 11px;
+
+	/* Serif heading rhythm */
+	--tracking-serif: -0.02em;
+	--leading-serif: 1.05;
+
+	/* Label tracking (uppercase eyebrows/tags) */
+	--tracking-label: 0.16em;
+	--tracking-label-wide: 0.22em;
+
+	/* Card radius scale */
+	--radius-card: 28px;
+	--radius-card-lg: 36px;
 }
 
 @layer base {

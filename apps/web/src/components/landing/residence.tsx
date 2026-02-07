@@ -18,12 +18,12 @@ export function Residence() {
 				<div className="mx-auto max-w-6xl">
 					<SectionTag label="Programs" />
 
-					<article className="glass-card relative mt-6 min-h-[460px] overflow-hidden rounded-[36px] p-6 md:mt-8 md:min-h-[560px] md:p-12">
+					<article className="glass-card relative mt-6 min-h-[460px] overflow-hidden rounded-card-lg p-6 md:mt-8 md:min-h-[560px] md:p-12">
 						<div className="relative z-10 flex h-full flex-col items-center justify-center text-center">
-							<p className="text-xs uppercase tracking-[0.14em] text-white/45">Cohort 2</p>
+							<p className="text-xs uppercase tracking-label text-white/45">Cohort 2</p>
 
 							<div className="mt-6 max-w-3xl md:mt-8">
-								<h2 className="font-serif text-[2.5rem] leading-[1.01] tracking-[-0.02em] text-landing-text md:text-[4.4rem]">
+								<h2 className="font-serif text-[2.5rem] leading-serif tracking-serif text-landing-text md:text-heading-xl">
 									{data.title}
 								</h2>
 								<p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-landing-text-body md:text-lg">
