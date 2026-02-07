@@ -20,3 +20,4 @@ export { HowItWorks } from "./how-it-works";
 export { Residence } from "./residence";
 export { Apprenticeship } from "./apprenticeship";
 export { FinalCTA } from "./final-cta";
+export { ImmersiveCTA } from "./immersive-cta";

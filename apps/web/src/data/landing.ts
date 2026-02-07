@@ -805,15 +805,22 @@ export const FAQ_CONTENT = {
 // ─── Final CTA section ─────────────────────────────────────────
 export const FINAL_CTA = {
 	engineer: {
-		headline: "Ready to prove you're in the 1%?",
-		subtext: "Applications for Q1 2026 are open. Limited spots remaining.",
+		badge: "Applications closing soon",
+		headlineParts: [
+			{ text: "Are you ", italic: false },
+			{ text: "ready?", italic: true },
+		],
+		subtext: "This could be the start of something big.",
 		primaryCta: { label: "Apply Now", href: "/residence" },
-		secondaryCta: { label: "Learn about the Residence", href: "/residence" },
+		secondaryCta: { label: "Learn More", href: "/residence" },
 	},
 	hiringManager: {
-		headline: "Ready to hire engineers who actually deliver?",
-		subtext:
-			"Submit your role requirements. We'll match you with verified AI-native engineers.",
+		badge: "Limited spots available",
+		headlineParts: [
+			{ text: "Are you ", italic: false },
+			{ text: "ready?", italic: true },
+		],
+		subtext: "This could be the start of something big.",
 		primaryCta: { label: "Submit a Role", href: "/approach" },
 		secondaryCta: { label: "See Pricing", href: "/pricing" },
 	},

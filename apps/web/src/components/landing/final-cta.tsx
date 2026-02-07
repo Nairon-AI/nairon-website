@@ -19,7 +19,15 @@ export function FinalCTA() {
 
 			<div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
 				<SectionHeading className="text-4xl md:text-display-md mb-4">
-					{data.headline}
+					{data.headlineParts.map((part, i) =>
+						part.italic ? (
+							<span key={i} className="font-serif italic font-normal">
+								{part.text}
+							</span>
+						) : (
+							<span key={i}>{part.text}</span>
+						),
+					)}
 				</SectionHeading>
 				<BodyText className="text-lg md:text-xl mb-10 max-w-2xl mx-auto">
 					{data.subtext}
