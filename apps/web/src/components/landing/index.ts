@@ -22,3 +22,6 @@ export { Apprenticeship } from "./apprenticeship";
 export { FinalCTA } from "./final-cta";
 export { ImmersiveCTA } from "./immersive-cta";
 export { VideoSection } from "./video-section";
+export { ValueProp } from "./value-prop";
+export { BenefitsBento } from "./benefits-bento";
+export { CertificateSection } from "./certificate-section";

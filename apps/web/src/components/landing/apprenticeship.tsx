@@ -1,5 +1,4 @@
-import { ArrowRight } from "lucide-react";
-import { GlassCard, CardTitle, BodyText, colors } from "./primitives";
+import { BulletPoint, GlassCard, OutlineButton } from "./primitives";
 import { APPRENTICESHIP_CONTENT } from "@/data/landing";
 import { useViewMode } from "@/contexts/view-mode-context";
 
@@ -7,41 +6,49 @@ export function Apprenticeship() {
 	const { isEngineer } = useViewMode();
 	const view = isEngineer ? "engineer" : "hiringManager";
 	const data = APPRENTICESHIP_CONTENT[view];
+	const eyebrow = "Broader Talent Path";
 
 	return (
-		<section className="py-12 md:py-16">
-			<div className="max-w-7xl mx-auto px-6">
-				<GlassCard className="p-6 md:p-8">
-					<div className="flex flex-col md:flex-row md:items-center gap-6">
-						{/* Left — title + description */}
-						<div className="flex-1 min-w-0">
-							<CardTitle className="mb-1">{data.title}</CardTitle>
-							<BodyText>{data.description}</BodyText>
+		<div className="pb-16 pt-0 md:pb-24 md:pt-0">
+			<div className="mx-auto max-w-7xl px-6">
+				<div className="mx-auto max-w-6xl">
+					<GlassCard className="w-full rounded-[28px] p-6 md:p-8">
+					<div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+						<div className="max-w-2xl md:flex-1">
+							{isEngineer ? (
+								<>
+									<h3 className="text-[1.75rem] leading-tight tracking-tight text-landing-text md:text-[2.1rem]">
+										Not residency-ready yet?
+									</h3>
+									<p className="mt-2 text-lg leading-tight text-landing-text">{data.title}</p>
+									<p className="mt-3 text-base leading-relaxed text-landing-text-body">{data.description}</p>
+								</>
+							) : (
+								<>
+									<p className="text-xs uppercase tracking-[0.14em] text-white/45">{eyebrow}</p>
+									<h3 className="mt-2 text-[1.75rem] leading-tight tracking-tight text-landing-text md:text-[2.1rem]">
+										{data.title}
+									</h3>
+									<p className="mt-3 text-base leading-relaxed text-landing-text-body">{data.description}</p>
+								</>
+							)}
+
+							<div className="mt-7 flex items-center gap-4">
+								<OutlineButton href={data.cta.href}>{data.cta.label}</OutlineButton>
+							</div>
 						</div>
 
-						{/* Center — pills */}
-						<div className="flex flex-wrap gap-2">
-							{data.pills.map((pill) => (
-								<span
-									key={pill}
-									className={`px-3 py-1 rounded-full text-sm font-medium border ${colors.border} ${colors.textBody}`}
-								>
-									{pill}
-								</span>
-							))}
+						<div className="max-w-md md:w-[40%]">
+							<div className="space-y-3 text-left">
+								{data.points.map((point) => (
+									<BulletPoint key={point}>{point}</BulletPoint>
+								))}
+							</div>
 						</div>
-
-						{/* Right — CTA link */}
-						<a
-							href={data.cta.href}
-							className="inline-flex items-center gap-1.5 text-white font-semibold text-sm hover:text-green-400 transition-colors shrink-0"
-						>
-							{data.cta.label}
-							<ArrowRight className="w-4 h-4" />
-						</a>
 					</div>
-				</GlassCard>
+					</GlassCard>
+				</div>
 			</div>
-		</section>
+		</div>
 	);
 }

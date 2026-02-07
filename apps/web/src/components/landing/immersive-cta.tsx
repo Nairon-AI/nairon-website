@@ -60,14 +60,15 @@ function CTAContent() {
 	const { isEngineer } = useViewMode();
 	const view = isEngineer ? "engineer" : "hiringManager";
 	const data = FINAL_CTA[view];
+	const dotColor = isEngineer ? "bg-green-400" : "bg-amber-400";
 
 	return (
 		<div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
 			{/* Pulsing badge */}
 			<div className="flex items-center gap-2 mb-8 px-5 py-2.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-sm">
 				<span className="relative flex h-2 w-2">
-					<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-					<span className="relative inline-flex h-2 w-2 rounded-full bg-green-400" />
+					<span className={`absolute inline-flex h-full w-full animate-ping rounded-full ${dotColor} opacity-75`} />
+					<span className={`relative inline-flex h-2 w-2 rounded-full ${dotColor}`} />
 				</span>
 				<span className="text-sm text-white/80">{data.badge}</span>
 			</div>

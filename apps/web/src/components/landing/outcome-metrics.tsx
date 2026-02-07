@@ -13,6 +13,7 @@ export function OutcomeMetrics() {
 	const { isEngineer } = useViewMode();
 	const view = isEngineer ? "engineer" : "hiringManager";
 	const data = METRICS[view];
+	const gradientClass = isEngineer ? "text-gradient-green" : "text-gradient-gold";
 
 	return (
 		<Section>
@@ -36,7 +37,7 @@ export function OutcomeMetrics() {
 						key={stat.label}
 						className="p-6 md:p-8 flex flex-col items-center justify-center text-center"
 					>
-						<span className="text-4xl md:text-5xl font-bold tracking-tight text-gradient-green">
+						<span className={`text-4xl md:text-5xl font-bold tracking-tight ${gradientClass}`}>
 							{stat.value}
 						</span>
 						<span className={`mt-2 text-sm ${colors.textBody}`}>

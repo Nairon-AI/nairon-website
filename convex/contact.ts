@@ -36,7 +36,9 @@ export const submitContactForm = action({
 		await ctx.runMutation(internal.contact.storeSubmission, args);
 
 		// Send Slack notification
-		const webhookUrl = process.env.SLACK_WEBHOOK_URL;
+		const webhookUrl =
+			(globalThis as { process?: { env?: Record<string, string | undefined> } }).process
+				?.env?.SLACK_WEBHOOK_URL;
 
 		if (!webhookUrl) {
 			console.warn("SLACK_WEBHOOK_URL not configured");

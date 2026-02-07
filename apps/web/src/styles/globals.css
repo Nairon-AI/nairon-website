@@ -243,6 +243,13 @@
 	background-clip: text;
 }
 
+.text-gradient-gold {
+	background: linear-gradient(135deg, #F5C842, #CF9611, #A67A0D);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
 /* Hero gradient background */
 .hero-gradient {
 	background: #000;
@@ -259,6 +266,10 @@
 /* Glow effect for green accent */
 .glow-green {
 	box-shadow: 0 0 40px rgba(34, 197, 94, 0.15);
+}
+
+.glow-gold {
+	box-shadow: 0 0 40px rgba(207, 150, 17, 0.15);
 }
 
 /* Section divider line */
@@ -449,9 +460,13 @@
 	overflow: hidden;
 }
 
-/* Green radial glow for Residence / Final CTA sections */
+/* Radial glow for Residence / Final CTA sections */
 .green-glow-bg {
 	background: radial-gradient(circle at 50% 50%, rgba(34, 219, 24, 0.12) 0%, transparent 70%);
+}
+
+.gold-glow-bg {
+	background: radial-gradient(circle at 50% 50%, rgba(207, 150, 17, 0.12) 0%, transparent 70%);
 }
 
 /* Benchmark announcement widget */
@@ -498,4 +513,66 @@
 
 .benchmark-stroke-animate {
 	animation: benchmark-stroke-draw 12s linear forwards;
+}
+
+/* Problem section subtle motion */
+@keyframes problem-panel-enter {
+	0% {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.problem-panel-enter {
+	animation: problem-panel-enter 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes problem-gentle-float {
+	0%,
+	100% {
+		transform: translateY(0) rotate(2deg);
+	}
+	50% {
+		transform: translateY(-3px) rotate(1deg);
+	}
+}
+
+.problem-gentle-float {
+	animation: problem-gentle-float 5s ease-in-out infinite;
+}
+
+.problem-gentle-float-delayed {
+	animation: problem-gentle-float 6.2s ease-in-out 0.6s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.problem-panel-enter,
+	.problem-gentle-float,
+	.problem-gentle-float-delayed {
+		animation: none;
+	}
+}
+
+/* Value prop card rail */
+.value-prop-scroll {
+	scroll-behavior: smooth;
+	scrollbar-width: thin;
+	scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+
+.value-prop-scroll::-webkit-scrollbar {
+	width: 8px;
+}
+
+.value-prop-scroll::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.value-prop-scroll::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.22);
+	border-radius: 999px;
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { X, Radar } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useViewMode } from "@/contexts/view-mode-context";
 
 const APPEAR_DELAY = 15_000;
 const VISIBLE_DURATION = 12_000;
@@ -9,10 +10,13 @@ const STORAGE_KEY = "nairon-benchmark-widget-dismissed";
 const BORDER_RADIUS = 16;
 
 export function BenchmarkWidget() {
+	const { isHiringManager } = useViewMode();
 	const [visible, setVisible] = useState(false);
 	const [closing, setClosing] = useState(false);
 	const containerRef = useRef<HTMLDivElement>(null);
 	const [dims, setDims] = useState({ w: 0, h: 0, perimeter: 0 });
+	const strokeColor = isHiringManager ? "#CF9611" : "#22DB18";
+	const strokeHighlight = isHiringManager ? "#F5C842" : "#4ade80";
 
 	// Measure the card to compute the SVG stroke perimeter
 	useEffect(() => {
@@ -70,9 +74,9 @@ export function BenchmarkWidget() {
 				>
 					<defs>
 						<linearGradient id="bw-stroke-grad" x1="0" y1="0" x2="1" y2="1">
-							<stop offset="0%" stopColor="#22DB18" />
-							<stop offset="50%" stopColor="#4ade80" />
-							<stop offset="100%" stopColor="#22DB18" />
+							<stop offset="0%" stopColor={strokeColor} />
+							<stop offset="50%" stopColor={strokeHighlight} />
+							<stop offset="100%" stopColor={strokeColor} />
 						</linearGradient>
 						{/* Glow blur filter */}
 						<filter id="bw-glow" x="-20%" y="-20%" width="140%" height="140%">
@@ -90,7 +94,7 @@ export function BenchmarkWidget() {
 						rx={BORDER_RADIUS}
 						ry={BORDER_RADIUS}
 						fill="none"
-						stroke="#22DB18"
+						stroke={strokeColor}
 						strokeOpacity="0.5"
 						strokeWidth="4"
 						strokeDasharray={dims.perimeter}

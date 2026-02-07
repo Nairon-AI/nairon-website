@@ -558,50 +558,293 @@ export const HERO_CONTENT = {
 	},
 } as const;
 
-// ─── Problem → Solution blocks (2 sections) ────────────────────
-export const PROBLEMS = {
-	engineer: [
-		{
-			problemHeadline: "The best engineers are invisible",
-			problemBody:
-				"Traditional hiring filters out great engineers. Resumes, leetcode, and credentials don't measure what matters — ownership, systems thinking, and the ability to ship.",
-			solutionHeadline: "Nairon proves what you're worth",
-			solutionBody:
-				"We don't care about your resume. We test ownership, AI-native thinking, systems design, and the ability to deliver under pressure. If you pass, the best companies come to you.",
-		},
-		{
-			problemHeadline: "AI is rewriting the rules — most engineers aren't ready",
-			problemBody:
-				"The industry is shifting faster than careers. Engineers who don't become AI-native in the next 2 years will be left behind. Frameworks change, but the engineers who think in systems and own outcomes will always be in demand.",
-			solutionHeadline: "Become the engineer companies fight over",
-			solutionBody:
-				"Nairon doesn't teach you a framework. We rewire how you think — AI-native from day one, systems-level thinking, CTO-level communication. You leave as the kind of engineer who gets recruited, not the kind who applies.",
-		},
-	],
-	hiringManager: [
-		{
-			problemHeadline: "Hiring engineering talent is broken",
-			problemBody:
-				"You're drowning in applications but starving for quality. Resume screening, generic coding tests, and recruiter pipelines keep delivering engineers who can't deliver.",
-			solutionHeadline: "Nairon solves hiring at the source",
-			solutionBody:
-				"We don't send you resumes. We put engineers through 8 weeks of real-world AI projects, hackathons, and pressure tests. You only see the ones who survived.",
-		},
-		{
-			problemHeadline: "There aren't enough AI-native engineers",
-			problemBody:
-				"Every company needs AI-native engineers. Almost none exist. The ones who do are already employed and not looking. Traditional training programs produce engineers who know tools, not engineers who think differently.",
-			solutionHeadline: "We produce what the market can't",
-			solutionBody:
-				"Nairon engineers are trained through live projects, AI-native workflows, and intense evaluation. They don't just know AI — they think in systems, communicate like CTOs, and deliver under pressure.",
-		},
-	],
+// ─── Problem section — Observation + tabbed problems ────────────
+export const PROBLEM_SECTION = {
+	engineer: {
+		eyebrow: "THE PROBLEM",
+		observation: "Engineers will either shape the future or be left behind.",
+		tabs: [
+			{
+				tab: "Invisible to companies",
+				title: "Great talent stays unseen",
+				description:
+					"Hiring still leans on resumes and interview polish. Real builders are often filtered out before they can show what they can do.",
+				button: { label: "See how we fix this", href: "/residence" },
+				visualTag: "Signal gap",
+				visualItems: [
+					"Resume keywords",
+					"Credentials",
+					"Interview performance",
+					"Real building ability",
+				],
+			},
+			{
+				tab: "Too much hype",
+				title: "Noise beats real progress",
+				description:
+					"Every week brings a new tool and trend. Most engineers stay busy, but still do not know what path actually moves their career.",
+				button: { label: "Find a clear path", href: "/residence" },
+				visualTag: "Signal vs noise",
+				visualItems: [
+					"New frameworks",
+					"Hot takes",
+					"AI tool drops",
+					"One path that compounds",
+				],
+			},
+			{
+				tab: "Career risk",
+				title: "The stakes are rising",
+				description:
+					"AI is changing what companies value and how teams work. If you stand still, opportunities, pay, and confidence can fall fast.",
+				button: { label: "Protect your edge", href: "/residence" },
+				visualTag: "Future outcomes",
+				visualItems: ["Adapt and lead", "Stand still", "Role growth", "Role risk"],
+			},
+		],
+	},
+	hiringManager: {
+		eyebrow: "THE PROBLEM",
+		observation:
+			"In the next few years, companies will either build with AI-native engineers or fall behind.",
+		tabs: [
+			{
+				tab: "Invisible to companies",
+				title: "Top builders stay hidden",
+				description:
+					"The best engineers are filtered out by weak signals. Teams lose months interviewing candidates who look strong on paper but cannot deliver.",
+				button: { label: "See our pipeline", href: "/approach" },
+				visualTag: "Signal gap",
+				visualItems: [
+					"Resume keywords",
+					"Credentials",
+					"Interview performance",
+					"Real building ability",
+				],
+			},
+			{
+				tab: "Too much hype",
+				title: "Hype hides true talent",
+				description:
+					"Everyone claims to be AI-ready. It is harder than ever to separate people who can actually ship from people who can just talk about tools.",
+				button: { label: "Find proven engineers", href: "/approach" },
+				visualTag: "Signal vs noise",
+				visualItems: [
+					"AI buzzwords",
+					"Trend chasing",
+					"Tool familiarity",
+					"Production execution",
+				],
+			},
+			{
+				tab: "Career risk",
+				title: "Hiring risk is compounding",
+				description:
+					"A weak AI hire slows roadmap, burns team time, and raises delivery risk. The cost of getting this wrong is now much higher.",
+				button: { label: "Reduce hiring risk", href: "/approach" },
+				visualTag: "Future outcomes",
+				visualItems: ["AI-native hires", "Slow delivery", "Market lead", "Roadmap risk"],
+			},
+		],
+	},
 } as const;
 
-// ─── Sprinkled CTA after second problem block ──────────────────
-export const PROBLEM_CTA = {
-	engineer: { primary: { label: "Apply Now", href: "/residence" } },
-	hiringManager: { primary: { label: "See Our Approach", href: "/approach" } },
+// ─── Value prop section — scroll-reveal story ─────────────────────
+export const VALUE_PROP_SECTION = {
+	engineer: {
+		headline: "From overlooked to undeniable.",
+		subline:
+			"In an AI-shifting world, the edge goes to engineers who are seen, sharpened, and aligned with meaningful work.",
+		steps: [
+			{
+				icon: "visibility" as const,
+				label: "Get seen",
+				title: "Get seen",
+				description:
+					"Be recognized for how you think, not how your resume scans. Real signal rises above resume theater.",
+				tags: ["Signal over pedigree", "Thinking-first evaluation", "Merit, not theater"],
+				asset: {
+					type: "image" as const,
+					src: "/1.png",
+					poster: "",
+					alt: "Engineer being recognized for their work",
+					placeholder: "Drop your Get seen clip here",
+				},
+			},
+			{
+				icon: "learning" as const,
+				label: "Learn what matters",
+				title: "Learn what matters",
+				description:
+					"Build AI-native skills that create real progress, not more noise. Focus on execution that compounds.",
+				tags: ["Real workflows", "Execution focused", "Built for this era"],
+				asset: {
+					type: "image" as const,
+					src: "/2.png",
+					poster: "",
+					alt: "Engineer learning AI-native workflows",
+					placeholder: "Drop your Learn what matters clip here",
+				},
+			},
+			{
+				icon: "purpose" as const,
+				label: "Find purpose in work",
+				title: "Find purpose in work",
+				description:
+					"Use your talent on work that matters, with people who value it. Build outcomes you are proud to own.",
+				tags: ["Meaningful roles", "High ownership", "Visible impact"],
+				asset: {
+					type: "image" as const,
+					src: "/3.png",
+					poster: "",
+					alt: "Engineer seeing meaningful impact from their work",
+					placeholder: "Drop your Find purpose in work clip here",
+				},
+			},
+		],
+	},
+	hiringManager: {
+		headline: "From noisy resumes to undeniable builders.",
+		subline:
+			"When the market shifts this fast, teams win by hiring engineers who can think clearly, learn quickly, and ship meaningful outcomes.",
+		steps: [
+			{
+				icon: "visibility" as const,
+				label: "See real signal",
+				title: "See real signal",
+				description:
+					"Assess engineers by problem-solving quality and execution depth, not keyword-heavy resumes.",
+				tags: ["Signal-first filtering", "Problem-solving depth", "Lower screening noise"],
+				asset: {
+					type: "image" as const,
+					src: "/1.png",
+					poster: "",
+					alt: "Hiring manager identifying true engineering signal",
+					placeholder: "Drop your See real signal clip here",
+				},
+			},
+			{
+				icon: "learning" as const,
+				label: "Hire adaptive talent",
+				title: "Hire adaptive talent",
+				description:
+					"Get engineers trained on modern AI-native workflows and practical delivery expectations.",
+				tags: ["AI-native habits", "Execution ready", "Fast ramp-up"],
+				asset: {
+					type: "image" as const,
+					src: "/2.png",
+					poster: "",
+					alt: "Engineer collaborating with team using AI-native workflows",
+					placeholder: "Drop your Hire adaptive talent clip here",
+				},
+			},
+			{
+				icon: "purpose" as const,
+				label: "Build with purpose",
+				title: "Build with purpose",
+				description:
+					"Place engineers where strengths compound, ownership is clear, and impact reaches users quickly.",
+				tags: ["Better role fit", "High ownership", "Faster product impact"],
+				asset: {
+					type: "image" as const,
+					src: "/3.png",
+					poster: "",
+					alt: "Team reviewing meaningful product impact",
+					placeholder: "Drop your Build with purpose clip here",
+				},
+			},
+		],
+	},
+} as const;
+
+// ─── Benefits bento section ───────────────────────────────────────
+export const BENEFITS_BENTO_SECTION = {
+	engineer: {
+		eyebrow: "Benefits",
+		title: "Why engineers choose nairon",
+		metrics: [
+			{ label: "Duration", value: "8", suffix: "wks", note: "Intensive Program" },
+			{ label: "Hiring Partners", value: "10+", note: "Global companies" },
+			{ label: "Cohort Size", value: "20+", note: "Elite Engineers" },
+			{ label: "Work Type", value: "100%", note: "Remote Work" },
+		],
+		cards: {
+			experience: {
+				tag: "The Experience",
+				heading: "Dubai is the experience - The opportunity is global.",
+				items: [
+					{ icon: "home" as const, text: "Free housing during Dubai intensive weeks" },
+					{ icon: "plane" as const, text: "Flights + transportation covered" },
+					{ icon: "food" as const, text: "Food + laundry service included" },
+				],
+			},
+			resources: {
+				tag: "Premium Access",
+				heading: "Unlimited Resources for Success",
+				items: [
+					"Unlimited API credits for training and projects",
+					"Premium AI tool access",
+				],
+			},
+			community: {
+				tag: "Community",
+				heading: "Global Network Access",
+				items: [
+					"Slack community of global engineers",
+					"Real projects from partner companies",
+					"Priority for top ranks",
+				],
+			},
+			guarantee: {
+				tag: "Guaranteed",
+				value: "$100K+",
+				note: "Minimum earning potential",
+			},
+		},
+	},
+	hiringManager: {
+		eyebrow: "Benefits",
+		title: "why companies hire from nairon",
+		metrics: [
+			{ label: "Time to Hire", value: "<14", suffix: "days", note: "Average timeline" },
+			{ label: "Placement", value: "100%", note: "Role fulfillment" },
+			{ label: "Candidate Quality", value: "Top 1%", note: "AI-native engineers" },
+			{ label: "Bad Hires", value: "0", note: "From our pipeline" },
+		],
+		cards: {
+			experience: {
+				tag: "Pipeline",
+				heading: "Screened for clear thinking and execution under pressure.",
+				items: [
+					{ icon: "home" as const, text: "Benchmark-based evaluation" },
+					{ icon: "plane" as const, text: "8-week AI-native preparation" },
+					{ icon: "food" as const, text: "Role-fit matching before intro" },
+				],
+			},
+			resources: {
+				tag: "Speed",
+				heading: "Faster hiring with higher confidence",
+				items: [
+					"Pre-qualified engineers, ready for real delivery",
+					"Less interview waste and lower hiring noise",
+				],
+			},
+			community: {
+				tag: "Outcomes",
+				heading: "Engineers who compound team performance",
+				items: [
+					"Strong ownership from day one",
+					"Execution aligned to product outcomes",
+					"Visible impact in weeks, not quarters",
+				],
+			},
+			guarantee: {
+				tag: "Guarantee",
+				value: "0 Bad Hires",
+				note: "From our pipeline",
+			},
+		},
+	},
 } as const;
 
 // ─── Outcome metrics ───────────────────────────────────────────
@@ -640,17 +883,22 @@ export const STEPS = {
 		{
 			icon: "ClipboardText" as const,
 			title: "Apply",
-			description: "Submit your profile and take the CCAT assessment",
+			description: "One application. One CCAT. No endless interview loops.",
 		},
 		{
 			icon: "Trophy" as const,
-			title: "Prove yourself",
-			description: "Win a hackathon and survive 8 weeks of intense AI training",
+			title: "Prove it in a hackathon",
+			description: "Hackathons run twice a month. Build something real and get your decision in 1-2 weeks max.",
 		},
 		{
 			icon: "Briefcase" as const,
-			title: "Get hired",
-			description: "Partner companies compete to hire you",
+			title: "Become world-class",
+			description: "Join our free program and train to become a world-class AI engineer.",
+		},
+		{
+			icon: "Handshake" as const,
+			title: "Start dream job",
+			description: "We introduce you to 5-8 hiring partners, then help you land the right offer.",
 		},
 	],
 	hiringManager: [
@@ -660,9 +908,14 @@ export const STEPS = {
 			description: "Tell us what you need and your engineering requirements",
 		},
 		{
+			icon: "Briefcase" as const,
+			title: "Develop engineers",
+			description: "We train and pressure-test engineers in our program before introductions.",
+		},
+		{
 			icon: "MagnifyingGlass" as const,
 			title: "We match",
-			description: "We select from our trained, vetted engineer pool",
+			description: "We shortlist from our trained, vetted engineer pool for your exact role.",
 		},
 		{
 			icon: "Handshake" as const,
@@ -680,42 +933,84 @@ export const STEPS_CTA = {
 // ─── Residence section ─────────────────────────────────────────
 export const RESIDENCE = {
 	engineer: {
-		title: "The Residence",
-		subtitle: "8 weeks. Dubai. Free. Only 12 spots.",
+		title: "The Residency",
+		subtitle: "8 weeks in Dubai. Fully funded. Only 12 spots.",
 		points: [
-			"Free program (fully funded)",
-			"Fly to Dubai, full relocation",
+			"100hrs/week, 800hrs total",
+			"Housing, flights, and food included",
 			"Work on real AI projects with partners",
 			"Direct intros to hiring partners",
 		],
-		cta: { label: "Apply to Residence", href: "/residence" },
+		cta: { label: "Apply to Residency", href: "/residence" },
 	},
 	hiringManager: {
-		title: "The Residence: Our Flagship Pipeline",
+		title: "The Residency: Our Flagship Program",
 		subtitle: "How we produce the top 1% of AI engineers",
 		points: [
+			"100hrs/week, 800hrs total",
 			"8-week intensive in Dubai",
 			"Hackathons, live projects, peer pressure",
 			"Only 12 per cohort — extreme selectivity",
 			"Every graduate is verified by us",
 		],
-		cta: { label: "Learn About Our Process", href: "/approach" },
+		cta: { label: "Find talent", href: "/approach" },
 	},
 } as const;
 
 // ─── Apprenticeship section ────────────────────────────────────
 export const APPRENTICESHIP_CONTENT = {
 	engineer: {
-		title: "The Apprenticeship",
-		description: "Remote. Flexible. Your path to standing out.",
-		pills: ["Remote", "$1,500", "Same Curriculum"],
-		cta: { label: "Learn More", href: "/apprenticeship" },
+		title: "Start with Apprenticeship.",
+		description:
+			"Built after hundreds of engineers asked for a scaled version of our Residency, Apprenticeship helps you build the same execution habits remotely — then apply to Residency when you're ready.",
+		points: [
+			"8hrs/week, 48hrs total",
+			"Part-time, remote format",
+			"6-week structured program",
+		],
+		pills: ["Remote", "$1,500", "Standalone Path"],
+		cta: { label: "Explore Apprenticeship", href: "/apprenticeship" },
 	},
 	hiringManager: {
 		title: "The Apprenticeship",
-		description: "A broader pool of trained AI engineers.",
-		pills: ["Remote", "Pre-Screened", "Trained"],
+		description:
+			"A standalone remote track that adds a broader pool of trained AI engineers to your hiring pipeline.",
+		points: [
+			"8hrs/week, 48hrs total",
+			"Part-time remote training",
+			"6-week program",
+			"Additional vetted talent pipeline",
+		],
+		pills: ["Standalone", "Remote", "Trained"],
 		cta: { label: "Access This Pool", href: "/pricing" },
+	},
+} as const;
+
+// ─── Certificate section ─────────────────────────────────────────
+export const CERTIFICATE_SECTION = {
+	engineer: {
+		eyebrow: "OUTCOME",
+		title: "Graduate with proof, not promises",
+		description: "",
+		certificateTitle: "AI-Native Engineering Certificate",
+		recipientName: "Aarav Patel",
+		track: "Founding AI Engineer Track",
+		credentialId: "NRN-ENG-2026-011",
+		certificateBody:
+			"Awarded to engineers who complete our full evaluation and delivery standards, from hackathon wins to production-grade project execution.",
+		pills: ["Verified by mentors", "Real project evidence", "Partner-ready signal"],
+	},
+	hiringManager: {
+		eyebrow: "VERIFICATION",
+		title: "A hiring signal you can trust",
+		description: "",
+		certificateTitle: "Nairon Verified AI Engineer",
+		recipientName: "Layla Hassan",
+		track: "AI Systems Delivery Track",
+		credentialId: "NRN-HM-2026-008",
+		certificateBody:
+			"Issued only after passing rigorous execution benchmarks across product thinking, AI systems design, and shipping speed under pressure.",
+		pills: ["Execution benchmarked", "System-thinking assessed", "Production-ready talent"],
 	},
 } as const;
 

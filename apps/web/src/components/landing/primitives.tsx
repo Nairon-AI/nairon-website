@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useViewMode } from "@/contexts/view-mode-context";
 
 // ─── Design Tokens ──────────────────────────────────────────────
 // Consistent color palette matching the live naironai.com
@@ -69,9 +70,14 @@ export function DimText({ children }: { children: ReactNode }) {
 	return <span className={colors.textDim}>{children}</span>;
 }
 
-// ─── Green Gradient Text ─────────────────────────────────────────
+// ─── Accent Gradient Text (green for engineer, gold for hiring-manager) ──
 export function GreenText({ children }: { children: ReactNode }) {
-	return <span className="text-gradient-green">{children}</span>;
+	const { isHiringManager } = useViewMode();
+	return (
+		<span className={isHiringManager ? "text-gradient-gold" : "text-gradient-green"}>
+			{children}
+		</span>
+	);
 }
 
 // ─── Glass Card ──────────────────────────────────────────────────
@@ -180,14 +186,16 @@ export function BodyText({
 // ─── Bullet Point ────────────────────────────────────────────────
 export function BulletPoint({
 	children,
-	color = "green",
+	color,
 }: { children: ReactNode; color?: "green" | "gold" }) {
+	const { isHiringManager } = useViewMode();
+	const resolved = color ?? (isHiringManager ? "gold" : "green");
 	return (
 		<div className="flex items-start gap-3">
 			<div
 				className={cn(
 					"w-1.5 h-1.5 rounded-full mt-2 shrink-0",
-					color === "green" ? "bg-green-400" : "bg-amber-400",
+					resolved === "green" ? "bg-green-400" : "bg-amber-400",
 				)}
 			/>
 			<BodyText>{children}</BodyText>

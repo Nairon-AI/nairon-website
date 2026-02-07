@@ -3,7 +3,9 @@ import {
 	Navbar,
 	Hero,
 	ProblemSolution,
-	OutcomeMetrics,
+	ValueProp,
+	BenefitsBento,
+	CertificateSection,
 	HowItWorks,
 	Residence,
 	Apprenticeship,
@@ -27,12 +29,15 @@ function HomePage() {
 					<Navbar />
 					<Hero />
 					<VideoSection />
-					<ProblemSolution index={0} />
-					<ProblemSolution index={1} />
-					<OutcomeMetrics />
+					<ProblemSolution />
+					<ValueProp />
+					<BenefitsBento />
+					<CertificateSection />
+					<section data-snap-align="start">
+						<Residence />
+						<Apprenticeship />
+					</section>
 					<HowItWorks />
-					<Residence />
-					<Apprenticeship />
 					<Partners />
 					<FAQ />
 				</div>
