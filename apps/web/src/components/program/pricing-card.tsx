@@ -44,7 +44,7 @@ export function PricingCard({
 					)}
 
 					{/* Included */}
-					<p className="text-sm text-white/40 uppercase tracking-wide mt-8 mb-4">
+					<p className="text-sm text-white/40 uppercase tracking-label mt-8 mb-4">
 						What&apos;s covered:
 					</p>
 					<div className="space-y-3">
@@ -59,7 +59,7 @@ export function PricingCard({
 					{data.commitment && data.commitment.length > 0 && (
 						<>
 							<div className="h-px bg-white/8 my-8" />
-							<p className="text-sm text-white/40 uppercase tracking-wide mb-4">
+							<p className="text-sm text-white/40 uppercase tracking-label mb-4">
 								What we ask in return:
 							</p>
 							<div className="space-y-3">

@@ -26,7 +26,7 @@ function PhoneMockup() {
 					{["Full Name", "Email Address", "LinkedIn URL"].map(
 						(label) => (
 							<div key={label}>
-								<label className="text-white/40 text-[10px] block mb-1">
+								<label className="text-white/40 text-micro block mb-1">
 									{label}
 								</label>
 								<div className="h-8 rounded-lg bg-white/[0.05] border border-white/8" />
@@ -36,11 +36,11 @@ function PhoneMockup() {
 
 					{/* Program selector */}
 					<div>
-						<label className="text-white/40 text-[10px] block mb-1">
+						<label className="text-white/40 text-micro block mb-1">
 							Choose Program
 						</label>
 						<div className="h-8 rounded-lg bg-white/[0.05] border border-white/8 flex items-center px-3">
-							<span className="text-white/60 text-[11px]">
+							<span className="text-white/60 text-micro">
 								Residence / Apprenticeship
 							</span>
 						</div>

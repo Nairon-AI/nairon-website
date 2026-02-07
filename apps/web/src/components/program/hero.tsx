@@ -15,7 +15,7 @@ export function ProgramHero({ data }: { data: ProgramHeroData }) {
 				{/* Tag */}
 				<div className="flex items-center justify-center gap-3 mb-6">
 					<div className="w-2 h-2 rounded-full bg-green-400" />
-					<span className="text-white/70 text-sm md:text-base tracking-wide uppercase">
+					<span className="text-white/70 text-sm md:text-base uppercase tracking-label">
 						{data.tag}
 					</span>
 				</div>
