@@ -181,6 +181,10 @@
 	font-family: var(--font-body);
 }
 
+.font-serif {
+	font-family: "Instrument Serif", serif;
+}
+
 /* Marquee animation */
 @keyframes marquee {
 	0% {
