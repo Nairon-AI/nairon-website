@@ -268,10 +268,7 @@
 	background: #fff;
 }
 
-/* Smooth scroll */
-html {
-	scroll-behavior: smooth;
-}
+/* Smooth scroll handled by Lenis — do not use scroll-behavior: smooth */
 
 /* Phase label gradient */
 .phase-gradient-1 {
