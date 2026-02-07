@@ -5,6 +5,7 @@ import {
 	ProblemSolution,
 	ValueProp,
 	BenefitsBento,
+	CertificateSection,
 	HowItWorks,
 	Residence,
 	Apprenticeship,
@@ -31,6 +32,7 @@ function HomePage() {
 					<ProblemSolution />
 					<ValueProp />
 					<BenefitsBento />
+					<CertificateSection />
 					<HowItWorks />
 					<Residence />
 					<Apprenticeship />

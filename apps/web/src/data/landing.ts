@@ -962,6 +962,34 @@ export const APPRENTICESHIP_CONTENT = {
 	},
 } as const;
 
+// ─── Certificate section ─────────────────────────────────────────
+export const CERTIFICATE_SECTION = {
+	engineer: {
+		eyebrow: "OUTCOME",
+		title: "Graduate with proof, not promises",
+		description: "",
+		certificateTitle: "AI-Native Engineering Certificate",
+		recipientName: "Aarav Patel",
+		track: "Founding AI Engineer Track",
+		credentialId: "NRN-ENG-2026-011",
+		certificateBody:
+			"Awarded to engineers who complete our full evaluation and delivery standards, from hackathon wins to production-grade project execution.",
+		pills: ["Verified by mentors", "Real project evidence", "Partner-ready signal"],
+	},
+	hiringManager: {
+		eyebrow: "VERIFICATION",
+		title: "A hiring signal you can trust",
+		description: "",
+		certificateTitle: "Nairon Verified AI Engineer",
+		recipientName: "Layla Hassan",
+		track: "AI Systems Delivery Track",
+		credentialId: "NRN-HM-2026-008",
+		certificateBody:
+			"Issued only after passing rigorous execution benchmarks across product thinking, AI systems design, and shipping speed under pressure.",
+		pills: ["Execution benchmarked", "System-thinking assessed", "Production-ready talent"],
+	},
+} as const;
+
 // ─── Partners section — view-mode-aware title + quote ──────────
 export const PARTNER_CONTENT = {
 	engineer: {
