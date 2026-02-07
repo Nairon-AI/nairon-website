@@ -151,7 +151,7 @@ function hexToVec4(hex: string): [number, number, number, number] {
 const PARAMS_GREEN = {
 	scale: 0.45,
 	rotation: 0,
-	speed: 53,
+	speed: 26.5,
 	color1: hexToVec4("192613"),
 	color2: hexToVec4("22DB18"),
 	color3: hexToVec4("FFFFFF"),
@@ -167,7 +167,7 @@ const PARAMS_GREEN = {
 const PARAMS_GOLD = {
 	scale: 0.45,
 	rotation: 0,
-	speed: 53,
+	speed: 26.5,
 	color1: hexToVec4("1A1609"),
 	color2: hexToVec4("FFB300"),
 	color3: hexToVec4("FFFFFF"),
@@ -313,12 +313,12 @@ export function AnimatedGradient({ variant = "green" }: { variant?: "green" | "g
 		<>
 			<canvas
 				ref={canvasRef}
-				className="absolute inset-0 w-full h-full"
+				className="absolute inset-0 w-full h-full pointer-events-none"
 				style={{ imageRendering: "auto" }}
 			/>
 			{/* Checks pattern overlay — same asset used by Framer */}
 			<div
-				className="absolute inset-0"
+				className="absolute inset-0 pointer-events-none"
 				style={{
 					backgroundImage:
 						'url("https://framerusercontent.com/images/g0QcWrxr87K0ufOxIUFBakwYA8.png")',

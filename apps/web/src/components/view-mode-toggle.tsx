@@ -214,21 +214,18 @@ export function ViewModeToggle() {
 				/>
 			</div>
 
-			{/* Blur overlay */}
-			<div
-				className={cn(
-					"fixed inset-0 z-[54] pointer-events-none transition-all duration-500 ease-out",
-					isTransitioning
-						? "backdrop-blur-[2px] bg-black/10"
-						: "backdrop-blur-none bg-transparent",
-				)}
-			/>
+			{/* Blur overlay — only rendered during transition to avoid blocking element inspection */}
+			{isTransitioning && (
+				<div
+					className="fixed inset-0 z-[54] pointer-events-none transition-all duration-500 ease-out backdrop-blur-[2px] bg-black/10"
+				/>
+			)}
 
 			{/* Toggle component */}
 			<div ref={toggleRef} className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[70]">
 				<div
 					className={cn(
-						"flex items-center gap-3 pl-4 pr-1 py-1 rounded-full",
+						"flex items-center gap-4 pl-5 pr-1.5 py-1.5 rounded-full",
 						"bg-white/[0.03] backdrop-blur-md",
 						"border border-white/8",
 						"shadow-lg shadow-black/20",
@@ -236,21 +233,21 @@ export function ViewModeToggle() {
 						isTransitioning && `scale-105 ${COLOR_PALETTES[targetMode].glowBorder} ${COLOR_PALETTES[targetMode].glowShadow}`,
 					)}
 				>
-					<span className="text-white/40 text-sm font-medium">View as:</span>
+					<span className="text-white/40 text-base font-medium">View as:</span>
 					<div className="flex items-center gap-1">
 						<button
 							type="button"
 							onClick={(e) => handleModeChange("engineer", e)}
 							disabled={isTransitioning}
 							className={cn(
-								"flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
+								"flex items-center gap-2 px-5 py-2.5 rounded-full text-base font-medium transition-all duration-300",
 								viewMode === "engineer"
 									? "bg-white text-black shadow-lg"
 									: "text-white/60 hover:text-white hover:bg-white/5",
 								isTransitioning && "cursor-wait",
 							)}
 						>
-							<Code2 className="w-4 h-4" />
+							<Code2 className="w-5 h-5" />
 							<span>Engineer</span>
 						</button>
 						<button
@@ -258,14 +255,14 @@ export function ViewModeToggle() {
 							onClick={(e) => handleModeChange("hiring-manager", e)}
 							disabled={isTransitioning}
 							className={cn(
-								"flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
+								"flex items-center gap-2 px-5 py-2.5 rounded-full text-base font-medium transition-all duration-300",
 								viewMode === "hiring-manager"
 									? "bg-white text-black shadow-lg"
 									: "text-white/60 hover:text-white hover:bg-white/5",
 								isTransitioning && "cursor-wait",
 							)}
 						>
-							<Users className="w-4 h-4" />
+							<Users className="w-5 h-5" />
 							<span>Hiring Manager</span>
 						</button>
 					</div>

@@ -2,8 +2,8 @@ import { ArrowDown } from "lucide-react";
 import { useCountdown } from "@/hooks/use-countdown";
 import { useRotatingText } from "@/hooks/use-rotating-text";
 import { AnimatedGradient } from "./animated-gradient";
-import { colors, PrimaryButton } from "./primitives";
-import { APPLICATION_DEADLINE, HERO_WORDS, HERO_CONTENT } from "@/data/landing";
+import { colors } from "./primitives";
+import { APPLICATION_DEADLINE, HERO_WORDS } from "@/data/landing";
 import { useViewMode } from "@/contexts/view-mode-context";
 import { DigitalText } from "@/components/digital-text";
 
@@ -80,15 +80,16 @@ export function Hero() {
 	};
 
 	const content = isEngineer ? heroContent.engineer : heroContent.hiringManager;
-	const heroExtra = isEngineer ? HERO_CONTENT.engineer : HERO_CONTENT.hiringManager;
 
 	return (
-		<header className="relative min-h-screen flex flex-col justify-center hero-gradient overflow-hidden">
+		<header className="relative min-h-[115vh] flex flex-col hero-gradient overflow-hidden">
 			{/* Animated gradient background */}
 			<div className="absolute inset-0 z-0">
 				<AnimatedGradient variant={isEngineer ? "green" : "gold"} />
 			</div>
-			<div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-12 w-full flex flex-col items-center">
+			{/* Bottom dark gradient for smooth transition */}
+			<div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-black z-[1]" />
+			<div className="relative z-10 max-w-7xl mx-auto px-6 pt-[20vh] pb-8 w-full flex flex-col items-center">
 				{/* Nairon logo image */}
 				<img
 					src="https://framerusercontent.com/images/VHRAdVMCwEE6Q9afizgYDgxitUU.png"
@@ -111,21 +112,11 @@ export function Hero() {
 					</span>
 				</div>
 
-				{/* Subtext */}
-				<p className={`mt-4 text-base md:text-lg ${colors.textBody} text-center max-w-xl`}>
-					<DigitalText text={heroExtra.subtext} duration={600} />
-				</p>
-
-				{/* CTA */}
-				<div className="mt-6">
-					<PrimaryButton href={heroExtra.cta.href}>
-						{heroExtra.cta.label}
-					</PrimaryButton>
-				</div>
-
 				<Countdown />
 				<InfoBar />
 			</div>
+			{/* Flexible spacer: fills remaining hero space below content */}
+			<div className="flex-1 min-h-12" />
 		</header>
 	);
 }

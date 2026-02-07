@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { colors } from "./primitives";
 import { FOOTER_LINKS } from "@/data/landing";
+import { useViewMode } from "@/contexts/view-mode-context";
 
 function SocialLinks() {
 	return (
@@ -62,9 +63,12 @@ function FooterNavLink({ label, href }: { label: string; href: string }) {
 }
 
 function FooterNav() {
+	const { isEngineer } = useViewMode();
+	const links = isEngineer ? FOOTER_LINKS.engineer : FOOTER_LINKS.hiringManager;
+
 	return (
 		<nav className="flex flex-wrap gap-3">
-			{FOOTER_LINKS.map((item) => (
+			{links.map((item) => (
 				<FooterNavLink key={item.label} label={item.label} href={item.href} />
 			))}
 		</nav>
@@ -98,7 +102,7 @@ function FooterBottom() {
 
 function LargeLogoBackground() {
 	return (
-		<div className="relative h-[500px] overflow-hidden">
+		<div className="relative h-[400px] overflow-hidden">
 			{/* Green gradient background image (contains nairon logo square) */}
 			<img
 				src="https://framerusercontent.com/images/enyh4nWMxHyEude0e3qPKlPss.png"
@@ -121,7 +125,7 @@ function LargeLogoBackground() {
 				alt=""
 				className="absolute bottom-0 left-1/2 -translate-x-1/2 max-w-none translate-y-[20%]"
 				style={{
-					width: "min(126%, 1920px)",
+					width: "75%",
 					maskImage:
 						"linear-gradient(to top, white 0%, white 60%, transparent 100%)",
 					WebkitMaskImage:

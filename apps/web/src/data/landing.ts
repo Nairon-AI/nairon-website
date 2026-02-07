@@ -106,8 +106,8 @@ export const ENGINEER_NAV: NavConfig = {
 		},
 		{ kind: "link", label: "Team", href: "/team" },
 		{ kind: "link", label: "Alumni", href: "/alumni" },
-		{ kind: "link", label: "Careers", href: "/careers" },
 		{ kind: "link", label: "Contact", href: "/contact" },
+		{ kind: "link", label: "Careers", href: "/careers" },
 	],
 	cta: {
 		label: "Apply",
@@ -120,9 +120,9 @@ export const ENGINEER_NAV: NavConfig = {
 export const HIRING_MANAGER_NAV: NavConfig = {
 	items: [
 		{ kind: "link", label: "Our Approach", href: "/hire" },
-		{ kind: "link", label: "Pricing", href: "/pricing" },
-		{ kind: "link", label: "Success Stories", href: "/success-stories" },
 		{ kind: "link", label: "Team", href: "/team" },
+		{ kind: "link", label: "Success Stories", href: "/success-stories" },
+		{ kind: "link", label: "Pricing", href: "/pricing" },
 		{ kind: "link", label: "Contact", href: "/contact" },
 	],
 	cta: {
@@ -405,14 +405,23 @@ export const FAQ_ITEMS = [
 ] as const;
 
 // ─── Footer links ────────────────────────────────────────────────
-export const FOOTER_LINKS = [
-	{ label: "Hire", href: "/hire" },
-	{ label: "Team", href: "/team" },
-	{ label: "Program", href: "/program" },
-	{ label: "Careers", href: "/careers" },
-	{ label: "Contact", href: "/contact" },
-	{ label: "Blog", href: "/blog" },
-] as const;
+export const FOOTER_LINKS = {
+	engineer: [
+		{ label: "Programs", href: "/program" },
+		{ label: "Team", href: "/team" },
+		{ label: "Alumni", href: "/alumni" },
+		{ label: "Careers", href: "/careers" },
+		{ label: "Contact", href: "/contact" },
+		{ label: "Blog", href: "/blog" },
+	],
+	hiringManager: [
+		{ label: "Our Approach", href: "/hire" },
+		{ label: "Team", href: "/team" },
+		{ label: "Success Stories", href: "/success-stories" },
+		{ label: "Pricing", href: "/pricing" },
+		{ label: "Contact", href: "/contact" },
+	],
+} as const;
 
 // ─── Engineer benefits ───────────────────────────────────────────
 export const ENGINEER_BENEFITS = [
