@@ -33,11 +33,11 @@ function HomePage() {
 					<ValueProp />
 					<BenefitsBento />
 					<CertificateSection />
-					<HowItWorks />
 					<section data-snap-align="start">
 						<Residence />
 						<Apprenticeship />
 					</section>
+					<HowItWorks />
 					<Partners />
 					<FAQ />
 				</div>

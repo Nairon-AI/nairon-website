@@ -883,17 +883,22 @@ export const STEPS = {
 		{
 			icon: "ClipboardText" as const,
 			title: "Apply",
-			description: "Submit your profile and take the CCAT assessment",
+			description: "One application. One CCAT. No endless interview loops.",
 		},
 		{
 			icon: "Trophy" as const,
-			title: "Prove yourself",
-			description: "Win a hackathon and survive 8 weeks of intense AI training",
+			title: "Prove it in a hackathon",
+			description: "Hackathons run twice a month. Build something real and get your decision in 1-2 weeks max.",
 		},
 		{
 			icon: "Briefcase" as const,
-			title: "Get hired",
-			description: "Partner companies compete to hire you",
+			title: "Become world-class",
+			description: "Join our free program and train to become a world-class AI engineer.",
+		},
+		{
+			icon: "Handshake" as const,
+			title: "Start dream job",
+			description: "We introduce you to 5-8 hiring partners, then help you land the right offer.",
 		},
 	],
 	hiringManager: [
@@ -903,9 +908,14 @@ export const STEPS = {
 			description: "Tell us what you need and your engineering requirements",
 		},
 		{
+			icon: "Briefcase" as const,
+			title: "Develop engineers",
+			description: "We train and pressure-test engineers in our program before introductions.",
+		},
+		{
 			icon: "MagnifyingGlass" as const,
 			title: "We match",
-			description: "We select from our trained, vetted engineer pool",
+			description: "We shortlist from our trained, vetted engineer pool for your exact role.",
 		},
 		{
 			icon: "Handshake" as const,

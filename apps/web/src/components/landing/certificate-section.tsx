@@ -27,7 +27,7 @@ export function CertificateSection() {
 	const jobOfferClass = isEngineer ? "text-emerald-100/92" : "text-amber-50/95";
 
 	return (
-		<section className="py-14 md:py-24">
+		<section className="pt-14 pb-3 md:pt-24 md:pb-6">
 			<div className="mx-auto max-w-7xl px-6">
 				<div className="mb-0 text-center">
 					<div className="text-xs uppercase tracking-[0.24em] text-white/55">{data.eyebrow}</div>

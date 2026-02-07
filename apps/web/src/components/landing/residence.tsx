@@ -13,7 +13,7 @@ export function Residence() {
 	const data = RESIDENCE[view];
 
 	return (
-		<div className="relative overflow-hidden pt-20 pb-8 md:pt-28 md:pb-10">
+		<div className="relative overflow-hidden pt-8 pb-8 md:pt-12 md:pb-10">
 			<div className="relative z-10 mx-auto max-w-7xl px-6">
 				<div className="mx-auto max-w-6xl">
 					<SectionTag label="Programs" />
