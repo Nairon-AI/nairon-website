@@ -1,0 +1,33 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "command": {
+    "website-replicate": {
+      "description": "Replicate a page from naironai.com into this TanStack Start project",
+      "template": "Replicate the following page/section from the live naironai.com Framer site into this TanStack Start project. Follow the website-replicate skill methodology. $ARGUMENTS"
+    },
+    "local": {
+      "description": "Start local development environment",
+      "template": "Start all local development services for this project. Check .claude/local.json for config. $ARGUMENTS"
+    },
+    "prod": {
+      "description": "Verify, commit, and push to production",
+      "template": "Run the full production deployment checklist: lint, typecheck, build, backend validation, then commit and push. Commit message: $ARGUMENTS"
+    },
+    "bug": {
+      "description": "Investigate and fix a bug",
+      "template": "Investigate and fix the following bug using the systematic bug investigation framework. $ARGUMENTS"
+    },
+    "test": {
+      "description": "Test feature via browser (production)",
+      "template": "Test the following feature on production using browser automation. $ARGUMENTS"
+    },
+    "test-local": {
+      "description": "Verify feature locally",
+      "template": "Verify the following feature locally by inspecting browser logs, server logs, and UI state. $ARGUMENTS"
+    },
+    "test-prod": {
+      "description": "Test feature in production — bug investigation",
+      "template": "Investigate the following production bug. $ARGUMENTS"
+    }
+  }
+}
