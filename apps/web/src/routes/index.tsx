@@ -10,6 +10,7 @@ import {
 	Partners,
 	FAQ,
 	ImmersiveCTA,
+	VideoSection,
 	Footer,
 } from "@/components/landing";
 
@@ -25,6 +26,7 @@ function HomePage() {
 				<div className="bg-black rounded-b-[48px] md:rounded-b-[80px] relative">
 					<Navbar />
 					<Hero />
+					<VideoSection />
 					<ProblemSolution index={0} />
 					<ProblemSolution index={1} />
 					<OutcomeMetrics />

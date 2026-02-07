@@ -21,3 +21,4 @@ export { Residence } from "./residence";
 export { Apprenticeship } from "./apprenticeship";
 export { FinalCTA } from "./final-cta";
 export { ImmersiveCTA } from "./immersive-cta";
+export { VideoSection } from "./video-section";
