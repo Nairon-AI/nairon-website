@@ -13,5 +13,6 @@ export default defineConfig({
 	],
 	ssr: {
 		noExternal: ["@convex-dev/better-auth"],
+		external: ["remotion", "@remotion/player"],
 	},
 });

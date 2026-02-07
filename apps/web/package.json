@@ -25,6 +25,7 @@
 		"@radix-ui/react-slot": "^1.1.0",
 		"@radix-ui/react-switch": "^1.1.0",
 		"@radix-ui/react-tooltip": "^1.1.0",
+		"@remotion/player": "^4.0.419",
 		"@tanstack/react-form": "^0.40.0",
 		"@tanstack/react-query": "^5.62.0",
 		"@tanstack/react-router": "^1.158.0",
@@ -40,6 +41,7 @@
 		"react": "catalog:",
 		"react-dom": "catalog:",
 		"react-hook-form": "^7.54.0",
+		"remotion": "^4.0.419",
 		"sonner": "^1.7.0",
 		"tailwind-merge": "^2.6.0",
 		"tw-animate-css": "^1.2.0"
