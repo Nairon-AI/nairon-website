@@ -213,28 +213,30 @@ export function SocialProof({
 
 	return (
 		<Section className={colors.pageBg}>
-			<SectionTag label="Trusted By" />
-			<SectionHeading>
-				Real Engineers. <DimText>Real Results.</DimText>
-			</SectionHeading>
+			<div className="max-w-6xl mx-auto">
+				<SectionTag label="Trusted By" />
+				<SectionHeading>
+					Real Engineers. <DimText>Real Results.</DimText>
+				</SectionHeading>
 
-			<div ref={containerRef} className="relative mt-12">
-				{/* Pixel transition canvas */}
-				<canvas
-					ref={canvasRef}
-					className="absolute inset-0 z-10 pointer-events-none rounded-2xl"
-					style={{
-						opacity: isAnimating ? 1 : 0,
-						transition: "opacity 0.2s ease-out",
-					}}
-				/>
+				<div ref={containerRef} className="relative mt-12">
+					{/* Pixel transition canvas */}
+					<canvas
+						ref={canvasRef}
+						className="absolute inset-0 z-10 pointer-events-none rounded-2xl"
+						style={{
+							opacity: isAnimating ? 1 : 0,
+							transition: "opacity 0.2s ease-out",
+						}}
+					/>
 
-				<GlassCard className="p-8 md:p-10 lg:p-12">
-					<TestimonialCard testimonial={displayedTestimonial} />
-				</GlassCard>
+					<GlassCard className="p-8 md:p-10 lg:p-12">
+						<TestimonialCard testimonial={displayedTestimonial} />
+					</GlassCard>
+				</div>
+
+				<LogoMarquee />
 			</div>
-
-			<LogoMarquee />
 		</Section>
 	);
 }

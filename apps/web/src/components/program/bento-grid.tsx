@@ -262,15 +262,17 @@ function VisualCard({ card }: { card: BentoCardData }) {
 export function BentoGrid({ cards }: { cards: BentoCardData[] }) {
 	return (
 		<Section className={colors.pageBg}>
-			<SectionTag label="What You Get" />
-			<SectionHeading className="mb-12">
-				Everything You Need <DimText>to Succeed</DimText>
-			</SectionHeading>
+			<div className="max-w-6xl mx-auto">
+				<SectionTag label="What You Get" />
+				<SectionHeading className="mb-12">
+					Everything You Need <DimText>to Succeed</DimText>
+				</SectionHeading>
 
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-				{cards.map((card) => (
-					<VisualCard key={card.title} card={card} />
-				))}
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					{cards.map((card) => (
+						<VisualCard key={card.title} card={card} />
+					))}
+				</div>
 			</div>
 		</Section>
 	);

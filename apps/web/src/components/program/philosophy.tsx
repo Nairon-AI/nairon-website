@@ -29,6 +29,7 @@ export function ProgramPhilosophy({
 }) {
 	return (
 		<Section className={colors.pageBg}>
+			<div className="max-w-6xl mx-auto">
 			<div className="flex flex-row justify-center">
 				<div className="w-full max-w-[660px] flex flex-col gap-12">
 					{/* Tag */}
@@ -79,6 +80,7 @@ export function ProgramPhilosophy({
 						))}
 					</div>
 				</div>
+			</div>
 			</div>
 		</Section>
 	);

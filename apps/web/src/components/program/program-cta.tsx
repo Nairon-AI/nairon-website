@@ -18,6 +18,7 @@ export function ProgramCTA({
 }) {
 	return (
 		<Section className={colors.pageBg}>
+			<div className="max-w-6xl mx-auto">
 			<div className="text-center max-w-2xl mx-auto">
 				<SectionHeading className="text-center">
 					{data.heading}
@@ -28,6 +29,7 @@ export function ProgramCTA({
 						{data.buttonLabel}
 					</PrimaryButton>
 				</div>
+			</div>
 			</div>
 		</Section>
 	);

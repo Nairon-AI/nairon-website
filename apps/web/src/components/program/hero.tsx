@@ -11,7 +11,7 @@ export function ProgramHero({ data }: { data: ProgramHeroData }) {
 			</div>
 
 			{/* Content */}
-			<div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+			<div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
 				{/* Tag */}
 				<div className="flex items-center justify-center gap-3 mb-6">
 					<div className="w-2 h-2 rounded-full bg-green-400" />
@@ -56,7 +56,9 @@ export function ProgramHero({ data }: { data: ProgramHeroData }) {
 				</div>
 
 				{/* Subtext */}
-				<p className="text-sm text-white/40">{data.subtext}</p>
+				{data.subtext ? (
+					<p className="text-sm text-white/40">{data.subtext}</p>
+				) : null}
 			</div>
 		</section>
 	);

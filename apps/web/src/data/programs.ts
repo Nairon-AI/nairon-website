@@ -145,8 +145,8 @@ export const RESIDENCE_DATA: ProgramData = {
 			{ label: "Cohort Size", value: "10 Engineers" },
 		],
 		primaryCta: { label: "Apply Now", href: "https://apply.naironai.com" },
-		secondaryCta: { label: "Learn More", href: "#curriculum" },
-		subtext: "Cohort 1: March–April 2026",
+		secondaryCta: { label: "Join Weekly Office Hours", href: "/contact" },
+		subtext: "",
 	},
 	bentoCards: [
 		{
@@ -394,7 +394,7 @@ export const APPRENTICESHIP_DATA: ProgramData = {
 			{ label: "Style", value: "Project-Based" },
 		],
 		primaryCta: { label: "Apply Now", href: "https://apply.naironai.com" },
-		secondaryCta: { label: "Learn More", href: "#curriculum" },
+		secondaryCta: { label: "Join Weekly Office Hours", href: "/contact" },
 		subtext: "Rolling enrollment — start anytime",
 	},
 	bentoCards: [

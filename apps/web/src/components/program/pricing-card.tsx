@@ -25,6 +25,7 @@ export function PricingCard({
 }) {
 	return (
 		<Section className={colors.pageBg}>
+			<div className="max-w-6xl mx-auto">
 			<SectionTag label="Investment" />
 			<SectionHeading>
 				{data.heading}{" "}
@@ -88,6 +89,7 @@ export function PricingCard({
 						</PrimaryButton>
 					</div>
 				</GlassCard>
+			</div>
 			</div>
 		</Section>
 	);

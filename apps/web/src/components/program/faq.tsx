@@ -45,15 +45,17 @@ function FAQItemComponent({ item }: { item: FAQItem }) {
 export function ProgramFAQ({ items }: { items: FAQItem[] }) {
 	return (
 		<Section className={colors.pageBg}>
-			<SectionTag label="FAQ" />
-			<SectionHeading>
-				Common <DimText>Questions</DimText>
-			</SectionHeading>
+			<div className="max-w-6xl mx-auto">
+				<SectionTag label="FAQ" />
+				<SectionHeading>
+					Common <DimText>Questions</DimText>
+				</SectionHeading>
 
-			<div className="mt-12 max-w-3xl mx-auto">
-				{items.map((item) => (
-					<FAQItemComponent key={item.question} item={item} />
-				))}
+				<div className="mt-12 max-w-3xl mx-auto">
+					{items.map((item) => (
+						<FAQItemComponent key={item.question} item={item} />
+					))}
+				</div>
 			</div>
 		</Section>
 	);
