@@ -14,8 +14,8 @@ export function Residence() {
 
 	return (
 		<section className="py-24 md:py-32 relative overflow-hidden">
-			{/* Green radial glow */}
-			<div className="absolute inset-0 green-glow-bg" />
+			{/* Radial glow — green/gold by view mode */}
+			<div className={`absolute inset-0 ${isEngineer ? "green-glow-bg" : "gold-glow-bg"}`} />
 
 			<div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
 				<SectionHeading className="text-4xl md:text-display-md mb-4">

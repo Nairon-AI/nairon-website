@@ -7,6 +7,7 @@ export function Apprenticeship() {
 	const { isEngineer } = useViewMode();
 	const view = isEngineer ? "engineer" : "hiringManager";
 	const data = APPRENTICESHIP_CONTENT[view];
+	const hoverColor = isEngineer ? "hover:text-green-400" : "hover:text-amber-400";
 
 	return (
 		<section className="py-12 md:py-16">
@@ -34,7 +35,7 @@ export function Apprenticeship() {
 						{/* Right — CTA link */}
 						<a
 							href={data.cta.href}
-							className="inline-flex items-center gap-1.5 text-white font-semibold text-sm hover:text-green-400 transition-colors shrink-0"
+							className={`inline-flex items-center gap-1.5 text-white font-semibold text-sm ${hoverColor} transition-colors shrink-0`}
 						>
 							{data.cta.label}
 							<ArrowRight className="w-4 h-4" />

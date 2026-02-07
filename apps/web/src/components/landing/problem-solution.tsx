@@ -26,8 +26,8 @@ export function ProblemSolution({ index }: { index: 0 | 1 }) {
 					<BodyText>{block.problemBody}</BodyText>
 				</GlassCard>
 
-				{/* Solution card — green accent border */}
-				<GlassCard className="p-8 md:p-10 border-l-2 border-l-green-500/40">
+				{/* Solution card — accent border */}
+				<GlassCard className={`p-8 md:p-10 border-l-2 ${isEngineer ? "border-l-green-500/40" : "border-l-amber-500/40"}`}>
 					<SectionHeading className="text-2xl md:text-4xl mb-4">
 						{block.solutionHeadline}
 					</SectionHeading>

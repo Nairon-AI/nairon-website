@@ -89,7 +89,10 @@ export function Hero() {
 			</div>
 			{/* Bottom dark gradient for smooth transition */}
 			<div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-black z-[1]" />
-			<div className="relative z-10 max-w-7xl mx-auto px-6 pt-[20vh] pb-8 w-full flex flex-col items-center">
+			<div
+				className="relative z-10 max-w-7xl mx-auto px-6 pb-8 w-full flex flex-col items-center"
+				style={{ paddingTop: "clamp(20vh, 15vh + 8vmin, 32vh)" }}
+			>
 				{/* Nairon logo image */}
 				<img
 					src="https://framerusercontent.com/images/VHRAdVMCwEE6Q9afizgYDgxitUU.png"

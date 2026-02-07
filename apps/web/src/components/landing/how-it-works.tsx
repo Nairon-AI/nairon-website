@@ -33,6 +33,7 @@ export function HowItWorks() {
 	const view = isEngineer ? "engineer" : "hiringManager";
 	const steps = STEPS[view];
 	const cta = STEPS_CTA[view];
+	const iconColor = isEngineer ? "text-green-400" : "text-amber-400";
 
 	return (
 		<Section>
@@ -47,7 +48,7 @@ export function HowItWorks() {
 					return (
 						<div key={step.title} className="flex flex-col items-center text-center">
 							<GlassCard className="w-16 h-16 flex items-center justify-center rounded-2xl mb-6">
-								<Icon className="w-7 h-7 text-green-400" />
+								<Icon className={`w-7 h-7 ${iconColor}`} />
 							</GlassCard>
 							<span className={`text-sm font-medium mb-2 ${colors.textMuted}`}>
 								Step {i + 1}

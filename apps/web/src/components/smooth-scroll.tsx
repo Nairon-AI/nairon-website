@@ -91,7 +91,8 @@ function SnapHandler() {
 				"section, header, footer",
 			);
 			for (const el of sections) {
-				snap.addElement(el as HTMLElement, { align: ["center"] });
+				const align = (el as HTMLElement).dataset.snapAlign ?? "center";
+				snap.addElement(el as HTMLElement, { align: [align] });
 			}
 
 			snapRef.current = snap;

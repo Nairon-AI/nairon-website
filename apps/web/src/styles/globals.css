@@ -243,6 +243,13 @@
 	background-clip: text;
 }
 
+.text-gradient-gold {
+	background: linear-gradient(135deg, #F5C842, #CF9611, #A67A0D);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
 /* Hero gradient background */
 .hero-gradient {
 	background: #000;
@@ -259,6 +266,10 @@
 /* Glow effect for green accent */
 .glow-green {
 	box-shadow: 0 0 40px rgba(34, 197, 94, 0.15);
+}
+
+.glow-gold {
+	box-shadow: 0 0 40px rgba(207, 150, 17, 0.15);
 }
 
 /* Section divider line */
@@ -449,9 +460,13 @@
 	overflow: hidden;
 }
 
-/* Green radial glow for Residence / Final CTA sections */
+/* Radial glow for Residence / Final CTA sections */
 .green-glow-bg {
 	background: radial-gradient(circle at 50% 50%, rgba(34, 219, 24, 0.12) 0%, transparent 70%);
+}
+
+.gold-glow-bg {
+	background: radial-gradient(circle at 50% 50%, rgba(207, 150, 17, 0.12) 0%, transparent 70%);
 }
 
 /* Benchmark announcement widget */
