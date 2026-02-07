@@ -24,6 +24,7 @@ function QuoteCard() {
 				src={PROGRAM_QUOTE.image}
 				alt="BG Image"
 				className="absolute inset-0 w-full h-full object-cover"
+				loading="lazy"
 			/>
 			<div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 			<div className="relative h-full flex flex-col justify-end p-6 md:p-8">
@@ -151,6 +152,7 @@ function StatsRow() {
 								src={src}
 								alt="Avatar"
 								className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-black -ml-2 first:ml-0 object-cover"
+								loading="lazy"
 							/>
 						))}
 						<span className="text-white/70 text-xs md:text-sm ml-1 font-medium">

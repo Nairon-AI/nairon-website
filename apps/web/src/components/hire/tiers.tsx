@@ -21,6 +21,7 @@ function TierCard({ tier }: { tier: HireTier }) {
 					src={tier.image}
 					alt=""
 					className="absolute inset-0 w-full h-full object-cover opacity-60"
+					loading="lazy"
 				/>
 				<div className="relative z-10 flex flex-col flex-1">
 					<span className="text-xs bg-black/30 text-white/80 px-3 py-1 rounded-md w-fit mb-4">

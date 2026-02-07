@@ -15,9 +15,34 @@ import {
 	VideoSection,
 	Footer,
 } from "@/components/landing";
+import { seoHead, faqJsonLd } from "@/lib/seo";
+import { FAQ_ENGINEER } from "@/data/landing";
+
+const faqStructuredData = JSON.stringify(
+	faqJsonLd(
+		FAQ_ENGINEER.map((item) => ({
+			question: item.question,
+			answer: item.answer,
+		})),
+	),
+);
 
 export const Route = createFileRoute("/")({
 	component: HomePage,
+	head: () => ({
+		...seoHead({
+			title: "Nairon AI — AI Bootcamp for the 1% Engineer",
+			description:
+				"Join an intensive AI engineering bootcamp in Dubai. Build real AI products, earn a branded certificate, and get hired by top companies. Applications closing soon.",
+			path: "/",
+		}),
+		scripts: [
+			{
+				type: "application/ld+json",
+				children: faqStructuredData,
+			},
+		],
+	}),
 });
 
 function HomePage() {

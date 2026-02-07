@@ -30,6 +30,7 @@ function TeamMemberCard({
 						src={image}
 						alt={name}
 						className="w-full aspect-[380/427] object-cover"
+						loading="lazy"
 					/>
 				) : (
 					<div className="w-full aspect-[380/427] bg-gradient-to-b from-gray-700/50 to-gray-900/50 flex items-center justify-center">

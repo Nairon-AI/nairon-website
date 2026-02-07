@@ -6,9 +6,17 @@ import { HireDifference } from "@/components/hire/difference";
 import { HireProcess } from "@/components/hire/process";
 import { HireTiers } from "@/components/hire/tiers";
 import { HireFAQ } from "@/components/hire/faq";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/hire")({
 	component: HirePage,
+	head: () =>
+		seoHead({
+			title: "Hire AI Engineers — Nairon AI",
+			description:
+				"Access pre-vetted AI engineers trained through Nairon's intensive bootcamp. Find the top 1% of AI talent for your team.",
+			path: "/hire",
+		}),
 });
 
 function HirePage() {

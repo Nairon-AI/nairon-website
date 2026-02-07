@@ -15,6 +15,7 @@ function GuestCard({ guest, role }: { guest: string; role: string }) {
 				src="https://framerusercontent.com/images/47jhKH0AA1f2ZNcovBPcmjTlLM.png"
 				alt=""
 				className="w-[100px] h-[100px] object-cover shrink-0"
+				loading="lazy"
 			/>
 			<div className="pt-3">
 				<h4 className="text-lg font-normal text-white">{guest}</h4>

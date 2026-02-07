@@ -45,6 +45,7 @@ function TeamMemberCard({
 					src={image}
 					alt={name}
 					className="w-full aspect-square object-cover rounded-2xl"
+					loading="lazy"
 				/>
 				<a
 					href={linkedin}
@@ -75,6 +76,7 @@ function FeaturedMemberCard() {
 					src={FEATURED_MEMBER.image}
 					alt={FEATURED_MEMBER.name}
 					className="w-full aspect-square object-cover rounded-2xl mb-6"
+					loading="lazy"
 				/>
 				<p className="text-base text-white/55 mb-3">Get in touch</p>
 				<div className="flex gap-3">
@@ -133,6 +135,7 @@ function FeaturedMemberCard() {
 							src={logo.src}
 							alt={logo.name}
 							className="h-8 md:h-10 w-auto opacity-50"
+							loading="lazy"
 						/>
 					))}
 				</div>

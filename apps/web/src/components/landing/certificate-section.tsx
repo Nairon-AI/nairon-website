@@ -4,7 +4,7 @@ import { useViewMode } from "@/contexts/view-mode-context";
 export function CertificateSection() {
 	const { isEngineer } = useViewMode();
 	const data = CERTIFICATE_SECTION[isEngineer ? "engineer" : "hiringManager"];
-	const orbAsset = isEngineer ? "/nairon-orb.jpg" : "/nairon-orb-gold.jpg";
+	const orbAsset = isEngineer ? "/nairon-orb.webp" : "/nairon-orb-gold.webp";
 	const headlineOffset = data.description ? "" : "-mb-6 md:-mb-8";
 	const topGlowClass = isEngineer ? "via-emerald-600/6" : "via-amber-400/12";
 	const cardBorderClass = isEngineer ? "border-emerald-200/10" : "border-amber-200/22";
@@ -48,10 +48,12 @@ export function CertificateSection() {
 						className={`pointer-events-none absolute inset-x-20 -top-10 h-36 rounded-full bg-gradient-to-r from-transparent ${topGlowClass} to-transparent blur-3xl`}
 					/>
 					<img
-						src="/nairon-certificate.png"
+						src="/nairon-certificate.webp"
 						alt="Hands holding a tablet displaying a Nairon certificate"
 						className="relative z-[1] w-full"
 						loading="lazy"
+						width={1200}
+						height={800}
 					/>
 
 					<div className="pointer-events-none absolute left-1/2 top-[43.5%] z-[2] w-[82%] -translate-x-1/2 -translate-y-1/2 sm:w-[74%] md:w-[62%]">
@@ -62,12 +64,18 @@ export function CertificateSection() {
 								src={orbAsset}
 								alt=""
 								aria-hidden="true"
+								loading="lazy"
+								width={430}
+								height={430}
 								className="absolute -right-40 -top-40 h-[430px] w-[430px] max-w-none object-contain opacity-22 mix-blend-screen"
 							/>
 							<img
 								src={orbAsset}
 								alt=""
 								aria-hidden="true"
+								loading="lazy"
+								width={240}
+								height={240}
 								className="absolute -left-20 bottom-[-110px] h-[240px] w-[240px] max-w-none object-contain opacity-14 mix-blend-screen"
 							/>
 							<div className={`absolute inset-0 ${tintLinearClass}`} />

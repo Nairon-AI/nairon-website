@@ -665,7 +665,7 @@ export const VALUE_PROP_SECTION = {
 				tags: ["Signal over pedigree", "Thinking-first evaluation", "Merit, not theater"],
 				asset: {
 					type: "image" as const,
-					src: "/1.png",
+					src: "/1.webp",
 					poster: "",
 					alt: "Engineer being recognized for their work",
 					placeholder: "Drop your Get seen clip here",
@@ -680,7 +680,7 @@ export const VALUE_PROP_SECTION = {
 				tags: ["Real workflows", "Execution focused", "Built for this era"],
 				asset: {
 					type: "image" as const,
-					src: "/2.png",
+					src: "/2.webp",
 					poster: "",
 					alt: "Engineer learning AI-native workflows",
 					placeholder: "Drop your Learn what matters clip here",
@@ -695,7 +695,7 @@ export const VALUE_PROP_SECTION = {
 				tags: ["Meaningful roles", "High ownership", "Visible impact"],
 				asset: {
 					type: "image" as const,
-					src: "/3.png",
+					src: "/3.webp",
 					poster: "",
 					alt: "Engineer seeing meaningful impact from their work",
 					placeholder: "Drop your Find purpose in work clip here",
@@ -717,7 +717,7 @@ export const VALUE_PROP_SECTION = {
 				tags: ["Signal-first filtering", "Problem-solving depth", "Lower screening noise"],
 				asset: {
 					type: "image" as const,
-					src: "/1.png",
+					src: "/1.webp",
 					poster: "",
 					alt: "Hiring manager identifying true engineering signal",
 					placeholder: "Drop your See real signal clip here",
@@ -732,7 +732,7 @@ export const VALUE_PROP_SECTION = {
 				tags: ["AI-native habits", "Execution ready", "Fast ramp-up"],
 				asset: {
 					type: "image" as const,
-					src: "/2.png",
+					src: "/2.webp",
 					poster: "",
 					alt: "Engineer collaborating with team using AI-native workflows",
 					placeholder: "Drop your Hire adaptive talent clip here",
@@ -747,7 +747,7 @@ export const VALUE_PROP_SECTION = {
 				tags: ["Better role fit", "High ownership", "Faster product impact"],
 				asset: {
 					type: "image" as const,
-					src: "/3.png",
+					src: "/3.webp",
 					poster: "",
 					alt: "Team reviewing meaningful product impact",
 					placeholder: "Drop your Build with purpose clip here",

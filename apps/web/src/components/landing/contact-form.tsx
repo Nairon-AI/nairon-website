@@ -38,6 +38,7 @@ function ContactInfoCard({
 					src={icon}
 					alt=""
 					className="w-[60px] h-[60px]"
+					loading="lazy"
 				/>
 			</div>
 			<div className="flex flex-col">
@@ -99,6 +100,7 @@ function CommunityCard() {
 							src={COMMUNITY_SECTION.image}
 							alt=""
 							className="w-28 h-28 object-contain"
+							loading="lazy"
 						/>
 					</div>
 				</div>

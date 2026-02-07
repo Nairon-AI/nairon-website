@@ -97,6 +97,9 @@ export function Hero() {
 				<img
 					src="https://framerusercontent.com/images/VHRAdVMCwEE6Q9afizgYDgxitUU.png"
 					alt="nairon."
+					fetchPriority="high"
+					width={600}
+					height={120}
 					className="w-[40vw] max-w-[600px] h-auto"
 				/>
 

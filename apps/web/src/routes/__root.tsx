@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import {
 	createRootRouteWithContext,
 	HeadContent,
@@ -9,19 +10,41 @@ import type { QueryClient } from "@tanstack/react-query";
 import type { ConvexReactClient } from "convex/react";
 import { ConvexProvider } from "convex/react";
 import { ThemeProvider } from "@/components/theme-provider";
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
 import { ViewModeProvider } from "@/contexts/view-mode-context";
 import { ViewModeToggle } from "@/components/view-mode-toggle";
 import { BenchmarkWidget } from "@/components/landing/benchmark-widget";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { Toaster } from "sonner";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import "@/styles/globals.css";
+
+// Lazy-load dashboard components so they're excluded from landing page bundles
+const AppSidebar = lazy(() =>
+	import("@/components/app-sidebar").then((m) => ({ default: m.AppSidebar })),
+);
+const SidebarProvider = lazy(() =>
+	import("@/components/ui/sidebar").then((m) => ({
+		default: m.SidebarProvider,
+	})),
+);
+const SidebarInset = lazy(() =>
+	import("@/components/ui/sidebar").then((m) => ({
+		default: m.SidebarInset,
+	})),
+);
+const SidebarTrigger = lazy(() =>
+	import("@/components/ui/sidebar").then((m) => ({
+		default: m.SidebarTrigger,
+	})),
+);
 
 export interface RouterContext {
 	queryClient: QueryClient;
 	convex: ConvexReactClient;
 }
+
+const jsonLdOrg = JSON.stringify(organizationJsonLd());
+const jsonLdSite = JSON.stringify(websiteJsonLd());
 
 export const Route = createRootRouteWithContext<RouterContext>()({
 	component: RootComponent,
@@ -30,12 +53,15 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 			{ charSet: "utf-8" },
 			{ name: "viewport", content: "width=device-width, initial-scale=1" },
 			{ title: "Nairon AI — AI Bootcamp for the 1% Engineer" },
+			{
+				name: "description",
+				content:
+					"Join an intensive AI engineering bootcamp in Dubai. Build real AI products, earn a branded certificate, and get hired by top companies.",
+			},
+			{ name: "theme-color", content: "#000000" },
 		],
 		links: [
-			{
-				rel: "preconnect",
-				href: "https://fonts.googleapis.com",
-			},
+			{ rel: "preconnect", href: "https://fonts.googleapis.com" },
 			{
 				rel: "preconnect",
 				href: "https://fonts.gstatic.com",
@@ -43,7 +69,21 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 			},
 			{
 				rel: "stylesheet",
-				href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap",
+				href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700&display=swap",
+			},
+			{
+				rel: "dns-prefetch",
+				href: "https://framerusercontent.com",
+			},
+		],
+		scripts: [
+			{
+				type: "application/ld+json",
+				children: jsonLdOrg,
+			},
+			{
+				type: "application/ld+json",
+				children: jsonLdSite,
 			},
 		],
 	}),
@@ -55,11 +95,22 @@ function RootComponent() {
 	const isHirePage = useMatch({ from: "/hire", shouldThrow: false });
 	const isProgramPage = useMatch({ from: "/program", shouldThrow: false });
 	const isResidencePage = useMatch({ from: "/residence", shouldThrow: false });
-	const isApprenticeshipPage = useMatch({ from: "/apprenticeship", shouldThrow: false });
+	const isApprenticeshipPage = useMatch({
+		from: "/apprenticeship",
+		shouldThrow: false,
+	});
 	const isContactPage = useMatch({ from: "/contact", shouldThrow: false });
 	const isCareersPage = useMatch({ from: "/careers", shouldThrow: false });
 	const isTeamPage = useMatch({ from: "/team", shouldThrow: false });
-	const isLandingPage = isHomePage || isHirePage || isProgramPage || isResidencePage || isApprenticeshipPage || isContactPage || isCareersPage || isTeamPage;
+	const isLandingPage =
+		isHomePage ||
+		isHirePage ||
+		isProgramPage ||
+		isResidencePage ||
+		isApprenticeshipPage ||
+		isContactPage ||
+		isCareersPage ||
+		isTeamPage;
 
 	return (
 		<html lang="en" suppressHydrationWarning className={isLandingPage ? "dark" : ""}>
@@ -85,17 +136,25 @@ function RootComponent() {
 								</ViewModeProvider>
 							</SmoothScroll>
 						) : (
-							<SidebarProvider>
-								<AppSidebar />
-								<SidebarInset>
-									<header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-										<SidebarTrigger className="-ml-1" />
-									</header>
-									<main className="flex-1">
-										<Outlet />
-									</main>
-								</SidebarInset>
-							</SidebarProvider>
+							<Suspense
+								fallback={
+									<div className="flex min-h-screen items-center justify-center">
+										Loading...
+									</div>
+								}
+							>
+								<SidebarProvider>
+									<AppSidebar />
+									<SidebarInset>
+										<header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+											<SidebarTrigger className="-ml-1" />
+										</header>
+										<main className="flex-1">
+											<Outlet />
+										</main>
+									</SidebarInset>
+								</SidebarProvider>
+							</Suspense>
 						)}
 						<Toaster />
 					</ThemeProvider>
