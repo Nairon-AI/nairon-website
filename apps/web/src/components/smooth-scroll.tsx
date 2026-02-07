@@ -1,0 +1,132 @@
+"use client";
+
+import { ReactLenis, useLenis } from "lenis/react";
+import Snap from "lenis/snap";
+import { useEffect, useRef, type ReactNode } from "react";
+
+/**
+ * Uses the Lenis Snap plugin for reliable proximity snapping,
+ * with direction-awareness layered on top — cancels any snap
+ * that would pull the user backward against their scroll direction.
+ */
+function SnapHandler() {
+	const lenis = useLenis();
+	const snapRef = useRef<Snap | null>(null);
+	const lastDirectionRef = useRef(1);
+	const isRedirectingRef = useRef(false);
+
+	// Track the user's real scroll direction
+	useEffect(() => {
+		if (!lenis) return;
+
+		function onScroll() {
+			if (!lenis) return;
+			if (lenis.direction !== 0) {
+				lastDirectionRef.current = lenis.direction;
+			}
+
+			// Scale snap threshold with velocity:
+			// gentle scroll → 35%, big flick → up to 65%
+			const snap = snapRef.current;
+			if (snap) {
+				const speed = Math.abs(lenis.velocity);
+				const t = Math.min(speed / 3, 1);
+				(snap.options as { distanceThreshold?: string }).distanceThreshold =
+					`${Math.round(35 + t * 30)}%`;
+			}
+		}
+
+		lenis.on("scroll", onScroll);
+		return () => {
+			lenis.off("scroll", onScroll);
+		};
+	}, [lenis]);
+
+	// Set up snap with direction-aware gating
+	useEffect(() => {
+		if (!lenis) return;
+
+		function setup() {
+			if (!lenis) return;
+
+			snapRef.current?.destroy();
+
+			const snap = new Snap(lenis, {
+				type: "proximity",
+				distanceThreshold: "35%",
+				debounce: 100,
+				onSnapStart: ({ value, index }) => {
+					// Allow redirected snaps through without interference
+					if (isRedirectingRef.current) return;
+
+					// Cancel backward snaps
+					const snapDir = value > lenis.scroll ? 1 : -1;
+					if (snapDir !== lastDirectionRef.current) {
+						lenis.scrollTo(lenis.scroll, { immediate: true });
+						return;
+					}
+
+					// Limit to one section at a time
+					const current = snap.currentSnapIndex;
+					if (
+						current !== undefined &&
+						index !== undefined &&
+						Math.abs(index - current) > 1
+					) {
+						lenis.scrollTo(lenis.scroll, { immediate: true });
+						isRedirectingRef.current = true;
+						const next =
+							current + lastDirectionRef.current;
+						snap.goTo(
+							Math.max(0, Math.min(next, snap.snaps.size - 1)),
+						);
+						requestAnimationFrame(() => {
+							isRedirectingRef.current = false;
+						});
+					}
+				},
+			});
+
+			const sections = document.querySelectorAll(
+				"section, header, footer",
+			);
+			for (const el of sections) {
+				snap.addElement(el as HTMLElement, { align: ["center"] });
+			}
+
+			snapRef.current = snap;
+		}
+
+		const raf = requestAnimationFrame(setup);
+
+		const observer = new MutationObserver(() => {
+			requestAnimationFrame(setup);
+		});
+		observer.observe(document.body, { childList: true, subtree: true });
+
+		return () => {
+			cancelAnimationFrame(raf);
+			observer.disconnect();
+			snapRef.current?.destroy();
+			snapRef.current = null;
+		};
+	}, [lenis]);
+
+	return null;
+}
+
+export function SmoothScroll({ children }: { children: ReactNode }) {
+	return (
+		<ReactLenis
+			root
+			options={{
+				lerp: 0.1,
+				duration: 1.2,
+				smoothWheel: true,
+			}}
+		>
+			<SnapHandler />
+			{children}
+		</ReactLenis>
+	);
+}

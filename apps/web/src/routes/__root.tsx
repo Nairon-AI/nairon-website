@@ -14,6 +14,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { ViewModeProvider } from "@/contexts/view-mode-context";
 import { ViewModeToggle } from "@/components/view-mode-toggle";
 import { BenchmarkWidget } from "@/components/landing/benchmark-widget";
+import { SmoothScroll } from "@/components/smooth-scroll";
 import { Toaster } from "sonner";
 import "@/styles/globals.css";
 
@@ -74,13 +75,15 @@ function RootComponent() {
 						disableTransitionOnChange
 					>
 						{isLandingPage ? (
-							<ViewModeProvider>
-								<main>
-									<Outlet />
-								</main>
-								<ViewModeToggle />
-								<BenchmarkWidget />
-							</ViewModeProvider>
+							<SmoothScroll>
+								<ViewModeProvider>
+									<main>
+										<Outlet />
+									</main>
+									<ViewModeToggle />
+									<BenchmarkWidget />
+								</ViewModeProvider>
+							</SmoothScroll>
 						) : (
 							<SidebarProvider>
 								<AppSidebar />

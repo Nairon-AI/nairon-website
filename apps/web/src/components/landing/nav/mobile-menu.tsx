@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { useLenis } from "lenis/react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useViewMode } from "@/contexts/view-mode-context";
@@ -56,6 +57,7 @@ function MobileAccordion({ item }: { item: NavLinkDropdown }) {
 export function MobileMenu({ nav }: MobileMenuProps) {
 	const [open, setOpen] = useState(false);
 	const { viewMode } = useViewMode();
+	const lenis = useLenis();
 
 	// Close on viewMode change
 	useEffect(() => {
@@ -74,17 +76,18 @@ export function MobileMenu({ nav }: MobileMenuProps) {
 		return () => document.removeEventListener("keydown", handleKeyDown);
 	}, [open]);
 
-	// Body scroll lock
+	// Scroll lock via Lenis
 	useEffect(() => {
+		if (!lenis) return;
 		if (open) {
-			document.body.style.overflow = "hidden";
+			lenis.stop();
 		} else {
-			document.body.style.overflow = "";
+			lenis.start();
 		}
 		return () => {
-			document.body.style.overflow = "";
+			lenis.start();
 		};
-	}, [open]);
+	}, [open, lenis]);
 
 	const toggle = useCallback(() => setOpen((o) => !o), []);
 
