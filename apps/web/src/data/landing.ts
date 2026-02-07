@@ -923,41 +923,55 @@ export const STEPS_CTA = {
 // ─── Residence section ─────────────────────────────────────────
 export const RESIDENCE = {
 	engineer: {
-		title: "The Residence",
-		subtitle: "8 weeks. Dubai. Free. Only 12 spots.",
+		title: "The Residency",
+		subtitle: "8 weeks in Dubai. Fully funded. Only 12 spots.",
 		points: [
-			"Free program (fully funded)",
-			"Fly to Dubai, full relocation",
+			"100hrs/week, 800hrs total",
+			"Housing, flights, and food included",
 			"Work on real AI projects with partners",
 			"Direct intros to hiring partners",
 		],
-		cta: { label: "Apply to Residence", href: "/residence" },
+		cta: { label: "Apply to Residency", href: "/residence" },
 	},
 	hiringManager: {
-		title: "The Residence: Our Flagship Pipeline",
+		title: "The Residency: Our Flagship Program",
 		subtitle: "How we produce the top 1% of AI engineers",
 		points: [
+			"100hrs/week, 800hrs total",
 			"8-week intensive in Dubai",
 			"Hackathons, live projects, peer pressure",
 			"Only 12 per cohort — extreme selectivity",
 			"Every graduate is verified by us",
 		],
-		cta: { label: "Learn About Our Process", href: "/approach" },
+		cta: { label: "Find talent", href: "/approach" },
 	},
 } as const;
 
 // ─── Apprenticeship section ────────────────────────────────────
 export const APPRENTICESHIP_CONTENT = {
 	engineer: {
-		title: "The Apprenticeship",
-		description: "Remote. Flexible. Your path to standing out.",
-		pills: ["Remote", "$1,500", "Same Curriculum"],
-		cta: { label: "Learn More", href: "/apprenticeship" },
+		title: "Start with Apprenticeship.",
+		description:
+			"Built after hundreds of engineers asked for a scaled version of our Residency, Apprenticeship helps you build the same execution habits remotely — then apply to Residency when you're ready.",
+		points: [
+			"8hrs/week, 48hrs total",
+			"Part-time, remote format",
+			"6-week structured program",
+		],
+		pills: ["Remote", "$1,500", "Standalone Path"],
+		cta: { label: "Explore Apprenticeship", href: "/apprenticeship" },
 	},
 	hiringManager: {
 		title: "The Apprenticeship",
-		description: "A broader pool of trained AI engineers.",
-		pills: ["Remote", "Pre-Screened", "Trained"],
+		description:
+			"A standalone remote track that adds a broader pool of trained AI engineers to your hiring pipeline.",
+		points: [
+			"8hrs/week, 48hrs total",
+			"Part-time remote training",
+			"6-week program",
+			"Additional vetted talent pipeline",
+		],
+		pills: ["Standalone", "Remote", "Trained"],
 		cta: { label: "Access This Pool", href: "/pricing" },
 	},
 } as const;

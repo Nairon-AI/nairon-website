@@ -34,8 +34,10 @@ function HomePage() {
 					<BenefitsBento />
 					<CertificateSection />
 					<HowItWorks />
-					<Residence />
-					<Apprenticeship />
+					<section data-snap-align="start">
+						<Residence />
+						<Apprenticeship />
+					</section>
 					<Partners />
 					<FAQ />
 				</div>
