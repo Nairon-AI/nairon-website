@@ -1,6 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Footer, Navbar } from "@/components/landing";
-import { NBenchHero } from "@/components/landing/nbench";
+import {
+	NBenchCtaPlaceholder,
+	NBenchFeatureSplit,
+	NBenchHero,
+	NBenchModels,
+	NBenchShowcase,
+	NBenchTrustPlaceholder,
+	NBenchWhatWeTrack,
+} from "@/components/landing/nbench";
 import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/nbench")({
@@ -16,9 +24,15 @@ export const Route = createFileRoute("/nbench")({
 
 function NBenchPage() {
 	return (
-		<div className="min-h-screen bg-[rgb(8,9,10)] font-inter text-white">
+		<div className="min-h-screen bg-[rgb(8,8,8)] font-inter text-white">
 			<Navbar />
 			<NBenchHero />
+			<NBenchShowcase />
+			<NBenchFeatureSplit />
+			<NBenchModels />
+			<NBenchWhatWeTrack />
+			<NBenchTrustPlaceholder />
+			<NBenchCtaPlaceholder />
 			<Footer />
 		</div>
 	);

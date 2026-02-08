@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, type ReactNode } from "react";
+import { useLocation } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { useViewMode } from "@/contexts/view-mode-context";
 import {
@@ -58,15 +59,23 @@ export function Navbar() {
 	const [scrolled, setScrolled] = useState(false);
 	const [dropdownOpen, setDropdownOpen] = useState(false);
 	const { viewMode } = useViewMode();
+	const location = useLocation();
 
 	const nav = viewMode === "engineer" ? ENGINEER_NAV : HIRING_MANAGER_NAV;
 	const variant = viewMode === "engineer" ? "green" : "gold" as const;
+	const isNBenchPage = location.pathname === "/nbench";
 
 	useEffect(() => {
 		const handler = () => setScrolled(window.scrollY > 50);
 		window.addEventListener("scroll", handler);
 		return () => window.removeEventListener("scroll", handler);
 	}, []);
+
+	useEffect(() => {
+		if (isNBenchPage) {
+			setDropdownOpen(false);
+		}
+	}, [isNBenchPage]);
 
 	return (
 		<nav
@@ -96,12 +105,21 @@ export function Navbar() {
 							<div className="flex items-center gap-2">
 								{currentNav.items.map((item) =>
 									isDropdownItem(item) ? (
-										<MegaDropdown
-											key={item.label}
-											item={item}
-											variant={variant}
-											onOpenChange={setDropdownOpen}
-										/>
+										isNBenchPage ? (
+											<NavLink
+												key={item.label}
+												label={item.label}
+												href={item.columns[0]?.items[0]?.href ?? "/program"}
+												variant={variant}
+											/>
+										) : (
+											<MegaDropdown
+												key={item.label}
+												item={item}
+												variant={variant}
+												onOpenChange={setDropdownOpen}
+											/>
+										)
 									) : (
 										<NavLink
 											key={item.label}

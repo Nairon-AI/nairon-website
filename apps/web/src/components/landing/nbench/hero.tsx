@@ -8,7 +8,7 @@ import {
 export function NBenchHero() {
 	return (
 		<NBenchSection className="overflow-hidden pb-0 pt-36 md:pt-44">
-			<div className="pointer-events-none absolute inset-0 -z-10 bg-[rgb(8,9,10)]" />
+			<div className="pointer-events-none absolute inset-0 -z-10 bg-[rgb(8,8,8)]" />
 			<div className="pointer-events-none absolute inset-x-0 top-[-24rem] -z-10 mx-auto h-[44rem] w-[44rem] rounded-full bg-[radial-gradient(circle,rgba(49,255,103,0.08)_0%,rgba(49,255,103,0.03)_28%,transparent_72%)] blur-3xl" />
 			<div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_10%,rgba(255,255,255,0.06),transparent_40%),radial-gradient(circle_at_80%_0%,rgba(34,219,24,0.05),transparent_34%)]" />
 
@@ -20,7 +20,7 @@ export function NBenchHero() {
 					NBench is a purpose-built tool for<br />
 					planning and building AI-native engineers
 				</GradientHeading>
-				<p className="mt-6 max-w-xl text-center font-inter text-[17px] leading-[1.6] text-[#8a8f98] md:max-w-none md:text-left md:whitespace-nowrap">
+				<p className="mt-6 max-w-xl text-center font-inter text-[17px] leading-[1.6] text-[#8f8f8f] md:max-w-none md:text-left md:whitespace-nowrap">
 				{NBENCH_HERO.description}
 				</p>
 			</div>
@@ -38,7 +38,7 @@ export function NBenchHero() {
 								/>
 							</div>
 						</div>
-						<div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(transparent_40%,rgba(8,9,10,0.6)_65%,rgb(8,9,10)_100%)]" />
+						<div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(transparent_40%,rgba(8,8,8,0.6)_65%,rgb(8,8,8)_100%)]" />
 					</div>
 				</div>
 			</div>

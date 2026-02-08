@@ -56,7 +56,7 @@ export function LinearGlassCard({
 		>
 			<div
 				className={cn(
-					"rounded-[9px] border border-white/[0.05] bg-[rgba(14,15,18,0.98)] backdrop-blur-xl",
+					"rounded-[9px] border border-white/[0.05] bg-[rgba(14,14,14,0.98)] backdrop-blur-xl",
 					innerClassName,
 				)}
 			>
@@ -89,7 +89,7 @@ export function TerminalWindow({
 				<p className="font-inter text-[13px] text-white/45">{title}</p>
 				<div className="w-12" />
 			</div>
-			<div className="bg-[linear-gradient(180deg,#0b0d10_0%,#090b0e_100%)] px-7 py-6 font-mono text-[16px] leading-[1.7] text-[#cfd3d8] md:text-[18px]">
+			<div className="bg-[linear-gradient(180deg,#0b0b0b_0%,#090909_100%)] px-7 py-6 font-mono text-[16px] leading-[1.7] text-[#d2d2d2] md:text-[18px]">
 				{lines.map((line, index) => (
 					<div
 						key={`${line}-${index}`}
