@@ -36,16 +36,6 @@ function CapabilityCard({
 
 				{index === 1 ? (
 					<>
-						<div className="absolute left-[16%] top-[30%] h-3 w-[62%] rounded-full bg-[linear-gradient(90deg,rgba(255,255,255,0.05),rgba(255,255,255,0.22),rgba(255,255,255,0.06))]" />
-						<div className="absolute left-[22%] top-[40%] h-3 w-[56%] rounded-full bg-[linear-gradient(90deg,rgba(255,255,255,0.04),rgba(255,255,255,0.18),rgba(255,255,255,0.04))]" />
-						<div className="absolute left-[28%] top-[50%] h-3 w-[50%] rounded-full bg-[linear-gradient(90deg,rgba(255,255,255,0.04),rgba(255,255,255,0.16),rgba(255,255,255,0.04))]" />
-						<div className="absolute left-[33%] top-[60%] h-3 w-[45%] rounded-full bg-[linear-gradient(90deg,rgba(255,255,255,0.03),rgba(255,255,255,0.12),rgba(255,255,255,0.03))]" />
-						<div className="absolute inset-0 bg-[linear-gradient(165deg,transparent_30%,rgba(255,255,255,0.09)_78%,transparent_100%)]" />
-					</>
-				) : null}
-
-				{index === 2 ? (
-					<>
 						<div className="absolute left-[15%] top-[24%] w-[52%] rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 shadow-[0_10px_24px_rgba(0,0,0,0.34)]">
 							<p className="font-inter text-[10px] uppercase tracking-[0.1em] text-white/52">Week 1</p>
 							<p className="mt-1 font-inter text-[13px] tracking-[-0.01em] text-white/76">Score 64</p>
@@ -58,6 +48,16 @@ function CapabilityCard({
 							<p className="font-inter text-[10px] uppercase tracking-[0.1em] text-white/52">Week 3</p>
 							<p className="mt-1 font-inter text-[13px] tracking-[-0.01em] text-white/76">Score 78</p>
 						</div>
+						<div className="absolute inset-0 bg-[linear-gradient(165deg,transparent_30%,rgba(255,255,255,0.09)_78%,transparent_100%)]" />
+					</>
+				) : null}
+
+				{index === 2 ? (
+					<>
+						<div className="absolute left-[16%] top-[30%] h-3 w-[62%] rounded-full bg-[linear-gradient(90deg,rgba(255,255,255,0.05),rgba(255,255,255,0.22),rgba(255,255,255,0.06))]" />
+						<div className="absolute left-[22%] top-[40%] h-3 w-[56%] rounded-full bg-[linear-gradient(90deg,rgba(255,255,255,0.04),rgba(255,255,255,0.18),rgba(255,255,255,0.04))]" />
+						<div className="absolute left-[28%] top-[50%] h-3 w-[50%] rounded-full bg-[linear-gradient(90deg,rgba(255,255,255,0.04),rgba(255,255,255,0.16),rgba(255,255,255,0.04))]" />
+						<div className="absolute left-[33%] top-[60%] h-3 w-[45%] rounded-full bg-[linear-gradient(90deg,rgba(255,255,255,0.03),rgba(255,255,255,0.12),rgba(255,255,255,0.03))]" />
 						<div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_34%,rgba(255,255,255,0.08)_100%)]" />
 					</>
 				) : null}

@@ -2,29 +2,34 @@ import { Check, ChevronRight } from "lucide-react";
 import { NBENCH_MODELS } from "@/data/nbench";
 import { NBenchSection } from "@/components/landing/nbench/primitives";
 
-function ModelBadge() {
+const MODEL_LOGOS: Record<string, string> = {
+	"Kimi K2.5": "https://kimi.moonshot.cn/favicon.ico",
+	"Claude Sonnet 4.5": "https://www.anthropic.com/favicon.ico",
+	"GPT-5": "https://openai.com/favicon.ico",
+	"Gemini 2.5 Flash": "https://www.gstatic.com/lamda/images/gemini_icon_v2_1f9f5f08e8f6c8f4a1d0.png",
+	"DeepSeek V3.2": "https://www.deepseek.com/favicon.ico",
+	OpenCode: "https://opencode.ai/favicon-96x96-v3.png",
+};
+
+function ModelBadge({ selected = false }: { selected?: boolean }) {
 	return (
-		<span className="inline-flex items-center rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-0.5 font-inter text-[11px] tracking-[0.02em] text-white/52">
+		<span
+			className={`inline-flex items-center rounded-md px-2 py-0.5 font-inter text-[11px] tracking-[0.02em] ${
+				selected
+					? "border border-white/[0.28] bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.07))] text-white/78 shadow-[inset_0_1px_0_rgba(255,255,255,0.28)]"
+					: "border border-white/[0.08] bg-white/[0.04] text-white/42"
+			}`}
+		>
 			Model
 		</span>
 	);
 }
 
-function ModelAvatar({ index }: { index: number }) {
-	const avatarStyles = [
-		"from-[#4de6ff] to-[#63ffbf]",
-		"from-[#b4b4b4] to-[#737373]",
-		"from-[#4cb2ff] to-[#6487ff]",
-		"from-[#bc85ff] to-[#6f66ff]",
-		"from-[#ffb26a] to-[#ff8f7b]",
-		"from-[#8c8c8c] to-[#4e4e4e]",
-	] as const;
-
+function ModelAvatar({ name }: { name: string }) {
+	const logo = MODEL_LOGOS[name] ?? "/nairon-logo.png";
 	return (
-		<div className="relative h-6 w-6 shrink-0 rounded-full bg-[linear-gradient(135deg,#191b1f,#0d0f12)] ring-1 ring-white/12">
-			<div
-				className={`absolute inset-[5px] rounded-full bg-gradient-to-br ${avatarStyles[index] ?? avatarStyles[5]}`}
-			/>
+		<div className="relative h-6 w-6 shrink-0 rounded-full border border-white/16 bg-[linear-gradient(135deg,#1f2126,#101216)] p-[4px] shadow-[inset_0_1px_0_rgba(255,255,255,0.14)]">
+			<img src={logo} alt={`${name} logo`} className="h-full w-full rounded-full object-contain" loading="lazy" />
 		</div>
 	);
 }
@@ -32,7 +37,7 @@ function ModelAvatar({ index }: { index: number }) {
 export function NBenchModels() {
 	return (
 		<NBenchSection className="overflow-hidden pb-24 pt-20 md:pb-32 md:pt-24">
-			<div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_28%_14%,rgba(255,255,255,0.07),transparent_38%),radial-gradient(circle_at_70%_16%,rgba(77,255,141,0.09),transparent_36%),linear-gradient(180deg,rgba(8,8,8,0),rgb(8,8,8)_70%)]" />
+			<div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_12%,rgba(255,255,255,0.035),transparent_36%),radial-gradient(circle_at_76%_18%,rgba(115,146,255,0.04),transparent_34%),linear-gradient(180deg,rgba(4,5,7,0),rgb(5,5,6)_72%)]" />
 
 			<div className="mx-auto flex max-w-4xl flex-col items-center text-center">
 				<div className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.02] px-3 py-1 font-inter text-[12px] text-white/72">
@@ -40,7 +45,7 @@ export function NBenchModels() {
 					{NBENCH_MODELS.badge}
 				</div>
 				<h2 className="mt-5 max-w-[16ch] font-inter text-[42px] font-[530] leading-[1.02] tracking-[-0.03em] text-white sm:max-w-none sm:text-[58px] md:text-[72px]">
-					{NBENCH_MODELS.title}
+					Insights across all AI tools
 				</h2>
 				<p className="mt-4 max-w-3xl font-inter text-[18px] leading-[1.45] tracking-[-0.01em] text-white/52 md:text-[19px]">
 					{NBENCH_MODELS.description}
@@ -54,41 +59,44 @@ export function NBenchModels() {
 				</button>
 			</div>
 
-			<div className="relative mx-auto mt-12 w-full max-w-[1280px] px-1 pb-18 md:mt-14 md:px-4">
-				<div className="pointer-events-none absolute inset-x-[14%] top-1 h-24 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.12),transparent_70%)] blur-2xl" />
+			<div className="relative mx-auto mt-12 w-full max-w-[1180px] px-1 pb-18 md:mt-14 md:px-4">
+				<div className="pointer-events-none absolute inset-x-[17%] top-2 h-20 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06),transparent_72%)] blur-2xl" />
 				<div className="pointer-events-none absolute inset-x-[12%] bottom-[-3%] h-22 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.66),transparent_78%)] blur-xl" />
-				<div className="relative mx-auto h-[350px] w-full max-w-[1180px] overflow-hidden rounded-[16px] border border-white/[0.12] bg-[linear-gradient(180deg,rgba(33,33,34,0.74)_0%,rgba(10,10,11,0.94)_36%,rgba(4,4,5,0.99)_100%)] shadow-[0_40px_120px_rgba(0,0,0,0.82)] [transform:perspective(2200px)_rotateX(54deg)_scaleX(1)] [transform-origin:center_top] md:h-[410px] md:[transform:perspective(2450px)_rotateX(54deg)_scaleX(1)]">
-					<div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.07)_0%,transparent_14%,transparent_78%,rgba(0,0,0,0.9)_100%)]" />
-					<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.12),transparent_48%)]" />
-					<div className="pointer-events-none absolute inset-0 bg-[linear-gradient(160deg,rgba(255,255,255,0.10)_0%,transparent_28%)]" />
-					<div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.1),rgba(0,0,0,0),rgba(0,0,0,0.1))]" />
-					<div className="pointer-events-none absolute -bottom-px left-0 right-0 h-20 bg-[linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.85)_65%,rgba(0,0,0,1))]" />
+				<div className="relative mx-auto h-[350px] w-full max-w-[860px] overflow-hidden rounded-[16px] border border-white/[0.11] bg-[linear-gradient(180deg,rgba(21,22,25,0.88)_0%,rgba(8,8,10,0.96)_40%,rgba(3,3,4,1)_100%)] shadow-[0_42px_124px_rgba(0,0,0,0.86)] [transform:perspective(2200px)_rotateX(34deg)_scale(1.06)] [transform-origin:center_top] md:h-[410px] md:[transform:perspective(2500px)_rotateX(34deg)_scale(1.1)]">
+					<div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.035)_0%,transparent_16%,transparent_78%,rgba(0,0,0,0.92)_100%)]" />
+					<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.06),transparent_52%)]" />
+					<div className="pointer-events-none absolute inset-0 bg-[linear-gradient(160deg,rgba(255,255,255,0.05)_0%,transparent_24%)]" />
+					<div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.18),rgba(0,0,0,0),rgba(0,0,0,0.2))]" />
+					<div className="pointer-events-none absolute inset-0 opacity-35 [background:repeating-linear-gradient(90deg,rgba(255,255,255,0.03)_0px,rgba(255,255,255,0.03)_1px,transparent_1px,transparent_74px)]" />
+					<div className="pointer-events-none absolute -bottom-px left-0 right-0 h-20 bg-[linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.72)_66%,rgba(0,0,0,0.94))]" />
 
 					<div className="relative px-5 pt-5 md:px-8 md:pt-6">
-						<div className="rounded-[12px] border border-white/[0.09] bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] px-5 py-2.5 font-inter text-[28px] italic tracking-[-0.01em] text-white/52 shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] md:text-[26px]">
+						<div className="rounded-[12px] border border-white/[0.1] bg-[linear-gradient(180deg,rgba(255,255,255,0.045),rgba(255,255,255,0.015))] px-5 py-2.5 font-inter text-[20px] italic tracking-[-0.01em] text-white/48 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] md:text-[17px]">
 							{NBENCH_MODELS.placeholder}
 						</div>
 
-						<div className="mt-3 overflow-hidden rounded-[14px] border border-white/[0.09] bg-[rgba(11,11,12,0.42)] shadow-[inset_0_1px_0_rgba(255,255,255,0.07)]">
-							<div className="relative px-3 py-1.5">
+						<div className="mt-3 overflow-visible rounded-[14px] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(13,14,16,0.7),rgba(7,7,8,0.74))] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+							<div className="relative px-3 py-2">
 								{NBENCH_MODELS.rows.map((model, index) => {
 									const isSelected = index === 1;
 									return (
 										<div
 											key={model.name}
-											className={`relative flex items-center gap-3 rounded-[10px] px-4 py-2.5 ${
+											className={`relative flex items-center gap-3 rounded-[10px] px-4 py-3 transition-[transform,box-shadow,border-color,background] duration-300 ${
 												isSelected
-													? "my-1 border border-white/[0.27] bg-[linear-gradient(90deg,rgba(255,255,255,0.22),rgba(255,255,255,0.09)_50%,rgba(255,255,255,0.20))] shadow-[inset_0_1px_0_rgba(255,255,255,0.24),0_0_0_1px_rgba(255,255,255,0.05)]"
-													: "text-white/72"
+													? "z-20 -mx-4 -translate-y-[6px] my-2 border border-white/[0.38] bg-[linear-gradient(180deg,rgba(255,255,255,0.34)_0%,rgba(255,255,255,0.12)_44%,rgba(255,255,255,0.22)_100%)] [transform:translateY(-6px)_scale(1.012)] shadow-[inset_0_1px_0_rgba(255,255,255,0.42),inset_0_-1px_0_rgba(255,255,255,0.12),0_0_0_1px_rgba(255,255,255,0.12),0_18px_46px_rgba(0,0,0,0.62),0_6px_14px_rgba(0,0,0,0.45)]"
+													: "border border-white/[0.05] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] text-white/56"
 											}`}
 										>
-											<ModelAvatar index={index} />
-											<p className={`font-inter text-[14px] tracking-[-0.01em] ${isSelected ? "text-white" : "text-white/80"}`}>
+											<div className={isSelected ? "rounded-full ring-2 ring-white/26 shadow-[0_0_18px_rgba(255,255,255,0.24)]" : ""}>
+												<ModelAvatar name={model.name} />
+											</div>
+											<p className={`font-inter text-[15px] font-[500] tracking-[-0.01em] ${isSelected ? "text-white" : "text-white/68"}`}>
 												{model.name}
 											</p>
-											<ModelBadge />
+											<ModelBadge selected={isSelected} />
 											{isSelected ? (
-												<div className="ml-auto inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/16 ring-1 ring-white/28">
+												<div className="ml-auto inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/18 ring-1 ring-white/30 shadow-[0_0_0_1px_rgba(255,255,255,0.06)]">
 													<Check className="size-3.5 text-white/86" />
 												</div>
 											) : null}
@@ -99,7 +107,7 @@ export function NBenchModels() {
 						</div>
 					</div>
 
-					<div className="pointer-events-none absolute inset-x-0 bottom-0 h-[56%] bg-[linear-gradient(180deg,transparent,rgba(3,3,4,0.72)_64%,rgba(3,3,4,0.96)_100%)]" />
+					<div className="pointer-events-none absolute inset-x-0 bottom-0 h-[56%] bg-[linear-gradient(180deg,transparent,rgba(3,3,4,0.6)_68%,rgba(3,3,4,0.9)_100%)]" />
 					<div className="pointer-events-none absolute inset-x-0 bottom-0 h-[34%] bg-[radial-gradient(ellipse_at_bottom,rgba(0,0,0,0.78),rgba(0,0,0,0))]" />
 				</div>
 			</div>

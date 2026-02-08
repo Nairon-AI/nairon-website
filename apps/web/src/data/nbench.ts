@@ -47,48 +47,55 @@ export const NBENCH_MODELS = {
 	cta: "Explore model playbooks",
 	placeholder: "Delegate benchmark run...",
 	rows: [
-		{ name: "NBench Analyst", role: "Model", kind: "core" },
-		{ name: "Claude Code", role: "Model", kind: "recommended" },
-		{ name: "GPT-5", role: "Model", kind: "fast" },
-		{ name: "Gemini 2.0", role: "Model", kind: "multimodal" },
-		{ name: "DeepSeek R1", role: "Model", kind: "reasoning" },
-		{ name: "Llama 3.3", role: "Model", kind: "open" },
+		{ name: "Kimi K2.5", role: "Model", kind: "fast" },
+		{ name: "Claude Sonnet 4.5", role: "Model", kind: "recommended" },
+		{ name: "GPT-5", role: "Model", kind: "reasoning" },
+		{ name: "Gemini 2.5 Flash", role: "Model", kind: "multimodal" },
+		{ name: "DeepSeek V3.2", role: "Model", kind: "open" },
+		{ name: "OpenCode", role: "Model", kind: "fast" },
 	] as const,
 } as const;
 
 export const NBENCH_FEATURE_SPLIT = {
 	left: {
-		title: "Self-driving benchmark operations",
+		title: "Weekly Workflow Benchmark",
 		description:
-			"Streamline benchmark triage, ownership, and follow-through with AI guidance for recurring team bottlenecks.",
-		panelTitle: "Triage Intelligence",
-		suggestions: ["alex", "Prompt Eval Gap", "CI Pipeline", "Token Alert"],
-		duplicateOf: "NB-412 Eval checkpoints missing",
-		relatedTo: "NB-377 Deployment baseline drift",
+			"Measure requirements, implementation, testing, and review in one score. Get 3 concrete actions to improve this week.",
+		panelTitle: "Benchmark Signals",
+		suggestions: ["Requirements", "Implementation", "Testing", "Review"],
+		duplicateOf: "Your score: 76/100 (Top 22%)",
+		relatedTo: "Friction detected: context reload loops",
 		popover: {
-			headline: "Why this owner was suggested",
+			headline: "Actions this week",
 			description:
-				"This teammate previously closed similar benchmark regressions across eval discipline and observability coverage.",
-			alternatives: ["sam", "jules"],
-			cta: "Accept suggestion",
+				"Run the two highest-impact fixes first, then rerun nb scan to validate score lift.",
+			alternatives: ["stagehand-ai", "api-error-handling"],
+			commands: [
+				"nb tools setup stagehand-ai",
+				"nb skills install api-error-handling",
+			],
 		},
+		cta: "Apply 3 recommendations",
 	},
 	right: {
-		title: "NBench MCP",
+		title: "Token Efficiency Intelligence",
 		description:
-			"Connect NBench outputs to tools like Claude, Cursor, and ChatGPT so benchmark findings become next actions instantly.",
-		endpoint: "//mcp.nbench.dev/sse",
-		config: [
-			'"mcpServers": {',
-			'  "nbench": {',
-			'    "command": "npx",',
-			'    "args": ["-y", "@nairon/nbench-mcp"],',
-			'    "env": { "NBENCH_API_KEY": "<key>" }',
-			"  }",
-			"}",
-		],
-		prompt: "Ask NBench what to improve next",
-		actions: ["Attach", "Search", "Reason"],
+			"See cost per feature, wasted tokens, and model misuse before budget burn becomes normal.",
+		dashboard: {
+			score: { value: 76, max: 100, percentile: "Top 22%" },
+			tokenEfficiency: {
+				multiplier: "1.12x",
+				note: "12% more efficient than avg",
+			},
+			categories: [
+				{ name: "Requirements", score: 82, percentile: "Top 15%" },
+				{ name: "Planning", score: 71, percentile: "Top 35%" },
+				{ name: "Implementation", score: 84, percentile: "Top 10%" },
+				{ name: "Testing", score: 63, percentile: "Top 48%" },
+				{ name: "Review", score: 72, percentile: "Top 30%" },
+			],
+			footer: { tokens: "1.8M", waste: "12%", cost: "~$47" },
+		},
 	},
 } as const;
 
@@ -114,18 +121,18 @@ export const NBENCH_CAPABILITIES = {
 		"NBench reflects the standards that separate AI-native builders from teams that are still experimenting. Audit architecture, score execution quality, and lock in a weekly improvement cadence.",
 	cards: [
 		{
-			title: "Purpose-built for AI nativeness",
-			copy: "Run a single benchmark that scores architecture, eval discipline, prompt observability, and token efficiency.",
+			title: "Measure real baseline",
+			copy: "Benchmark your workflow across planning, coding, testing, and review so you know where performance actually stands.",
 			tag: "Benchmark model",
 		},
 		{
-			title: "Designed to move fast",
-			copy: "Surface the highest-impact bottlenecks in minutes and route teams directly to the next improvement step.",
+			title: "Improve every week",
+			copy: "Get practical, prioritized fixes you can apply immediately and track measurable gains sprint after sprint.",
 			tag: "Fast diagnosis",
 		},
 		{
-			title: "Crafted for iteration",
-			copy: "Track score movement every week and build a measurable loop from insight to shipped capability.",
+			title: "Control token spend",
+			copy: "Find waste across prompts, context strategy, and model usage to reduce cost without slowing delivery.",
 			tag: "Weekly delta",
 		},
 	],
@@ -135,22 +142,22 @@ export const NBENCH_WHAT_WE_TRACK = {
 	badge: "What we track",
 	title: "Metrics that connect output to outcomes",
 	description:
-		"Measure both delivery impact and token efficiency so teams know where time and budget are actually spent.",
+		"Score how users provide context, write prompts, and execute workflows so improvements are actionable week to week.",
 	cards: [
 		{
-			title: "Efficiency metrics",
+			title: "Context and prompting quality",
 			items: [
-				"Tokens per feature delivered",
-				"Wasted token loops",
-				"Model selection efficiency",
+				"Context relevance score",
+				"Prompt clarity and specificity",
+				"Instruction structure quality",
 			],
 		},
 		{
-			title: "Delivery metrics",
+			title: "Workflow improvement metrics",
 			items: [
-				"Cost per SDLC phase",
-				"Eval discipline coverage",
-				"Weekly score delta",
+				"First-pass success rate",
+				"Retry and rework reduction",
+				"Recommendation adoption rate",
 			],
 		},
 	],
