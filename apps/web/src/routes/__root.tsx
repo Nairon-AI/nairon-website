@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import {
 	createRootRouteWithContext,
 	HeadContent,
@@ -11,9 +11,6 @@ import type { ConvexReactClient } from "convex/react";
 import { ConvexProvider } from "convex/react";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ViewModeProvider } from "@/contexts/view-mode-context";
-import { ViewModeToggle } from "@/components/view-mode-toggle";
-import { BenchmarkWidget } from "@/components/landing/benchmark-widget";
-import { SmoothScroll } from "@/components/smooth-scroll";
 import { Toaster } from "sonner";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import "@/styles/globals.css";
@@ -35,6 +32,21 @@ const SidebarInset = lazy(() =>
 const SidebarTrigger = lazy(() =>
 	import("@/components/ui/sidebar").then((m) => ({
 		default: m.SidebarTrigger,
+	})),
+);
+const ViewModeToggle = lazy(() =>
+	import("@/components/view-mode-toggle").then((m) => ({
+		default: m.ViewModeToggle,
+	})),
+);
+const BenchmarkWidget = lazy(() =>
+	import("@/components/landing/benchmark-widget").then((m) => ({
+		default: m.BenchmarkWidget,
+	})),
+);
+const SmoothScroll = lazy(() =>
+	import("@/components/smooth-scroll").then((m) => ({
+		default: m.SmoothScroll,
 	})),
 );
 
@@ -61,19 +73,24 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 			{ name: "theme-color", content: "#000000" },
 		],
 		links: [
-			{ rel: "preconnect", href: "https://fonts.googleapis.com" },
 			{
-				rel: "preconnect",
-				href: "https://fonts.gstatic.com",
+				rel: "preload",
+				href: "/fonts/inter-latin.woff2",
+				as: "font",
+				type: "font/woff2",
 				crossOrigin: "anonymous",
 			},
 			{
-				rel: "stylesheet",
-				href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700&display=swap",
+				rel: "preload",
+				href: "/fonts/urbanist-latin.woff2",
+				as: "font",
+				type: "font/woff2",
+				crossOrigin: "anonymous",
 			},
 			{
-				rel: "dns-prefetch",
-				href: "https://framerusercontent.com",
+				rel: "preload",
+				as: "image",
+				href: "/nairon-logo.png",
 			},
 		],
 		scripts: [
@@ -111,6 +128,23 @@ function RootComponent() {
 		isContactPage ||
 		isCareersPage ||
 		isTeamPage;
+	const [showDeferredUi, setShowDeferredUi] = useState(false);
+	const [enableSmoothScroll, setEnableSmoothScroll] = useState(false);
+
+	useEffect(() => {
+		if (!isLandingPage) {
+			setShowDeferredUi(false);
+			setEnableSmoothScroll(false);
+			return;
+		}
+
+		const timeoutId = window.setTimeout(() => setShowDeferredUi(true), 2500);
+		const smoothTimeoutId = window.setTimeout(() => setEnableSmoothScroll(true), 1200);
+		return () => {
+			window.clearTimeout(timeoutId);
+			window.clearTimeout(smoothTimeoutId);
+		};
+	}, [isLandingPage]);
 
 	return (
 		<html lang="en" suppressHydrationWarning className={isLandingPage ? "dark" : ""}>
@@ -126,15 +160,33 @@ function RootComponent() {
 						disableTransitionOnChange
 					>
 						{isLandingPage ? (
-							<SmoothScroll>
-								<ViewModeProvider>
+							<ViewModeProvider>
+								{enableSmoothScroll ? (
+									<Suspense
+										fallback={
+											<main>
+												<Outlet />
+											</main>
+										}
+									>
+										<SmoothScroll>
+											<main>
+												<Outlet />
+											</main>
+										</SmoothScroll>
+									</Suspense>
+								) : (
 									<main>
 										<Outlet />
 									</main>
-									<ViewModeToggle />
-									<BenchmarkWidget />
-								</ViewModeProvider>
-							</SmoothScroll>
+								)}
+								{showDeferredUi ? (
+									<Suspense fallback={null}>
+										<ViewModeToggle />
+										<BenchmarkWidget />
+									</Suspense>
+								) : null}
+							</ViewModeProvider>
 						) : (
 							<Suspense
 								fallback={

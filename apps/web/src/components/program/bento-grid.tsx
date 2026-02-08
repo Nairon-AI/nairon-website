@@ -134,9 +134,9 @@ function DubaiVisual() {
 
 function AvatarsVisual() {
 	const avatars = [
-		"https://framerusercontent.com/images/SSmGx1bjs3koY1aPdILAeuc.jpeg",
-		"https://framerusercontent.com/images/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
-		"https://framerusercontent.com/images/VkXk2rDNGzBySnbTZ9H4v4dMdE.jpeg",
+		"/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
+		"/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
+		"/assets/framer/VkXk2rDNGzBySnbTZ9H4v4dMdE.jpeg",
 	];
 	return (
 		<div className="mt-6 flex items-center gap-1">

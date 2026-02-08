@@ -81,9 +81,11 @@ export function Navbar() {
 				{/* Logo */}
 				<a href="/" className="flex items-center">
 					<img
-						src="https://framerusercontent.com/images/VHRAdVMCwEE6Q9afizgYDgxitUU.png"
+						src="/nairon-logo.png"
 						alt="nairon."
-						className="h-9"
+						width={600}
+						height={120}
+						className="h-9 w-auto"
 					/>
 				</a>
 

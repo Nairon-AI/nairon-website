@@ -13,7 +13,7 @@ function GuestCard({ guest, role }: { guest: string; role: string }) {
 	return (
 		<div className="flex items-start gap-3">
 			<img
-				src="https://framerusercontent.com/images/47jhKH0AA1f2ZNcovBPcmjTlLM.png"
+				src="/assets/framer/47jhKH0AA1f2ZNcovBPcmjTlLM.png"
 				alt=""
 				className="w-[100px] h-[100px] object-cover shrink-0"
 				loading="lazy"

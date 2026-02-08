@@ -73,7 +73,7 @@ function EngineerCTARow() {
 			<div className="relative rounded-3xl overflow-hidden lg:w-[40%] min-h-[300px]">
 				{/* Green gradient background image */}
 				<img
-					src="https://framerusercontent.com/images/cCL2QZFtjBzhpu3HuM4JaLndar8.png"
+					src="/assets/framer/cCL2QZFtjBzhpu3HuM4JaLndar8.png"
 					alt=""
 					className="absolute inset-0 w-full h-full object-cover"
 					loading="lazy"
@@ -125,7 +125,7 @@ function ClientCTARow() {
 			<div className="relative rounded-3xl overflow-hidden lg:w-[40%] min-h-[300px]">
 				{/* Gold gradient background image */}
 				<img
-					src="https://framerusercontent.com/images/pshetKl5VEKwnAW1nwizR8675w.png"
+					src="/assets/framer/pshetKl5VEKwnAW1nwizR8675w.png"
 					alt=""
 					className="absolute inset-0 w-full h-full object-cover"
 					loading="lazy"

@@ -1,60 +1,7 @@
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { FINAL_CTA } from "@/data/landing";
 import { useViewMode } from "@/contexts/view-mode-context";
-
-/**
- * Boomerang video: plays forward, then smoothly reverses back to the start, repeat.
- * Uses requestAnimationFrame to step currentTime backward for a seamless loop.
- */
-function useBoomerangVideo() {
-	const videoRef = useRef<HTMLVideoElement>(null);
-	const reversing = useRef(false);
-	const rafId = useRef<number>(0);
-	const lastTime = useRef<number>(0);
-
-	const stepReverse = useCallback((timestamp: number) => {
-		const video = videoRef.current;
-		if (!video) return;
-
-		if (lastTime.current === 0) lastTime.current = timestamp;
-		const delta = (timestamp - lastTime.current) / 1000; // seconds elapsed
-		lastTime.current = timestamp;
-
-		video.currentTime = Math.max(0, video.currentTime - delta * video.playbackRate);
-
-		if (video.currentTime <= 0.05) {
-			// Reached the start — switch back to forward
-			reversing.current = false;
-			lastTime.current = 0;
-			video.currentTime = 0;
-			video.play();
-			return;
-		}
-
-		rafId.current = requestAnimationFrame(stepReverse);
-	}, []);
-
-	useEffect(() => {
-		const video = videoRef.current;
-		if (!video) return;
-
-		const onEnded = () => {
-			reversing.current = true;
-			lastTime.current = 0;
-			video.pause();
-			rafId.current = requestAnimationFrame(stepReverse);
-		};
-
-		video.addEventListener("ended", onEnded);
-		return () => {
-			video.removeEventListener("ended", onEnded);
-			cancelAnimationFrame(rafId.current);
-		};
-	}, [stepReverse]);
-
-	return videoRef;
-}
 
 function CTAContent() {
 	const { isEngineer } = useViewMode();
@@ -119,8 +66,10 @@ function CTAContent() {
  */
 export function ImmersiveCTA() {
 	const ctaRef = useRef<HTMLDivElement>(null);
-	const videoRef = useBoomerangVideo();
+	const videoRef = useRef<HTMLVideoElement>(null);
+	const spacerRef = useRef<HTMLDivElement>(null);
 	const [ctaHeight, setCtaHeight] = useState(0);
+	const [shouldPlayVideo, setShouldPlayVideo] = useState(false);
 
 	useEffect(() => {
 		if (!ctaRef.current) return;
@@ -133,6 +82,32 @@ export function ImmersiveCTA() {
 		return () => observer.disconnect();
 	}, []);
 
+	useEffect(() => {
+		if (!spacerRef.current) return;
+		const observer = new IntersectionObserver(
+			(entries) => {
+				setShouldPlayVideo(entries.some((entry) => entry.isIntersecting));
+			},
+			{ root: null, rootMargin: "200% 0px 200% 0px", threshold: 0 },
+		);
+		observer.observe(spacerRef.current);
+		return () => observer.disconnect();
+	}, []);
+
+	useEffect(() => {
+		const video = videoRef.current;
+		if (!video) return;
+
+		if (shouldPlayVideo) {
+			void video.play().catch(() => {
+				// Ignore autoplay rejections; video will start on user interaction.
+			});
+			return;
+		}
+
+		video.pause();
+	}, [shouldPlayVideo]);
+
 	return (
 		<>
 			{/* Fixed CTA layer — sits behind the scrolling content */}
@@ -141,12 +116,14 @@ export function ImmersiveCTA() {
 				className="fixed inset-x-0 bottom-0 z-[1]"
 				style={{ minHeight: "100dvh" }}
 			>
-				{/* Video background — boomerang loop (forward → reverse → forward…) */}
+				{/* Video background */}
 				<video
 					ref={videoRef}
 					autoPlay
 					muted
 					playsInline
+					loop
+					preload={shouldPlayVideo ? "auto" : "metadata"}
 					className="absolute inset-0 w-full h-full object-cover"
 				>
 					<source src="/cta-bg.mp4" type="video/mp4" />
@@ -183,6 +160,7 @@ export function ImmersiveCTA() {
 
 			{/* Spacer — pushes scrollable area so the fixed CTA can be fully revealed */}
 			<div
+				ref={spacerRef}
 				className="relative"
 				style={{ height: ctaHeight || "100dvh" }}
 				aria-hidden="true"

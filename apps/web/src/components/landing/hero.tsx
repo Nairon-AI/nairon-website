@@ -55,6 +55,7 @@ function InfoBar() {
 			</div>
 			<a
 				href="#about"
+				aria-label="Scroll to about section"
 				className={`w-10 h-10 rounded-full border ${colors.borderInteractive} flex items-center justify-center hover:bg-white/5 transition-colors shrink-0 mt-6 md:mt-0`}
 			>
 				<ArrowDown className="w-4 h-4 text-white/60" />
@@ -95,7 +96,7 @@ export function Hero() {
 			>
 				{/* Nairon logo image */}
 				<img
-					src="https://framerusercontent.com/images/VHRAdVMCwEE6Q9afizgYDgxitUU.png"
+					src="/nairon-logo.png"
 					alt="nairon."
 					fetchPriority="high"
 					width={600}

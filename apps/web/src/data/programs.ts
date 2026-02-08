@@ -206,7 +206,7 @@ export const RESIDENCE_DATA: ProgramData = {
 			role: "Founding AI Engineer",
 			company: "Nairon",
 			image:
-				"https://framerusercontent.com/images/VkXk2rDNGzBySnbTZ9H4v4dMdE.jpeg",
+				"/assets/framer/VkXk2rDNGzBySnbTZ9H4v4dMdE.jpeg",
 			caseStudy:
 				"Previously a mid-level developer. After the Residence, received 3 offers above $120k within the final week of the program.",
 		},
@@ -217,7 +217,7 @@ export const RESIDENCE_DATA: ProgramData = {
 			role: "Head of Engineering",
 			company: "Series B AI Startup",
 			image:
-				"https://framerusercontent.com/images/47jhKH0AA1f2ZNcovBPcmjTlLM.png",
+				"/assets/framer/47jhKH0AA1f2ZNcovBPcmjTlLM.png",
 			caseStudy:
 				"Hired 2 Nairon graduates in the first cohort. Both ramped to full productivity within 2 weeks — compared to the usual 2-month onboarding.",
 		},
@@ -304,7 +304,7 @@ export const RESIDENCE_DATA: ProgramData = {
 		author: "Luka Eric",
 		role: "Founder & CEO",
 		signature:
-			"https://framerusercontent.com/images/II2AoNr3T28LTiP1KS4xWQn80.png",
+			"/assets/framer/II2AoNr3T28LTiP1KS4xWQn80.png",
 		paragraphs: [
 			{
 				bold: "Traditional hiring is broken for engineers.",
@@ -457,7 +457,7 @@ export const APPRENTICESHIP_DATA: ProgramData = {
 			role: "Software Engineer",
 			company: "Tech Startup",
 			image:
-				"https://framerusercontent.com/images/47jhKH0AA1f2ZNcovBPcmjTlLM.png",
+				"/assets/framer/47jhKH0AA1f2ZNcovBPcmjTlLM.png",
 			caseStudy:
 				"Transitioned from frontend development to AI engineering role within 3 months of completing the Apprenticeship.",
 		},
@@ -468,7 +468,7 @@ export const APPRENTICESHIP_DATA: ProgramData = {
 			role: "Engineering Manager",
 			company: "Growth-Stage SaaS",
 			image:
-				"https://framerusercontent.com/images/47jhKH0AA1f2ZNcovBPcmjTlLM.png",
+				"/assets/framer/47jhKH0AA1f2ZNcovBPcmjTlLM.png",
 			caseStudy:
 				"Hired an Apprenticeship graduate who built a production RAG system in their first month — work that typically takes a senior engineer 2-3 months.",
 		},
@@ -580,7 +580,7 @@ export const APPRENTICESHIP_DATA: ProgramData = {
 		author: "Luka Eric",
 		role: "Founder & CEO",
 		signature:
-			"https://framerusercontent.com/images/II2AoNr3T28LTiP1KS4xWQn80.png",
+			"/assets/framer/II2AoNr3T28LTiP1KS4xWQn80.png",
 		paragraphs: [
 			{
 				bold: "We were forced into launching the Apprenticeship.",

@@ -14,6 +14,7 @@ function SnapHandler() {
 	const snapRef = useRef<Snap | null>(null);
 	const lastDirectionRef = useRef(1);
 	const isRedirectingRef = useRef(false);
+	const lastDistanceThresholdRef = useRef("35%");
 
 	// Track the user's real scroll direction
 	useEffect(() => {
@@ -31,8 +32,12 @@ function SnapHandler() {
 			if (snap) {
 				const speed = Math.abs(lenis.velocity);
 				const t = Math.min(speed / 3, 1);
-				(snap.options as { distanceThreshold?: string }).distanceThreshold =
-					`${Math.round(35 + t * 30)}%`;
+				const nextThreshold = `${Math.round(35 + t * 30)}%`;
+				if (nextThreshold !== lastDistanceThresholdRef.current) {
+					(snap.options as { distanceThreshold?: string }).distanceThreshold =
+						nextThreshold;
+					lastDistanceThresholdRef.current = nextThreshold;
+				}
 			}
 		}
 
@@ -45,6 +50,26 @@ function SnapHandler() {
 	// Set up snap with direction-aware gating
 	useEffect(() => {
 		if (!lenis) return;
+
+		let setupRaf = 0;
+		let setupScheduled = false;
+
+		const scheduleSetup = () => {
+			if (setupScheduled) return;
+			setupScheduled = true;
+			setupRaf = requestAnimationFrame(() => {
+				setupScheduled = false;
+				setup();
+			});
+		};
+
+		const nodeAffectsSnap = (node: Node) => {
+			if (!(node instanceof Element)) return false;
+			return (
+				node.matches("section, header, footer, [data-snap-align]") ||
+				node.querySelector("section, header, footer, [data-snap-align]") !== null
+			);
+		};
 
 		function setup() {
 			if (!lenis) return;
@@ -88,7 +113,7 @@ function SnapHandler() {
 			});
 
 			const sections = document.querySelectorAll(
-				"section, header, footer",
+				"section, header, footer, [data-snap-align]",
 			);
 			for (const el of sections) {
 				const align = (el as HTMLElement).dataset.snapAlign ?? "center";
@@ -98,16 +123,40 @@ function SnapHandler() {
 			snapRef.current = snap;
 		}
 
-		const raf = requestAnimationFrame(setup);
+		scheduleSetup();
 
-		const observer = new MutationObserver(() => {
-			requestAnimationFrame(setup);
+		let resizeRaf = 0;
+		const onResize = () => {
+			cancelAnimationFrame(resizeRaf);
+			resizeRaf = requestAnimationFrame(scheduleSetup);
+		};
+		window.addEventListener("resize", onResize);
+
+		const observer = new MutationObserver((mutations) => {
+			for (const mutation of mutations) {
+				for (const node of mutation.addedNodes) {
+					if (nodeAffectsSnap(node)) {
+						scheduleSetup();
+						return;
+					}
+				}
+
+				for (const node of mutation.removedNodes) {
+					if (nodeAffectsSnap(node)) {
+						scheduleSetup();
+						return;
+					}
+				}
+			}
 		});
+
 		observer.observe(document.body, { childList: true, subtree: true });
 
 		return () => {
-			cancelAnimationFrame(raf);
+			cancelAnimationFrame(setupRaf);
+			cancelAnimationFrame(resizeRaf);
 			observer.disconnect();
+			window.removeEventListener("resize", onResize);
 			snapRef.current?.destroy();
 			snapRef.current = null;
 		};

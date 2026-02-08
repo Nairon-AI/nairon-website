@@ -145,6 +145,7 @@ export function BenchmarkWidget() {
 						<button
 							type="button"
 							onClick={dismiss}
+							aria-label="Dismiss benchmark widget"
 							className="flex items-center justify-center w-7 h-7 rounded-lg text-white/30 hover:text-white/60 hover:bg-white/[0.06] transition-all duration-200 -mt-0.5 -mr-1"
 						>
 							<X className="w-3.5 h-3.5" />

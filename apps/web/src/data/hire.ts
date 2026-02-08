@@ -46,28 +46,28 @@ export const HIRE_PROCESS_STEPS = [
 		title: "Define Your Requirements",
 		description:
 			"You share your tech stack, role requirements, and team culture so we can align on exactly what you need.",
-		image: "https://framerusercontent.com/images/jyMp9OqNFeIiNZgYSYTjgHZnhyQ.png",
+		image: "/assets/framer/jyMp9OqNFeIiNZgYSYTjgHZnhyQ.png",
 	},
 	{
 		number: 2,
 		title: "We Train the Cohort",
 		description:
 			"Our team runs an intensive 10-week AI engineering program tailored to the skills and tools your roles demand.",
-		image: "https://framerusercontent.com/images/pshetKl5VEKwnAW1nwizR8675w.png",
+		image: "/assets/framer/pshetKl5VEKwnAW1nwizR8675w.png",
 	},
 	{
 		number: 3,
 		title: "Meet the Engineers",
 		description:
 			"You get access to the full cohort, review projects, and interview the candidates that best fit your team.",
-		image: "https://framerusercontent.com/images/jyMp9OqNFeIiNZgYSYTjgHZnhyQ.png",
+		image: "/assets/framer/jyMp9OqNFeIiNZgYSYTjgHZnhyQ.png",
 	},
 	{
 		number: 4,
 		title: "Hire & Build",
 		description:
 			"Select your engineers, sign, and start integrating them into your product team with our support.",
-		image: "https://framerusercontent.com/images/LWS5A3AFRDm7CFokzD4zZhFJb7g.png",
+		image: "/assets/framer/LWS5A3AFRDm7CFokzD4zZhFJb7g.png",
 	},
 ] as const;
 
@@ -101,7 +101,7 @@ export const HIRE_TIERS: HireTier[] = [
 		],
 		gradient: "pricing-gradient-gray",
 		bottomGradient: "radial-gradient(110% 165% at 3.2% 143.1%, rgb(38, 38, 38) 0%, rgb(0, 0, 0) 100%)",
-		image: "https://framerusercontent.com/images/jyMp9OqNFeIiNZgYSYTjgHZnhyQ.png",
+		image: "/assets/framer/jyMp9OqNFeIiNZgYSYTjgHZnhyQ.png",
 	},
 	{
 		badge: "Ultra Growth Startups",
@@ -118,7 +118,7 @@ export const HIRE_TIERS: HireTier[] = [
 		],
 		gradient: "pricing-gradient-gold",
 		bottomGradient: "radial-gradient(110% 165% at 3.2% 143.1%, rgb(158, 115, 14) 0%, rgb(0, 0, 0) 100%)",
-		image: "https://framerusercontent.com/images/pshetKl5VEKwnAW1nwizR8675w.png",
+		image: "/assets/framer/pshetKl5VEKwnAW1nwizR8675w.png",
 		popular: true,
 	},
 	{
@@ -136,7 +136,7 @@ export const HIRE_TIERS: HireTier[] = [
 		],
 		gradient: "pricing-gradient-gray",
 		bottomGradient: "radial-gradient(110% 165% at 3.2% 143.1%, rgb(38, 38, 38) 0%, rgb(0, 0, 0) 100%)",
-		image: "https://framerusercontent.com/images/jyMp9OqNFeIiNZgYSYTjgHZnhyQ.png",
+		image: "/assets/framer/jyMp9OqNFeIiNZgYSYTjgHZnhyQ.png",
 	},
 ];
 

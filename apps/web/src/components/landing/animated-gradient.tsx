@@ -216,7 +216,12 @@ export function AnimatedGradient({ variant = "green" }: { variant?: "green" | "g
 
 		const PARAMS = variant === "gold" ? PARAMS_GOLD : PARAMS_GREEN;
 
-		const gl = canvas.getContext("webgl2", { premultipliedAlpha: true, alpha: true });
+		const gl = canvas.getContext("webgl2", {
+			premultipliedAlpha: true,
+			alpha: true,
+			powerPreference: "low-power",
+			desynchronized: true,
+		});
 		if (!gl) return;
 
 		const vs = createShader(gl, gl.VERTEX_SHADER, VERTEX_SHADER);
@@ -270,17 +275,22 @@ export function AnimatedGradient({ variant = "green" }: { variant?: "green" | "g
 		gl.uniform1f(uniforms.u_swirl, PARAMS.swirl);
 		gl.uniform1f(uniforms.u_swirlIterations, PARAMS.swirlIterations);
 
-		let animationId: number;
+		let animationId = 0;
 		const startTime = performance.now();
+		let lastFrameTime = 0;
+		let isRunning = false;
+		let inViewport = true;
+		const frameIntervalMs = 1000 / 30;
 		// Speed factor: Framer speed 53 → map to a reasonable time multiplier
 		// Default speed is 20 with multiplier ~1.0. Speed 53 ≈ 2.65x
 		const speedMultiplier = PARAMS.speed / 20;
 
 		const resize = () => {
 			const rect = canvas.getBoundingClientRect();
-			const dpr = window.devicePixelRatio || 1;
-			canvas.width = rect.width * dpr;
-			canvas.height = rect.height * dpr;
+			const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+			const renderScale = 0.85;
+			canvas.width = Math.max(1, Math.floor(rect.width * dpr * renderScale));
+			canvas.height = Math.max(1, Math.floor(rect.height * dpr * renderScale));
 			gl.viewport(0, 0, canvas.width, canvas.height);
 			gl.uniform1f(uniforms.u_pixelRatio, dpr);
 			gl.uniform2f(uniforms.u_resolution, canvas.width, canvas.height);
@@ -289,19 +299,51 @@ export function AnimatedGradient({ variant = "green" }: { variant?: "green" | "g
 		resize();
 		window.addEventListener("resize", resize);
 
-		function render() {
-			if (!gl) return;
-			const elapsed = (performance.now() - startTime) / 1000;
-			gl.uniform1f(uniforms.u_time, elapsed * speedMultiplier);
-			gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+		const updateRunState = () => {
+			const shouldRun = !document.hidden && inViewport;
+			if (shouldRun && !isRunning) {
+				isRunning = true;
+				animationId = requestAnimationFrame(render);
+			}
+			if (!shouldRun && isRunning) {
+				isRunning = false;
+				cancelAnimationFrame(animationId);
+			}
+		};
+
+		const onVisibilityChange = () => {
+			updateRunState();
+		};
+		document.addEventListener("visibilitychange", onVisibilityChange);
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				inViewport = entries.some((entry) => entry.isIntersecting);
+				updateRunState();
+			},
+			{ root: null, rootMargin: "200px 0px 200px 0px", threshold: 0 },
+		);
+		observer.observe(canvas);
+
+		function render(timestamp: number) {
+			if (!gl || !isRunning) return;
+			if (timestamp - lastFrameTime >= frameIntervalMs) {
+				lastFrameTime = timestamp;
+				const elapsed = (timestamp - startTime) / 1000;
+				gl.uniform1f(uniforms.u_time, elapsed * speedMultiplier);
+				gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+			}
 			animationId = requestAnimationFrame(render);
 		}
 
-		render();
+		updateRunState();
 
 		return () => {
+			isRunning = false;
 			cancelAnimationFrame(animationId);
 			window.removeEventListener("resize", resize);
+			document.removeEventListener("visibilitychange", onVisibilityChange);
+			observer.disconnect();
 			gl.deleteProgram(program);
 			gl.deleteShader(vs);
 			gl.deleteShader(fs);
@@ -310,23 +352,10 @@ export function AnimatedGradient({ variant = "green" }: { variant?: "green" | "g
 	}, [variant]);
 
 	return (
-		<>
-			<canvas
-				ref={canvasRef}
-				className="absolute inset-0 w-full h-full pointer-events-none"
-				style={{ imageRendering: "auto" }}
-			/>
-			{/* Checks pattern overlay — same asset used by Framer */}
-			<div
-				className="absolute inset-0 pointer-events-none"
-				style={{
-					backgroundImage:
-						'url("https://framerusercontent.com/images/g0QcWrxr87K0ufOxIUFBakwYA8.png")',
-					backgroundSize: "200px",
-					backgroundRepeat: "repeat",
-					opacity: 0.25,
-				}}
-			/>
-		</>
+		<canvas
+			ref={canvasRef}
+			className="absolute inset-0 w-full h-full pointer-events-none"
+			style={{ imageRendering: "auto" }}
+		/>
 	);
 }

@@ -76,8 +76,8 @@ function RequirementCard({
 					<img
 						src={
 							isFirst
-								? "https://framerusercontent.com/images/xLrjdpNQ6eOOdla0YNUQo6jMIY.png"
-								: "https://framerusercontent.com/images/wX62SMRMN1v1X6SFoJaoNdwo.webp"
+								? "/assets/framer/xLrjdpNQ6eOOdla0YNUQo6jMIY.png"
+								: "/assets/framer/wX62SMRMN1v1X6SFoJaoNdwo.webp"
 						}
 						alt=""
 						className={`absolute object-cover ${

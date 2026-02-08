@@ -135,31 +135,31 @@ export const HIRING_MANAGER_NAV: NavConfig = {
 // ─── About section features ─────────────────────────────────────
 export const FEATURES = [
 	{
-		icon: "https://framerusercontent.com/images/4UluxPGUnuHGRTAiDCLlXAout4.png",
+		icon: "/assets/framer/4UluxPGUnuHGRTAiDCLlXAout4.png",
 		title: "They Own the Outcome",
 		description:
 			"Our engineers do not wait for a spec. They talk to users, find the real problem, and ship the solution.",
 	},
 	{
-		icon: "https://framerusercontent.com/images/RQID0uOGeWqF21qgFLskUbILQ.png",
+		icon: "/assets/framer/RQID0uOGeWqF21qgFLskUbILQ.png",
 		title: "They are AI-Native",
 		description:
 			"While others prompt engineer, they design full AI systems. They know when to use RAG, fine-tuning, or agents, and how to make them work in production.",
 	},
 	{
-		icon: "https://framerusercontent.com/images/kB9SzsGVhcw6S54lxC5CMmP9d5o.png",
+		icon: "/assets/framer/kB9SzsGVhcw6S54lxC5CMmP9d5o.png",
 		title: "They Think in Systems",
 		description:
 			"They don't just ask if something works; they ask how it scales, what it costs, and what happens when it breaks.",
 	},
 	{
-		icon: "https://framerusercontent.com/images/vE5Nw48WnSWq4GMj8gJryzGDxWg.png",
+		icon: "/assets/framer/vE5Nw48WnSWq4GMj8gJryzGDxWg.png",
 		title: "They Communicate like CTOs",
 		description:
 			"They speak product, business, and engineering in one language. They can explain technical debt and architecture decisions to investors and founders.",
 	},
 	{
-		icon: "https://framerusercontent.com/images/NT0VTDsDN6iltFr3iwAKmpltg.png",
+		icon: "/assets/framer/NT0VTDsDN6iltFr3iwAKmpltg.png",
 		title: "They Deliver Under Pressure",
 		description:
 			"Real founders. Real deadlines. Real consequences. After 8 weeks of shipping under these conditions, your startup's pace will not faze them.",
@@ -179,19 +179,19 @@ export const TEAM_MEMBERS = [
 	{
 		name: "Luka Erić",
 		role: "CEO",
-		image: "https://framerusercontent.com/images/SSmGx1bjs3koY1aPdILAeuc.jpeg",
+		image: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
 		linkedin: "https://www.linkedin.com/in/lukaeric/",
 	},
 	{
 		name: "Obaid Ur-Rahmaan",
 		role: "CTO / Head of Product",
-		image: "https://framerusercontent.com/images/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
+		image: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
 		linkedin: "https://www.linkedin.com/in/obaid-ur-rahmaan-5bb29814b/",
 	},
 	{
 		name: "Abdulrahman Abdi",
 		role: "Serial Founding Engineer / Advisor",
-		image: "https://framerusercontent.com/images/VkXk2rDNGzBySnbTZ9H4v4dMdE.jpeg",
+		image: "/assets/framer/VkXk2rDNGzBySnbTZ9H4v4dMdE.jpeg",
 		linkedin: "https://www.linkedin.com/in/ar-abdi/",
 	},
 ];
@@ -201,25 +201,25 @@ export const TEAM_PAGE_MEMBERS = [
 	{
 		name: "Abdulrahman Abdi",
 		role: "Founding AI Engineer",
-		image: "https://framerusercontent.com/images/VkXk2rDNGzBySnbTZ9H4v4dMdE.jpeg",
+		image: "/assets/framer/VkXk2rDNGzBySnbTZ9H4v4dMdE.jpeg",
 		linkedin: "https://www.linkedin.com/in/ar-abdi",
 	},
 	{
 		name: "Luka Eric",
 		role: "CEO | Serial Founder",
-		image: "https://framerusercontent.com/images/SSmGx1bjs3koY1aPdILAeuc.jpeg",
+		image: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
 		linkedin: "https://www.linkedin.com/in/lukaeric",
 	},
 	{
 		name: "Obaid Ur-Rahmaan",
 		role: "CTO / Head of Product",
-		image: "https://framerusercontent.com/images/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
+		image: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
 		linkedin: "https://www.linkedin.com/in/obaid-ur-rahmaan-5bb29814b",
 	},
 	{
 		name: "Special Guest",
 		role: "AI Engineer",
-		image: "https://framerusercontent.com/images/47jhKH0AA1f2ZNcovBPcmjTlLM.png",
+		image: "/assets/framer/47jhKH0AA1f2ZNcovBPcmjTlLM.png",
 		linkedin: "https://www.linkedin.com/in/jitendra-raut/",
 	},
 ] as const;
@@ -228,7 +228,7 @@ export const TEAM_PAGE_MEMBERS = [
 export const FEATURED_MEMBER = {
 	name: "Luka Eric",
 	title: "Serial Founder",
-	image: "https://framerusercontent.com/images/SSmGx1bjs3koY1aPdILAeuc.jpeg",
+	image: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
 	linkedin: "https://www.linkedin.com/in/lukaeric/",
 	twitter: "https://x.com/founderLuka",
 	bio: [
@@ -236,11 +236,11 @@ export const FEATURED_MEMBER = {
 		"Luka previously built Rhetora AI, a Techstars-backed company developing conversational AI models for call centers. His work blends strategic clarity with hands-on execution. Luka helps companies turn ideas into real products, strong funnels, and measurable growth — from product design and hiring to branding, go-to-market, and operational systems. He enjoys building alongside ambitious teams and tackling complex problems where technology, business, and creativity intersect.",
 	],
 	logos: [
-		{ name: "Techstars", src: "https://framerusercontent.com/images/pUNtUdgSwe33FoYh1m5LpqWPnCg.png" },
-		{ name: "Rhetora AI", src: "https://framerusercontent.com/images/fh0BAFiSLjGHDRpCleZIUYZsuD8.png" },
-		{ name: "Question Base", src: "https://framerusercontent.com/images/gCoRIliVPUssDE4xI8Sgarcds.png" },
-		{ name: "CodeGPT", src: "https://framerusercontent.com/images/Ubzltin4ACP1ExeTGTyxOMVLg4.png" },
-		{ name: "Smartsy", src: "https://framerusercontent.com/images/8qMWlLSlx0NOdAKU6xzxJx8w6dk.png" },
+		{ name: "Techstars", src: "/assets/framer/pUNtUdgSwe33FoYh1m5LpqWPnCg.png" },
+		{ name: "Rhetora AI", src: "/assets/framer/fh0BAFiSLjGHDRpCleZIUYZsuD8.png" },
+		{ name: "Question Base", src: "/assets/framer/gCoRIliVPUssDE4xI8Sgarcds.png" },
+		{ name: "CodeGPT", src: "/assets/framer/Ubzltin4ACP1ExeTGTyxOMVLg4.png" },
+		{ name: "Smartsy", src: "/assets/framer/8qMWlLSlx0NOdAKU6xzxJx8w6dk.png" },
 	],
 } as const;
 
@@ -354,19 +354,19 @@ export const PROGRAM_PHASES: PhaseData[] = [
 export const PARTNERS = [
 	{
 		name: "Keylead",
-		logo: "https://framerusercontent.com/images/8iawpdspB7oNrbkg9yVbuNsT7lU.png",
+		logo: "/assets/framer/8iawpdspB7oNrbkg9yVbuNsT7lU.png",
 	},
 	{
 		name: "Question Base",
-		logo: "https://framerusercontent.com/images/3yRGTa8SbDMNcHD0Z9htHa4mti0.png",
+		logo: "/assets/framer/3yRGTa8SbDMNcHD0Z9htHa4mti0.png",
 	},
 	{
 		name: "CodeGPT",
-		logo: "https://framerusercontent.com/images/XXv1BKrLDM97th8HhgjBiFfeeUo.png",
+		logo: "/assets/framer/XXv1BKrLDM97th8HhgjBiFfeeUo.png",
 	},
 	{
 		name: "NEOM",
-		logo: "https://framerusercontent.com/images/7c0S1a6D6BW6O548tD40fZDqDg.png",
+		logo: "/assets/framer/7c0S1a6D6BW6O548tD40fZDqDg.png",
 	},
 ] as const;
 
@@ -437,7 +437,7 @@ export const PROGRAM_QUOTE = {
 	author: "Luka",
 	role: "Founder & CEO",
 	image:
-		"https://framerusercontent.com/images/dJLzlQGws846Nd571RpJg07iwfo.jpeg",
+		"/assets/framer/dJLzlQGws846Nd571RpJg07iwfo.jpeg",
 } as const;
 
 // ─── Program page: Our mission paragraphs ───────────────────────
@@ -469,9 +469,9 @@ export const PROGRAM_STATS = {
 	cohortSize: { value: "20+", label: "Elite Engineers" },
 	workType: { value: "100", suffix: "%", label: "Remote Work" },
 	avatars: [
-		"https://framerusercontent.com/images/SSmGx1bjs3koY1aPdILAeuc.jpeg",
-		"https://framerusercontent.com/images/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
-		"https://framerusercontent.com/images/VkXk2rDNGzBySnbTZ9H4v4dMdE.jpeg",
+		"/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
+		"/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
+		"/assets/framer/VkXk2rDNGzBySnbTZ9H4v4dMdE.jpeg",
 	],
 } as const;
 
@@ -1116,7 +1116,7 @@ export const FINAL_CTA = {
 		],
 		subtext: "This could be the start of something big.",
 		primaryCta: { label: "Apply Now", href: "/residence" },
-		secondaryCta: { label: "Learn More", href: "/residence" },
+		secondaryCta: { label: "Explore Residence Program", href: "/residence" },
 	},
 	hiringManager: {
 		badge: "Limited spots available",

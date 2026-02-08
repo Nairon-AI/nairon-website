@@ -105,7 +105,7 @@ function LargeLogoBackground() {
 		<div className="relative h-[400px] overflow-hidden">
 			{/* Green gradient background image (contains nairon logo square) */}
 			<img
-				src="https://framerusercontent.com/images/enyh4nWMxHyEude0e3qPKlPss.png"
+				src="/assets/framer/enyh4nWMxHyEude0e3qPKlPss.png"
 				alt=""
 				loading="lazy"
 				className="absolute inset-0 w-full h-full object-cover object-center"
@@ -122,9 +122,11 @@ function LargeLogoBackground() {
 
 			{/* Large "nairon." text overlay with mask for fade effect */}
 			<img
-				src="https://framerusercontent.com/images/VHRAdVMCwEE6Q9afizgYDgxitUU.png"
+				src="/nairon-logo.png"
 				alt=""
 				loading="lazy"
+				width={600}
+				height={120}
 				className="absolute bottom-0 left-1/2 -translate-x-1/2 max-w-none translate-y-[20%]"
 				style={{
 					width: "75%",

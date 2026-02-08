@@ -59,7 +59,7 @@ export function Philosophy() {
 								<OutlineButton href="/program">About the Program</OutlineButton>
 							</div>
 							<img
-								src="https://framerusercontent.com/images/II2AoNr3T28LTiP1KS4xWQn80.png"
+								src="/assets/framer/II2AoNr3T28LTiP1KS4xWQn80.png"
 								alt="Luka Eric signature"
 								className="h-[75px] w-[108px] object-contain"
 								loading="lazy"

@@ -12,7 +12,14 @@ import { useViewMode } from "@/contexts/view-mode-context";
 function PartnerLogo({ name, logo }: { name: string; logo: string }) {
 	return (
 		<div className="glass-card rounded-3xl p-8 flex items-center justify-center h-[104px]">
-			<img src={logo} alt={name} className="h-12 w-auto opacity-80" loading="lazy" />
+			<img
+				src={logo}
+				alt={name}
+				width={240}
+				height={48}
+				className="h-12 w-auto opacity-80"
+				loading="lazy"
+			/>
 		</div>
 	);
 }

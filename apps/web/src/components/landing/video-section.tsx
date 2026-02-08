@@ -31,6 +31,7 @@ export function VideoSection() {
 						<button
 							type="button"
 							onClick={() => setPlaying(true)}
+							aria-label="Play Nairon introduction video"
 							className="absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer group"
 						>
 							<div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center transition-transform group-hover:scale-110">

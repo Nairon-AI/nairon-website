@@ -6,14 +6,14 @@ export const CONTACT_INFO = {
 		description: "Reach out to our team for quick assistance.",
 		value: "info@naironai.com",
 		href: "mailto:info@naironai.com",
-		icon: "https://framerusercontent.com/images/BK87RnGWq8W5d4JPHVEHK7yvIO0.png",
+		icon: "/assets/framer/BK87RnGWq8W5d4JPHVEHK7yvIO0.png",
 	},
 	phone: {
 		title: "Call Us",
 		description: "Drop us a message, and we'll get back to you soon.",
 		value: "+971 58 588 9750",
 		href: "tel:+971585889750",
-		icon: "https://framerusercontent.com/images/qZrHBQaNvlw4cXQS67MoFsMjE.png",
+		icon: "/assets/framer/qZrHBQaNvlw4cXQS67MoFsMjE.png",
 	},
 } as const;
 
@@ -29,7 +29,7 @@ export const COMMUNITY_SECTION = {
 	buttonText: "Join Now",
 	buttonHref:
 		"https://join.slack.com/t/naironaicommunity/shared_invite/zt-3iqxykjaq-U_PYxtF12xecClDIfgPsCQ",
-	image: "https://framerusercontent.com/images/omnpDwff1GtuDQBypx8joilLBEk.png",
+	image: "/assets/framer/omnpDwff1GtuDQBypx8joilLBEk.png",
 } as const;
 
 export const CONTACT_FORM = {
