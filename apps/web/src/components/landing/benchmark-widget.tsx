@@ -15,8 +15,8 @@ export function BenchmarkWidget() {
 	const [closing, setClosing] = useState(false);
 	const containerRef = useRef<HTMLDivElement>(null);
 	const [dims, setDims] = useState({ w: 0, h: 0, perimeter: 0 });
-	const strokeColor = isHiringManager ? "#CF9611" : "#22DB18";
-	const strokeHighlight = isHiringManager ? "#F5C842" : "#4ade80";
+	const strokeColor = isHiringManager ? "#CF9611" : "#C9CDD6";
+	const strokeHighlight = isHiringManager ? "#F5C842" : "#FFFFFF";
 
 	// Measure the card to compute the SVG stroke perimeter
 	useEffect(() => {
@@ -130,8 +130,12 @@ export function BenchmarkWidget() {
 					"shadow-[0_32px_64px_rgba(0,0,0,0.5)]",
 				)}
 			>
+				<div className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,transparent_30%,rgba(255,255,255,0.09)_78%,transparent_100%)]" />
+				<div className="pointer-events-none absolute inset-0 bg-[linear-gradient(-165deg,transparent_18%,rgba(255,255,255,0.08)_52%,transparent_82%)]" />
+				<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_10%,rgba(255,255,255,0.14)_0%,transparent_44%)] opacity-80" />
+
 				{/* Content */}
-				<div className="p-5">
+				<div className="relative p-5">
 					{/* Header row */}
 					<div className="flex items-start justify-between gap-3 mb-3">
 						<div className="flex items-center gap-3">

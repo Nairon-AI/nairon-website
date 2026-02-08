@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, type ReactNode } from "react";
+import { useLocation } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { useViewMode } from "@/contexts/view-mode-context";
 import {
@@ -58,15 +59,23 @@ export function Navbar() {
 	const [scrolled, setScrolled] = useState(false);
 	const [dropdownOpen, setDropdownOpen] = useState(false);
 	const { viewMode } = useViewMode();
+	const location = useLocation();
 
 	const nav = viewMode === "engineer" ? ENGINEER_NAV : HIRING_MANAGER_NAV;
 	const variant = viewMode === "engineer" ? "green" : "gold" as const;
+	const isNBenchPage = location.pathname === "/nbench";
 
 	useEffect(() => {
 		const handler = () => setScrolled(window.scrollY > 50);
 		window.addEventListener("scroll", handler);
 		return () => window.removeEventListener("scroll", handler);
 	}, []);
+
+	useEffect(() => {
+		if (isNBenchPage) {
+			setDropdownOpen(false);
+		}
+	}, [isNBenchPage]);
 
 	return (
 		<nav
@@ -80,13 +89,36 @@ export function Navbar() {
 			<div className="relative z-50 max-w-7xl mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
 				{/* Logo */}
 				<a href="/" className="flex items-center">
-					<img
-						src="/nairon-logo.png"
-						alt="nairon."
-						width={600}
-						height={120}
-						className="h-9 w-auto"
-					/>
+					{isNBenchPage ? (
+						<div className="flex items-center gap-3">
+							<img
+								src="/bench-logo.svg"
+								alt="bench."
+								width={190}
+								height={60}
+								className="h-9 w-auto self-center translate-y-[9px]"
+							/>
+							<span className="font-inter text-[12px] tracking-[0.02em] text-white/48">by</span>
+							<span className="group/nairon relative inline-flex items-center overflow-hidden rounded-[5px]">
+								<img
+									src="/nairon-logo.png"
+									alt="Nairon"
+									width={600}
+									height={120}
+									className="h-6 w-auto"
+								/>
+								<span className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-200 group-hover/nairon:bg-black/20" />
+							</span>
+						</div>
+					) : (
+						<img
+							src="/nairon-logo.png"
+							alt="nairon."
+							width={600}
+							height={120}
+							className="h-9 w-auto"
+						/>
+					)}
 				</a>
 
 				{/* Desktop nav — crossfade on view mode change */}
@@ -96,12 +128,21 @@ export function Navbar() {
 							<div className="flex items-center gap-2">
 								{currentNav.items.map((item) =>
 									isDropdownItem(item) ? (
-										<MegaDropdown
-											key={item.label}
-											item={item}
-											variant={variant}
-											onOpenChange={setDropdownOpen}
-										/>
+										isNBenchPage ? (
+											<NavLink
+												key={item.label}
+												label={item.label}
+												href={item.columns[0]?.items[0]?.href ?? "/program"}
+												variant={variant}
+											/>
+										) : (
+											<MegaDropdown
+												key={item.label}
+												item={item}
+												variant={variant}
+												onOpenChange={setDropdownOpen}
+											/>
+										)
 									) : (
 										<NavLink
 											key={item.label}

@@ -119,6 +119,7 @@ function RootComponent() {
 	const isContactPage = useMatch({ from: "/contact", shouldThrow: false });
 	const isCareersPage = useMatch({ from: "/careers", shouldThrow: false });
 	const isTeamPage = useMatch({ from: "/team", shouldThrow: false });
+	const isNBenchPage = useMatch({ from: "/nbench", shouldThrow: false });
 	const isLandingPage =
 		isHomePage ||
 		isHirePage ||
@@ -127,7 +128,8 @@ function RootComponent() {
 		isApprenticeshipPage ||
 		isContactPage ||
 		isCareersPage ||
-		isTeamPage;
+		isTeamPage ||
+		isNBenchPage;
 	const [showDeferredUi, setShowDeferredUi] = useState(false);
 	const [enableSmoothScroll, setEnableSmoothScroll] = useState(false);
 
@@ -180,12 +182,12 @@ function RootComponent() {
 										<Outlet />
 									</main>
 								)}
-								{showDeferredUi ? (
-									<Suspense fallback={null}>
-										<ViewModeToggle />
-										<BenchmarkWidget />
-									</Suspense>
-								) : null}
+							{showDeferredUi && !isNBenchPage ? (
+								<Suspense fallback={null}>
+									<ViewModeToggle />
+									<BenchmarkWidget />
+								</Suspense>
+							) : null}
 							</ViewModeProvider>
 						) : (
 							<Suspense
