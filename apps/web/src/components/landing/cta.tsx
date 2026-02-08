@@ -76,6 +76,7 @@ function EngineerCTARow() {
 					src="https://framerusercontent.com/images/cCL2QZFtjBzhpu3HuM4JaLndar8.png"
 					alt=""
 					className="absolute inset-0 w-full h-full object-cover"
+					loading="lazy"
 				/>
 				<div className="relative z-10 p-8 md:p-10 flex flex-col justify-between h-full">
 					<div>
@@ -127,6 +128,7 @@ function ClientCTARow() {
 					src="https://framerusercontent.com/images/pshetKl5VEKwnAW1nwizR8675w.png"
 					alt=""
 					className="absolute inset-0 w-full h-full object-cover"
+					loading="lazy"
 				/>
 				<div className="relative z-10 p-8 md:p-10 flex flex-col justify-between h-full">
 					<div>

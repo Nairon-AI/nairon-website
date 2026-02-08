@@ -38,8 +38,8 @@ export function BenefitsBento() {
 	const { isEngineer, isHiringManager } = useViewMode();
 	const section = BENEFITS_BENTO_SECTION[isEngineer ? "engineer" : "hiringManager"];
 	const accent = isEngineer ? "#22DB18" : "#CF9611";
-	const orbAsset = isHiringManager ? "/nairon-orb-gold.jpg" : "/nairon-orb.jpg";
-	const strobeAsset = isHiringManager ? "/nairon-strobe-gold.jpeg" : "/nairon-stobe.jpg";
+	const orbAsset = isHiringManager ? "/nairon-orb-gold.webp" : "/nairon-orb.webp";
+	const strobeAsset = isHiringManager ? "/nairon-strobe-gold.webp" : "/nairon-stobe.webp";
 	const benefitIcons = {
 		home: House,
 		plane: Plane,
@@ -62,6 +62,9 @@ export function BenefitsBento() {
 							src={orbAsset}
 							alt=""
 							aria-hidden="true"
+							loading="lazy"
+							width={860}
+							height={860}
 							className="pointer-events-none absolute right-[-12rem] bottom-[-38rem] h-[860px] w-[860px] object-contain opacity-55 mix-blend-screen"
 						/>
 						<Tag label={section.cards.experience.tag} />
@@ -117,6 +120,9 @@ export function BenefitsBento() {
 							src={strobeAsset}
 							alt=""
 							aria-hidden="true"
+							loading="lazy"
+							width={1920}
+							height={1440}
 							className="pointer-events-none absolute right-[-8%] top-[-28%] h-[180%] w-[78%] object-cover opacity-48 mix-blend-screen"
 						/>
 						<div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-black/10 via-black/35 to-black/55" />

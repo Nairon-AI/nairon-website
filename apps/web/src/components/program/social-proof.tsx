@@ -25,6 +25,7 @@ function LogoMarquee() {
 							src={partner.logo}
 							alt={partner.name}
 							className="h-8 w-auto opacity-40 grayscale hover:opacity-70 transition-opacity shrink-0"
+							loading="lazy"
 						/>
 					))}
 				</div>
@@ -59,6 +60,7 @@ function TestimonialCard({
 					src={testimonial.image}
 					alt={testimonial.name}
 					className="w-12 h-12 rounded-full object-cover border-2 border-white/12"
+					loading="lazy"
 				/>
 				<div>
 					<p className={`text-base font-bold ${colors.text}`}>

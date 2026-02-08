@@ -62,6 +62,7 @@ export function ProgramPhilosophy({
 								src={data.signature}
 								alt={`${data.author} signature`}
 								className="h-[75px] w-[108px] object-contain"
+								loading="lazy"
 							/>
 						</div>
 					</div>

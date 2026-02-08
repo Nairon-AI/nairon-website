@@ -85,6 +85,7 @@ function RequirementCard({
 								? "w-[135%] h-[135%] -top-[17.5%] -left-[17.5%]"
 								: "w-[84%] h-[84%] top-[8%] left-[8%]"
 						}`}
+						loading="lazy"
 					/>
 					{/* SVG Icon */}
 					{icon && (

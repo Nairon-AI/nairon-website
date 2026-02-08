@@ -17,7 +17,7 @@ function FeatureCard({
 	return (
 		<div className="p-2 text-center md:text-left">
 			<div className="mb-6 flex justify-center md:justify-start">
-				<img src={icon} alt="" className="w-[60px] h-[60px]" />
+				<img src={icon} alt="" className="w-[60px] h-[60px]" loading="lazy" />
 			</div>
 			<CardTitle className="mb-3">{title}</CardTitle>
 			<BodyText>{description}</BodyText>

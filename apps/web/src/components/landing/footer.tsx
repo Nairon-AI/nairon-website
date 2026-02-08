@@ -107,6 +107,7 @@ function LargeLogoBackground() {
 			<img
 				src="https://framerusercontent.com/images/enyh4nWMxHyEude0e3qPKlPss.png"
 				alt=""
+				loading="lazy"
 				className="absolute inset-0 w-full h-full object-cover object-center"
 			/>
 
@@ -123,6 +124,7 @@ function LargeLogoBackground() {
 			<img
 				src="https://framerusercontent.com/images/VHRAdVMCwEE6Q9afizgYDgxitUU.png"
 				alt=""
+				loading="lazy"
 				className="absolute bottom-0 left-1/2 -translate-x-1/2 max-w-none translate-y-[20%]"
 				style={{
 					width: "75%",

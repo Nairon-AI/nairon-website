@@ -146,6 +146,7 @@ function AvatarsVisual() {
 					src={src}
 					alt=""
 					className="w-10 h-10 rounded-full border-2 border-black -ml-2 first:ml-0 object-cover"
+					loading="lazy"
 				/>
 			))}
 			<span className="text-white/40 text-sm ml-2">+5 more</span>
@@ -165,6 +166,7 @@ function LogosVisual() {
 						src={partner.logo}
 						alt={partner.name}
 						className="h-6 w-auto opacity-40 grayscale"
+						loading="lazy"
 					/>
 				</div>
 			))}

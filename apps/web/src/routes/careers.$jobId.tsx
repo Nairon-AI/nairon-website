@@ -5,9 +5,26 @@ import {
 	JobDetailNotFound,
 } from "@/components/careers";
 import { getJobDetail } from "@/data/careers";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/careers/$jobId")({
 	component: JobPositionPage,
+	head: ({ params }) => {
+		const job = getJobDetail(params.jobId);
+		if (!job) {
+			return seoHead({
+				title: "Job Not Found — Nairon AI",
+				description: "This job position could not be found.",
+				path: `/careers/${params.jobId}`,
+				noindex: true,
+			});
+		}
+		return seoHead({
+			title: `${job.title} — Careers at Nairon AI`,
+			description: `Apply for ${job.title} at Nairon AI. ${job.location ? `Location: ${job.location}.` : ""} Join our team and help build the future of AI engineering education.`,
+			path: `/careers/${params.jobId}`,
+		});
+	},
 });
 
 function JobPositionPage() {
