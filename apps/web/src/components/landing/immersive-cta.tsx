@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { FINAL_CTA } from "@/data/landing";
 import { useViewMode } from "@/contexts/view-mode-context";
@@ -68,8 +68,46 @@ export function ImmersiveCTA() {
 	const ctaRef = useRef<HTMLDivElement>(null);
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const spacerRef = useRef<HTMLDivElement>(null);
+	const isReversingRef = useRef(false);
+	const reverseRafRef = useRef(0);
+	const reverseLastTsRef = useRef(0);
 	const [ctaHeight, setCtaHeight] = useState(0);
 	const [shouldPlayVideo, setShouldPlayVideo] = useState(false);
+
+	const stopReverse = useCallback(() => {
+		cancelAnimationFrame(reverseRafRef.current);
+		reverseRafRef.current = 0;
+		reverseLastTsRef.current = 0;
+		isReversingRef.current = false;
+	}, []);
+
+	const stepReverse = useCallback(
+		(timestamp: number) => {
+			const video = videoRef.current;
+			if (!video || !shouldPlayVideo || !isReversingRef.current) return;
+
+			if (reverseLastTsRef.current === 0) {
+				reverseLastTsRef.current = timestamp;
+			}
+
+			const delta = (timestamp - reverseLastTsRef.current) / 1000;
+			reverseLastTsRef.current = timestamp;
+
+			video.currentTime = Math.max(0, video.currentTime - delta);
+
+			if (video.currentTime <= 0.04) {
+				stopReverse();
+				video.currentTime = 0;
+				void video.play().catch(() => {
+					// Ignore autoplay rejections; video will start on user interaction.
+				});
+				return;
+			}
+
+			reverseRafRef.current = requestAnimationFrame(stepReverse);
+		},
+		[shouldPlayVideo, stopReverse],
+	);
 
 	useEffect(() => {
 		if (!ctaRef.current) return;
@@ -98,15 +136,30 @@ export function ImmersiveCTA() {
 		const video = videoRef.current;
 		if (!video) return;
 
+		const handleEnded = () => {
+			if (!shouldPlayVideo) return;
+			video.pause();
+			isReversingRef.current = true;
+			reverseLastTsRef.current = 0;
+			reverseRafRef.current = requestAnimationFrame(stepReverse);
+		};
+
+		video.addEventListener("ended", handleEnded);
+
 		if (shouldPlayVideo) {
 			void video.play().catch(() => {
 				// Ignore autoplay rejections; video will start on user interaction.
 			});
-			return;
+		} else {
+			stopReverse();
+			video.pause();
 		}
 
-		video.pause();
-	}, [shouldPlayVideo]);
+		return () => {
+			video.removeEventListener("ended", handleEnded);
+			stopReverse();
+		};
+	}, [shouldPlayVideo, stepReverse, stopReverse]);
 
 	return (
 		<>
@@ -122,7 +175,6 @@ export function ImmersiveCTA() {
 					autoPlay
 					muted
 					playsInline
-					loop
 					preload={shouldPlayVideo ? "auto" : "metadata"}
 					className="absolute inset-0 w-full h-full object-cover"
 				>

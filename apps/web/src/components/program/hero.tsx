@@ -30,9 +30,9 @@ export function ProgramHero({ data }: { data: ProgramHeroData }) {
 					{data.stats.map((stat) => (
 						<div
 							key={stat.label}
-							className="glass-card bg-black/30 rounded-full px-4 py-2 flex items-center gap-2"
+							className="glass-card bg-white/14 border border-white/24 rounded-full px-4 py-2 flex items-center gap-2"
 						>
-							<span className="text-xs text-white/40">
+							<span className="text-xs text-white/60">
 								{stat.label}
 							</span>
 							<span className="text-sm font-semibold text-landing-text">
