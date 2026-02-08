@@ -31,7 +31,7 @@ function FAQItem({
 	const [open, setOpen] = useState(defaultOpen);
 
 	return (
-		<div className="rounded-3xl bg-landing-card overflow-hidden">
+		<div className="glass-card rounded-3xl overflow-hidden">
 			<button
 				type="button"
 				className="w-full flex items-center justify-between p-6 cursor-pointer text-left gap-2.5"
