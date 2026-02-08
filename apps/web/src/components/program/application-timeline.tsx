@@ -75,7 +75,7 @@ function TimelineStep({
 			{/* Content */}
 			<div className="pb-8">
 				<h3
-					className={`text-xl md:text-2xl font-medium tracking-tighter ${colors.text}`}
+					className={`text-lg md:text-xl font-medium tracking-tighter ${colors.text}`}
 				>
 					{step.title}
 				</h3>
@@ -96,15 +96,15 @@ export function ApplicationTimeline({
 	};
 }) {
 	return (
-		<Section className={colors.pageBg}>
+		<Section className={`${colors.pageBg} py-10 md:py-14`}>
 			<div className="max-w-6xl mx-auto">
 				<SectionTag label="Application" />
-				<SectionHeading>
+				<SectionHeading className="text-2xl md:text-4xl">
 					{data.heading}{" "}
 					{data.dimHeading && <DimText>{data.dimHeading}</DimText>}
 				</SectionHeading>
 
-				<div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
+				<div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
 					<PhoneMockup />
 					<div>
 						{data.steps.map((step, i) => (

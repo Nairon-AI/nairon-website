@@ -15,7 +15,7 @@ import type { TestimonialData } from "@/data/programs";
 function LogoMarquee() {
 	const logos = [...PARTNERS, ...PARTNERS, ...PARTNERS];
 	return (
-		<div className="mt-12">
+		<div className="mt-8">
 			<p className="text-sm text-white/40 mb-4">Partnered with</p>
 			<div className="overflow-hidden">
 				<div className="flex gap-12 animate-marquee">
@@ -39,19 +39,19 @@ function TestimonialCard({
 	return (
 		<div>
 			{/* Quote mark */}
-			<span className="text-5xl text-green-400 leading-none block mb-4">
+			<span className="text-3xl text-green-400 leading-none block mb-3">
 				&ldquo;
 			</span>
 
 			{/* Quote */}
 			<p
-				className={`text-xl md:text-2xl leading-relaxed font-medium ${colors.text}`}
+				className={`text-lg md:text-xl leading-relaxed font-medium ${colors.text}`}
 			>
 				{testimonial.quote}
 			</p>
 
 			{/* Divider */}
-			<div className="w-16 h-px bg-white/8 my-8" />
+			<div className="w-16 h-px bg-white/8 my-6" />
 
 			{/* Attribution */}
 			<div className="flex items-center gap-4">
@@ -212,14 +212,14 @@ export function SocialProof({
 	}, [viewMode, isEngineer, data, animateTransition]);
 
 	return (
-		<Section className={colors.pageBg}>
+		<Section className={`${colors.pageBg} py-10 md:py-14`}>
 			<div className="max-w-6xl mx-auto">
 				<SectionTag label="Trusted By" />
-				<SectionHeading>
+				<SectionHeading className="text-2xl md:text-4xl">
 					Real Engineers. <DimText>Real Results.</DimText>
 				</SectionHeading>
 
-				<div ref={containerRef} className="relative mt-12">
+				<div ref={containerRef} className="relative mt-8">
 					{/* Pixel transition canvas */}
 					<canvas
 						ref={canvasRef}
@@ -230,7 +230,7 @@ export function SocialProof({
 						}}
 					/>
 
-					<GlassCard className="p-8 md:p-10 lg:p-12">
+					<GlassCard className="p-6 md:p-8">
 						<TestimonialCard testimonial={displayedTestimonial} />
 					</GlassCard>
 				</div>

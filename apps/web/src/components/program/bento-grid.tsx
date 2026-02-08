@@ -261,10 +261,10 @@ function VisualCard({ card }: { card: BentoCardData }) {
 
 export function BentoGrid({ cards }: { cards: BentoCardData[] }) {
 	return (
-		<Section className={colors.pageBg}>
+		<Section className={`${colors.pageBg} py-10 md:py-14`}>
 			<div className="max-w-6xl mx-auto">
 				<SectionTag label="What You Get" />
-				<SectionHeading className="mb-12">
+				<SectionHeading className="mb-10 text-2xl md:text-4xl">
 					Everything You Need <DimText>to Succeed</DimText>
 				</SectionHeading>
 

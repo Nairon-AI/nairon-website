@@ -17,10 +17,10 @@ export function ProgramCTA({
 	};
 }) {
 	return (
-		<Section className={colors.pageBg}>
+		<Section className={`${colors.pageBg} py-10 md:py-14`}>
 			<div className="max-w-6xl mx-auto">
 			<div className="text-center max-w-2xl mx-auto">
-				<SectionHeading className="text-center">
+				<SectionHeading className="text-center text-2xl md:text-4xl">
 					{data.heading}
 				</SectionHeading>
 				<BodyText className="mt-4 text-center">{data.subtext}</BodyText>

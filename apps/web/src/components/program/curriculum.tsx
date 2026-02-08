@@ -96,14 +96,14 @@ export function Curriculum({
 	};
 }) {
 	return (
-		<Section className={colors.pageBg} id="curriculum">
+		<Section className={`${colors.pageBg} py-10 md:py-14`} id="curriculum">
 			<div className="max-w-6xl mx-auto">
 				<SectionTag label="Program Agenda" />
-				<SectionHeading>
+				<SectionHeading className="text-2xl md:text-4xl">
 					{data.heading}{" "}
 					{data.dimHeading && <DimText>{data.dimHeading}</DimText>}
 				</SectionHeading>
-				<BodyText className="mt-4 max-w-2xl">{data.subheading}</BodyText>
+				<BodyText className="mt-3 max-w-2xl">{data.subheading}</BodyText>
 
 				<div className="mt-10 flex flex-col gap-10">
 					{data.phases.map((phase, i) => (

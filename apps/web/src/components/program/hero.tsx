@@ -21,16 +21,16 @@ export function ProgramHero({ data }: { data: ProgramHeroData }) {
 				</div>
 
 				{/* Heading */}
-				<h1 className="text-4xl md:text-display-lg lg:text-display-xl font-display font-bold text-landing-text leading-none tracking-tight-2xl mb-8">
+				<h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-landing-text leading-none tracking-tight-2xl mb-6">
 					{data.heading}
 				</h1>
 
 				{/* Stat pills */}
-				<div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+				<div className="flex flex-wrap items-center justify-center gap-3 mb-6">
 					{data.stats.map((stat) => (
 						<div
 							key={stat.label}
-							className="glass-card rounded-full px-4 py-2 flex items-center gap-2"
+							className="glass-card bg-black/30 rounded-full px-4 py-2 flex items-center gap-2"
 						>
 							<span className="text-xs text-white/40">
 								{stat.label}
@@ -50,7 +50,10 @@ export function ProgramHero({ data }: { data: ProgramHeroData }) {
 					>
 						{data.primaryCta.label}
 					</PrimaryButton>
-					<OutlineButton href={data.secondaryCta.href}>
+					<OutlineButton
+						href={data.secondaryCta.href}
+						className="bg-black/30 hover:bg-black/40"
+					>
 						{data.secondaryCta.label}
 					</OutlineButton>
 				</div>

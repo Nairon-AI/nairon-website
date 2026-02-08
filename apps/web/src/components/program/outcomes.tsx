@@ -12,7 +12,7 @@ function StatItem({ stat }: { stat: StatData }) {
 	return (
 		<div className="py-6 border-b border-white/8 last:border-b-0">
 			<div className="flex items-baseline gap-2">
-				<span className="stat-number text-4xl md:text-6xl text-gradient-green">
+				<span className="stat-number text-3xl md:text-5xl text-gradient-green">
 					{stat.value}
 				</span>
 				{stat.suffix && (
@@ -37,15 +37,15 @@ export function Outcomes({
 	};
 }) {
 	return (
-		<Section className={colors.pageBg}>
+		<Section className={`${colors.pageBg} py-10 md:py-14`}>
 			<div className="max-w-6xl mx-auto">
 				<SectionTag label="After the Program" />
-				<SectionHeading>
+				<SectionHeading className="text-2xl md:text-4xl">
 					{data.heading}{" "}
 					{data.dimHeading && <DimText>{data.dimHeading}</DimText>}
 				</SectionHeading>
 
-				<div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
+				<div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
 					{/* Stats column */}
 					<div>
 						{data.stats.map((stat) => (

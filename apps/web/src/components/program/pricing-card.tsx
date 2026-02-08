@@ -24,18 +24,18 @@ export function PricingCard({
 	};
 }) {
 	return (
-		<Section className={colors.pageBg}>
+		<Section className={`${colors.pageBg} py-10 md:py-14`}>
 			<div className="max-w-6xl mx-auto">
 			<SectionTag label="Investment" />
-			<SectionHeading>
+			<SectionHeading className="text-2xl md:text-4xl">
 				{data.heading}{" "}
 				{data.dimHeading && <DimText>{data.dimHeading}</DimText>}
 			</SectionHeading>
 
-			<div className="mt-12 max-w-2xl mx-auto">
-				<GlassCard className="p-8 md:p-10 lg:p-12">
+			<div className="mt-8 max-w-2xl mx-auto">
+				<GlassCard className="p-6 md:p-8">
 					{/* Price */}
-					<div className="stat-number text-6xl md:text-display-lg text-gradient-green">
+					<div className="stat-number text-5xl md:text-6xl text-gradient-green">
 						{data.price}
 					</div>
 					{data.priceSubtext && (
