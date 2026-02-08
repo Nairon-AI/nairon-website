@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as ResidenceRouteImport } from './routes/residence'
 import { Route as ProgramRouteImport } from './routes/program'
+import { Route as NbenchRouteImport } from './routes/nbench'
 import { Route as HireRouteImport } from './routes/hire'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -35,6 +36,11 @@ const ResidenceRoute = ResidenceRouteImport.update({
 const ProgramRoute = ProgramRouteImport.update({
   id: '/program',
   path: '/program',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NbenchRoute = NbenchRouteImport.update({
+  id: '/nbench',
+  path: '/nbench',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HireRoute = HireRouteImport.update({
@@ -90,6 +96,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/hire': typeof HireRoute
+  '/nbench': typeof NbenchRoute
   '/program': typeof ProgramRoute
   '/residence': typeof ResidenceRoute
   '/team': typeof TeamRoute
@@ -103,6 +110,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/hire': typeof HireRoute
+  '/nbench': typeof NbenchRoute
   '/program': typeof ProgramRoute
   '/residence': typeof ResidenceRoute
   '/team': typeof TeamRoute
@@ -118,6 +126,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/hire': typeof HireRoute
+  '/nbench': typeof NbenchRoute
   '/program': typeof ProgramRoute
   '/residence': typeof ResidenceRoute
   '/team': typeof TeamRoute
@@ -134,6 +143,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dashboard'
     | '/hire'
+    | '/nbench'
     | '/program'
     | '/residence'
     | '/team'
@@ -147,6 +157,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dashboard'
     | '/hire'
+    | '/nbench'
     | '/program'
     | '/residence'
     | '/team'
@@ -161,6 +172,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dashboard'
     | '/hire'
+    | '/nbench'
     | '/program'
     | '/residence'
     | '/team'
@@ -176,6 +188,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DashboardRoute: typeof DashboardRouteWithChildren
   HireRoute: typeof HireRoute
+  NbenchRoute: typeof NbenchRoute
   ProgramRoute: typeof ProgramRoute
   ResidenceRoute: typeof ResidenceRoute
   TeamRoute: typeof TeamRoute
@@ -202,6 +215,13 @@ declare module '@tanstack/react-router' {
       path: '/program'
       fullPath: '/program'
       preLoaderRoute: typeof ProgramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nbench': {
+      id: '/nbench'
+      path: '/nbench'
+      fullPath: '/nbench'
+      preLoaderRoute: typeof NbenchRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hire': {
@@ -302,6 +322,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DashboardRoute: DashboardRouteWithChildren,
   HireRoute: HireRoute,
+  NbenchRoute: NbenchRoute,
   ProgramRoute: ProgramRoute,
   ResidenceRoute: ResidenceRoute,
   TeamRoute: TeamRoute,
