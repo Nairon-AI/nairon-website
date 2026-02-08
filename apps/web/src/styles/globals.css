@@ -641,6 +641,77 @@
 	background-clip: text;
 }
 
+/* NBench feature split sequence */
+.benchmark-review-phase-clicked {
+	background: rgba(255, 255, 255, 0.11);
+	border-color: rgba(255, 255, 255, 0.32);
+	color: rgba(255, 255, 255, 0.92);
+	box-shadow:
+		0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+		0 9px 20px rgba(0, 0, 0, 0.32);
+	animation: benchmark-review-pill-click 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes benchmark-review-pill-click {
+	0% {
+		transform: scale(1);
+	}
+	55% {
+		transform: scale(0.95);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes benchmark-actions-card-in {
+	0% {
+		opacity: 0;
+		transform: translateX(48px) translateY(6px) scale(0.98);
+		filter: blur(6px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0) translateY(0) scale(1);
+		filter: blur(0px);
+	}
+}
+
+.benchmark-actions-card-pending {
+	opacity: 0;
+	pointer-events: none;
+	transform: translateX(48px) translateY(6px) scale(0.98);
+	filter: blur(6px);
+}
+
+.benchmark-actions-card-enter {
+	animation: benchmark-actions-card-in 560ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes benchmark-chatbox-in {
+	0% {
+		opacity: 0;
+		transform: translateY(14px);
+		filter: blur(6px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+		filter: blur(0px);
+	}
+}
+
+.benchmark-chatbox-hidden {
+	opacity: 0;
+	pointer-events: none;
+	transform: translateY(14px);
+	filter: blur(6px);
+}
+
+.benchmark-chatbox-reveal {
+	animation: benchmark-chatbox-in 460ms cubic-bezier(0.2, 0.95, 0.27, 1) forwards;
+}
+
 @keyframes terminal-line-appear {
 	0% {
 		opacity: 0;
@@ -656,7 +727,11 @@
 
 .terminal-line {
 	opacity: 0;
-	animation: terminal-line-appear 420ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	animation: terminal-line-appear 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.terminal-line-pending {
+	opacity: 0;
 }
 
 @keyframes terminal-cursor-blink {
@@ -674,10 +749,28 @@
 	animation: terminal-cursor-blink 1s steps(1, end) infinite;
 }
 
+.terminal-cursor-pending {
+	opacity: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.terminal-line,
+	.terminal-line-pending,
 	.terminal-cursor {
 		animation: none;
 		opacity: 1;
+	}
+
+	.terminal-cursor-pending {
+		opacity: 1;
+	}
+
+	.benchmark-review-phase-clicked,
+	.benchmark-actions-card-enter,
+	.benchmark-chatbox-reveal {
+		animation: none;
+		opacity: 1;
+		transform: none;
+		filter: none;
 	}
 }

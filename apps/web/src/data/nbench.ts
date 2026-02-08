@@ -10,32 +10,73 @@ export const NBENCH_HERO = {
 } as const;
 
 export const NBENCH_HERO_TERMINAL = {
-	title: "nbench session",
+	title: "terminal - my-startup-app",
 	lines: [
-		"$ nb scan --project ./nairon-app --profile team",
+		"$ nb scan",
 		"",
-		"NBench v0.3.1 :: Running AI-nativeness benchmark",
-		"Checking architecture.................... ok",
-		"Checking tooling freshness............... ok",
-		"Checking prompt observability............ warn",
-		"Checking eval discipline................. warn",
-		"Checking token-cost control.............. ok",
+		"[1/4] Analyzing git history...",
+		"    Found 847 AI-assisted commits",
 		"",
-		"Overall Score: 74 / 100",
-		"Delta from last run: +11",
+		"[2/4] Scanning session logs...",
+		"    ! 12 compactions with context loss",
 		"",
-		"Suggested next action:",
-		"  nb insights --focus evals --priority high",
+		"[3/4] Detecting frustration patterns...",
+		"    x 8 sessions with repeated corrections",
 		"",
-		"    .----------------------------.",
-		"   /   NBench | AI Nativeness   \\",
-		"  |        __    __             |",
-		"  |       / / /\\ \\ \\           |",
-		"  |      / /_/  \\_\\ \\          |",
-		"  |      \\___/\\___/ /           |",
-		"  |          \\/_____/            |",
-		"   \\   BENCHMARK. IMPROVE.     /",
-		"    '----------------------------'",
+		"[4/4] Checking MCP tooling...",
+		"    x No docs server configured",
+		"",
+		"Your Score: 41/100 (Bottom 62%)",
+		"",
+		"Recommended fixes:",
+		"  1. Context7 -> stops API hallucinations",
+		"  2. Supermemory -> remembers test commands",
+		"  3. Beads -> survives compaction",
+		"",
+		"Install these optimizations? [Y/n]",
+		"> y",
+		"",
+		"Installing Context7 MCP...",
+		"  + Live docs for Stripe, Convex, etc.",
+		"Installing Supermemory...",
+		"  + Persistent project memory",
+		"Installing Beads...",
+		"  + Compaction-safe task tracking",
+		"",
+		"+ Setup complete! Score: 41 -> 88",
+		"",
+		"$ claude",
+		"  cwd: ~/dev/my-saas-app",
+		"",
+		"> Add Stripe webhook for subscription events",
+		"",
+		"  Fetching Stripe webhook docs...",
+		"",
+		"Creating handler with constructEvent()",
+		"for customer.subscription.* events.",
+		"",
+		"  Write src/api/stripe-webhook.ts",
+		"  Running bun test (from memory)",
+		"",
+		"+ Done. Tests passing.",
+		"",
+		"One-shot. No hallucinations.",
+		"Context preserved.",
+	],
+} as const;
+
+export const NBENCH_HERO_TERMINAL_BEFORE = {
+	title: "claude - my-startup-app",
+	lines: [
+		"$ claude",
+		"",
+		"> its constructEvent not verify. do u",
+		"> even have the stripe docs?",
+		"⚠ Auto-compacting conversation...",
+		"  Summarizing context...",
+		"I'm ready to help! What would you like",
+		"to work on today?",
+		"",
 	],
 } as const;
 
@@ -58,7 +99,7 @@ export const NBENCH_MODELS = {
 
 export const NBENCH_FEATURE_SPLIT = {
 	left: {
-		title: "Weekly Workflow Benchmark",
+		title: "Benchmark Your Weekly Workflow",
 		description:
 			"Measure requirements, implementation, testing, and review in one score. Get 3 concrete actions to improve this week.",
 		panelTitle: "Benchmark Signals",
@@ -161,6 +202,60 @@ export const NBENCH_WHAT_WE_TRACK = {
 			],
 		},
 	],
+} as const;
+
+export const NBENCH_SHAREABLE_REPORTS = {
+	badge: "Shareable reports",
+	title: "Show off your AI workflow. Share your setup.",
+	description:
+		"Generate beautiful reports that showcase your effectiveness, tools, MCPs, and skills. Perfect for hackathon submissions, portfolios, or team retrospectives.",
+	url: "nairon-bench.pages.dev/report/88yadbbqhl",
+	report: {
+		title: "nairon-bench",
+		agent: "OpenCode",
+		score: "60",
+		maxScore: "100",
+		grade: "Grade C",
+		stats: [
+			{ label: "Sessions", value: "25" },
+			{ label: "Prompts", value: "447" },
+			{ label: "Commits", value: "18" },
+			{ label: "Tokens", value: "1.2M" },
+		],
+		metrics: [
+			{ label: "SDLC Coverage", value: 55, tone: "bg-[#2e74d6]" },
+			{ label: "Prompt Quality", value: 58, tone: "bg-[#1f9b55]" },
+			{ label: "Tool Utilization", value: 69, tone: "bg-[#6e40bf]" },
+			{ label: "Efficiency", value: 60, tone: "bg-[#bd6a0f]" },
+		],
+		mcp: ["context7", "supermemory", "nia", "browser"],
+		skills: ["openui", "remotion", "release-cli"],
+	},
+	features: [
+		{
+			title: "Comprehensive Scoring",
+			description:
+				"Get scored across SDLC coverage, prompt quality, tool utilization, and efficiency. Know exactly where you stand.",
+		},
+		{
+			title: "Share Your Setup",
+			description:
+				"Showcase your MCP servers, skills, and tools. Let others discover what works for you.",
+		},
+		{
+			title: "Actionable Insights",
+			description:
+				"Get personalized recommendations based on your workflow patterns and friction points.",
+		},
+		{
+			title: "Hackathon Ready",
+			description:
+				"Generate shareable links for hackathon submissions. Prove your AI-nativeness with data.",
+		},
+	],
+	commandLabel: "Generate your report in seconds",
+	command: "nb report --publish",
+	cta: "View Example Report",
 } as const;
 
 export const NBENCH_TRUST_PLACEHOLDER = {

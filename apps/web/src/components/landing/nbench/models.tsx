@@ -1,6 +1,8 @@
+import { useEffect, useRef, useState } from "react";
 import { Check, ChevronRight } from "lucide-react";
 import { NBENCH_MODELS } from "@/data/nbench";
 import { NBenchSection } from "@/components/landing/nbench/primitives";
+import { cn } from "@/lib/utils";
 
 const MODEL_LOGOS: Record<string, string> = {
 	"Kimi K2.5": "https://kimi.moonshot.cn/favicon.ico",
@@ -35,6 +37,54 @@ function ModelAvatar({ name }: { name: string }) {
 }
 
 export function NBenchModels() {
+	const rowsRef = useRef<HTMLDivElement>(null);
+	const hasAnimatedRef = useRef(false);
+	const timerIdRef = useRef<number | null>(null);
+	const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
+
+	useEffect(() => {
+		if (!rowsRef.current) {
+			return;
+		}
+
+		const runHighlightAnimation = () => {
+			if (hasAnimatedRef.current) {
+				return;
+			}
+
+			hasAnimatedRef.current = true;
+
+			if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+				setHighlightedIndex(1);
+				return;
+			}
+
+			timerIdRef.current = window.setTimeout(() => setHighlightedIndex(1), 300);
+		};
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				for (const entry of entries) {
+					if (entry.isIntersecting) {
+						runHighlightAnimation();
+						observer.disconnect();
+						break;
+					}
+				}
+			},
+			{ threshold: 0.45, rootMargin: "0px 0px -10% 0px" },
+		);
+
+		observer.observe(rowsRef.current);
+
+		return () => {
+			observer.disconnect();
+			if (timerIdRef.current !== null) {
+				window.clearTimeout(timerIdRef.current);
+			}
+		};
+	}, []);
+
 	return (
 		<NBenchSection className="overflow-hidden pb-24 pt-20 md:pb-32 md:pt-24">
 			<div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_12%,rgba(255,255,255,0.035),transparent_36%),radial-gradient(circle_at_76%_18%,rgba(115,146,255,0.04),transparent_34%),linear-gradient(180deg,rgba(4,5,7,0),rgb(5,5,6)_72%)]" />
@@ -76,17 +126,18 @@ export function NBenchModels() {
 						</div>
 
 						<div className="mt-3 overflow-visible rounded-[14px] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(13,14,16,0.7),rgba(7,7,8,0.74))] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
-							<div className="relative px-3 py-2">
+							<div ref={rowsRef} className="relative px-3 py-2">
 								{NBENCH_MODELS.rows.map((model, index) => {
-									const isSelected = index === 1;
+									const isSelected = highlightedIndex === index;
 									return (
 										<div
 											key={model.name}
-											className={`relative flex items-center gap-3 rounded-[10px] px-4 py-3 transition-[transform,box-shadow,border-color,background] duration-300 ${
+											className={cn(
+												"relative flex items-center gap-3 rounded-[10px] px-4 py-3 transition-[transform,box-shadow,border-color,background,color] duration-[1800ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
 												isSelected
 													? "z-20 -mx-4 -translate-y-[6px] my-2 border border-white/[0.38] bg-[linear-gradient(180deg,rgba(255,255,255,0.34)_0%,rgba(255,255,255,0.12)_44%,rgba(255,255,255,0.22)_100%)] [transform:translateY(-6px)_scale(1.012)] shadow-[inset_0_1px_0_rgba(255,255,255,0.42),inset_0_-1px_0_rgba(255,255,255,0.12),0_0_0_1px_rgba(255,255,255,0.12),0_18px_46px_rgba(0,0,0,0.62),0_6px_14px_rgba(0,0,0,0.45)]"
-													: "border border-white/[0.05] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] text-white/56"
-											}`}
+													: "border border-white/[0.05] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] text-white/56",
+											)}
 										>
 											<div className={isSelected ? "rounded-full ring-2 ring-white/26 shadow-[0_0_18px_rgba(255,255,255,0.24)]" : ""}>
 												<ModelAvatar name={model.name} />

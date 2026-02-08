@@ -34,7 +34,7 @@ export function NBenchTrustPlaceholder() {
 					<div className="absolute left-[42%] top-[2%] h-[96%] w-[32%] border border-white/[0.12] bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01))]" />
 					<div className="absolute left-[74%] top-[24%] h-[58%] w-[20%] border border-white/[0.12] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))]" />
 					<div className="absolute bottom-6 left-6 font-mono text-[11px] uppercase tracking-[0.18em] text-white/34">
-						trust graphic placeholder
+						zero trust // soc 2 type ii // aes-256 at rest
 					</div>
 				</div>
 			</div>

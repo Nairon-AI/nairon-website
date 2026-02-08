@@ -89,13 +89,36 @@ export function Navbar() {
 			<div className="relative z-50 max-w-7xl mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
 				{/* Logo */}
 				<a href="/" className="flex items-center">
-					<img
-						src="/nairon-logo.png"
-						alt="nairon."
-						width={600}
-						height={120}
-						className="h-9 w-auto"
-					/>
+					{isNBenchPage ? (
+						<div className="flex items-center gap-3">
+							<img
+								src="/bench-logo.svg"
+								alt="bench."
+								width={190}
+								height={60}
+								className="h-9 w-auto self-center translate-y-[9px]"
+							/>
+							<span className="font-inter text-[12px] tracking-[0.02em] text-white/48">by</span>
+							<span className="group/nairon relative inline-flex items-center overflow-hidden rounded-[5px]">
+								<img
+									src="/nairon-logo.png"
+									alt="Nairon"
+									width={600}
+									height={120}
+									className="h-6 w-auto"
+								/>
+								<span className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-200 group-hover/nairon:bg-black/20" />
+							</span>
+						</div>
+					) : (
+						<img
+							src="/nairon-logo.png"
+							alt="nairon."
+							width={600}
+							height={120}
+							className="h-9 w-auto"
+						/>
+					)}
 				</a>
 
 				{/* Desktop nav — crossfade on view mode change */}

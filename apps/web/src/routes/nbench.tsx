@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Footer, Navbar } from "@/components/landing";
 import {
-	NBenchCtaPlaceholder,
 	NBenchFeatureSplit,
 	NBenchHero,
 	NBenchModels,
+	NBenchReports,
 	NBenchShowcase,
 	NBenchTrustPlaceholder,
 	NBenchWhatWeTrack,
@@ -31,8 +31,8 @@ function NBenchPage() {
 			<NBenchFeatureSplit />
 			<NBenchModels />
 			<NBenchWhatWeTrack />
+			<NBenchReports />
 			<NBenchTrustPlaceholder />
-			<NBenchCtaPlaceholder />
 			<Footer />
 		</div>
 	);
