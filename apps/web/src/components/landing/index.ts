@@ -1,27 +1,19 @@
 export { Navbar } from "./navbar";
-export { Hero } from "./hero";
-export { Philosophy } from "./philosophy";
-export { About } from "./about";
-export { Qualifies } from "./qualifies";
+export { Footer } from "./footer";
 export { Marquee } from "./marquee";
 export { Team } from "./team";
-export { Agenda } from "./agenda";
 export { Partners } from "./partners";
 export { FAQ } from "./faq";
 export { CTA } from "./cta";
-export { Footer } from "./footer";
 export { ContactHero } from "./contact-hero";
 export { ContactSection } from "./contact-form";
 
-// Homepage redesign sections
-export { ProblemSolution } from "./problem-solution";
-export { OutcomeMetrics } from "./outcome-metrics";
-export { HowItWorks } from "./how-it-works";
-export { Residence } from "./residence";
-export { Apprenticeship } from "./apprenticeship";
-export { FinalCTA } from "./final-cta";
-export { ImmersiveCTA } from "./immersive-cta";
-export { VideoSection } from "./video-section";
-export { ValueProp } from "./value-prop";
-export { BenefitsBento } from "./benefits-bento";
-export { CertificateSection } from "./certificate-section";
+// New homepage sections (dark rustic redesign)
+export { HeroNew } from "./hero-new";
+export { LogoStrip } from "./logo-strip";
+export { WhatWeDo } from "./what-we-do";
+export { Process } from "./process";
+export { DataCredibility } from "./data-credibility";
+export { AudienceSplit } from "./audience-split";
+export { Testimonials } from "./testimonials";
+export { CTASection } from "./cta-section";

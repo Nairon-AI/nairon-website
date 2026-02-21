@@ -1,3 +1,4 @@
+import "@/styles/nbench.css";
 import { createFileRoute } from "@tanstack/react-router";
 import { Footer, Navbar } from "@/components/landing";
 import {

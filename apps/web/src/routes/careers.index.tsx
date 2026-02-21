@@ -7,16 +7,16 @@ export const Route = createFileRoute("/careers/")({
 	component: CareersPage,
 	head: () =>
 		seoHead({
-			title: "Careers at Nairon AI",
+			title: "Careers at Nairon",
 			description:
-				"Join the Nairon AI team. Explore open positions and help build the future of AI engineering education.",
+				"Join the Nairon team. Explore open positions and help shape the future of data-driven CTO recruiting.",
 			path: "/careers",
 		}),
 });
 
 function CareersPage() {
 	return (
-		<div className="bg-black text-white min-h-screen font-urbanist">
+		<div className="bg-[#0C0C0C] text-[#E8E4DE] min-h-screen font-inter">
 			<Navbar />
 			<CareersHero />
 			<JobListings />

@@ -7,16 +7,16 @@ export const Route = createFileRoute("/team")({
 	component: TeamPage,
 	head: () =>
 		seoHead({
-			title: "Our Team & Mentors — Nairon AI",
+			title: "Our Team — Nairon",
 			description:
-				"Meet the mentors and team behind Nairon AI. Industry veterans from top tech companies guiding the next generation of AI engineers.",
+				"Meet the team behind Nairon. Experienced recruiters and technologists driving data-driven CTO placements.",
 			path: "/team",
 		}),
 });
 
 function TeamPage() {
 	return (
-		<div className="bg-black text-white min-h-screen font-urbanist">
+		<div className="bg-[#0C0C0C] text-[#E8E4DE] min-h-screen font-inter">
 			<Navbar />
 			<TeamHero />
 			<Mentors />

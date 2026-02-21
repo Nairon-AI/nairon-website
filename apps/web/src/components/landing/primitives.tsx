@@ -1,41 +1,42 @@
 import type { ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useViewMode } from "@/contexts/view-mode-context";
 
 // ─── Design Tokens ──────────────────────────────────────────────
-// Consistent color palette matching the live naironai.com
+// Dark rustic palette inspired by Warp.dev — warm tones, gold accents
 export const colors = {
-	/** Primary text — near-white */
-	text: "text-landing-text",
-	/** Dimmed heading text — white at 55% */
-	textDim: "text-white/55",
-	/** Body / secondary text */
-	textBody: "text-landing-text-body",
-	/** Muted text — white at 40% */
-	textMuted: "text-white/40",
-	/** Secondary text — white at 50% */
-	textSecondary: "text-white/50",
-	/** Card/glass border — white at 8% */
-	border: "border-white/8",
-	/** Interactive border — white at 12% */
-	borderInteractive: "border-white/12",
-	/** Emphasis border — white at 16% (tags, badges) */
-	borderEmphasis: "border-white/16",
+	/** Primary text — warm off-white (Warp: rgba(250,249,246,0.9)) */
+	text: "text-[#E8E4DE]",
+	/** Dimmed heading text — warm white at 55% */
+	textDim: "text-[#E8E4DE]/55",
+	/** Body / secondary text — warm gray */
+	textBody: "text-[#A39E96]",
+	/** Muted text — warm white at 40% */
+	textMuted: "text-[#E8E4DE]/40",
+	/** Secondary text — warm white at 50% */
+	textSecondary: "text-[#E8E4DE]/50",
+	/** Gold accent text */
+	textGold: "text-[#C9A96E]",
+	/** Card/glass border — warm white at 6% */
+	border: "border-white/6",
+	/** Interactive border — warm white at 10% */
+	borderInteractive: "border-white/10",
+	/** Emphasis border — warm white at 14% (tags, badges) */
+	borderEmphasis: "border-white/14",
 	/** Glass background — white at 3% */
 	glassBg: "bg-white/[0.03]",
-	/** Secondary surface — white at 6% */
-	secondaryBg: "bg-white/[0.06]",
-	/** Hover surface — white at 10% */
-	hoverBg: "bg-white/10",
-	/** Page background */
-	pageBg: "bg-black",
+	/** Secondary surface — white at 5% */
+	secondaryBg: "bg-white/[0.05]",
+	/** Hover surface — white at 8% */
+	hoverBg: "bg-white/8",
+	/** Page background — near black */
+	pageBg: "bg-[#0C0C0C]",
 } as const;
 
 // Typography class bundles for reuse across pages
 export const typography = {
 	/** Serif section heading base — tracking + leading + color only */
-	serif: "font-serif tracking-serif leading-serif text-landing-text",
+	serif: "font-serif tracking-serif leading-serif text-[#E8E4DE]",
 	/** Uppercase label — tight */
 	label: "uppercase tracking-label",
 	/** Uppercase label — wide */
@@ -55,12 +56,24 @@ export function Section({
 	);
 }
 
-// ─── Section Tag (line + text) ───────────────────────────────────
+// ─── Section Eyebrow (small uppercase label with gold dot) ──────
+export function SectionEyebrow({ label }: { label: string }) {
+	return (
+		<div className="flex items-center gap-3 mb-6">
+			<div className="w-1.5 h-1.5 rounded-full bg-[#C9A96E]" />
+			<span className="text-[#A39E96] text-xs font-medium uppercase tracking-[0.16em]">
+				{label}
+			</span>
+		</div>
+	);
+}
+
+// ─── Section Tag (line + text — kept for compatibility) ─────────
 export function SectionTag({ label }: { label: string }) {
 	return (
 		<div className="flex items-center gap-4 mb-6">
-			<div className="w-10 h-[2px] bg-white" />
-			<span className="text-white text-lg">{label}</span>
+			<div className="w-10 h-[2px] bg-[#C9A96E]" />
+			<span className="text-[#E8E4DE] text-lg">{label}</span>
 		</div>
 	);
 }
@@ -73,7 +86,7 @@ export function SectionHeading({
 	return (
 		<h2
 			className={cn(
-				"text-4xl md:text-display-md font-medium leading-tight tracking-tight-xl",
+				"text-4xl md:text-display-md font-normal leading-tight tracking-tight-xl",
 				colors.text,
 				className,
 			)}
@@ -88,14 +101,14 @@ export function DimText({ children }: { children: ReactNode }) {
 	return <span className={colors.textDim}>{children}</span>;
 }
 
-// ─── Accent Gradient Text (green for engineer, gold for hiring-manager) ──
-export function GreenText({ children }: { children: ReactNode }) {
-	const { isHiringManager } = useViewMode();
-	return (
-		<span className={isHiringManager ? "text-gradient-gold" : "text-gradient-green"}>
-			{children}
-		</span>
-	);
+// ─── Gold Accent Text ────────────────────────────────────────────
+export function GoldText({ children }: { children: ReactNode }) {
+	return <span className="text-gradient-gold">{children}</span>;
+}
+
+// ─── Accent Text (neon green — rare usage) ───────────────────────
+export function AccentText({ children }: { children: ReactNode }) {
+	return <span className="text-[#BEFF00]">{children}</span>;
 }
 
 // ─── Glass Card ──────────────────────────────────────────────────
@@ -108,7 +121,7 @@ export function GlassCard({
 		<div
 			className={cn(
 				"glass-card rounded-2xl",
-				hover && "hover:bg-white/[0.04] transition-colors",
+				hover && "hover:bg-white/[0.05] transition-colors",
 				className,
 			)}
 		>
@@ -135,9 +148,8 @@ export function OutlineButton({
 			target={target}
 			rel={target === "_blank" ? "noopener noreferrer" : undefined}
 			className={cn(
-				"inline-flex items-center gap-2 border",
-				colors.borderInteractive,
-				"text-white font-semibold text-base px-5 py-2.5 rounded-full hover:bg-white/5 transition-colors",
+				"inline-flex items-center gap-2 border border-white/10",
+				"text-[#E8E4DE] font-medium text-base px-5 py-2.5 rounded-full hover:bg-white/5 transition-colors",
 				className,
 			)}
 		>
@@ -147,7 +159,7 @@ export function OutlineButton({
 	);
 }
 
-// ─── Primary Button (white CTA) ─────────────────────────────────
+// ─── Primary Button (gold-tinted CTA) ───────────────────────────
 export function PrimaryButton({
 	href,
 	children,
@@ -165,12 +177,39 @@ export function PrimaryButton({
 			target={target}
 			rel={target === "_blank" ? "noopener noreferrer" : undefined}
 			className={cn(
-				"inline-flex items-center gap-2 bg-white hover:bg-white/90 text-landing-card-border font-semibold text-base px-5 py-2.5 rounded-full transition-colors",
+				"inline-flex items-center gap-2 bg-[#C9A96E] hover:bg-[#B8944F] text-[#0C0C0C] font-semibold text-base px-6 py-3 rounded-full transition-colors",
 				className,
 			)}
 		>
 			{children}
 			<ArrowUpRight className="w-4 h-4" />
+		</a>
+	);
+}
+
+// ─── Secondary Button (dark pill, Warp-style nav CTA) ───────────
+export function SecondaryButton({
+	href,
+	children,
+	target,
+	className,
+}: {
+	href: string;
+	children: ReactNode;
+	target?: string;
+	className?: string;
+}) {
+	return (
+		<a
+			href={href}
+			target={target}
+			rel={target === "_blank" ? "noopener noreferrer" : undefined}
+			className={cn(
+				"inline-flex items-center gap-2 bg-[#353534] hover:bg-[#454544] text-[#AFAEAC] font-medium text-base px-5 py-2.5 rounded-full transition-colors",
+				className,
+			)}
+		>
+			{children}
 		</a>
 	);
 }
@@ -182,7 +221,7 @@ export function CardTitle({
 }: { children: ReactNode; className?: string }) {
 	return (
 		<h4
-			className={cn("text-2xl font-semibold tracking-tighter", colors.text, className)}
+			className={cn("text-2xl font-medium tracking-tighter", colors.text, className)}
 		>
 			{children}
 		</h4>
@@ -204,19 +243,49 @@ export function BodyText({
 // ─── Bullet Point ────────────────────────────────────────────────
 export function BulletPoint({
 	children,
-	color,
+	color = "gold",
 }: { children: ReactNode; color?: "green" | "gold" }) {
-	const { isHiringManager } = useViewMode();
-	const resolved = color ?? (isHiringManager ? "gold" : "green");
 	return (
 		<div className="flex items-start gap-3">
 			<div
 				className={cn(
 					"w-1.5 h-1.5 rounded-full mt-2 shrink-0",
-					resolved === "green" ? "bg-green-400" : "bg-amber-400",
+					color === "green" ? "bg-green-400" : "bg-[#C9A96E]",
 				)}
 			/>
 			<BodyText>{children}</BodyText>
+		</div>
+	);
+}
+
+// ─── Nature Painting Background ──────────────────────────────────
+// Utility for sections that use rustic nature art as background
+export function PaintingBackground({
+	src,
+	alt = "",
+	children,
+	className,
+	overlay = "rgba(12, 12, 12, 0.6)",
+}: {
+	src: string;
+	alt?: string;
+	children: ReactNode;
+	className?: string;
+	overlay?: string;
+}) {
+	return (
+		<div className={cn("relative overflow-hidden", className)}>
+			<img
+				src={src}
+				alt={alt}
+				loading="lazy"
+				className="absolute inset-0 w-full h-full object-cover"
+			/>
+			<div
+				className="absolute inset-0"
+				style={{ background: overlay }}
+			/>
+			<div className="relative z-10">{children}</div>
 		</div>
 	);
 }

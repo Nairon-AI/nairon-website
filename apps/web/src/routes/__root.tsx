@@ -39,11 +39,6 @@ const ViewModeToggle = lazy(() =>
 		default: m.ViewModeToggle,
 	})),
 );
-const BenchmarkWidget = lazy(() =>
-	import("@/components/landing/benchmark-widget").then((m) => ({
-		default: m.BenchmarkWidget,
-	})),
-);
 const SmoothScroll = lazy(() =>
 	import("@/components/smooth-scroll").then((m) => ({
 		default: m.SmoothScroll,
@@ -185,7 +180,6 @@ function RootComponent() {
 							{showDeferredUi && !isNBenchPage ? (
 								<Suspense fallback={null}>
 									<ViewModeToggle />
-									<BenchmarkWidget />
 								</Suspense>
 							) : null}
 							</ViewModeProvider>
