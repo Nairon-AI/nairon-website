@@ -13,7 +13,7 @@ const FOOTER_COLS = [
 	{
 		heading: "Services",
 		links: [
-			{ label: "CTO Recruiting", href: "/hire" },
+			{ label: "AI-Native Recruiting", href: "/hire" },
 			{ label: "NBench", href: "/nbench" },
 			{ label: "For Candidates", href: "/candidates" },
 		],
@@ -84,7 +84,7 @@ export function Footer() {
 							className="h-8 w-auto mb-4"
 						/>
 						<p className="text-[#A39E96] text-sm leading-relaxed max-w-xs">
-							Data-driven CTO recruiting. Powered by NBench.
+							Data-driven technical recruiting. Powered by NBench.
 						</p>
 						<div className="mt-6">
 							<SocialLinks />

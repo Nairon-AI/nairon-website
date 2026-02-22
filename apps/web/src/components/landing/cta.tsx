@@ -9,7 +9,7 @@ export function CTA() {
 					<span className="font-serif italic text-[#C9A96E]">great</span>
 				</h2>
 				<p className="text-[#A39E96] text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-					Whether you're hiring a CTO or looking for your next role,
+					Whether you're hiring an AI-native engineer or looking for your next role,
 					we'd love to hear from you.
 				</p>
 				<a

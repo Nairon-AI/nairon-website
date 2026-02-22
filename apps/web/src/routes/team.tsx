@@ -9,7 +9,7 @@ export const Route = createFileRoute("/team")({
 		seoHead({
 			title: "Our Team — Nairon",
 			description:
-				"Meet the team behind Nairon. Experienced recruiters and technologists driving data-driven CTO placements.",
+				"Meet the team behind Nairon. Experienced recruiters and technologists driving data-driven technical placements.",
 			path: "/team",
 		}),
 });

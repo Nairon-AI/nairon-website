@@ -1,15 +1,17 @@
+import { GridSection, GridCell } from "./grid-system";
+
 const steps = [
 	{
 		number: "01",
 		title: "Discovery Call",
 		description:
-			"We learn your company's stage, tech stack, culture, and what kind of CTO you actually need — not what a job description template says.",
+			"We learn your company's stage, tech stack, culture, and what kind of AI-native engineer you actually need — not what a job description template says.",
 	},
 	{
 		number: "02",
 		title: "Candidate Sourcing",
 		description:
-			"Our network of 2,000+ vetted technical leaders is cross-referenced with your requirements. We present 3–5 curated candidates within two weeks.",
+			"Our network of 2,000+ vetted AI-native engineers is cross-referenced with your requirements. We present 3–5 curated candidates within two weeks.",
 	},
 	{
 		number: "03",
@@ -27,45 +29,44 @@ const steps = [
 
 export function Process() {
 	return (
-		<section className="py-24 md:py-32 bg-[#0C0C0C]">
-			<div className="max-w-7xl mx-auto px-6">
-				{/* Eyebrow */}
-				<div className="flex items-center gap-3 mb-6">
-					<div className="w-1.5 h-1.5 rounded-full bg-[#C9A96E]" />
-					<span className="text-[#A39E96] text-xs font-medium uppercase tracking-[0.16em]">
-						How it works
-					</span>
-				</div>
+		<div id="process">
+			{/* Two-column layout: heading left, steps right */}
+			<GridSection columns="5fr 7fr">
+				{/* Left: sticky heading */}
+				<GridCell borderRight className="px-12 py-12">
+					<div className="flex items-center gap-3 mb-6">
+						<div className="w-1.5 h-1.5 rounded-full bg-[#C9A96E]" />
+						<span className="text-[#A39E96] text-xs font-medium uppercase tracking-[0.16em]">
+							How it works
+						</span>
+					</div>
+					<h2 className="text-4xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE]">
+						From brief to{" "}
+						<span className="font-serif italic text-[#C9A96E]">placement</span>{" "}
+						in 30 days
+					</h2>
+				</GridCell>
 
-				{/* Heading */}
-				<h2 className="text-4xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE] max-w-3xl mb-16">
-					From brief to{" "}
-					<span className="font-serif italic text-[#C9A96E]">placement</span>{" "}
-					in 30 days
-				</h2>
-
-				{/* Steps */}
-				<div className="space-y-0">
-					{steps.map((step) => (
+				{/* Right: steps */}
+				<GridCell className="px-12 py-12">
+					{steps.map((step, i) => (
 						<div
 							key={step.number}
-							className="group grid grid-cols-1 md:grid-cols-[80px_1fr] gap-6 md:gap-10 py-10 border-t border-white/6"
+							className={`py-8 ${i > 0 ? "border-t border-white/6" : ""}`}
 						>
-							<span className="text-[#C9A96E] text-sm font-medium tracking-[0.16em]">
+							<span className="text-[#C9A96E] text-sm font-medium tracking-[0.16em] block mb-3">
 								{step.number}
 							</span>
-							<div>
-								<h3 className="text-2xl font-normal text-[#E8E4DE] mb-3">
-									{step.title}
-								</h3>
-								<p className="text-[#A39E96] text-base leading-relaxed max-w-xl">
-									{step.description}
-								</p>
-							</div>
+							<h3 className="text-2xl font-normal text-[#E8E4DE] mb-3">
+								{step.title}
+							</h3>
+							<p className="text-[#A39E96] text-base leading-relaxed">
+								{step.description}
+							</p>
 						</div>
 					))}
-				</div>
-			</div>
-		</section>
+				</GridCell>
+			</GridSection>
+		</div>
 	);
 }

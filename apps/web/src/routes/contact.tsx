@@ -14,7 +14,7 @@ export const Route = createFileRoute("/contact")({
 		seoHead({
 			title: "Contact Us — Nairon",
 			description:
-				"Get in touch with Nairon. Questions about CTO recruiting, NBench, or partnerships? We'd love to hear from you.",
+				"Get in touch with Nairon. Questions about AI-native recruiting, NBench, or partnerships? We'd love to hear from you.",
 			path: "/contact",
 		}),
 });

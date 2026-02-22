@@ -9,7 +9,7 @@ export const Route = createFileRoute("/careers/")({
 		seoHead({
 			title: "Careers at Nairon",
 			description:
-				"Join the Nairon team. Explore open positions and help shape the future of data-driven CTO recruiting.",
+				"Join the Nairon team. Explore open positions and help shape the future of data-driven technical recruiting.",
 			path: "/careers",
 		}),
 });

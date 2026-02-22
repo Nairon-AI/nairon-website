@@ -1,17 +1,16 @@
 import { PARTNERS } from "@/data/landing";
 
 export function LogoStrip() {
-	// Triple the logos for seamless infinite scroll
 	const logos = [...PARTNERS, ...PARTNERS, ...PARTNERS];
 
 	return (
-		<section className="py-16 border-y border-white/6 bg-[#0C0C0C]">
-			<div className="max-w-7xl mx-auto px-6 mb-8">
+		<div className="py-10">
+			<div className="px-12 mb-6">
 				<p className="text-[#A39E96] text-xs font-medium uppercase tracking-[0.16em]">
 					Trusted by leading companies
 				</p>
 			</div>
-			<div className="relative overflow-hidden">
+			<div className="relative overflow-hidden" style={{ maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)" }}>
 				<div className="flex animate-marquee">
 					{logos.map((partner, i) => (
 						<div
@@ -28,6 +27,6 @@ export function LogoStrip() {
 					))}
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 }
