@@ -82,6 +82,20 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 			},
 			{
 				rel: "preload",
+				href: "/fonts/instrument-serif-latin-regular.woff2",
+				as: "font",
+				type: "font/woff2",
+				crossOrigin: "anonymous",
+			},
+			{
+				rel: "preload",
+				href: "/fonts/instrument-serif-latin-italic.woff2",
+				as: "font",
+				type: "font/woff2",
+				crossOrigin: "anonymous",
+			},
+			{
+				rel: "preload",
 				as: "image",
 				href: "/nairon-logo.png",
 			},
@@ -123,11 +137,11 @@ function RootComponent() {
 	}, [isLandingPage]);
 
 	return (
-		<html lang="en" suppressHydrationWarning className={isLandingPage ? "dark" : ""}>
+		<html lang="en" suppressHydrationWarning className={isLandingPage ? "dark" : ""} style={isLandingPage ? { backgroundColor: "#0C0C0C" } : undefined}>
 			<head>
 				<HeadContent />
 			</head>
-			<body className="min-h-screen bg-background font-sans antialiased">
+			<body className="min-h-screen bg-background font-sans antialiased" style={isLandingPage ? { backgroundColor: "#0C0C0C" } : undefined}>
 				<a
 					href="#main-content"
 					className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-lg focus:bg-[#C9A96E] focus:px-4 focus:py-2 focus:text-[#0C0C0C] focus:font-medium"
