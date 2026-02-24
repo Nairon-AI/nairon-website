@@ -27,14 +27,14 @@ export function GradientHeading({
 	className?: string;
 }) {
 	return (
-		<h1
+		<h2
 			className={cn(
 				"text-gradient-linear text-5xl font-[510] leading-[0.98] tracking-[-0.022em] md:text-7xl lg:text-8xl",
 				className,
 			)}
 		>
 			{children}
-		</h1>
+		</h2>
 	);
 }
 

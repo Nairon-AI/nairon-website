@@ -38,8 +38,8 @@ export function CandidateModal() {
 						{/* Left — Image + Glass Cards */}
 						<div className="hidden md:block relative">
 							<img
-								src="/backgrounds/rolling-hills.png"
-								alt=""
+								src="/backgrounds/rolling-hills.webp"
+								alt="Rolling hills landscape"
 								className="absolute inset-0 w-full h-full object-cover"
 							/>
 							<div

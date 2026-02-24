@@ -12,7 +12,7 @@ import { ConvexProvider } from "convex/react";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ViewModeProvider } from "@/contexts/view-mode-context";
 import { Toaster } from "sonner";
-import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
+import { organizationJsonLd, websiteJsonLd, serviceJsonLd } from "@/lib/seo";
 import "@/styles/globals.css";
 
 // Lazy-load dashboard components so they're excluded from landing page bundles
@@ -47,6 +47,7 @@ export interface RouterContext {
 
 const jsonLdOrg = JSON.stringify(organizationJsonLd());
 const jsonLdSite = JSON.stringify(websiteJsonLd());
+const jsonLdService = JSON.stringify(serviceJsonLd());
 
 export const Route = createRootRouteWithContext<RouterContext>()({
 	component: RootComponent,
@@ -54,15 +55,17 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 		meta: [
 			{ charSet: "utf-8" },
 			{ name: "viewport", content: "width=device-width, initial-scale=1" },
-			{ title: "Nairon AI — AI Bootcamp for the 1% Engineer" },
+			{ title: "Nairon AI — Data-Driven Technical Recruiting" },
 			{
 				name: "description",
 				content:
-					"Join an intensive AI engineering bootcamp in Dubai. Build real AI products, earn a branded certificate, and get hired by top companies.",
+					"Data-driven technical recruiting powered by AI-nativeness benchmarks. Find engineers who ship with Nairon AI.",
 			},
 			{ name: "theme-color", content: "#000000" },
 		],
 		links: [
+			{ rel: "icon", href: "/nairon-logo.png", type: "image/png" },
+			{ rel: "apple-touch-icon", href: "/nairon-logo.png" },
 			{
 				rel: "preload",
 				href: "/fonts/inter-latin.woff2",
@@ -91,6 +94,10 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 			{
 				type: "application/ld+json",
 				children: jsonLdSite,
+			},
+			{
+				type: "application/ld+json",
+				children: jsonLdService,
 			},
 		],
 	}),
@@ -121,6 +128,12 @@ function RootComponent() {
 				<HeadContent />
 			</head>
 			<body className="min-h-screen bg-background font-sans antialiased">
+				<a
+					href="#main-content"
+					className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-lg focus:bg-[#C9A96E] focus:px-4 focus:py-2 focus:text-[#0C0C0C] focus:font-medium"
+				>
+					Skip to content
+				</a>
 				<ConvexProvider client={convex}>
 					<ThemeProvider
 						attribute="class"
@@ -133,19 +146,19 @@ function RootComponent() {
 								{enableSmoothScroll ? (
 									<Suspense
 										fallback={
-											<main>
+											<main id="main-content">
 												<Outlet />
 											</main>
 										}
 									>
 										<SmoothScroll>
-											<main>
+											<main id="main-content">
 												<Outlet />
 											</main>
 										</SmoothScroll>
 									</Suspense>
 								) : (
-									<main>
+									<main id="main-content">
 										<Outlet />
 									</main>
 								)}
@@ -165,7 +178,7 @@ function RootComponent() {
 										<header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
 											<SidebarTrigger className="-ml-1" />
 										</header>
-										<main className="flex-1">
+										<main id="main-content" className="flex-1">
 											<Outlet />
 										</main>
 									</SidebarInset>

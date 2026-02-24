@@ -6,21 +6,21 @@ const testimonials = [
 			"Nairon found us an AI-native engineer who transformed our product in 90 days. The NBench data gave us confidence we'd never had with traditional recruiters.",
 		name: "Sarah Al-Rashid",
 		role: "CEO, TechVentures Dubai",
-		avatar: "https://i.pravatar.cc/80?img=32",
+		avatar: "/avatars/avatar-4.jpg",
 	},
 	{
 		quote:
 			"The benchmark process was unlike anything I'd seen. It validated what I knew about my strengths and helped me find a company that valued AI-native thinking.",
 		name: "Marcus Chen",
 		role: "Senior Engineer, placed via Nairon",
-		avatar: "https://i.pravatar.cc/80?img=11",
+		avatar: "/avatars/avatar-5.jpg",
 	},
 	{
 		quote:
 			"Three recruiters failed before Nairon. They understood what 'AI-native' actually means and delivered engineers who could prove it with data.",
 		name: "Omar Khalid",
 		role: "Founder, BuildStack",
-		avatar: "https://i.pravatar.cc/80?img=68",
+		avatar: "/avatars/avatar-6.jpg",
 	},
 ];
 

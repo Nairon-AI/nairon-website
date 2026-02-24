@@ -20,7 +20,7 @@ const blogPosts: BlogPost[] = [
 			name: "Luka Eric",
 			avatar: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
 		},
-		image: "/backgrounds/pastoral-hills.png",
+		image: "/backgrounds/pastoral-hills.webp",
 	},
 	{
 		title: "Benchmarking Developer Productivity in the Age of Copilots",
@@ -30,7 +30,7 @@ const blogPosts: BlogPost[] = [
 			name: "Obaid Ur-R.",
 			avatar: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
 		},
-		image: "/backgrounds/hazy-landscape.png",
+		image: "/backgrounds/hazy-landscape.webp",
 	},
 	{
 		title: "The Recruiting Playbook Nobody Talks About",
@@ -40,7 +40,7 @@ const blogPosts: BlogPost[] = [
 			name: "Luka Eric",
 			avatar: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
 		},
-		image: "/backgrounds/rolling-hills.png",
+		image: "/backgrounds/rolling-hills.webp",
 	},
 	{
 		title: "How We Built NBench: Measuring What Matters",
@@ -50,7 +50,7 @@ const blogPosts: BlogPost[] = [
 			name: "Obaid Ur-R.",
 			avatar: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
 		},
-		image: "/backgrounds/farmhouse-landscape.png",
+		image: "/backgrounds/farmhouse-landscape.webp",
 	},
 	{
 		title: "Context Windows Are the New RAM",
@@ -60,7 +60,7 @@ const blogPosts: BlogPost[] = [
 			name: "Luka Eric",
 			avatar: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
 		},
-		image: "/backgrounds/nature-scene-3.png",
+		image: "/backgrounds/nature-scene-3.webp",
 	},
 	{
 		title: "From Bootcamp to Agency: Lessons in Pivoting",
@@ -70,7 +70,7 @@ const blogPosts: BlogPost[] = [
 			name: "Luka Eric",
 			avatar: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
 		},
-		image: "/backgrounds/hero-bg-1.jpg",
+		image: "/backgrounds/hero-bg-1.webp",
 	},
 	{
 		title: "What Senior Engineers Get Wrong About AI Tools",
@@ -80,7 +80,7 @@ const blogPosts: BlogPost[] = [
 			name: "Obaid Ur-R.",
 			avatar: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
 		},
-		image: "/backgrounds/hero-bg-2.jpg",
+		image: "/backgrounds/hero-bg-2.webp",
 	},
 ];
 

@@ -5,12 +5,12 @@ import { NBenchSection } from "@/components/landing/nbench/primitives";
 import { cn } from "@/lib/utils";
 
 const MODEL_LOGOS: Record<string, string> = {
-	"Kimi K2.5": "https://kimi.moonshot.cn/favicon.ico",
-	"Claude Sonnet 4.5": "https://www.anthropic.com/favicon.ico",
-	"GPT-5": "https://openai.com/favicon.ico",
-	"Gemini 2.5 Flash": "https://www.gstatic.com/lamda/images/gemini_icon_v2_1f9f5f08e8f6c8f4a1d0.png",
-	"DeepSeek V3.2": "https://www.deepseek.com/favicon.ico",
-	OpenCode: "https://opencode.ai/favicon-96x96-v3.png",
+	"Kimi K2.5": "/icons/models/kimi.ico",
+	"Claude Sonnet 4.5": "/icons/models/anthropic.ico",
+	"GPT-5": "/icons/models/openai.png",
+	"Gemini 2.5 Flash": "/icons/models/gemini.png",
+	"DeepSeek V3.2": "/icons/models/deepseek.ico",
+	OpenCode: "/icons/models/opencode.png",
 };
 
 function ModelBadge({ selected = false }: { selected?: boolean }) {
