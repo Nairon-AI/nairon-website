@@ -30,12 +30,12 @@ const founders = [
 	{
 		name: "Luka Eric",
 		title: "Founder & CEO",
-		image: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
+		image: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.webp",
 	},
 	{
 		name: "Obaid Ur-Rehman",
 		title: "Founder & CTO",
-		image: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
+		image: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.webp",
 	},
 ];
 

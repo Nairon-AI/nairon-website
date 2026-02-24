@@ -65,7 +65,7 @@ export function DevComparison() {
 							}}
 						>
 							<img
-								src="/backgrounds/pastoral-hills.png"
+								src="/backgrounds/pastoral-hills.webp"
 								alt=""
 								className="absolute inset-0 w-full h-full object-cover"
 								loading="lazy"
@@ -87,7 +87,7 @@ export function DevComparison() {
 								}}
 							>
 								<img
-									src="/moderndev.png"
+									src="/moderndev.webp"
 									alt="AI-native development environment"
 									className="w-full h-full object-cover object-top"
 									loading="lazy"
@@ -116,7 +116,7 @@ export function DevComparison() {
 							}}
 						>
 							<img
-								src="/backgrounds/hazy-landscape.png"
+								src="/backgrounds/hazy-landscape.webp"
 								alt=""
 								className="absolute inset-0 w-full h-full object-cover"
 								loading="lazy"
@@ -138,7 +138,7 @@ export function DevComparison() {
 								}}
 							>
 								<img
-									src="/vscode.png"
+									src="/vscode.webp"
 									alt="VS Code"
 									className="w-full h-full object-cover object-top"
 									loading="lazy"

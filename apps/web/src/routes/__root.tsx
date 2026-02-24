@@ -120,7 +120,7 @@ function RootComponent() {
 			<head>
 				<HeadContent />
 			</head>
-			<body className="min-h-screen bg-background font-sans antialiased">
+			<body className={`min-h-screen font-sans antialiased ${isLandingPage ? "bg-[#0C0C0C]" : "bg-background"}`}>
 				<ConvexProvider client={convex}>
 					<ThemeProvider
 						attribute="class"

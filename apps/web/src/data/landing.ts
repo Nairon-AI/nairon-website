@@ -179,13 +179,13 @@ export const TEAM_MEMBERS = [
 	{
 		name: "Luka Erić",
 		role: "CEO",
-		image: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
+		image: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.webp",
 		linkedin: "https://www.linkedin.com/in/lukaeric/",
 	},
 	{
 		name: "Obaid Ur-Rahmaan",
 		role: "CTO / Head of Product",
-		image: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
+		image: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.webp",
 		linkedin: "https://www.linkedin.com/in/obaid-ur-rahmaan-5bb29814b/",
 	},
 	{
@@ -207,13 +207,13 @@ export const TEAM_PAGE_MEMBERS = [
 	{
 		name: "Luka Eric",
 		role: "CEO | Serial Founder",
-		image: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
+		image: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.webp",
 		linkedin: "https://www.linkedin.com/in/lukaeric",
 	},
 	{
 		name: "Obaid Ur-Rahmaan",
 		role: "CTO / Head of Product",
-		image: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
+		image: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.webp",
 		linkedin: "https://www.linkedin.com/in/obaid-ur-rahmaan-5bb29814b",
 	},
 	{
@@ -228,7 +228,7 @@ export const TEAM_PAGE_MEMBERS = [
 export const FEATURED_MEMBER = {
 	name: "Luka Eric",
 	title: "Serial Founder",
-	image: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
+	image: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.webp",
 	linkedin: "https://www.linkedin.com/in/lukaeric/",
 	twitter: "https://x.com/founderLuka",
 	bio: [
@@ -473,8 +473,8 @@ export const PROGRAM_STATS = {
 	cohortSize: { value: "20+", label: "Elite Engineers" },
 	workType: { value: "100", suffix: "%", label: "Remote Work" },
 	avatars: [
-		"/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
-		"/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
+		"/assets/framer/SSmGx1bjs3koY1aPdILAeuc.webp",
+		"/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.webp",
 		"/assets/framer/VkXk2rDNGzBySnbTZ9H4v4dMdE.jpeg",
 	],
 } as const;

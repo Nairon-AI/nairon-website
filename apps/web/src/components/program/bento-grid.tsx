@@ -134,8 +134,8 @@ function DubaiVisual() {
 
 function AvatarsVisual() {
 	const avatars = [
-		"/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
-		"/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
+		"/assets/framer/SSmGx1bjs3koY1aPdILAeuc.webp",
+		"/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.webp",
 		"/assets/framer/VkXk2rDNGzBySnbTZ9H4v4dMdE.jpeg",
 	];
 	return (

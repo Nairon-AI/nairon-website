@@ -166,7 +166,7 @@ export function HireModal() {
 							{/* Right — Image + Glass Cards */}
 							<div className="hidden md:block relative">
 								<img
-									src="/backgrounds/pastoral-hills.png"
+									src="/backgrounds/pastoral-hills.webp"
 									alt=""
 									className="absolute inset-0 w-full h-full object-cover"
 								/>

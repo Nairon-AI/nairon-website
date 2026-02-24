@@ -18,9 +18,9 @@ const blogPosts: BlogPost[] = [
 		date: "Feb 18, 2026",
 		author: {
 			name: "Luka Eric",
-			avatar: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
+			avatar: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.webp",
 		},
-		image: "/backgrounds/pastoral-hills.png",
+		image: "/backgrounds/pastoral-hills.webp",
 	},
 	{
 		title: "Benchmarking Developer Productivity in the Age of Copilots",
@@ -28,9 +28,9 @@ const blogPosts: BlogPost[] = [
 		date: "Feb 10, 2026",
 		author: {
 			name: "Obaid Ur-R.",
-			avatar: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
+			avatar: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.webp",
 		},
-		image: "/backgrounds/hazy-landscape.png",
+		image: "/backgrounds/hazy-landscape.webp",
 	},
 	{
 		title: "The Recruiting Playbook Nobody Talks About",
@@ -38,9 +38,9 @@ const blogPosts: BlogPost[] = [
 		date: "Jan 29, 2026",
 		author: {
 			name: "Luka Eric",
-			avatar: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
+			avatar: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.webp",
 		},
-		image: "/backgrounds/rolling-hills.png",
+		image: "/backgrounds/rolling-hills.webp",
 	},
 	{
 		title: "How We Built NBench: Measuring What Matters",
@@ -48,9 +48,9 @@ const blogPosts: BlogPost[] = [
 		date: "Jan 15, 2026",
 		author: {
 			name: "Obaid Ur-R.",
-			avatar: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
+			avatar: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.webp",
 		},
-		image: "/backgrounds/farmhouse-landscape.png",
+		image: "/backgrounds/farmhouse-landscape.webp",
 	},
 	{
 		title: "Context Windows Are the New RAM",
@@ -58,9 +58,9 @@ const blogPosts: BlogPost[] = [
 		date: "Jan 8, 2026",
 		author: {
 			name: "Luka Eric",
-			avatar: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
+			avatar: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.webp",
 		},
-		image: "/backgrounds/nature-scene-3.png",
+		image: "/backgrounds/nature-scene-3.webp",
 	},
 	{
 		title: "From Bootcamp to Agency: Lessons in Pivoting",
@@ -68,7 +68,7 @@ const blogPosts: BlogPost[] = [
 		date: "Dec 20, 2025",
 		author: {
 			name: "Luka Eric",
-			avatar: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.jpeg",
+			avatar: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.webp",
 		},
 		image: "/backgrounds/hero-bg-1.jpg",
 	},
@@ -78,7 +78,7 @@ const blogPosts: BlogPost[] = [
 		date: "Dec 11, 2025",
 		author: {
 			name: "Obaid Ur-R.",
-			avatar: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.png",
+			avatar: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.webp",
 		},
 		image: "/backgrounds/hero-bg-2.jpg",
 	},

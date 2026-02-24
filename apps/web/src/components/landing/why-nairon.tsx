@@ -6,19 +6,19 @@ const points = [
 		title: "Agent-first thinking",
 		description:
 			"They design systems where agents are first-class citizens. The codebase, the CI pipeline, the review process. All built assuming AI does the work and humans direct it.",
-		image: "/backgrounds/pastoral-hills.png",
+		image: "/backgrounds/pastoral-hills.webp",
 	},
 	{
 		title: "Eval discipline",
 		description:
 			"They treat AI output like an untrusted junior's PR. They catch hallucinations systematically and know exactly when to override.",
-		image: "/backgrounds/hazy-landscape.png",
+		image: "/backgrounds/hazy-landscape.webp",
 	},
 	{
 		title: "Token efficiency",
 		description:
 			"They think about context windows, model selection, and cost-per-output the way senior engineers think about database queries.",
-		image: "/backgrounds/rolling-hills.png",
+		image: "/backgrounds/rolling-hills.webp",
 	},
 ];
 

@@ -7,7 +7,7 @@ export function CTASection() {
 		<div className="relative overflow-hidden">
 			{/* Full-bleed painting background */}
 			<img
-				src="/backgrounds/nature-scene-3.png"
+				src="/backgrounds/nature-scene-3.webp"
 				alt=""
 				className="absolute inset-0 w-full h-full object-cover"
 				loading="lazy"
