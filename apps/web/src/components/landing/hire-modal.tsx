@@ -215,36 +215,46 @@ export function HireModal() {
 	);
 }
 
-function CalBookingStep() {
-	const calRef = useRef<HTMLDivElement>(null);
-	const initialized = useRef(false);
+function loadCalScript(): Promise<any> {
+	const win = window as any;
+	if (win.Cal) return Promise.resolve(win.Cal);
 
-	useEffect(() => {
-		if (initialized.current || !calRef.current) return;
-		initialized.current = true;
-
+	return new Promise((resolve) => {
 		const script = document.createElement("script");
 		script.src = "https://app.cal.com/embed/embed.js";
 		script.async = true;
-		script.onload = () => {
-			const Cal = (window as any).Cal;
-			if (!Cal) return;
+		script.onload = () => resolve(win.Cal);
+		document.head.appendChild(script);
+	});
+}
 
-			Cal("init", "hiring-partner-call", { origin: "https://app.cal.com" });
+function CalBookingStep() {
+	const calRef = useRef<HTMLDivElement>(null);
 
-			Cal.ns["hiring-partner-call"]("inline", {
-				elementOrSelector: calRef.current,
+	useEffect(() => {
+		const el = calRef.current;
+		if (!el) return;
+
+		// Use a unique namespace per mount to avoid stale references
+		const ns = `hire-${Date.now()}`;
+
+		loadCalScript().then((Cal) => {
+			if (!Cal || !el.isConnected) return;
+
+			Cal("init", ns, { origin: "https://app.cal.com" });
+
+			Cal.ns[ns]("inline", {
+				elementOrSelector: el,
 				config: { layout: "month_view", theme: "dark" },
 				calLink: "luka-eric-vuqogn/hiring-partner-call",
 			});
 
-			Cal.ns["hiring-partner-call"]("ui", {
+			Cal.ns[ns]("ui", {
 				theme: "dark",
 				hideEventTypeDetails: false,
 				layout: "month_view",
 			});
-		};
-		document.head.appendChild(script);
+		});
 	}, []);
 
 	return (
