@@ -116,11 +116,11 @@ function RootComponent() {
 	}, [isLandingPage]);
 
 	return (
-		<html lang="en" suppressHydrationWarning className={isLandingPage ? "dark" : ""}>
+		<html lang="en" suppressHydrationWarning className={isLandingPage ? "dark" : ""} style={isLandingPage ? { backgroundColor: "#0C0C0C" } : undefined}>
 			<head>
 				<HeadContent />
 			</head>
-			<body className={`min-h-screen font-sans antialiased ${isLandingPage ? "bg-[#0C0C0C]" : "bg-background"}`}>
+			<body className="min-h-screen font-sans antialiased bg-background" style={isLandingPage ? { backgroundColor: "#0C0C0C" } : undefined}>
 				<ConvexProvider client={convex}>
 					<ThemeProvider
 						attribute="class"
