@@ -1,53 +1,61 @@
 import { ArrowUpRight } from "lucide-react";
+import { useModals } from "./modal-provider";
 
-const NOTCH = 16;
+const NOTCH_SIZE = 10;
+const NOTCH_COLOR = "rgba(255, 255, 255, 0.12)";
+
+const corners = [
+	{ top: 0, left: 0, borderTop: true, borderLeft: true },
+	{ top: 0, right: 0, borderTop: true, borderRight: true },
+	{ bottom: 0, left: 0, borderBottom: true, borderLeft: true },
+	{ bottom: 0, right: 0, borderBottom: true, borderRight: true },
+] as const;
 
 function CornerNotches() {
-	const corners = [
-		{ pos: "top-0 left-0", rotate: "" },
-		{ pos: "top-0 right-0", rotate: "rotate-90" },
-		{ pos: "bottom-0 right-0", rotate: "rotate-180" },
-		{ pos: "bottom-0 left-0", rotate: "-rotate-90" },
-	];
 	return (
 		<>
-			{corners.map(({ pos, rotate }) => (
-				<div key={pos} className={`absolute ${pos} pointer-events-none`}>
-					<svg
-						width={NOTCH}
-						height={NOTCH}
-						viewBox={`0 0 ${NOTCH} ${NOTCH}`}
-						className={rotate}
-					>
-						<path
-							d={`M0,0 L${NOTCH},0 L0,${NOTCH} Z`}
-							fill="none"
-							stroke="rgba(255,255,255,0.15)"
-							strokeWidth="1"
-						/>
-					</svg>
-				</div>
+			{corners.map((corner, i) => (
+				<div
+					key={i}
+					className="absolute pointer-events-none z-2"
+					style={{
+						width: NOTCH_SIZE,
+						height: NOTCH_SIZE,
+						top: "top" in corner ? corner.top : undefined,
+						bottom: "bottom" in corner ? corner.bottom : undefined,
+						left: "left" in corner ? corner.left : undefined,
+						right: "right" in corner ? corner.right : undefined,
+						borderTop: "borderTop" in corner ? `1px solid ${NOTCH_COLOR}` : undefined,
+						borderBottom: "borderBottom" in corner ? `1px solid ${NOTCH_COLOR}` : undefined,
+						borderLeft: "borderLeft" in corner ? `1px solid ${NOTCH_COLOR}` : undefined,
+						borderRight: "borderRight" in corner ? `1px solid ${NOTCH_COLOR}` : undefined,
+					}}
+				/>
 			))}
 		</>
 	);
 }
 
 export function HeroNew() {
+	const { openHireModal, openCandidateModal } = useModals();
 	return (
 		<div className="relative flex flex-col justify-center items-center text-center px-12 py-20 md:py-24">
 			<CornerNotches />
+
 			{/* Social proof badge */}
 			<div className="flex items-center gap-3 mb-8">
 				<div className="flex -space-x-2">
-					{[1, 2, 3].map((i) => (
-						<div
+					{["https://i.pravatar.cc/64?img=11", "https://i.pravatar.cc/64?img=32", "https://i.pravatar.cc/64?img=12"].map((src, i) => (
+						<img
 							key={i}
-							className="w-8 h-8 rounded-full bg-white/10 border-2 border-[#0C0C0C]"
+							src={src}
+							alt=""
+							className="w-8 h-8 rounded-full border-2 border-[#0C0C0C] object-cover"
 						/>
 					))}
 				</div>
 				<span className="text-[#A39E96] text-sm">
-					Trusted by 50+ companies in the Gulf
+					Trusted by thousands of engineers
 				</span>
 			</div>
 
@@ -67,20 +75,22 @@ export function HeroNew() {
 
 			{/* CTAs */}
 			<div className="flex flex-wrap justify-center gap-4 mt-10">
-				<a
-					href="/contact"
+				<button
+					type="button"
+					onClick={openHireModal}
 					className="inline-flex items-center gap-2 bg-[#C9A96E] hover:bg-[#B8944F] text-[#0C0C0C] font-semibold text-base px-6 py-3 rounded-full transition-colors"
 				>
 					Hire engineers
 					<ArrowUpRight className="w-4 h-4" />
-				</a>
-				<a
-					href="/candidates"
+				</button>
+				<button
+					type="button"
+					onClick={openCandidateModal}
 					className="inline-flex items-center gap-2 border border-white/10 text-[#E8E4DE] font-medium text-base px-6 py-3 rounded-full hover:bg-white/5 transition-colors"
 				>
 					I'm a candidate
 					<ArrowUpRight className="w-4 h-4" />
-				</a>
+				</button>
 			</div>
 		</div>
 	);

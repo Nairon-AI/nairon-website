@@ -1,6 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
+import { useModals } from "./modal-provider";
 
 export function CTASection() {
+	const { openHireModal } = useModals();
 	return (
 		<div className="relative overflow-hidden">
 			{/* Full-bleed painting background */}
@@ -34,20 +36,17 @@ export function CTASection() {
 						<span className="font-serif italic text-[#C9A96E]">
 							next AI-native engineer
 						</span>
-						?
+						<span className="text-[#C9A96E]">?</span>
 					</h2>
-					<p className="text-[#A39E96] text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-						Book a discovery call. We'll map your needs and show you
-						exactly how our benchmark-driven process works.
-					</p>
 					<div className="flex flex-wrap justify-center gap-4">
-						<a
-							href="/contact"
+						<button
+							type="button"
+							onClick={openHireModal}
 							className="inline-flex items-center gap-2 bg-[#C9A96E] hover:bg-[#B8944F] text-[#0C0C0C] font-semibold text-base px-8 py-3.5 rounded-full transition-colors"
 						>
 							Book a call
 							<ArrowUpRight className="w-4 h-4" />
-						</a>
+						</button>
 						<a
 							href="/nbench"
 							className="inline-flex items-center gap-2 border border-white/10 text-[#E8E4DE] font-medium text-base px-6 py-3.5 rounded-full hover:bg-white/5 transition-colors"

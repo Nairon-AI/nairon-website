@@ -71,7 +71,6 @@ export function DevOutcome() {
 		const observer = new IntersectionObserver(
 			([entry]) => {
 				if (entry.isIntersecting) {
-					// Stagger rows in one by one
 					for (let i = 0; i <= metrics.length; i++) {
 						setTimeout(() => setVisibleRows(i), i * ROW_STAGGER);
 					}
@@ -80,7 +79,6 @@ export function DevOutcome() {
 			},
 			{ threshold: 0.2 },
 		);
-
 		observer.observe(el);
 		return () => observer.disconnect();
 	}, []);

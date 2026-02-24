@@ -6,18 +6,21 @@ const testimonials = [
 			"Nairon found us an AI-native engineer who transformed our product in 90 days. The NBench data gave us confidence we'd never had with traditional recruiters.",
 		name: "Sarah Al-Rashid",
 		role: "CEO, TechVentures Dubai",
+		avatar: "https://i.pravatar.cc/80?img=32",
 	},
 	{
 		quote:
 			"The benchmark process was unlike anything I'd seen. It validated what I knew about my strengths and helped me find a company that valued AI-native thinking.",
 		name: "Marcus Chen",
 		role: "Senior Engineer, placed via Nairon",
+		avatar: "https://i.pravatar.cc/80?img=11",
 	},
 	{
 		quote:
 			"Three recruiters failed before Nairon. They understood what 'AI-native' actually means and delivered engineers who could prove it with data.",
 		name: "Omar Khalid",
 		role: "Founder, BuildStack",
+		avatar: "https://i.pravatar.cc/80?img=68",
 	},
 ];
 
@@ -48,14 +51,21 @@ export function Testimonials() {
 						className="p-10 md:p-12 flex flex-col justify-between"
 					>
 						<CornerNotches size={10} />
-						<p className="text-[#E8E4DE] text-base leading-relaxed mb-8 font-serif italic">
+						<p className="text-[#E8E4DE] text-base leading-relaxed mb-8">
 							"{t.quote}"
 						</p>
-						<div>
-							<p className="text-[#E8E4DE] text-sm font-medium">
-								{t.name}
-							</p>
-							<p className="text-[#A39E96] text-sm">{t.role}</p>
+						<div className="flex items-center gap-3">
+							<img
+								src={t.avatar}
+								alt={t.name}
+								className="w-10 h-10 rounded-full object-cover"
+							/>
+							<div>
+								<p className="text-[#E8E4DE] text-sm font-medium">
+									{t.name}
+								</p>
+								<p className="text-[#A39E96] text-sm">{t.role}</p>
+							</div>
 						</div>
 					</GridCell>
 				))}

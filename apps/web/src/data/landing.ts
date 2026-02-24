@@ -355,18 +355,22 @@ export const PARTNERS = [
 	{
 		name: "Keylead",
 		logo: "/assets/framer/8iawpdspB7oNrbkg9yVbuNsT7lU.png",
+		tagline: "Seed · Raised $2M",
 	},
 	{
 		name: "Question Base",
 		logo: "/assets/framer/3yRGTa8SbDMNcHD0Z9htHa4mti0.png",
+		tagline: "YC W25 Startup",
 	},
 	{
 		name: "CodeGPT",
 		logo: "/assets/framer/XXv1BKrLDM97th8HhgjBiFfeeUo.png",
+		tagline: "Series A · AI Dev Tools",
 	},
 	{
 		name: "NEOM",
 		logo: "/assets/framer/7c0S1a6D6BW6O548tD40fZDqDg.png",
+		tagline: "Enterprise · 11,000 employees",
 	},
 ] as const;
 

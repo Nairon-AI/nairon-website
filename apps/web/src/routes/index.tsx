@@ -10,12 +10,16 @@ import {
 	Process,
 	DataCredibility,
 	AudienceSplit,
+	BuiltByBuilders,
 	Testimonials,
 	CTASection,
 	Footer,
 	GridSystem,
 	GridSection,
 } from "@/components/landing";
+import { ModalProvider } from "@/components/landing/modal-provider";
+import { HireModal } from "@/components/landing/hire-modal";
+import { CandidateModal } from "@/components/landing/candidate-modal";
 import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
@@ -31,6 +35,7 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
 	return (
+		<ModalProvider>
 		<div className="min-h-screen bg-[#0C0C0C] text-[#E8E4DE] font-inter">
 			<Navbar />
 
@@ -66,8 +71,14 @@ function HomePage() {
 				{/* Audience split */}
 				<AudienceSplit />
 
+				{/* Built by builders */}
+				<BuiltByBuilders />
+
 				{/* Testimonials */}
 				<Testimonials />
+
+				{/* Blog — hidden for now */}
+				{/* <BlogSection /> */}
 
 				{/* CTA */}
 				<GridSection columns="1fr" border={false}>
@@ -77,5 +88,8 @@ function HomePage() {
 
 			<Footer />
 		</div>
+		<HireModal />
+		<CandidateModal />
+		</ModalProvider>
 	);
 }

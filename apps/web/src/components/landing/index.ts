@@ -22,6 +22,8 @@ export { DevComparison } from "./dev-comparison";
 export { DevOutcome } from "./dev-outcome";
 export { NBenchSection } from "./nbench-section";
 export { PaintingBreak } from "./painting-break";
+export { BuiltByBuilders } from "./built-by-builders";
+export { BlogSection } from "./blog-section";
 export {
 	GridSystem,
 	GridSpacer,

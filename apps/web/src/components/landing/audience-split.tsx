@@ -1,7 +1,9 @@
 import { ArrowUpRight } from "lucide-react";
 import { GridSection, GridCell, CornerNotches } from "./grid-system";
+import { useModals } from "./modal-provider";
 
 export function AudienceSplit() {
+	const { openHireModal, openCandidateModal } = useModals();
 	return (
 		<div>
 			{/* Heading row */}
@@ -48,13 +50,14 @@ export function AudienceSplit() {
 							</li>
 						))}
 					</ul>
-					<a
-						href="/contact"
+					<button
+						type="button"
+						onClick={openHireModal}
 						className="inline-flex items-center gap-2 bg-[#C9A96E] hover:bg-[#B8944F] text-[#0C0C0C] font-semibold text-sm px-5 py-2.5 rounded-full transition-colors"
 					>
 						Start hiring
 						<ArrowUpRight className="w-3.5 h-3.5" />
-					</a>
+					</button>
 				</GridCell>
 
 				{/* For Candidates */}
@@ -83,13 +86,14 @@ export function AudienceSplit() {
 							</li>
 						))}
 					</ul>
-					<a
-						href="/candidates"
+					<button
+						type="button"
+						onClick={openCandidateModal}
 						className="inline-flex items-center gap-2 border border-white/10 text-[#E8E4DE] font-medium text-sm px-5 py-2.5 rounded-full hover:bg-white/5 transition-colors"
 					>
 						Join the network
 						<ArrowUpRight className="w-3.5 h-3.5" />
-					</a>
+					</button>
 				</GridCell>
 			</GridSection>
 		</div>

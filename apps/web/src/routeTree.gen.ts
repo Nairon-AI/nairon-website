@@ -9,63 +9,12 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TeamRouteImport } from './routes/team'
-import { Route as ResidenceRouteImport } from './routes/residence'
-import { Route as ProgramRouteImport } from './routes/program'
 import { Route as NbenchRouteImport } from './routes/nbench'
-import { Route as HireRouteImport } from './routes/hire'
-import { Route as DashboardRouteImport } from './routes/dashboard'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CareersRouteImport } from './routes/careers'
-import { Route as ApprenticeshipRouteImport } from './routes/apprenticeship'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as CareersIndexRouteImport } from './routes/careers.index'
-import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
-import { Route as CareersJobIdRouteImport } from './routes/careers.$jobId'
 
-const TeamRoute = TeamRouteImport.update({
-  id: '/team',
-  path: '/team',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ResidenceRoute = ResidenceRouteImport.update({
-  id: '/residence',
-  path: '/residence',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProgramRoute = ProgramRouteImport.update({
-  id: '/program',
-  path: '/program',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const NbenchRoute = NbenchRouteImport.update({
   id: '/nbench',
   path: '/nbench',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HireRoute = HireRouteImport.update({
-  id: '/hire',
-  path: '/hire',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CareersRoute = CareersRouteImport.update({
-  id: '/careers',
-  path: '/careers',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApprenticeshipRoute = ApprenticeshipRouteImport.update({
-  id: '/apprenticeship',
-  path: '/apprenticeship',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -73,190 +22,40 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CareersIndexRoute = CareersIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => CareersRoute,
-} as any)
-const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const CareersJobIdRoute = CareersJobIdRouteImport.update({
-  id: '/$jobId',
-  path: '/$jobId',
-  getParentRoute: () => CareersRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/apprenticeship': typeof ApprenticeshipRoute
-  '/careers': typeof CareersRouteWithChildren
-  '/contact': typeof ContactRoute
-  '/dashboard': typeof DashboardRouteWithChildren
-  '/hire': typeof HireRoute
   '/nbench': typeof NbenchRoute
-  '/program': typeof ProgramRoute
-  '/residence': typeof ResidenceRoute
-  '/team': typeof TeamRoute
-  '/careers/$jobId': typeof CareersJobIdRoute
-  '/dashboard/settings': typeof DashboardSettingsRoute
-  '/careers/': typeof CareersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/apprenticeship': typeof ApprenticeshipRoute
-  '/contact': typeof ContactRoute
-  '/dashboard': typeof DashboardRouteWithChildren
-  '/hire': typeof HireRoute
   '/nbench': typeof NbenchRoute
-  '/program': typeof ProgramRoute
-  '/residence': typeof ResidenceRoute
-  '/team': typeof TeamRoute
-  '/careers/$jobId': typeof CareersJobIdRoute
-  '/dashboard/settings': typeof DashboardSettingsRoute
-  '/careers': typeof CareersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/apprenticeship': typeof ApprenticeshipRoute
-  '/careers': typeof CareersRouteWithChildren
-  '/contact': typeof ContactRoute
-  '/dashboard': typeof DashboardRouteWithChildren
-  '/hire': typeof HireRoute
   '/nbench': typeof NbenchRoute
-  '/program': typeof ProgramRoute
-  '/residence': typeof ResidenceRoute
-  '/team': typeof TeamRoute
-  '/careers/$jobId': typeof CareersJobIdRoute
-  '/dashboard/settings': typeof DashboardSettingsRoute
-  '/careers/': typeof CareersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/apprenticeship'
-    | '/careers'
-    | '/contact'
-    | '/dashboard'
-    | '/hire'
-    | '/nbench'
-    | '/program'
-    | '/residence'
-    | '/team'
-    | '/careers/$jobId'
-    | '/dashboard/settings'
-    | '/careers/'
+  fullPaths: '/' | '/nbench'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/apprenticeship'
-    | '/contact'
-    | '/dashboard'
-    | '/hire'
-    | '/nbench'
-    | '/program'
-    | '/residence'
-    | '/team'
-    | '/careers/$jobId'
-    | '/dashboard/settings'
-    | '/careers'
-  id:
-    | '__root__'
-    | '/'
-    | '/apprenticeship'
-    | '/careers'
-    | '/contact'
-    | '/dashboard'
-    | '/hire'
-    | '/nbench'
-    | '/program'
-    | '/residence'
-    | '/team'
-    | '/careers/$jobId'
-    | '/dashboard/settings'
-    | '/careers/'
+  to: '/' | '/nbench'
+  id: '__root__' | '/' | '/nbench'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ApprenticeshipRoute: typeof ApprenticeshipRoute
-  CareersRoute: typeof CareersRouteWithChildren
-  ContactRoute: typeof ContactRoute
-  DashboardRoute: typeof DashboardRouteWithChildren
-  HireRoute: typeof HireRoute
   NbenchRoute: typeof NbenchRoute
-  ProgramRoute: typeof ProgramRoute
-  ResidenceRoute: typeof ResidenceRoute
-  TeamRoute: typeof TeamRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/team': {
-      id: '/team'
-      path: '/team'
-      fullPath: '/team'
-      preLoaderRoute: typeof TeamRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/residence': {
-      id: '/residence'
-      path: '/residence'
-      fullPath: '/residence'
-      preLoaderRoute: typeof ResidenceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/program': {
-      id: '/program'
-      path: '/program'
-      fullPath: '/program'
-      preLoaderRoute: typeof ProgramRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/nbench': {
       id: '/nbench'
       path: '/nbench'
       fullPath: '/nbench'
       preLoaderRoute: typeof NbenchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hire': {
-      id: '/hire'
-      path: '/hire'
-      fullPath: '/hire'
-      preLoaderRoute: typeof HireRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/careers': {
-      id: '/careers'
-      path: '/careers'
-      fullPath: '/careers'
-      preLoaderRoute: typeof CareersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/apprenticeship': {
-      id: '/apprenticeship'
-      path: '/apprenticeship'
-      fullPath: '/apprenticeship'
-      preLoaderRoute: typeof ApprenticeshipRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -266,66 +65,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/careers/': {
-      id: '/careers/'
-      path: '/'
-      fullPath: '/careers/'
-      preLoaderRoute: typeof CareersIndexRouteImport
-      parentRoute: typeof CareersRoute
-    }
-    '/dashboard/settings': {
-      id: '/dashboard/settings'
-      path: '/settings'
-      fullPath: '/dashboard/settings'
-      preLoaderRoute: typeof DashboardSettingsRouteImport
-      parentRoute: typeof DashboardRoute
-    }
-    '/careers/$jobId': {
-      id: '/careers/$jobId'
-      path: '/$jobId'
-      fullPath: '/careers/$jobId'
-      preLoaderRoute: typeof CareersJobIdRouteImport
-      parentRoute: typeof CareersRoute
-    }
   }
 }
 
-interface CareersRouteChildren {
-  CareersJobIdRoute: typeof CareersJobIdRoute
-  CareersIndexRoute: typeof CareersIndexRoute
-}
-
-const CareersRouteChildren: CareersRouteChildren = {
-  CareersJobIdRoute: CareersJobIdRoute,
-  CareersIndexRoute: CareersIndexRoute,
-}
-
-const CareersRouteWithChildren =
-  CareersRoute._addFileChildren(CareersRouteChildren)
-
-interface DashboardRouteChildren {
-  DashboardSettingsRoute: typeof DashboardSettingsRoute
-}
-
-const DashboardRouteChildren: DashboardRouteChildren = {
-  DashboardSettingsRoute: DashboardSettingsRoute,
-}
-
-const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
-  DashboardRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ApprenticeshipRoute: ApprenticeshipRoute,
-  CareersRoute: CareersRouteWithChildren,
-  ContactRoute: ContactRoute,
-  DashboardRoute: DashboardRouteWithChildren,
-  HireRoute: HireRoute,
   NbenchRoute: NbenchRoute,
-  ProgramRoute: ProgramRoute,
-  ResidenceRoute: ResidenceRoute,
-  TeamRoute: TeamRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

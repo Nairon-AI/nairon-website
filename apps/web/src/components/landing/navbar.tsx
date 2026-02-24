@@ -2,18 +2,18 @@ import { useState, useEffect } from "react";
 import { useLocation } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import { useModals } from "./modal-provider";
 
 const NAV_ITEMS = [
 	{ label: "About", href: "/#what-we-do" },
 	{ label: "Process", href: "/#process" },
 	{ label: "NBench", href: "/nbench" },
-	{ label: "Team", href: "/team" },
-	{ label: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
 	const [scrolled, setScrolled] = useState(false);
 	const [mobileOpen, setMobileOpen] = useState(false);
+	const { openHireModal } = useModals();
 	const location = useLocation();
 	const isNBenchPage = location.pathname === "/nbench";
 
@@ -91,13 +91,14 @@ export function Navbar() {
 						</svg>
 						<span className="text-xs font-medium tabular-nums">1.2k</span>
 					</a>
-					<a
-						href="/contact"
+					<button
+						type="button"
+						onClick={openHireModal}
 						className="ml-2 inline-flex items-center gap-2 bg-[#C9A96E] hover:bg-[#B8944F] text-[#0C0C0C] font-semibold text-sm px-5 py-2.5 rounded-full transition-colors"
 					>
 						Hire engineers
 						<ArrowUpRight className="w-3.5 h-3.5" />
-					</a>
+					</button>
 				</div>
 
 				{/* Mobile menu button */}
@@ -129,13 +130,17 @@ export function Navbar() {
 						</a>
 					))}
 					<div className="pt-4">
-						<a
-							href="/contact"
+						<button
+							type="button"
+							onClick={() => {
+								setMobileOpen(false);
+								openHireModal();
+							}}
 							className="inline-flex items-center gap-2 bg-[#C9A96E] hover:bg-[#B8944F] text-[#0C0C0C] font-semibold text-base px-6 py-3 rounded-full transition-colors"
 						>
 							Hire engineers
 							<ArrowUpRight className="w-4 h-4" />
-						</a>
+						</button>
 					</div>
 				</div>
 			)}

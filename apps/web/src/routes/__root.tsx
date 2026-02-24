@@ -34,11 +34,6 @@ const SidebarTrigger = lazy(() =>
 		default: m.SidebarTrigger,
 	})),
 );
-const ViewModeToggle = lazy(() =>
-	import("@/components/view-mode-toggle").then((m) => ({
-		default: m.ViewModeToggle,
-	})),
-);
 const SmoothScroll = lazy(() =>
 	import("@/components/smooth-scroll").then((m) => ({
 		default: m.SmoothScroll,
@@ -104,41 +99,18 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 function RootComponent() {
 	const { convex } = Route.useRouteContext();
 	const isHomePage = useMatch({ from: "/", shouldThrow: false });
-	const isHirePage = useMatch({ from: "/hire", shouldThrow: false });
-	const isProgramPage = useMatch({ from: "/program", shouldThrow: false });
-	const isResidencePage = useMatch({ from: "/residence", shouldThrow: false });
-	const isApprenticeshipPage = useMatch({
-		from: "/apprenticeship",
-		shouldThrow: false,
-	});
-	const isContactPage = useMatch({ from: "/contact", shouldThrow: false });
-	const isCareersPage = useMatch({ from: "/careers", shouldThrow: false });
-	const isTeamPage = useMatch({ from: "/team", shouldThrow: false });
 	const isNBenchPage = useMatch({ from: "/nbench", shouldThrow: false });
-	const isLandingPage =
-		isHomePage ||
-		isHirePage ||
-		isProgramPage ||
-		isResidencePage ||
-		isApprenticeshipPage ||
-		isContactPage ||
-		isCareersPage ||
-		isTeamPage ||
-		isNBenchPage;
-	const [showDeferredUi, setShowDeferredUi] = useState(false);
+	const isLandingPage = isHomePage || isNBenchPage;
 	const [enableSmoothScroll, setEnableSmoothScroll] = useState(false);
 
 	useEffect(() => {
 		if (!isLandingPage) {
-			setShowDeferredUi(false);
 			setEnableSmoothScroll(false);
 			return;
 		}
 
-		const timeoutId = window.setTimeout(() => setShowDeferredUi(true), 2500);
 		const smoothTimeoutId = window.setTimeout(() => setEnableSmoothScroll(true), 1200);
 		return () => {
-			window.clearTimeout(timeoutId);
 			window.clearTimeout(smoothTimeoutId);
 		};
 	}, [isLandingPage]);
@@ -177,11 +149,7 @@ function RootComponent() {
 										<Outlet />
 									</main>
 								)}
-							{showDeferredUi && !isNBenchPage ? (
-								<Suspense fallback={null}>
-									<ViewModeToggle />
-								</Suspense>
-							) : null}
+							{/* ViewModeToggle hidden for now */}
 							</ViewModeProvider>
 						) : (
 							<Suspense

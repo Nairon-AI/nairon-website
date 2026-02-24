@@ -10,6 +10,9 @@ import {
 	NBenchTrustPlaceholder,
 	NBenchWhatWeTrack,
 } from "@/components/landing/nbench";
+import { ModalProvider } from "@/components/landing/modal-provider";
+import { HireModal } from "@/components/landing/hire-modal";
+import { CandidateModal } from "@/components/landing/candidate-modal";
 import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/nbench")({
@@ -25,16 +28,20 @@ export const Route = createFileRoute("/nbench")({
 
 function NBenchPage() {
 	return (
-		<div className="min-h-screen bg-[rgb(8,8,8)] font-inter text-white">
-			<Navbar />
-			<NBenchHero />
-			<NBenchShowcase />
-			<NBenchFeatureSplit />
-			<NBenchModels />
-			<NBenchWhatWeTrack />
-			<NBenchReports />
-			<NBenchTrustPlaceholder />
-			<Footer />
-		</div>
+		<ModalProvider>
+			<div className="min-h-screen bg-[rgb(8,8,8)] font-inter text-white">
+				<Navbar />
+				<NBenchHero />
+				<NBenchShowcase />
+				<NBenchFeatureSplit />
+				<NBenchModels />
+				<NBenchWhatWeTrack />
+				<NBenchReports />
+				<NBenchTrustPlaceholder />
+				<Footer />
+			</div>
+			<HireModal />
+			<CandidateModal />
+		</ModalProvider>
 	);
 }

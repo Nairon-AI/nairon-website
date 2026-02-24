@@ -1,28 +1,31 @@
 import { ArrowUpRight } from "lucide-react";
+import { useModals } from "./modal-provider";
 
-const FOOTER_COLS = [
+type FooterLink =
+	| { label: string; href: string; action?: never }
+	| { label: string; action: string; href?: never };
+
+type FooterCol = { heading: string; links: FooterLink[] };
+
+const FOOTER_COLS: FooterCol[] = [
 	{
 		heading: "Company",
 		links: [
-			{ label: "About", href: "/about" },
-			{ label: "Team", href: "/team" },
-			{ label: "Careers", href: "/careers" },
-			{ label: "Contact", href: "/contact" },
+			{ label: "About", href: "/#what-we-do" },
+			{ label: "Contact", action: "hire" },
 		],
 	},
 	{
 		heading: "Services",
 		links: [
-			{ label: "AI-Native Recruiting", href: "/hire" },
+			{ label: "AI-Native Recruiting", action: "hire" },
 			{ label: "NBench", href: "/nbench" },
-			{ label: "For Candidates", href: "/candidates" },
+			{ label: "For Candidates", action: "candidate" },
 		],
 	},
 	{
 		heading: "Resources",
 		links: [
-			{ label: "Blog", href: "/blog" },
-			{ label: "FAQ", href: "/faq" },
 			{ label: "Privacy", href: "/privacy" },
 			{ label: "Terms", href: "/terms-and-conditions" },
 		],
@@ -69,6 +72,13 @@ function SocialLinks() {
 }
 
 export function Footer() {
+	const { openHireModal, openCandidateModal } = useModals();
+
+	const handleAction = (action: string) => {
+		if (action === "hire") openHireModal();
+		else if (action === "candidate") openCandidateModal();
+	};
+
 	return (
 		<footer className="bg-[#0C0C0C] border-t border-white/6">
 			<div className="max-w-7xl mx-auto px-6 py-16">
@@ -100,12 +110,22 @@ export function Footer() {
 							<ul className="space-y-3">
 								{col.links.map((link) => (
 									<li key={link.label}>
-										<a
-											href={link.href}
-											className="text-[#A39E96] text-sm hover:text-[#E8E4DE] transition-colors"
-										>
-											{link.label}
-										</a>
+										{link.action ? (
+											<button
+												type="button"
+												onClick={() => handleAction(link.action)}
+												className="text-[#A39E96] text-sm hover:text-[#E8E4DE] transition-colors"
+											>
+												{link.label}
+											</button>
+										) : (
+											<a
+												href={link.href}
+												className="text-[#A39E96] text-sm hover:text-[#E8E4DE] transition-colors"
+											>
+												{link.label}
+											</a>
+										)}
 									</li>
 								))}
 							</ul>
