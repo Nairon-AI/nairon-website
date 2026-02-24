@@ -16,7 +16,7 @@ const outputLines = [
 	{ type: "label", text: "  Token efficiency" },
 	{ type: "bar", value: 84, score: "8.4" },
 	{ type: "blank" },
-	{ type: "result", text: "  Overall: 8.8 / 10  ▸ Top 4%" },
+	{ type: "result", text: "  Overall: 8.8 / 10  \u25B8 Top 4%" },
 	{ type: "output", text: "  Report saved to ./reports/kwao.json" },
 ] as const;
 
@@ -95,10 +95,10 @@ function TerminalMockup() {
 	return (
 		<div
 			ref={ref}
-			className="h-full bg-[#0A0A0A] font-mono text-[13px] leading-relaxed overflow-hidden"
+			className="h-full bg-[#0A0A0A] font-mono text-[12px] md:text-[13px] leading-relaxed overflow-hidden"
 		>
 			{/* Terminal header */}
-			<div className="flex items-center gap-2 px-5 py-3 border-b border-white/6">
+			<div className="flex items-center gap-2 px-4 md:px-5 py-3 border-b border-white/6">
 				<div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
 				<div className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
 				<div className="w-3 h-3 rounded-full bg-[#28C840]" />
@@ -106,7 +106,7 @@ function TerminalMockup() {
 			</div>
 
 			{/* Terminal content */}
-			<div className="px-5 py-4 space-y-0.5">
+			<div className="px-4 md:px-5 py-4 space-y-0.5">
 				{/* Command line with typing effect */}
 				<div className="text-[#E8E4DE]">
 					{COMMAND.slice(0, typedChars)}
@@ -179,7 +179,7 @@ export function NBenchSection() {
 		<div>
 			{/* Heading row */}
 			<GridSection columns="1fr" border>
-				<GridCell className="px-12 py-10">
+				<GridCell className="px-6 md:px-12 py-8 md:py-10">
 					<div className="flex items-center justify-between">
 						<div>
 							<div className="flex items-center gap-3 mb-4">
@@ -188,14 +188,14 @@ export function NBenchSection() {
 									How we measure
 								</span>
 							</div>
-							<h2 className="text-4xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE] max-w-3xl mb-3">
+							<h2 className="text-3xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE] max-w-3xl mb-3">
 								We built{" "}
 								<span className="font-serif italic text-[#C9A96E]">
 									NBench
 								</span>{" "}
 								to prove it
 							</h2>
-							<p className="text-[#A39E96] text-base max-w-xl">
+							<p className="text-[#A39E96] text-sm md:text-base max-w-xl">
 								An open-source CLI that measures AI-nativeness across
 								the three dimensions that matter. Every engineer in our
 								network runs it.
@@ -212,19 +212,19 @@ export function NBenchSection() {
 				</GridCell>
 			</GridSection>
 
-			{/* Terminal left + features right */}
+			{/* Terminal top (mobile) / left (desktop) + features bottom/right */}
 			<GridSection columns="1fr 1fr" border>
 				{/* Terminal mockup */}
-				<GridCell borderRight className="p-0">
+				<GridCell borderRight className="p-0 min-h-[300px]">
 					<TerminalMockup />
 				</GridCell>
 
-				{/* Features */}
+				{/* Features — stacked below terminal on mobile */}
 				<GridCell className="flex flex-col">
 					{features.map((feature, i) => (
 						<div
 							key={feature.title}
-							className="relative flex-1 px-10 py-8 md:px-12 md:py-10 flex flex-col justify-center"
+							className="relative flex-1 px-6 py-6 md:px-12 md:py-10 flex flex-col justify-center"
 							style={{
 								borderBottom:
 									i < features.length - 1
@@ -237,10 +237,10 @@ export function NBenchSection() {
 								corners={["top-right", "bottom-right"]}
 								color="rgba(255, 255, 255, 0.08)"
 							/>
-							<h3 className="text-xl md:text-2xl font-normal mb-3 text-[#E8E4DE]">
+							<h3 className="text-lg md:text-2xl font-normal mb-2 md:mb-3 text-[#E8E4DE]">
 								{feature.title}
 							</h3>
-							<p className="text-base leading-relaxed text-[#A39E96]">
+							<p className="text-sm md:text-base leading-relaxed text-[#A39E96]">
 								{feature.description}
 							</p>
 						</div>

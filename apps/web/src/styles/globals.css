@@ -322,3 +322,38 @@
 	line-height: 1;
 	letter-spacing: -2px;
 }
+
+/* ─── Responsive grid system ────────────────────────────────── */
+
+.grid-section {
+	grid-template-columns: var(--grid-mobile-cols, 1fr);
+}
+
+@media (min-width: 768px) {
+	.grid-section {
+		grid-template-columns: var(--grid-cols, 1fr);
+	}
+}
+
+/* GridCell border-right → border-bottom on mobile single column */
+.cell-border-right {
+	border-right: var(--guide-width) solid var(--guide-color);
+}
+
+.cell-border-bottom {
+	border-bottom: var(--guide-width) solid var(--guide-color);
+}
+
+@media (max-width: 767px) {
+	/* Only swap border-right → border-bottom when parent stacks to single column */
+	.grid-section--stack > .cell-border-right {
+		border-right: none;
+		border-bottom: var(--guide-width) solid var(--guide-color);
+	}
+}
+
+/* ─── Prevent horizontal scroll on mobile ───────────────────── */
+
+html, body {
+	overflow-x: hidden;
+}

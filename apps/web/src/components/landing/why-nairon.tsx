@@ -105,14 +105,14 @@ export function WhyNairon() {
 		<div>
 			{/* Title row */}
 			<GridSection columns="1fr" border>
-				<GridCell className="px-12 py-10">
+				<GridCell className="px-6 md:px-12 py-8 md:py-10">
 					<div className="flex items-center gap-3 mb-4">
 						<div className="w-1.5 h-1.5 rounded-full bg-[#C9A96E]" />
 						<span className="text-[#A39E96] text-xs font-medium uppercase tracking-[0.16em]">
 							AI-Nativeness
 						</span>
 					</div>
-					<h2 className="text-4xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE] max-w-3xl">
+					<h2 className="text-3xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE] max-w-3xl">
 						Using{" "}
 						<span className="inline-block relative font-serif italic text-[#C9A96E]">
 							{/* Invisible sizer — longest tool name reserves width */}
@@ -136,10 +136,10 @@ export function WhyNairon() {
 				</GridCell>
 			</GridSection>
 
-			{/* Image left + interactive cards right */}
+			{/* Mobile: cards first, image second. Desktop: image left + cards right */}
 			<GridSection columns="1fr 1fr" border>
-				{/* Left: background image with crossfade */}
-				<GridCell borderRight className="relative min-h-[480px] overflow-hidden">
+				{/* Image — order-2 on mobile (below cards), order-1 on md+ (left) */}
+				<GridCell borderRight className="relative min-h-[280px] md:min-h-[480px] overflow-hidden order-2 md:order-1">
 					{points.map((point, i) => (
 						<img
 							key={point.image}
@@ -161,8 +161,8 @@ export function WhyNairon() {
 					/>
 				</GridCell>
 
-				{/* Right: 3 stacked interactive cards */}
-				<GridCell className="flex flex-col">
+				{/* Cards — order-1 on mobile (above image), order-2 on md+ (right) */}
+				<GridCell className="flex flex-col order-1 md:order-2">
 					{points.map((point, i) => {
 						const isActive = active === i;
 						const cardProgress = isActive ? progress : i < active ? 1 : 0;
@@ -171,7 +171,7 @@ export function WhyNairon() {
 							<button
 								type="button"
 								key={point.title}
-								className="relative flex-1 px-10 py-8 md:px-12 md:py-10 flex flex-col justify-center text-left transition-colors duration-300 cursor-pointer"
+								className="relative flex-1 px-6 py-6 md:px-12 md:py-10 flex flex-col justify-center text-left transition-colors duration-300 cursor-pointer"
 								style={{
 									borderBottom:
 										i < points.length - 1
@@ -216,7 +216,7 @@ export function WhyNairon() {
 								)}
 
 								<h3
-									className="text-xl md:text-2xl font-normal mb-3 transition-colors duration-300"
+									className="text-lg md:text-2xl font-normal mb-2 md:mb-3 transition-colors duration-300"
 									style={{
 										color: isActive ? "#E8E4DE" : "#A39E96",
 									}}
@@ -224,7 +224,7 @@ export function WhyNairon() {
 									{point.title}
 								</h3>
 								<p
-									className="text-base leading-relaxed transition-colors duration-300"
+									className="text-sm md:text-base leading-relaxed transition-colors duration-300"
 									style={{
 										color: isActive
 											? "rgba(163, 158, 150, 1)"

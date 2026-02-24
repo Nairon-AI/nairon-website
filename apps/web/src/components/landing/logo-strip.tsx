@@ -64,8 +64,8 @@ export function LogoStrip() {
 	};
 
 	return (
-		<div className="py-10">
-			<div className="px-12 mb-6">
+		<div className="py-6 md:py-10">
+			<div className="px-6 md:px-12 mb-6">
 				<p className="text-[#A39E96] text-xs font-medium uppercase tracking-[0.16em]">
 					Trusted by leading companies
 				</p>

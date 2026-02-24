@@ -8,37 +8,37 @@ export function AudienceSplit() {
 		<div>
 			{/* Heading row */}
 			<GridSection columns="1fr" border>
-				<GridCell className="px-12 pt-12 pb-10">
-					<div className="flex items-center gap-3 mb-6">
+				<GridCell className="px-6 md:px-12 pt-10 md:pt-12 pb-8 md:pb-10">
+					<div className="flex items-center gap-3 mb-4 md:mb-6">
 						<div className="w-1.5 h-1.5 rounded-full bg-[#C9A96E]" />
 						<span className="text-[#A39E96] text-xs font-medium uppercase tracking-[0.16em]">
 							Who we serve
 						</span>
 					</div>
-					<h2 className="text-4xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE] max-w-3xl">
+					<h2 className="text-3xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE] max-w-3xl">
 						Two paths,{" "}
 						<span className="text-[#E8E4DE]/55">one mission</span>
 					</h2>
 				</GridCell>
 			</GridSection>
 
-			{/* Two cards side by side with divider */}
+			{/* Two cards — stacked on mobile, side by side on desktop */}
 			<GridSection columns="1fr 1fr" border>
 				{/* For Companies */}
-				<GridCell borderRight className="p-10 md:p-12">
+				<GridCell borderRight className="p-6 md:p-12">
 					<CornerNotches size={12} />
 					<span className="text-[#C9A96E] text-xs font-medium uppercase tracking-[0.16em]">
 						For Companies
 					</span>
-					<h3 className="text-2xl md:text-3xl font-normal text-[#E8E4DE] mt-4 mb-4">
+					<h3 className="text-xl md:text-3xl font-normal text-[#E8E4DE] mt-3 md:mt-4 mb-3 md:mb-4">
 						Hire AI-native engineers who build
 					</h3>
-					<p className="text-[#A39E96] text-base leading-relaxed mb-8">
+					<p className="text-[#A39E96] text-sm md:text-base leading-relaxed mb-6 md:mb-8">
 						Stop gambling on resumes. We benchmark every candidate
 						on real-world AI-nativeness, architecture quality, and
 						engineering velocity — so you hire with confidence.
 					</p>
-					<ul className="space-y-3 mb-8">
+					<ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
 						{[
 							"NBench-scored candidate shortlist",
 							"Culture & team-fit matching",
@@ -61,20 +61,20 @@ export function AudienceSplit() {
 				</GridCell>
 
 				{/* For Candidates */}
-				<GridCell className="p-10 md:p-12">
+				<GridCell className="p-6 md:p-12">
 					<CornerNotches size={12} />
 					<span className="text-[#C9A96E] text-xs font-medium uppercase tracking-[0.16em]">
 						For Candidates
 					</span>
-					<h3 className="text-2xl md:text-3xl font-normal text-[#E8E4DE] mt-4 mb-4">
+					<h3 className="text-xl md:text-3xl font-normal text-[#E8E4DE] mt-3 md:mt-4 mb-3 md:mb-4">
 						Land your next AI-native role
 					</h3>
-					<p className="text-[#A39E96] text-base leading-relaxed mb-8">
+					<p className="text-[#A39E96] text-sm md:text-base leading-relaxed mb-6 md:mb-8">
 						Join our network of AI-native engineers. Get benchmark-scored,
 						matched with the right companies, and skip the noise of
 						traditional job boards.
 					</p>
-					<ul className="space-y-3 mb-8">
+					<ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
 						{[
 							"Free NBench assessment & score",
 							"Matched to companies that fit your style",

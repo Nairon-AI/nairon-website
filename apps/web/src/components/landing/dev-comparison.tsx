@@ -33,14 +33,14 @@ export function DevComparison() {
 		<div>
 			{/* Heading row */}
 			<GridSection columns="1fr" border>
-				<GridCell className="px-12 pt-12 pb-10">
+				<GridCell className="px-6 md:px-12 pt-10 md:pt-12 pb-8 md:pb-10">
 					<div className="flex items-center gap-3 mb-4">
 						<div className="w-1.5 h-1.5 rounded-full bg-[#C9A96E]" />
 						<span className="text-[#A39E96] text-xs font-medium uppercase tracking-[0.16em]">
 							The shift
 						</span>
 					</div>
-					<h2 className="text-4xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE] max-w-4xl">
+					<h2 className="text-3xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE] max-w-4xl">
 						From manual coding to{" "}
 						<span className="font-serif italic text-[#C9A96E]">
 							AI-native orchestration
@@ -54,8 +54,7 @@ export function DevComparison() {
 				<GridCell>
 					<div
 						ref={containerRef}
-						className="relative overflow-hidden select-none"
-						style={{ height: 620 }}
+						className="relative overflow-hidden select-none h-[360px] md:h-[620px]"
 					>
 						{/* Right panel — AI-native (clipped: slider → right edge) */}
 						<div
@@ -80,8 +79,9 @@ export function DevComparison() {
 								style={{
 									left: "50%",
 									top: "50%",
-									width: "70%",
-									height: 460,
+									width: "85%",
+									height: "75%",
+									maxHeight: 460,
 									transform: "translate(-50%, -50%)",
 									zIndex: 2,
 								}}
@@ -94,9 +94,9 @@ export function DevComparison() {
 								/>
 							</div>
 							{/* Label */}
-							<div className="absolute top-6 right-6 z-10">
+							<div className="absolute top-3 right-3 md:top-6 md:right-6 z-10">
 								<span
-									className="inline-block text-xs font-medium uppercase tracking-[0.12em] px-3 py-1.5 rounded-full"
+									className="inline-block text-[10px] md:text-xs font-medium uppercase tracking-[0.12em] px-2 md:px-3 py-1 md:py-1.5 rounded-full"
 									style={{
 										background: "rgba(201, 169, 110, 0.12)",
 										color: "#C9A96E",
@@ -131,8 +131,9 @@ export function DevComparison() {
 								style={{
 									left: "50%",
 									top: "50%",
-									width: "70%",
-									height: 460,
+									width: "85%",
+									height: "75%",
+									maxHeight: 460,
 									transform: "translate(-50%, -50%)",
 									zIndex: 2,
 								}}
@@ -145,9 +146,9 @@ export function DevComparison() {
 								/>
 							</div>
 							{/* Label */}
-							<div className="absolute top-6 left-6 z-10">
+							<div className="absolute top-3 left-3 md:top-6 md:left-6 z-10">
 								<span
-									className="inline-block text-xs font-medium uppercase tracking-[0.12em] px-3 py-1.5 rounded-full"
+									className="inline-block text-[10px] md:text-xs font-medium uppercase tracking-[0.12em] px-2 md:px-3 py-1 md:py-1.5 rounded-full"
 									style={{
 										background: "rgba(255, 255, 255, 0.08)",
 										color: "#A39E96",
@@ -211,14 +212,14 @@ export function DevComparison() {
 
 			{/* Captions row */}
 			<GridSection columns="1fr 1fr" border>
-				<GridCell borderRight className="px-8 py-6">
-					<p className="text-[#A39E96] text-sm leading-relaxed">
+				<GridCell borderRight className="px-4 md:px-8 py-4 md:py-6">
+					<p className="text-[#A39E96] text-xs md:text-sm leading-relaxed">
 						Juggling VS Code, Linear, Slack, and a terminal.
 						Context-switching between tools, manually writing every line.
 					</p>
 				</GridCell>
-				<GridCell className="px-8 py-6">
-					<p className="text-[#A39E96] text-sm leading-relaxed">
+				<GridCell className="px-4 md:px-8 py-4 md:py-6">
+					<p className="text-[#A39E96] text-xs md:text-sm leading-relaxed">
 						One orchestrator, multiple AI agents. Reviewing, directing,
 						and shipping — 10x the output with focused intent.
 					</p>

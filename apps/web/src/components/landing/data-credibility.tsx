@@ -71,17 +71,17 @@ function AnimatedStat({ value, label, borderRight = false }: { value: string; la
 	}, [parsed]);
 
 	return (
-		<GridCell borderRight={borderRight} className="px-8 py-10 md:py-14 text-center">
+		<GridCell borderRight={borderRight} className="px-4 md:px-8 py-6 md:py-14 text-center">
 			<CornerNotches size={10} />
 			<div
 				ref={ref}
-				className="text-3xl md:text-4xl font-normal tracking-[-1px] text-[#C9A96E] mb-2 font-urbanist tabular-nums"
+				className="text-2xl md:text-4xl font-normal tracking-[-1px] text-[#C9A96E] mb-2 font-urbanist tabular-nums"
 			>
 				{hasRun.current || !parsed
 					? display
 					: `${parsed.prefix}${formatNumber(0, parsed.decimals, parsed.hasCommas)}${parsed.suffix}`}
 			</div>
-			<p className="text-[#A39E96] text-sm leading-snug">{label}</p>
+			<p className="text-[#A39E96] text-xs md:text-sm leading-snug">{label}</p>
 		</GridCell>
 	);
 }
@@ -89,22 +89,22 @@ function AnimatedStat({ value, label, borderRight = false }: { value: string; la
 export function DataCredibility() {
 	return (
 		<div>
-			{/* Heading row */}
+			{/* Heading row — stacked on mobile */}
 			<GridSection columns="5fr 7fr" border>
-				<GridCell borderRight className="px-12 py-12">
-					<div className="flex items-center gap-3 mb-6">
+				<GridCell borderRight className="px-6 md:px-12 py-8 md:py-12">
+					<div className="flex items-center gap-3 mb-4 md:mb-6">
 						<div className="w-1.5 h-1.5 rounded-full bg-[#C9A96E]" />
 						<span className="text-[#A39E96] text-xs font-medium uppercase tracking-[0.16em]">
 							The numbers
 						</span>
 					</div>
-					<h2 className="text-4xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE]">
+					<h2 className="text-3xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE]">
 						Backed by{" "}
 						<span className="text-gradient-gold">NBench</span> data
 					</h2>
 				</GridCell>
-				<GridCell className="px-12 py-12 flex items-end">
-					<p className="text-[#A39E96] text-lg leading-relaxed">
+				<GridCell className="px-6 md:px-12 py-4 md:py-12 flex items-end">
+					<p className="text-[#A39E96] text-base md:text-lg leading-relaxed">
 						Our proprietary AI-nativeness benchmark scores every
 						candidate on architecture, eval discipline, token spend,
 						and tooling freshness.
@@ -112,8 +112,8 @@ export function DataCredibility() {
 				</GridCell>
 			</GridSection>
 
-			{/* 4 stat cells in a row with dividers */}
-			<GridSection columns="1fr 1fr 1fr 1fr" border>
+			{/* 4 stat cells — 2x2 grid on mobile, 4 columns on desktop */}
+			<GridSection columns="1fr 1fr 1fr 1fr" mobileColumns="1fr 1fr" border>
 				{stats.map((stat, i) => (
 					<AnimatedStat
 						key={stat.label}
@@ -126,7 +126,7 @@ export function DataCredibility() {
 
 			{/* NBench link row */}
 			<GridSection columns="1fr" border>
-				<GridCell className="py-6 text-center">
+				<GridCell className="py-5 md:py-6 text-center">
 					<a
 						href="/nbench"
 						className="inline-flex items-center gap-2 text-[#C9A96E] text-sm font-medium hover:text-[#D4B87A] transition-colors"

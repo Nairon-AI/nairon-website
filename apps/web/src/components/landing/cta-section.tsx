@@ -31,7 +31,7 @@ export function CTASection() {
 						border: "1px solid rgba(255, 255, 255, 0.08)",
 					}}
 				>
-					<h2 className="text-4xl md:text-[56px] md:leading-[60px] font-normal tracking-[-1.5px] text-[#E8E4DE] mb-6">
+					<h2 className="text-3xl md:text-[56px] md:leading-[60px] font-normal tracking-[-1px] md:tracking-[-1.5px] text-[#E8E4DE] mb-6">
 						Ready to find your{" "}
 						<span className="font-serif italic text-[#C9A96E]">
 							next AI-native engineer
