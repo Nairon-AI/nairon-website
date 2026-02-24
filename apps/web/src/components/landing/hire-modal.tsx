@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ArrowRight, Loader2, X, BarChart3, Shield, Zap } from "lucide-react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { useModals } from "./modal-provider";
@@ -202,24 +202,7 @@ export function HireModal() {
 							</div>
 						</div>
 					) : (
-						<div className="flex flex-col">
-							<div className="px-8 pt-8 pb-4">
-								<h2 className="text-2xl font-normal text-[#E8E4DE]">
-									Book your intro call
-								</h2>
-								<p className="text-[#A39E96] text-sm mt-1">
-									Pick a time that works for you.
-								</p>
-							</div>
-							<div className="w-full h-[500px]">
-								<iframe
-									src="https://cal.com/nairon/intro"
-									title="Book a call with Nairon"
-									className="w-full h-full border-0"
-									loading="lazy"
-								/>
-							</div>
-						</div>
+						<CalBookingStep />
 					)}
 
 					<DialogPrimitive.Close className="absolute right-4 top-4 z-10 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none">
@@ -229,5 +212,52 @@ export function HireModal() {
 				</DialogPrimitive.Content>
 			</DialogPrimitive.Portal>
 		</DialogPrimitive.Root>
+	);
+}
+
+function CalBookingStep() {
+	const calRef = useRef<HTMLDivElement>(null);
+	const initialized = useRef(false);
+
+	useEffect(() => {
+		if (initialized.current || !calRef.current) return;
+		initialized.current = true;
+
+		const script = document.createElement("script");
+		script.src = "https://app.cal.com/embed/embed.js";
+		script.async = true;
+		script.onload = () => {
+			const Cal = (window as any).Cal;
+			if (!Cal) return;
+
+			Cal("init", "hiring-partner-call", { origin: "https://app.cal.com" });
+
+			Cal.ns["hiring-partner-call"]("inline", {
+				elementOrSelector: calRef.current,
+				config: { layout: "month_view", theme: "dark" },
+				calLink: "luka-eric-vuqogn/hiring-partner-call",
+			});
+
+			Cal.ns["hiring-partner-call"]("ui", {
+				theme: "dark",
+				hideEventTypeDetails: false,
+				layout: "month_view",
+			});
+		};
+		document.head.appendChild(script);
+	}, []);
+
+	return (
+		<div className="flex flex-col">
+			<div className="px-8 pt-8 pb-4">
+				<h2 className="text-2xl font-normal text-[#E8E4DE]">
+					Book your intro call
+				</h2>
+				<p className="text-[#A39E96] text-sm mt-1">
+					Pick a time that works for you.
+				</p>
+			</div>
+			<div ref={calRef} className="w-full h-[500px] overflow-auto" />
+		</div>
 	);
 }
