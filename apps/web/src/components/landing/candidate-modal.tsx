@@ -39,7 +39,7 @@ export function CandidateModal() {
 						<div className="hidden md:block relative">
 							<img
 								src="/backgrounds/rolling-hills.webp"
-								alt=""
+								alt="Rolling hills landscape"
 								className="absolute inset-0 w-full h-full object-cover"
 							/>
 							<div

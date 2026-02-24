@@ -70,7 +70,7 @@ const blogPosts: BlogPost[] = [
 			name: "Luka Eric",
 			avatar: "/assets/framer/SSmGx1bjs3koY1aPdILAeuc.webp",
 		},
-		image: "/backgrounds/hero-bg-1.jpg",
+		image: "/backgrounds/hero-bg-1.webp",
 	},
 	{
 		title: "What Senior Engineers Get Wrong About AI Tools",
@@ -80,7 +80,7 @@ const blogPosts: BlogPost[] = [
 			name: "Obaid Ur-R.",
 			avatar: "/assets/framer/Xse9UYp1XHtcxoFdIq5x3WbveBc.webp",
 		},
-		image: "/backgrounds/hero-bg-2.jpg",
+		image: "/backgrounds/hero-bg-2.webp",
 	},
 ];
 

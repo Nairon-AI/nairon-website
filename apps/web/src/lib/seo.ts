@@ -59,7 +59,7 @@ export function organizationJsonLd() {
 		"@type": "Organization",
 		name: "Nairon AI",
 		url: SITE_URL,
-		logo: `${SITE_URL}/og-image.jpg`,
+		logo: `${SITE_URL}/nairon-logo.png`,
 		sameAs: [
 			"https://www.linkedin.com/company/nairon-ai",
 			"https://x.com/nairon__ai",
@@ -67,13 +67,13 @@ export function organizationJsonLd() {
 		contactPoint: {
 			"@type": "ContactPoint",
 			contactType: "customer support",
-			url: `${SITE_URL}/contact`,
+			email: "hello@naironai.com",
 		},
 	};
 }
 
 /**
- * JSON-LD WebSite schema with search action.
+ * JSON-LD WebSite schema.
  */
 export function websiteJsonLd() {
 	return {
@@ -81,6 +81,56 @@ export function websiteJsonLd() {
 		"@type": "WebSite",
 		name: SITE_NAME,
 		url: SITE_URL,
+	};
+}
+
+/**
+ * JSON-LD Service schema for recruiting services.
+ */
+export function serviceJsonLd() {
+	return {
+		"@context": "https://schema.org",
+		"@type": "Service",
+		name: "AI-Native Technical Recruiting",
+		description:
+			"Data-driven technical recruiting that uses proprietary AI-nativeness benchmarks to match companies with engineers who ship.",
+		provider: {
+			"@type": "Organization",
+			name: SITE_NAME,
+			url: SITE_URL,
+		},
+		serviceType: "Technical Recruiting",
+		areaServed: {
+			"@type": "Place",
+			name: "Worldwide",
+		},
+		url: SITE_URL,
+	};
+}
+
+/**
+ * JSON-LD SoftwareApplication schema for NBench.
+ */
+export function nbenchProductJsonLd() {
+	return {
+		"@context": "https://schema.org",
+		"@type": "SoftwareApplication",
+		name: "NBench",
+		description:
+			"Open-source CLI that benchmarks how AI-native your engineering stack is. Measures agent-first thinking, eval discipline, and token efficiency.",
+		applicationCategory: "DeveloperApplication",
+		operatingSystem: "Cross-platform",
+		url: `${SITE_URL}/nbench`,
+		offers: {
+			"@type": "Offer",
+			price: "0",
+			priceCurrency: "USD",
+		},
+		author: {
+			"@type": "Organization",
+			name: SITE_NAME,
+			url: SITE_URL,
+		},
 	};
 }
 
@@ -127,5 +177,59 @@ export function faqJsonLd(items: Array<{ question: string; answer: string }>) {
 				text: item.answer,
 			},
 		})),
+	};
+}
+
+/**
+ * JSON-LD BreadcrumbList schema.
+ */
+export function breadcrumbJsonLd(
+	items: Array<{ name: string; path: string }>,
+) {
+	return {
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		itemListElement: items.map((item, index) => ({
+			"@type": "ListItem",
+			position: index + 1,
+			name: item.name,
+			item: `${SITE_URL}${item.path}`,
+		})),
+	};
+}
+
+/**
+ * JSON-LD BlogPosting schema for blog articles.
+ */
+export function blogPostJsonLd(config: {
+	title: string;
+	description: string;
+	path: string;
+	datePublished: string;
+	dateModified?: string;
+	authorName: string;
+	image?: string;
+}) {
+	return {
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		headline: config.title,
+		description: config.description,
+		url: `${SITE_URL}${config.path}`,
+		datePublished: config.datePublished,
+		dateModified: config.dateModified ?? config.datePublished,
+		image: config.image ?? DEFAULT_OG_IMAGE,
+		author: {
+			"@type": "Person",
+			name: config.authorName,
+		},
+		publisher: {
+			"@type": "Organization",
+			name: SITE_NAME,
+			logo: {
+				"@type": "ImageObject",
+				url: `${SITE_URL}/nairon-logo.png`,
+			},
+		},
 	};
 }

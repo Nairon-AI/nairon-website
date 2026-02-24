@@ -2,6 +2,15 @@
 	"installCommand": "bun install",
 	"buildCommand": "bunx turbo build --filter=@nairon-website/web",
 	"outputDirectory": "apps/web/.vercel/output",
+	"redirects": [
+		{ "source": "/residence", "destination": "/", "permanent": true },
+		{ "source": "/apprenticeship", "destination": "/", "permanent": true },
+		{ "source": "/hire", "destination": "/", "permanent": true },
+		{ "source": "/team", "destination": "/", "permanent": true },
+		{ "source": "/contact", "destination": "/", "permanent": true },
+		{ "source": "/careers", "destination": "/", "permanent": true },
+		{ "source": "/program", "destination": "/", "permanent": true }
+	],
 	"headers": [
 		{
 			"source": "/(.*)\\.(js|css|woff2|woff|ttf|ico|webp|jpg|jpeg|png|svg|avif|mp4)",
@@ -26,6 +35,14 @@
 				{
 					"key": "Referrer-Policy",
 					"value": "strict-origin-when-cross-origin"
+				},
+				{
+					"key": "Strict-Transport-Security",
+					"value": "max-age=31536000; includeSubDomains"
+				},
+				{
+					"key": "Permissions-Policy",
+					"value": "camera=(), microphone=(), geolocation=()"
 				}
 			]
 		}

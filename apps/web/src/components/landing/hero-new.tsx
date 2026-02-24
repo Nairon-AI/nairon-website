@@ -45,7 +45,7 @@ export function HeroNew() {
 			{/* Social proof badge */}
 			<div className="flex items-center gap-3 mb-8">
 				<div className="flex -space-x-2">
-					{["https://i.pravatar.cc/64?img=11", "https://i.pravatar.cc/64?img=32", "https://i.pravatar.cc/64?img=12"].map((src, i) => (
+					{["/avatars/avatar-1.jpg", "/avatars/avatar-2.jpg", "/avatars/avatar-3.jpg"].map((src, i) => (
 						<img
 							key={i}
 							src={src}

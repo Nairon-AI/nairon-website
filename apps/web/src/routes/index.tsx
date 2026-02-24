@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
 		seoHead({
 			title: "Nairon — Data-Driven Technical Recruiting",
 			description:
-				"Nairon is a data-driven recruiting agency that uses proprietary AI-nativeness benchmarks to match companies with engineers who ship. Find your next AI-native engineer with confidence.",
+				"Data-driven recruiting powered by AI-nativeness benchmarks. We match companies with engineers who ship using NBench.",
 			path: "/",
 		}),
 });

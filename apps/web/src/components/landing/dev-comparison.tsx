@@ -66,9 +66,7 @@ export function DevComparison() {
 						>
 							<img
 								src="/backgrounds/pastoral-hills.webp"
-								alt=""
-								width={800}
-								height={800}
+								alt="Pastoral hills landscape representing AI-native engineering"
 								className="absolute inset-0 w-full h-full object-cover"
 								loading="lazy"
 							/>
@@ -91,8 +89,6 @@ export function DevComparison() {
 								<img
 									src="/moderndev.webp"
 									alt="AI-native development environment"
-									width={800}
-									height={511}
 									className="w-full h-full object-cover object-top"
 									loading="lazy"
 								/>
@@ -121,9 +117,7 @@ export function DevComparison() {
 						>
 							<img
 								src="/backgrounds/hazy-landscape.webp"
-								alt=""
-								width={800}
-								height={800}
+								alt="Hazy landscape representing traditional development"
 								className="absolute inset-0 w-full h-full object-cover"
 								loading="lazy"
 							/>
@@ -145,9 +139,7 @@ export function DevComparison() {
 							>
 								<img
 									src="/vscode.webp"
-									alt="VS Code"
-									width={800}
-									height={479}
+									alt="VS Code traditional development environment"
 									className="w-full h-full object-cover object-top"
 									loading="lazy"
 								/>
