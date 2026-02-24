@@ -24,7 +24,15 @@ const FOOTER_COLS: FooterCol[] = [
 		],
 	},
 	{
-		heading: "Resources",
+		heading: "Universe",
+		links: [
+			{ label: "Daily Feed", href: "/universe#feed" },
+			{ label: "AI Tool Directory", href: "/universe#directory" },
+			{ label: "Community", href: "/universe" },
+		],
+	},
+	{
+		heading: "Legal",
 		links: [
 			{ label: "Privacy", href: "/privacy" },
 			{ label: "Terms", href: "/terms-and-conditions" },
