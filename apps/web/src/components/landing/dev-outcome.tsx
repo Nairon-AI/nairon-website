@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { GridSection, GridCell } from "./grid-system";
 
 const columns = [
-	{ label: "AI-native engineer", highlight: true },
-	{ label: "Traditional + AI tools" },
-	{ label: "Traditional developer" },
+	{ label: "AI-native engineer", highlight: true, hideOnMobile: false },
+	{ label: "Traditional + AI tools", highlight: false, hideOnMobile: true },
+	{ label: "Traditional developer", highlight: false, hideOnMobile: false },
 ];
 
 const metrics = [
@@ -86,24 +86,24 @@ export function DevOutcome() {
 	return (
 		<div>
 			<GridSection columns="1fr" border>
-				<GridCell className="px-12 py-10">
+				<GridCell className="px-6 md:px-12 py-8 md:py-10">
 					<div className="flex items-center gap-3 mb-4">
 						<div className="w-1.5 h-1.5 rounded-full bg-[#C9A96E]" />
 						<span className="text-[#A39E96] text-xs font-medium uppercase tracking-[0.16em]">
 							The Data
 						</span>
 					</div>
-					<h2 className="text-4xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE] max-w-3xl mb-3">
+					<h2 className="text-3xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE] max-w-3xl mb-3">
 						The gap is measurable
 					</h2>
-					<p className="text-[#A39E96] text-base max-w-xl">
+					<p className="text-[#A39E96] text-sm md:text-base max-w-xl">
 						Across 2,000+ engineers assessed with NBench, AI-native engineers consistently outperform on every metric that matters.
 					</p>
 				</GridCell>
 			</GridSection>
 
 			<GridSection columns="1fr" border>
-				<GridCell className="px-12 py-8 overflow-x-auto">
+				<GridCell className="px-4 md:px-12 py-6 md:py-8 overflow-x-auto">
 					<table ref={tableRef} className="w-full border-collapse">
 						<thead>
 							<tr
@@ -113,11 +113,11 @@ export function DevOutcome() {
 									transform: visibleRows >= 0 ? "translateY(0)" : "translateY(12px)",
 								}}
 							>
-								<th className="text-left w-[200px]" />
+								<th className="text-left w-[140px] md:w-[200px]" />
 								{columns.map((col) => (
 									<th
 										key={col.label}
-										className="text-center px-4 py-3 text-sm font-medium"
+										className={`text-center px-2 md:px-4 py-3 text-xs md:text-sm font-medium ${col.hideOnMobile ? "hidden md:table-cell" : ""}`}
 										style={{
 											color: col.highlight ? "#E8E4DE" : "#A39E96",
 											borderBottom: col.highlight
@@ -141,18 +141,18 @@ export function DevOutcome() {
 										transform: visibleRows > mi ? "translateY(0)" : "translateY(12px)",
 									}}
 								>
-									<td className="py-4 pr-6 align-top">
-										<span className="text-sm font-medium text-[#E8E4DE] block">
+									<td className="py-3 md:py-4 pr-2 md:pr-6 align-top">
+										<span className="text-xs md:text-sm font-medium text-[#E8E4DE] block">
 											{metric.label}
 										</span>
-										<span className="text-[11px] text-[#A39E96]/60">
+										<span className="text-[10px] md:text-[11px] text-[#A39E96]/60">
 											{metric.subtitle}
 										</span>
 									</td>
 									{metric.values.map((value, i) => (
 										<td
 											key={columns[i].label}
-											className="text-center py-4 px-4"
+											className={`text-center py-3 md:py-4 px-2 md:px-4 ${columns[i].hideOnMobile ? "hidden md:table-cell" : ""}`}
 											style={{
 												background:
 													i === metric.best
@@ -161,7 +161,7 @@ export function DevOutcome() {
 											}}
 										>
 											<span
-												className="text-sm tabular-nums font-semibold"
+												className="text-xs md:text-sm tabular-nums font-semibold"
 												style={{
 													color:
 														i === metric.best
@@ -172,7 +172,7 @@ export function DevOutcome() {
 												{value}
 											</span>
 											{i === metric.best && metric.badge && (
-												<span className="ml-2 inline-block text-[10px] font-semibold text-[#C9A96E] bg-[#C9A96E]/10 px-1.5 py-0.5 rounded">
+												<span className="ml-1 md:ml-2 inline-block text-[9px] md:text-[10px] font-semibold text-[#C9A96E] bg-[#C9A96E]/10 px-1 md:px-1.5 py-0.5 rounded">
 													{metric.badge}
 												</span>
 											)}

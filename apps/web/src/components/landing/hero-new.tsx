@@ -39,7 +39,7 @@ function CornerNotches() {
 export function HeroNew() {
 	const { openHireModal, openCandidateModal } = useModals();
 	return (
-		<div className="relative flex flex-col justify-center items-center text-center px-12 py-20 md:py-24">
+		<div className="relative flex flex-col justify-center items-center text-center px-5 md:px-12 py-16 md:py-24">
 			<CornerNotches />
 
 			{/* Social proof badge */}
@@ -62,7 +62,7 @@ export function HeroNew() {
 			</div>
 
 			{/* Headline */}
-			<h1 className="text-5xl md:text-[80px] md:leading-[80px] font-normal tracking-[-2.4px] text-[#E8E4DE] max-w-4xl">
+			<h1 className="text-[36px] leading-[40px] md:text-[80px] md:leading-[80px] font-normal tracking-[-1.5px] md:tracking-[-2.4px] text-[#E8E4DE] max-w-4xl">
 				Find AI-native engineers{" "}
 				<span className="font-serif italic text-[#C9A96E]">
 					who ship

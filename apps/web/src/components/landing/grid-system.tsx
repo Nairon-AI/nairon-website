@@ -118,25 +118,32 @@ export function GridSection({
 	children,
 	/** Column template — e.g. "1fr 1fr" for 2 equal cols, "4fr 8fr" for sidebar+main */
 	columns = "1fr",
+	/** Column template on mobile (< md). Defaults to "1fr" for single-column stacking. */
+	mobileColumns,
 	/** Show bottom border */
 	border = true,
 	className,
 }: {
 	children?: ReactNode;
 	columns?: string;
+	mobileColumns?: string;
 	border?: boolean;
 	className?: string;
 }) {
+	const effectiveMobile = mobileColumns ?? (columns === "1fr" ? "1fr" : "1fr");
+	const isStacking = effectiveMobile === "1fr" && columns !== "1fr";
+
 	return (
 		<div
-			className={cn("relative", className)}
+			className={cn("relative grid-section", isStacking && "grid-section--stack", className)}
 			style={{
 				display: "grid",
-				gridTemplateColumns: columns,
+				"--grid-cols": columns,
+				"--grid-mobile-cols": effectiveMobile,
 				borderBottom: border
 					? "var(--guide-width) solid var(--guide-color)"
 					: "none",
-			}}
+			} as CSSProperties}
 		>
 			{children}
 		</div>
@@ -160,15 +167,12 @@ export function GridCell({
 }) {
 	return (
 		<div
-			className={cn("relative", className)}
-			style={{
-				borderRight: borderRight
-					? "var(--guide-width) solid var(--guide-color)"
-					: "none",
-				borderBottom: borderBottom
-					? "var(--guide-width) solid var(--guide-color)"
-					: "none",
-			}}
+			className={cn(
+				"relative",
+				borderRight && "cell-border-right",
+				borderBottom && "cell-border-bottom",
+				className,
+			)}
 		>
 			{children}
 		</div>

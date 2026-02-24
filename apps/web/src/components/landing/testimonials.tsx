@@ -29,42 +29,42 @@ export function Testimonials() {
 		<div>
 			{/* Heading row */}
 			<GridSection columns="1fr" border>
-				<GridCell className="px-12 pt-12 pb-10">
-					<div className="flex items-center gap-3 mb-6">
+				<GridCell className="px-6 md:px-12 pt-10 md:pt-12 pb-8 md:pb-10">
+					<div className="flex items-center gap-3 mb-4 md:mb-6">
 						<div className="w-1.5 h-1.5 rounded-full bg-[#C9A96E]" />
 						<span className="text-[#A39E96] text-xs font-medium uppercase tracking-[0.16em]">
 							Testimonials
 						</span>
 					</div>
-					<h2 className="text-4xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE] max-w-3xl">
+					<h2 className="text-3xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE] max-w-3xl">
 						What they say
 					</h2>
 				</GridCell>
 			</GridSection>
 
-			{/* 3 testimonial cells with dividers */}
+			{/* 3 testimonial cells — stacked on mobile, 3 columns on desktop */}
 			<GridSection columns="1fr 1fr 1fr" border>
 				{testimonials.map((t, i) => (
 					<GridCell
 						key={t.name}
 						borderRight={i < 2}
-						className="p-10 md:p-12 flex flex-col justify-between"
+						className="p-6 md:p-12 flex flex-col justify-between"
 					>
 						<CornerNotches size={10} />
-						<p className="text-[#E8E4DE] text-base leading-relaxed mb-8">
+						<p className="text-[#E8E4DE] text-sm md:text-base leading-relaxed mb-6 md:mb-8">
 							"{t.quote}"
 						</p>
 						<div className="flex items-center gap-3">
 							<img
 								src={t.avatar}
 								alt={t.name}
-								className="w-10 h-10 rounded-full object-cover"
+								className="w-9 md:w-10 h-9 md:h-10 rounded-full object-cover"
 							/>
 							<div>
 								<p className="text-[#E8E4DE] text-sm font-medium">
 									{t.name}
 								</p>
-								<p className="text-[#A39E96] text-sm">{t.role}</p>
+								<p className="text-[#A39E96] text-xs md:text-sm">{t.role}</p>
 							</div>
 						</div>
 					</GridCell>
