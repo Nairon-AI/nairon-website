@@ -79,6 +79,20 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 			},
 			{
 				rel: "preload",
+				href: "/fonts/instrument-serif-latin-regular.woff2",
+				as: "font",
+				type: "font/woff2",
+				crossOrigin: "anonymous",
+			},
+			{
+				rel: "preload",
+				href: "/fonts/instrument-serif-latin-italic.woff2",
+				as: "font",
+				type: "font/woff2",
+				crossOrigin: "anonymous",
+			},
+			{
+				rel: "preload",
 				as: "image",
 				href: "/nairon-logo.png",
 			},

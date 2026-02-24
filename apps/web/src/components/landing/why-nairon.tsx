@@ -145,9 +145,11 @@ export function WhyNairon() {
 							key={point.image}
 							src={point.image}
 							alt=""
+							width={800}
+							height={800}
 							className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out"
 							style={{ opacity: active === i ? 1 : 0 }}
-							loading={i === 0 ? "eager" : "lazy"}
+							loading="lazy"
 						/>
 					))}
 					<div

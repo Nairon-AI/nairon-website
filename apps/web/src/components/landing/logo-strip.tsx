@@ -115,6 +115,8 @@ export function LogoStrip() {
 								<img
 									src={partner.logo}
 									alt={partner.name}
+									width={120}
+									height={32}
 									className={`h-8 w-auto transition-all duration-300 ${
 										partner.name === visibleName
 											? "opacity-80 grayscale-0"
