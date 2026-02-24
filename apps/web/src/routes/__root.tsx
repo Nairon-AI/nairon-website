@@ -121,7 +121,8 @@ function RootComponent() {
 	const { convex } = Route.useRouteContext();
 	const isHomePage = useMatch({ from: "/", shouldThrow: false });
 	const isNBenchPage = useMatch({ from: "/nbench", shouldThrow: false });
-	const isLandingPage = isHomePage || isNBenchPage;
+	const isUniversePage = useMatch({ from: "/universe", shouldThrow: false });
+	const isLandingPage = isHomePage || isNBenchPage || isUniversePage;
 	const [enableSmoothScroll, setEnableSmoothScroll] = useState(false);
 
 	useEffect(() => {

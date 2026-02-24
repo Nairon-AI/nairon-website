@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UniverseRouteImport } from './routes/universe'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as NbenchRouteImport } from './routes/nbench'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
 
+const UniverseRoute = UniverseRouteImport.update({
+  id: '/universe',
+  path: '/universe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
   id: '/terms-and-conditions',
   path: '/terms-and-conditions',
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/nbench': typeof NbenchRoute
   '/privacy': typeof PrivacyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/universe': typeof UniverseRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/nbench': typeof NbenchRoute
   '/privacy': typeof PrivacyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/universe': typeof UniverseRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +70,33 @@ export interface FileRoutesById {
   '/nbench': typeof NbenchRoute
   '/privacy': typeof PrivacyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/universe': typeof UniverseRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$' | '/nbench' | '/privacy' | '/terms-and-conditions'
+  fullPaths:
+    | '/'
+    | '/$'
+    | '/nbench'
+    | '/privacy'
+    | '/terms-and-conditions'
+    | '/universe'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$' | '/nbench' | '/privacy' | '/terms-and-conditions'
-  id: '__root__' | '/' | '/$' | '/nbench' | '/privacy' | '/terms-and-conditions'
+  to:
+    | '/'
+    | '/$'
+    | '/nbench'
+    | '/privacy'
+    | '/terms-and-conditions'
+    | '/universe'
+  id:
+    | '__root__'
+    | '/'
+    | '/$'
+    | '/nbench'
+    | '/privacy'
+    | '/terms-and-conditions'
+    | '/universe'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,10 +105,18 @@ export interface RootRouteChildren {
   NbenchRoute: typeof NbenchRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
+  UniverseRoute: typeof UniverseRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/universe': {
+      id: '/universe'
+      path: '/universe'
+      fullPath: '/universe'
+      preLoaderRoute: typeof UniverseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms-and-conditions': {
       id: '/terms-and-conditions'
       path: '/terms-and-conditions'
@@ -125,6 +161,7 @@ const rootRouteChildren: RootRouteChildren = {
   NbenchRoute: NbenchRoute,
   PrivacyRoute: PrivacyRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
+  UniverseRoute: UniverseRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
