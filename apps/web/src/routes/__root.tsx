@@ -64,8 +64,10 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 			{ name: "theme-color", content: "#000000" },
 		],
 		links: [
-			{ rel: "icon", href: "/nairon-logo.png", type: "image/png" },
-			{ rel: "apple-touch-icon", href: "/nairon-logo.png" },
+			{ rel: "icon", href: "/favicon.png", type: "image/png", sizes: "192x192" },
+			{ rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+			{ rel: "icon", href: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+			{ rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
 			{
 				rel: "preload",
 				href: "/fonts/inter-latin.woff2",
