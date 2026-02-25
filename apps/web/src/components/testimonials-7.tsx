@@ -266,12 +266,10 @@ export default function Testimonials() {
                 </div>
 
                 <Button
-                    asChild
                     variant="link"
-                    className="mx-auto flex w-fit">
-                    <a href="https://github.com/Nairon-AI/n-bench" target="_blank" rel="noreferrer">
-                        Read community stories <ChevronRight />
-                    </a>
+                    className="mx-auto flex w-fit"
+                    disabled>
+                    Private beta stories <ChevronRight />
                 </Button>
             </div>
         </section>

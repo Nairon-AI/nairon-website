@@ -53,9 +53,7 @@ export default function FAQs() {
                         <p className="text-muted-foreground mt-6 max-md:hidden">
                             Can't find what you're looking for? Contact our{' '}
                             <a
-                                href="https://github.com/Nairon-AI/n-bench"
-                                target="_blank"
-                                rel="noreferrer"
+                                href="#"
                                 className="text-primary font-medium hover:underline">
                                 docs and support threads
                             </a>
@@ -92,9 +90,7 @@ export default function FAQs() {
                 <p className="text-muted-foreground mt-12 px-6 md:hidden">
                     Can't find what you're looking for? Contact our{' '}
                     <a
-                        href="https://github.com/Nairon-AI/n-bench"
-                        target="_blank"
-                        rel="noreferrer"
+                        href="#"
                         className="text-primary font-medium hover:underline">
                         docs and support threads
                     </a>

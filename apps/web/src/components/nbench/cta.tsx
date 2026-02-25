@@ -50,15 +50,9 @@ export function NBenchCTA() {
 
 				{/* CTAs */}
 				<div className="flex flex-wrap justify-center gap-4 mt-8">
-					<Button asChild size="lg" className="bg-white text-black hover:bg-white/90">
-						<a
-							href="https://github.com/Nairon-AI/n-bench"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<Github className="mr-2 h-5 w-5" />
-							View on GitHub
-						</a>
+					<Button size="lg" variant="secondary" disabled>
+						<Github className="mr-2 h-5 w-5" />
+						Closed source (private beta)
 					</Button>
 					<Button asChild size="lg" variant="outline" className="border-white/20 hover:bg-white/5">
 						<a

@@ -127,27 +127,9 @@ export function DataCredibility() {
 			{/* NBench link row */}
 			<GridSection columns="1fr" border>
 				<GridCell className="py-5 md:py-6 text-center">
-					<a
-						href="/nbench"
-						className="inline-flex items-center gap-2 text-[#C9A96E] text-sm font-medium hover:text-[#D4B87A] transition-colors"
-					>
-						Learn more about NBench
-						<svg
-							width="16"
-							height="16"
-							viewBox="0 0 16 16"
-							fill="none"
-							className="translate-y-px"
-						>
-							<path
-								d="M6 12L10 8L6 4"
-								stroke="currentColor"
-								strokeWidth="1.5"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-							/>
-						</svg>
-					</a>
+					<span className="inline-flex items-center gap-2 text-[#A39E96] text-sm font-medium opacity-80 cursor-not-allowed">
+						NBench (Coming Soon)
+					</span>
 				</GridCell>
 			</GridSection>
 		</div>

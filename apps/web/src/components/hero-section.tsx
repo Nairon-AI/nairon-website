@@ -77,10 +77,8 @@ export default function HeroSection() {
                   </TextAnimate>
 
                   <div className="mx-auto flex w-fit flex-wrap items-center justify-center gap-3">
-                    <Button asChild>
-                      <a href="https://github.com/Nairon-AI/n-bench" target="_blank" rel="noreferrer">
-                        <TextAnimate as="span" by="word" animation="blurIn" duration={0.25}>View on GitHub</TextAnimate>
-                      </a>
+                    <Button variant="secondary" disabled>
+                      <TextAnimate as="span" by="word" animation="blurIn" duration={0.25}>Closed source (private beta)</TextAnimate>
                     </Button>
                     <Button variant="outline" onClick={scrollToArchitecture}>
                       <TextAnimate as="span" by="word" animation="blurIn" duration={0.25}>See architecture</TextAnimate>

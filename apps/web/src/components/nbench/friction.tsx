@@ -127,15 +127,7 @@ export function NBenchFriction() {
 						</div>
 
 						<p className="text-muted-foreground text-sm mt-6">
-							Browse or contribute:{" "}
-							<a
-								href="https://github.com/Nairon-AI/n-bench-recommendations"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="text-emerald-400 hover:underline"
-							>
-								n-bench-recommendations
-							</a>
+							Recommendations database is private during beta.
 						</p>
 					</div>
 				</div>

@@ -41,20 +41,12 @@ export function UniverseCTA() {
 						edge — and get matched to the best opportunities.
 					</p>
 					<div className="flex flex-wrap justify-center gap-4">
-						<a
-							href="#feed"
-							className="inline-flex items-center gap-2 bg-[#C9A96E] hover:bg-[#B8944F] text-[#0C0C0C] font-semibold text-base px-8 py-3.5 rounded-full transition-colors"
-						>
-							Join the Universe
-							<ArrowUpRight className="w-4 h-4" />
-						</a>
-						<a
-							href="/nbench"
-							className="inline-flex items-center gap-2 border border-white/10 text-[#E8E4DE] font-medium text-base px-6 py-3.5 rounded-full hover:bg-white/5 transition-colors"
-						>
-							Take NBench
-							<ArrowUpRight className="w-4 h-4" />
-						</a>
+						<span className="inline-flex items-center gap-2 bg-[#C9A96E]/55 text-[#0C0C0C] font-semibold text-base px-8 py-3.5 rounded-full opacity-90 cursor-not-allowed">
+							Universe (Coming Soon)
+						</span>
+						<span className="inline-flex items-center gap-2 border border-white/10 text-[#A39E96] font-medium text-base px-6 py-3.5 rounded-full opacity-80 cursor-not-allowed">
+							NBench (Coming Soon)
+						</span>
 					</div>
 				</div>
 			</div>

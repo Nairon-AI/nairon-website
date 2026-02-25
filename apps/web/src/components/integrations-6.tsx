@@ -113,9 +113,9 @@ export default function IntegrationsSection() {
 
                     <Button
                         size="sm"
-                        asChild
-                        variant="outline">
-                        <a href="https://github.com/Nairon-AI/n-bench" target="_blank" rel="noreferrer">Install N-bench</a>
+                        variant="outline"
+                        disabled>
+                        Closed source (private beta)
                     </Button>
                 </div>
             </div>
