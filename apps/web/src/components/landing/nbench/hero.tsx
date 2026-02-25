@@ -12,7 +12,7 @@ import {
 } from "@/components/landing/nbench/primitives";
 
 export function NBenchHero() {
-	const installCommand = "bun add -g @nairon/nbench";
+	const installCommand = "/plugin marketplace add Nairon-AI/n-bench";
 	const [copied, setCopied] = useState(false);
 	const [isDesktop, setIsDesktop] = useState(false);
 	const [viewportReady, setViewportReady] = useState(false);
@@ -356,9 +356,8 @@ export function NBenchHero() {
 				<div className="inline-flex items-center rounded-full border border-white/12 bg-white/[0.03] px-4 py-1.5 font-inter text-[11px] uppercase tracking-[0.16em] text-white/70">
 					{NBENCH_HERO.badge}
 				</div>
-				<GradientHeading className="mt-8 max-w-[15ch] overflow-visible pb-[0.08em] text-center text-[2rem] leading-[1.06] sm:max-w-none sm:text-[2.65rem] md:text-left md:text-[3.5rem] lg:text-[3.75rem]">
-					NBench is a purpose-built tool for<br />
-					planning and building AI-native engineers
+				<GradientHeading className="mt-8 max-w-[18ch] overflow-visible pb-[0.08em] text-center text-[2rem] leading-[1.06] sm:max-w-none sm:text-[2.65rem] md:text-left md:text-[3.5rem] lg:text-[3.75rem]">
+					{NBENCH_HERO.headline}
 				</GradientHeading>
 				<p className="mt-6 max-w-xl text-center font-inter text-[17px] leading-[1.6] text-[#8f8f8f] md:max-w-none md:text-left md:whitespace-nowrap">
 					{NBENCH_HERO.description}
