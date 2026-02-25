@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useModals } from "./modal-provider";
 
 type FooterLink =
-	| { label: string; href: string; action?: never }
+	| { label: string; href: string; disabled?: boolean; action?: never }
 	| { label: string; action: string; href?: never };
 
 type FooterCol = { heading: string; links: FooterLink[] };
@@ -19,16 +19,16 @@ const FOOTER_COLS: FooterCol[] = [
 		heading: "Services",
 		links: [
 			{ label: "AI-Native Recruiting", action: "hire" },
-			{ label: "NBench", href: "/nbench" },
+			{ label: "NBench (Coming Soon)", href: "#", disabled: true },
 			{ label: "For Candidates", action: "candidate" },
 		],
 	},
 	{
 		heading: "Universe",
 		links: [
-			{ label: "Daily Feed", href: "/universe#feed" },
-			{ label: "AI Tool Directory", href: "/universe#directory" },
-			{ label: "Community", href: "/universe" },
+			{ label: "Daily Feed (Coming Soon)", href: "#", disabled: true },
+			{ label: "AI Tool Directory (Coming Soon)", href: "#", disabled: true },
+			{ label: "Community (Coming Soon)", href: "#", disabled: true },
 		],
 	},
 	{
@@ -126,6 +126,11 @@ export function Footer() {
 											>
 												{link.label}
 											</button>
+									) : (
+										link.disabled ? (
+											<span className="text-[#A39E96] text-sm opacity-70 cursor-not-allowed">
+												{link.label}
+											</span>
 										) : (
 											<a
 												href={link.href}
@@ -133,7 +138,8 @@ export function Footer() {
 											>
 												{link.label}
 											</a>
-										)}
+										)
+									)}
 									</li>
 								))}
 							</ul>

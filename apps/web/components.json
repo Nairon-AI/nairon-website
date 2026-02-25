@@ -17,5 +17,13 @@
 		"lib": "@/lib",
 		"hooks": "@/hooks"
 	},
-	"iconLibrary": "lucide"
+	"iconLibrary": "lucide",
+	"registries": {
+		"@tailark-pro": {
+			"url": "https://pro.tailark.com/registry/{name}",
+			"headers": {
+				"Authorization": "Bearer ${TAILARK_API_KEY}"
+			}
+		}
+	}
 }

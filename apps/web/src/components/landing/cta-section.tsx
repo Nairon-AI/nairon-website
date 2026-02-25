@@ -47,13 +47,9 @@ export function CTASection() {
 							Book a call
 							<ArrowUpRight className="w-4 h-4" />
 						</button>
-						<a
-							href="/nbench"
-							className="inline-flex items-center gap-2 border border-white/10 text-[#E8E4DE] font-medium text-base px-6 py-3.5 rounded-full hover:bg-white/5 transition-colors"
-						>
-							Explore NBench
-							<ArrowUpRight className="w-4 h-4" />
-						</a>
+						<span className="inline-flex items-center gap-2 border border-white/10 text-[#A39E96] font-medium text-base px-6 py-3.5 rounded-full opacity-80 cursor-not-allowed">
+							NBench (Coming Soon)
+						</span>
 					</div>
 				</div>
 			</div>
