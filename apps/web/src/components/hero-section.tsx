@@ -52,16 +52,7 @@ export default function HeroSection() {
                     animation="blurInUp"
                     duration={0.45}
                     className="text-foreground text-balance text-5xl font-semibold lg:text-6xl xl:text-7xl xl:tracking-tight">
-                    Software changed overnight.
-                  </TextAnimate>
-                  <TextAnimate
-                    as="h1"
-                    by="word"
-                    animation="blurInUp"
-                    delay={0.15}
-                    duration={0.45}
-                    className="text-primary text-balance text-5xl font-semibold lg:text-6xl xl:text-7xl xl:tracking-tight">
-                    N-bench helps your workflow evolve with it.
+                    AI changes weekly, but your engineering system still has to ship every week.
                   </TextAnimate>
                 </div>
 
@@ -73,7 +64,7 @@ export default function HeroSection() {
                     delay={0.2}
                     duration={0.35}
                     className="text-muted-foreground mb-6 text-balance text-lg lg:text-xl">
-                    N-bench analyzes your real sessions, benchmarks how effectively you work with AI, finds workflow gaps, and gives you a clear loop to orchestrate agents without slop.
+                    N-bench gives your team a structured loop to build with intent, stay aligned as tools evolve, and benchmark real AI efficiency over time.
                   </TextAnimate>
 
                   <div className="mx-auto flex w-fit flex-wrap items-center justify-center gap-3">

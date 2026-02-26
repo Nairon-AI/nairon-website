@@ -1,6 +1,5 @@
 import { CheckCircle2 } from 'lucide-react'
 import { LogoIcon } from '@/components/logo'
-import { CodeBlockIllustration } from "@/components/ui/illustrations/code-block-illustration"
 
 const beamStyles = `
 @keyframes beam-move {
@@ -481,8 +480,11 @@ export const ImageIllustration = () => {
                                     </div>
                                 </div>
                                 <div className="relative pb-2 pr-2">
-                                    <div className="bg-card/75 ring-border relative h-40 overflow-hidden rounded-xl shadow-lg ring-1 backdrop-blur">
-                                        <CodeBlockIllustration />
+                                    <div className="bg-card/75 ring-border relative flex h-28 items-center justify-center overflow-hidden rounded-xl shadow-lg ring-1 backdrop-blur">
+                                        <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-wide">
+                                            <CheckCircle2 className="size-3 stroke-emerald-800 *:first:fill-emerald-500/35" />
+                                            Finished Feature
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -506,12 +508,12 @@ const Card = () => {
         <div className="ring-foreground/15 bg-illustration relative z-10 flex aspect-video w-full flex-col justify-between overflow-hidden rounded-2xl border border-transparent px-6 py-5 shadow-2xl shadow-sky-950/15 ring-1">
             <div className="flex justify-between">
                 <CardChip />
-                <span className="font-mono text-xs uppercase tracking-wide text-muted-foreground">AI-Augmented SDLC</span>
+                <span className="font-mono text-xs uppercase tracking-wide text-muted-foreground">Black Box</span>
             </div>
 
             <div className="flex justify-between">
                 <div className="space-y-0.5 *:block">
-                    <span className="text-muted-foreground text-xs">Phase Progression</span>
+                    <span className="text-muted-foreground text-xs">Orchestration Core</span>
                     <span className="font-mono text-sm font-medium">Interview -&gt; Plan -&gt; Work</span>
                 </div>
                 <div className="space-y-0.5 *:block">
