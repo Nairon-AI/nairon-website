@@ -15,6 +15,15 @@ function SnapHandler() {
 	const lastDirectionRef = useRef(1);
 	const isRedirectingRef = useRef(false);
 	const lastDistanceThresholdRef = useRef("35%");
+	const isInitialLoadRef = useRef(true);
+
+	// Disable snap on initial load to prevent auto-scrolling
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			isInitialLoadRef.current = false;
+		}, 1000);
+		return () => clearTimeout(timer);
+	}, []);
 
 	// Track the user's real scroll direction
 	useEffect(() => {
@@ -81,6 +90,12 @@ function SnapHandler() {
 				distanceThreshold: "35%",
 				debounce: 100,
 				onSnapStart: ({ value, index }) => {
+					// Skip snap on initial page load to prevent auto-scrolling
+					if (isInitialLoadRef.current) {
+						lenis.scrollTo(lenis.scroll, { immediate: true });
+						return;
+					}
+					
 					// Allow redirected snaps through without interference
 					if (isRedirectingRef.current) return;
 

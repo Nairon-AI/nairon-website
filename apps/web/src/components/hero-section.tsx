@@ -41,8 +41,8 @@ export default function HeroSection() {
 
   return (
     <main role="main" className="overflow-hidden">
-      <section>
-          <div className="bg-background pt-36 lg:pt-44">
+      <section data-snap-align="start">
+          <div className="bg-background pt-24 lg:pt-32">
             <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-12">
               <div className="text-center">
                 <div className="mx-auto max-w-5xl">
@@ -52,11 +52,11 @@ export default function HeroSection() {
                     animation="blurInUp"
                     duration={0.45}
                     className="text-foreground text-balance text-5xl font-semibold lg:text-6xl xl:text-7xl xl:tracking-tight">
-                    AI changes weekly, but your engineering system still has to ship every week.
+                    Stay AI-native, no matter how fast the industry evolves.
                   </TextAnimate>
                 </div>
 
-                <div className="mx-auto mb-20 mt-4 max-w-2xl">
+                <div className="mx-auto mb-8 mt-4 max-w-2xl">
                   <TextAnimate
                     as="p"
                     by="word"
@@ -64,7 +64,7 @@ export default function HeroSection() {
                     delay={0.2}
                     duration={0.35}
                     className="text-muted-foreground mb-6 text-balance text-lg lg:text-xl">
-                    N-bench gives your team a structured loop to build with intent, stay aligned as tools evolve, and benchmark real AI efficiency over time.
+                    N-bench gives your team the structure to ship with AI reliably—while staying flexible enough to adopt better tools, MCPs, and optimizations the moment they drop.
                   </TextAnimate>
 
                   <div className="mx-auto flex w-fit flex-wrap items-center justify-center gap-3">
