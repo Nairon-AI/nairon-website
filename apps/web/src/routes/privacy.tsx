@@ -48,7 +48,7 @@ function PrivacyPage() {
 									<li>
 										<strong className="text-[#E8E4DE]">Professional information</strong>{" "}
 										— resume, portfolio links, GitHub profile, and technical
-										assessment results (NBench scores).
+										assessment results (Flux scores).
 									</li>
 									<li>
 										<strong className="text-[#E8E4DE]">Usage data</strong> — pages
@@ -65,7 +65,7 @@ function PrivacyPage() {
 								<ul className="list-disc pl-6 space-y-2 mt-3">
 									<li>Match candidates with appropriate engineering roles.</li>
 									<li>Communicate with you about opportunities, services, and updates.</li>
-									<li>Improve our platform, including NBench benchmarking tools.</li>
+									<li>Improve our platform, including Flux benchmarking tools.</li>
 									<li>Comply with legal obligations.</li>
 								</ul>
 							</section>

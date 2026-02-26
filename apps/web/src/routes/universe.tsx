@@ -26,7 +26,7 @@ export const Route = createFileRoute("/universe")({
 		const base = seoHead({
 			title: "Nairon Universe — Where AI-Native Engineers Come to Learn",
 			description:
-				"Curated daily feed, SDLC-organized tool directory, and community for AI-native engineers. Powered by NBench assessment data.",
+				"Curated daily feed, SDLC-organized tool directory, and community for AI-native engineers. Powered by Flux assessment data.",
 			path: "/universe",
 		});
 		return {

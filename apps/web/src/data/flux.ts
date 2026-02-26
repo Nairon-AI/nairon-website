@@ -1,7 +1,7 @@
 export const NBENCH_HERO = {
 	badge: "Open Source AI Workflow Intelligence",
 	headline:
-		"Your AI workflow has gaps. N-bench finds them.",
+		"Your AI workflow has gaps. Flux finds them.",
 	description:
 		"Analyze your Claude Code sessions. Detect friction patterns. Get fixes that actually work.",
 	placeholder: "you@company.com",
@@ -12,7 +12,7 @@ export const NBENCH_HERO = {
 export const NBENCH_HERO_TERMINAL = {
 	title: "claude code - my-startup-app",
 	lines: [
-		"> /nbench:improve",
+		"> /flux:improve",
 		"",
 		"Analyzing 23 sessions...",
 		"",
@@ -49,7 +49,7 @@ export const NBENCH_HERO_TERMINAL = {
 		"Installing Context7...",
 		"Installing Supermemory...",
 		"",
-		"+ Done. Re-run /nbench:improve to verify.",
+		"+ Done. Re-run /flux:improve to verify.",
 	],
 } as const;
 
@@ -77,7 +77,7 @@ export const NBENCH_MODELS = {
 	badge: "Works everywhere you code",
 	title: "One plugin. Every AI coding tool.",
 	description:
-		"N-bench runs inside Claude Code, Factory Droid, and OpenAI Codex. Same workflow intelligence across every agent you use.",
+		"Flux runs inside Claude Code, Factory Droid, and OpenAI Codex. Same workflow intelligence across every agent you use.",
 	cta: "View supported platforms",
 	placeholder: "Select your agent...",
 	rows: [
@@ -94,7 +94,7 @@ export const NBENCH_FEATURE_SPLIT = {
 	left: {
 		title: "Detect friction. Fix it.",
 		description:
-			"N-bench scans your sessions for patterns that slow you down: shallow prompts, blind acceptance, context loss. Then it recommends exactly what to install.",
+			"Flux scans your sessions for patterns that slow you down: shallow prompts, blind acceptance, context loss. Then it recommends exactly what to install.",
 		panelTitle: "Friction Signals",
 		suggestions: ["Interview", "Plan", "Build", "Review"],
 		duplicateOf: "Your score: 76/100 (Top 22%)",
@@ -105,8 +105,8 @@ export const NBENCH_FEATURE_SPLIT = {
 				"High-impact tools mapped to your friction patterns. The agent installs them for you.",
 			alternatives: ["context7-mcp", "beads-tracking"],
 			commands: [
-				"/nbench:improve",
-				"/nbench:score --export",
+				"/flux:improve",
+				"/flux:score --export",
 			],
 		},
 		cta: "View recommendations",
@@ -152,7 +152,7 @@ export const NBENCH_SOCIAL_PROOF = {
 export const NBENCH_CAPABILITIES = {
 	title: "Process beats vibes",
 	description:
-		"You're using AI to code, but are you good at it? N-bench measures your actual collaboration patterns and shows you where the gaps are.",
+		"You're using AI to code, but are you good at it? Flux measures your actual collaboration patterns and shows you where the gaps are.",
 	cards: [
 		{
 			title: "Structured workflow",
@@ -161,7 +161,7 @@ export const NBENCH_CAPABILITIES = {
 		},
 		{
 			title: "Friction detection",
-			copy: "Shallow prompts, blind acceptance, undo loops, context loss. N-bench spots the patterns, then maps them to fixes.",
+			copy: "Shallow prompts, blind acceptance, undo loops, context loss. Flux spots the patterns, then maps them to fixes.",
 			tag: "Analysis",
 		},
 		{
@@ -176,7 +176,7 @@ export const NBENCH_WHAT_WE_TRACK = {
 	badge: "5 dimensions",
 	title: "What separates top performers",
 	description:
-		"Top AI collaborators push back 3x more often. They disagree, verify, and iterate. N-bench measures the patterns that matter.",
+		"Top AI collaborators push back 3x more often. They disagree, verify, and iterate. Flux measures the patterns that matter.",
 	cards: [
 		{
 			title: "Collaboration quality",
@@ -202,7 +202,7 @@ export const NBENCH_SHAREABLE_REPORTS = {
 	title: "Export your setup. Share what works.",
 	description:
 		"Generate public profiles showing your score, tools, and workflow. Perfect for hackathons, hiring, or helping teammates level up.",
-	url: "nbench.dev/u/88yadbbqhl",
+	url: "flux.dev/u/88yadbbqhl",
 	report: {
 		title: "my-saas-app",
 		agent: "Claude Code",
@@ -247,7 +247,7 @@ export const NBENCH_SHAREABLE_REPORTS = {
 		},
 	],
 	commandLabel: "Generate your profile",
-	command: "/nbench:profile --publish",
+	command: "/flux:profile --publish",
 	cta: "View example profile",
 } as const;
 
@@ -276,7 +276,7 @@ export const NBENCH_CTA_PLACEHOLDER = {
 	badge: "Get started",
 	title: "Find your gaps. Fix them.",
 	description:
-		"Install the plugin, run /nbench:improve, and see what you're missing.",
-	primary: "Install N-bench",
+		"Install the plugin, run /flux:improve, and see what you're missing.",
+	primary: "Install Flux",
 	secondary: "View on GitHub",
 } as const;

@@ -6,7 +6,7 @@ import {
 	WhyNairon,
 	DevComparison,
 	DevOutcome,
-	NBenchSection,
+	FluxSection,
 	Process,
 	DataCredibility,
 	AudienceSplit,
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
 		seoHead({
 			title: "Nairon — Data-Driven Technical Recruiting",
 			description:
-				"Data-driven recruiting powered by AI-nativeness benchmarks. We match companies with engineers who ship using NBench.",
+				"Data-driven recruiting powered by AI-nativeness benchmarks. We match companies with engineers who ship using Flux.",
 			path: "/",
 		}),
 });
@@ -59,8 +59,8 @@ function HomePage() {
 				{/* Dev outcome — data comparison chart */}
 				<DevOutcome />
 
-				{/* NBench — how we measure and train */}
-				<NBenchSection />
+				{/* Flux — how we measure and train */}
+				<FluxSection />
 
 				{/* Process */}
 				<Process />

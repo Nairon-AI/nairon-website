@@ -20,7 +20,7 @@ export { CTASection } from "./cta-section";
 export { WhyNairon } from "./why-nairon";
 export { DevComparison } from "./dev-comparison";
 export { DevOutcome } from "./dev-outcome";
-export { NBenchSection } from "./nbench-section";
+export { FluxSection } from "./flux-section";
 export { PaintingBreak } from "./painting-break";
 export { BuiltByBuilders } from "./built-by-builders";
 export { BlogSection } from "./blog-section";

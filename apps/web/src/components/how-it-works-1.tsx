@@ -28,7 +28,7 @@ const steps = [
     {
         id: '05',
         title: 'Improve',
-        description: 'Run /nbench:improve to detect friction patterns and install recommendation upgrades.',
+        description: 'Run /flux:improve to detect friction patterns and install recommendation upgrades.',
         icon: ClipboardList,
     },
 ]
@@ -59,7 +59,7 @@ export default function FeaturesSection() {
         <section className="bg-background @container py-16 md:py-24 lg:py-32">
             <div className="mx-auto w-full max-w-5xl px-6">
                 <div className="mb-10 max-w-2xl">
-                    <h2 className="text-3xl font-semibold lg:text-4xl">How N-bench fits your delivery loop</h2>
+                    <h2 className="text-3xl font-semibold lg:text-4xl">How Flux fits your delivery loop</h2>
                     <p className="text-muted-foreground mt-4 text-lg">A process-first workflow that keeps engineers in sync while AI agents execute quickly.</p>
                 </div>
 

@@ -109,18 +109,18 @@ export function serviceJsonLd() {
 }
 
 /**
- * JSON-LD SoftwareApplication schema for NBench.
+ * JSON-LD SoftwareApplication schema for Flux.
  */
-export function nbenchProductJsonLd() {
+export function fluxProductJsonLd() {
 	return {
 		"@context": "https://schema.org",
 		"@type": "SoftwareApplication",
-		name: "NBench",
+		name: "Flux",
 		description:
 			"Open-source CLI that benchmarks how AI-native your engineering stack is. Measures agent-first thinking, eval discipline, and token efficiency.",
 		applicationCategory: "DeveloperApplication",
 		operatingSystem: "Cross-platform",
-		url: `${SITE_URL}/nbench`,
+		url: `${SITE_URL}/flux`,
 		offers: {
 			"@type": "Offer",
 			price: "0",

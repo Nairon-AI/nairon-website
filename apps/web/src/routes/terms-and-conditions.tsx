@@ -11,7 +11,7 @@ export const Route = createFileRoute("/terms-and-conditions")({
 		seoHead({
 			title: "Terms & Conditions — Nairon AI",
 			description:
-				"Terms and conditions for using Nairon AI services, including our recruiting platform and NBench benchmarking tools.",
+				"Terms and conditions for using Nairon AI services, including our recruiting platform and Flux benchmarking tools.",
 			path: "/terms-and-conditions",
 		}),
 });
@@ -48,7 +48,7 @@ function TermsPage() {
 								</h2>
 								<p>
 									Nairon AI provides data-driven technical recruiting services,
-									including candidate sourcing, AI-nativeness benchmarking (NBench),
+									including candidate sourcing, AI-nativeness benchmarking (Flux),
 									and placement services. We reserve the right to modify, suspend,
 									or discontinue any part of our services at any time.
 								</p>
@@ -81,7 +81,7 @@ function TermsPage() {
 								<p>
 									All content on this website, including text, graphics, logos, and
 									software, is the property of Nairon AI or its licensors and is
-									protected by intellectual property laws. NBench is an open-source
+									protected by intellectual property laws. Flux is an open-source
 									tool distributed under its respective license.
 								</p>
 							</section>

@@ -19,7 +19,7 @@ const FOOTER_COLS: FooterCol[] = [
 		heading: "Services",
 		links: [
 			{ label: "AI-Native Recruiting", action: "hire" },
-			{ label: "NBench (Coming Soon)", href: "#", disabled: true },
+			{ label: "Flux (Coming Soon)", href: "#", disabled: true },
 			{ label: "For Candidates", action: "candidate" },
 		],
 	},
@@ -102,7 +102,7 @@ export function Footer() {
 							className="h-8 w-auto mb-4"
 						/>
 						<p className="text-[#A39E96] text-sm leading-relaxed max-w-xs">
-							Data-driven technical recruiting. Powered by NBench.
+							Data-driven technical recruiting. Powered by Flux.
 						</p>
 						<div className="mt-6">
 							<SocialLinks />

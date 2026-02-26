@@ -1,9 +1,9 @@
-import { NBENCH_TRUST_PLACEHOLDER } from "@/data/nbench";
-import { NBenchSection } from "@/components/landing/nbench/primitives";
+import { NBENCH_TRUST_PLACEHOLDER } from "@/data/flux";
+import { FluxSection } from "@/components/landing/flux/primitives";
 
-export function NBenchTrustPlaceholder() {
+export function FluxTrustPlaceholder() {
 	return (
-		<NBenchSection className="overflow-hidden pb-20 pt-12 md:pb-28 md:pt-18">
+		<FluxSection className="overflow-hidden pb-20 pt-12 md:pb-28 md:pt-18">
 			<div className="grid gap-10 border border-white/[0.08] p-6 md:p-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
 				<div>
 					<div className="inline-flex items-center rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 font-inter text-[11px] uppercase tracking-[0.12em] text-white/62">
@@ -38,6 +38,6 @@ export function NBenchTrustPlaceholder() {
 					</div>
 				</div>
 			</div>
-		</NBenchSection>
+		</FluxSection>
 	);
 }

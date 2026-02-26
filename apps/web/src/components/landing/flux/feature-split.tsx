@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Globe, Lightbulb, Paperclip } from "lucide-react";
-import { NBENCH_FEATURE_SPLIT } from "@/data/nbench";
-import { LinearGlassCard, NBenchSection } from "@/components/landing/nbench/primitives";
+import { NBENCH_FEATURE_SPLIT } from "@/data/flux";
+import { LinearGlassCard, FluxSection } from "@/components/landing/flux/primitives";
 import { cn } from "@/lib/utils";
 
 function DashboardTerminal({ revealPromptCard }: { revealPromptCard: boolean }) {
@@ -60,7 +60,7 @@ function DashboardTerminal({ revealPromptCard }: { revealPromptCard: boolean }) 
 	);
 }
 
-export function NBenchFeatureSplit() {
+export function FluxFeatureSplit() {
 	const { left, right } = NBENCH_FEATURE_SPLIT;
 	const sequenceRef = useRef<HTMLDivElement>(null);
 	const hasRunRef = useRef(false);
@@ -117,7 +117,7 @@ export function NBenchFeatureSplit() {
 	}, []);
 
 	return (
-		<NBenchSection className="overflow-hidden pb-20 pt-16 md:pb-28 md:pt-24">
+		<FluxSection className="overflow-hidden pb-20 pt-16 md:pb-28 md:pt-24">
 			<div className="relative">
 				<div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.14)_22%,rgba(255,255,255,0.14)_78%,transparent)]" />
 				<div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.14)_22%,rgba(255,255,255,0.14)_78%,transparent)]" />
@@ -234,6 +234,6 @@ export function NBenchFeatureSplit() {
 					</div>
 				</div>
 			</div>
-		</NBenchSection>
+		</FluxSection>
 	);
 }

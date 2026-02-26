@@ -12,7 +12,7 @@ export const Route = createFileRoute("/$")({
 		seoHead({
 			title: "Page Not Found — Nairon AI",
 			description:
-				"The page you're looking for doesn't exist. Find AI-native engineers or explore NBench at Nairon AI.",
+				"The page you're looking for doesn't exist. Find AI-native engineers or explore Flux at Nairon AI.",
 			path: "/404",
 			noindex: true,
 		}),
@@ -44,7 +44,7 @@ function NotFoundPage() {
 								<ArrowUpRight className="w-4 h-4" />
 							</a>
 							<span className="inline-flex items-center gap-2 border border-white/10 text-[#A39E96] font-medium text-base px-6 py-3 rounded-full opacity-80 cursor-not-allowed">
-								NBench (Coming Soon)
+								Flux (Coming Soon)
 							</span>
 						</div>
 					</div>

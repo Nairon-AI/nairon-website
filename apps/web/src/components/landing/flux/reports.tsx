@@ -1,6 +1,6 @@
 import { BarChart3, Lightbulb, Trophy, Wrench } from "lucide-react";
-import { NBENCH_SHAREABLE_REPORTS } from "@/data/nbench";
-import { LinearGlassCard, NBenchSection } from "@/components/landing/nbench/primitives";
+import { NBENCH_SHAREABLE_REPORTS } from "@/data/flux";
+import { LinearGlassCard, FluxSection } from "@/components/landing/flux/primitives";
 
 const FEATURE_ICONS = [BarChart3, Wrench, Lightbulb, Trophy] as const;
 
@@ -137,9 +137,9 @@ function ReportFeatureList() {
 	);
 }
 
-export function NBenchReports() {
+export function FluxReports() {
 	return (
-		<NBenchSection className="overflow-hidden pb-20 pt-8 md:pb-26 md:pt-12">
+		<FluxSection className="overflow-hidden pb-20 pt-8 md:pb-26 md:pt-12">
 			<div className="grid gap-8 md:grid-cols-[1fr_1fr] md:items-end md:gap-10">
 				<div>
 					<div className="inline-flex items-center rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 font-inter text-[11px] uppercase tracking-[0.12em] text-white/65">
@@ -160,6 +160,6 @@ export function NBenchReports() {
 				</div>
 			</div>
 
-		</NBenchSection>
+		</FluxSection>
 	);
 }

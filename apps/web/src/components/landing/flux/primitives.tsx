@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-export function NBenchSection({
+export function FluxSection({
 	children,
 	className,
 }: {

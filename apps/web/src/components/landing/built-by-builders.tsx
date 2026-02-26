@@ -21,7 +21,7 @@ const tools: {
 	// Desktop: Row 3–4
 	{ name: "Match Engine", description: "Role-to-engineer fit scoring", col: "1 / 2", row: "3 / 4", mobileCol: "3 / 4", mobileRow: "3 / 4" },
 	{ name: "Report Generator", description: "One-click placement reports", col: "2 / 3", row: "3 / 4", mobileCol: "1 / 2", mobileRow: "4 / 5" },
-	{ name: "NBench", description: "Proprietary AI-nativeness benchmark", col: "3 / 5", row: "3 / 5", mobileCol: "2 / 4", mobileRow: "4 / 5" },
+	{ name: "Flux", description: "Proprietary AI-nativeness benchmark", col: "3 / 5", row: "3 / 5", mobileCol: "2 / 4", mobileRow: "4 / 5" },
 	{ name: "Pipeline Tracker", description: "Live hiring funnel analytics", col: "5 / 7", row: "3 / 4", mobileCol: "1 / 2", mobileRow: "5 / 6" },
 	// Desktop: Row 4
 	{ name: "Talent Graph", description: "Engineer network mapping", col: "1 / 3", row: "4 / 5", mobileCol: "2 / 4", mobileRow: "5 / 6" },

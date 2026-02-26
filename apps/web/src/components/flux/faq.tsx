@@ -6,18 +6,18 @@ const faqItems = [
 		items: [
 			{
 				id: "install",
-				question: "How do I install N-bench?",
-				answer: "Run `/plugin marketplace add Nairon-AI/n-bench` in Claude Code, then `/nbench:setup` to initialize. For other platforms, check our GitHub README.",
+				question: "How do I install Flux?",
+				answer: "Run `/plugin marketplace add Nairon-AI/flux` in Claude Code, then `/flux:setup` to initialize. For other platforms, check our GitHub README.",
 			},
 			{
 				id: "prereqs",
 				question: "What are the prerequisites?",
-				answer: "Python 3.9+, jq, and git. N-bench checks for these during execution and tells you what's missing.",
+				answer: "Python 3.9+, jq, and git. Flux checks for these during execution and tells you what's missing.",
 			},
 			{
 				id: "first-feature",
-				question: "How do I build my first feature with N-bench?",
-				answer: "Start with `/nbench:interview Add user notifications` to clarify requirements, then `/nbench:plan` to break it into tasks, then `/nbench:work fn-1.1` to execute each task.",
+				question: "How do I build my first feature with Flux?",
+				answer: "Start with `/flux:interview Add user notifications` to clarify requirements, then `/flux:plan` to break it into tasks, then `/flux:work fn-1.1` to execute each task.",
 			},
 		],
 	},
@@ -26,7 +26,7 @@ const faqItems = [
 		items: [
 			{
 				id: "data-read",
-				question: "What data does N-bench read?",
+				question: "What data does Flux read?",
 				answer: "Repo structure (package.json, configs), installed MCPs from ~/.mcp.json, and optionally Claude Code session files (with your consent).",
 			},
 			{
@@ -37,7 +37,7 @@ const faqItems = [
 			{
 				id: "recommendations",
 				question: "Where do recommendations come from?",
-				answer: "From Nairon-AI/n-bench-recommendations on GitHub — 30+ curated tools, community-driven. You can browse and contribute.",
+				answer: "From Nairon-AI/flux-recommendations on GitHub — 30+ curated tools, community-driven. You can browse and contribute.",
 			},
 		],
 	},
@@ -46,7 +46,7 @@ const faqItems = [
 		items: [
 			{
 				id: "improve",
-				question: "What does /nbench:improve do?",
+				question: "What does /flux:improve do?",
 				answer: "It analyzes your actual coding sessions to find friction patterns (shallow prompts, blind acceptance, etc.), then recommends specific tools that would help. The agent handles installation.",
 			},
 			{
@@ -56,14 +56,14 @@ const faqItems = [
 			},
 			{
 				id: "profile",
-				question: "Can I share my N-bench profile?",
-				answer: "Yes. Run `/nbench:profile --publish` to generate a shareable link showing your score, tools, and workflow. Great for hiring, hackathons, or helping teammates.",
+				question: "Can I share my Flux profile?",
+				answer: "Yes. Run `/flux:profile --publish` to generate a shareable link showing your score, tools, and workflow. Great for hiring, hackathons, or helping teammates.",
 			},
 		],
 	},
 ];
 
-export function NBenchFAQ() {
+export function FluxFAQ() {
 	return (
 		<section className="bg-background py-16 md:py-24">
 			<div className="mx-auto max-w-5xl px-1 md:px-6">
@@ -72,7 +72,7 @@ export function NBenchFAQ() {
 					<div className="max-w-lg max-md:px-6 md:col-span-2">
 						<h2 className="text-foreground text-4xl font-semibold">FAQs</h2>
 						<p className="text-muted-foreground mt-4 text-balance text-lg">
-							Common questions about N-bench
+							Common questions about Flux
 						</p>
 						<p className="text-muted-foreground mt-6 max-md:hidden">
 							Can't find what you're looking for? Join our{" "}

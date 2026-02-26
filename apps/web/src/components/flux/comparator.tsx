@@ -81,7 +81,7 @@ const CheckIcon = () => (
 	</svg>
 );
 
-export function NBenchComparator() {
+export function FluxComparator() {
 	return (
 		<section className="bg-background py-16 md:py-24">
 			<div className="mx-auto max-w-5xl px-6">
@@ -89,13 +89,13 @@ export function NBenchComparator() {
 					{/* Left: Header */}
 					<div className="max-w-lg">
 						<div className="bg-amber-500/10 text-amber-400 border border-amber-500/20 w-fit rounded-full px-4 py-1.5 text-sm font-medium mb-6">
-							Why N-bench?
+							Why Flux?
 						</div>
 						<h2 className="text-foreground text-3xl font-semibold md:text-4xl lg:text-5xl">
-							Claude Code is powerful. N-bench makes it structured.
+							Claude Code is powerful. Flux makes it structured.
 						</h2>
 						<p className="text-muted-foreground mt-6 text-lg">
-							AI agents generate code. N-bench ensures you're actually good at working with them. Process beats raw prompting.
+							AI agents generate code. Flux ensures you're actually good at working with them. Process beats raw prompting.
 						</p>
 					</div>
 
@@ -143,10 +143,10 @@ export function NBenchComparator() {
 							))}
 						</div>
 
-						{/* With N-bench column */}
+						{/* With Flux column */}
 						<div className="ring-border bg-card/50 shadow-black/6.5 relative z-10 rounded-xl shadow-xl ring-1">
 							<div className="sticky top-0 flex h-14 flex-col items-center justify-center gap-1.5 rounded-t-xl px-4 text-center">
-								<span className="text-foreground text-sm font-semibold">+ N-bench</span>
+								<span className="text-foreground text-sm font-semibold">+ Flux</span>
 							</div>
 							{features.map((feature, index) => (
 								<div

@@ -3,7 +3,7 @@ import { GridSection, GridCell, CornerNotches } from "./grid-system";
 const testimonials = [
 	{
 		quote:
-			"Nairon found us an AI-native engineer who transformed our product in 90 days. The NBench data gave us confidence we'd never had with traditional recruiters.",
+			"Nairon found us an AI-native engineer who transformed our product in 90 days. The Flux data gave us confidence we'd never had with traditional recruiters.",
 		name: "Sarah Al-Rashid",
 		role: "CEO, TechVentures Dubai",
 		avatar: "/avatars/avatar-4.jpg",

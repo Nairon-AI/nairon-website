@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Check, Copy, Github, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export function NBenchCTA() {
-	const installCommand = "/plugin marketplace add Nairon-AI/n-bench";
+export function FluxCTA() {
+	const installCommand = "/plugin marketplace add Nairon-AI/flux";
 	const [copied, setCopied] = useState(false);
 
 	const handleCopy = async () => {
@@ -27,7 +27,7 @@ export function NBenchCTA() {
 				</h2>
 
 				<p className="text-muted-foreground mt-6 text-lg max-w-xl mx-auto">
-					Install the plugin, run <code className="text-emerald-400 font-mono">/nbench:improve</code>, and see what you're missing.
+					Install the plugin, run <code className="text-emerald-400 font-mono">/flux:improve</code>, and see what you're missing.
 				</p>
 
 				{/* Install command */}

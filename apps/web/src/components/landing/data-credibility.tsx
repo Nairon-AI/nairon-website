@@ -5,7 +5,7 @@ const stats = [
 	{ value: "2,000+", label: "Engineers in our network" },
 	{ value: "94%", label: "Placement success rate" },
 	{ value: "30", label: "Average days to placement" },
-	{ value: "4.8", label: "Average NBench score" },
+	{ value: "4.8", label: "Average Flux score" },
 ];
 
 /** Parse a display string like "2,000+" into { number, prefix, suffix, decimals } */
@@ -100,7 +100,7 @@ export function DataCredibility() {
 					</div>
 					<h2 className="text-3xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE]">
 						Backed by{" "}
-						<span className="text-gradient-gold">NBench</span> data
+						<span className="text-gradient-gold">Flux</span> data
 					</h2>
 				</GridCell>
 				<GridCell className="px-6 md:px-12 py-4 md:py-12 flex items-end">
@@ -124,11 +124,11 @@ export function DataCredibility() {
 				))}
 			</GridSection>
 
-			{/* NBench link row */}
+			{/* Flux link row */}
 			<GridSection columns="1fr" border>
 				<GridCell className="py-5 md:py-6 text-center">
 					<span className="inline-flex items-center gap-2 text-[#A39E96] text-sm font-medium opacity-80 cursor-not-allowed">
-						NBench (Coming Soon)
+						Flux (Coming Soon)
 					</span>
 				</GridCell>
 			</GridSection>

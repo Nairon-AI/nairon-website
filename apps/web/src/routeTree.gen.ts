@@ -12,7 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as UniverseRouteImport } from './routes/universe'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as NbenchRouteImport } from './routes/nbench'
+import { Route as FluxRouteImport } from './routes/flux'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -31,9 +31,9 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const NbenchRoute = NbenchRouteImport.update({
-  id: '/nbench',
-  path: '/nbench',
+const FluxRoute = FluxRouteImport.update({
+  id: '/flux',
+  path: '/flux',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SplatRoute = SplatRouteImport.update({
@@ -50,7 +50,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
-  '/nbench': typeof NbenchRoute
+  '/flux': typeof FluxRoute
   '/privacy': typeof PrivacyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/universe': typeof UniverseRoute
@@ -58,7 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
-  '/nbench': typeof NbenchRoute
+  '/flux': typeof FluxRoute
   '/privacy': typeof PrivacyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/universe': typeof UniverseRoute
@@ -67,7 +67,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
-  '/nbench': typeof NbenchRoute
+  '/flux': typeof FluxRoute
   '/privacy': typeof PrivacyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/universe': typeof UniverseRoute
@@ -77,23 +77,17 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/$'
-    | '/nbench'
+    | '/flux'
     | '/privacy'
     | '/terms-and-conditions'
     | '/universe'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/$'
-    | '/nbench'
-    | '/privacy'
-    | '/terms-and-conditions'
-    | '/universe'
+  to: '/' | '/$' | '/flux' | '/privacy' | '/terms-and-conditions' | '/universe'
   id:
     | '__root__'
     | '/'
     | '/$'
-    | '/nbench'
+    | '/flux'
     | '/privacy'
     | '/terms-and-conditions'
     | '/universe'
@@ -102,7 +96,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SplatRoute: typeof SplatRoute
-  NbenchRoute: typeof NbenchRoute
+  FluxRoute: typeof FluxRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
   UniverseRoute: typeof UniverseRoute
@@ -131,11 +125,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/nbench': {
-      id: '/nbench'
-      path: '/nbench'
-      fullPath: '/nbench'
-      preLoaderRoute: typeof NbenchRouteImport
+    '/flux': {
+      id: '/flux'
+      path: '/flux'
+      fullPath: '/flux'
+      preLoaderRoute: typeof FluxRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/$': {
@@ -158,7 +152,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SplatRoute: SplatRoute,
-  NbenchRoute: NbenchRoute,
+  FluxRoute: FluxRoute,
   PrivacyRoute: PrivacyRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
   UniverseRoute: UniverseRoute,

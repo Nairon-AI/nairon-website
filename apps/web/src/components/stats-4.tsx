@@ -6,7 +6,7 @@ export default function StatsSection() {
             <div className="mx-auto max-w-5xl px-6">
                 <h2 className="mx-auto max-w-2xl text-balance text-center text-3xl font-semibold lg:text-4xl">Metrics that move engineering behavior</h2>
                 <p className="text-muted-foreground mx-auto mt-6 max-w-xl text-pretty text-center text-lg">
-                    N-bench benchmarks the habits that separate AI-native teams from prompt-and-pray workflows.
+                    Flux benchmarks the habits that separate AI-native teams from prompt-and-pray workflows.
                 </p>
 
                 <div className="relative mt-12">

@@ -25,7 +25,7 @@ export default function BentoSeven() {
             <div className="mx-auto w-full max-w-5xl px-6">
                 <div className="mb-10 max-w-2xl">
                     <h2 className="text-3xl font-semibold lg:text-4xl">From raw model output to reliable delivery</h2>
-                    <p className="text-muted-foreground mt-4 text-lg">N-bench makes agents practical: detect weak collaboration patterns, wire better tooling, then measure improvements over time.</p>
+                    <p className="text-muted-foreground mt-4 text-lg">Flux makes agents practical: detect weak collaboration patterns, wire better tooling, then measure improvements over time.</p>
                 </div>
                 <div className="@2xl:grid-cols-2 @2xl:grid-rows-2 @4xl:grid-cols-3 grid gap-3">
                     <div className="@xl:col-span-2 @2xl:row-span-2 grid grid-rows-[auto_1fr] gap-3">
@@ -33,7 +33,7 @@ export default function BentoSeven() {
                             <div>
                                 <BetweenHorizonalEnd className="text-muted-foreground size-4" />
                                 <h3 className="text-foreground mb-2 mt-4 font-medium">Models are supercharged with the right MCPs, Skills, and harnesses</h3>
-                                <p className="text-muted-foreground text-balance">N-bench identifies where execution breaks down, then helps agents route through better tools and process checkpoints so quality compounds instead of regressing.</p>
+                                <p className="text-muted-foreground text-balance">Flux identifies where execution breaks down, then helps agents route through better tools and process checkpoints so quality compounds instead of regressing.</p>
                             </div>
                             <div className="-mx-6 overflow-hidden pl-2 md:-mx-8 md:pl-6">
                                 <Flow10Illustration />
@@ -53,7 +53,7 @@ export default function BentoSeven() {
                                 <div>
                                     <Workflow className="text-muted-foreground size-4" />
                                     <h3 className="text-foreground mt-4 font-medium">Focus on the real bottleneck</h3>
-                                    <p className="text-muted-foreground mt-2">N-bench prioritizes your highest-friction patterns first, so teams improve where it matters.</p>
+                                    <p className="text-muted-foreground mt-2">Flux prioritizes your highest-friction patterns first, so teams improve where it matters.</p>
                                 </div>
                             </Card>
                             <Card className="group grid grid-rows-[auto_1fr] gap-4 overflow-hidden rounded-2xl p-6 md:gap-6 md:p-8">

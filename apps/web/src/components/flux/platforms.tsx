@@ -9,19 +9,19 @@ const platforms = [
 	{
 		name: "Claude Code",
 		status: "recommended",
-		install: "/plugin marketplace add Nairon-AI/n-bench",
+		install: "/plugin marketplace add Nairon-AI/flux",
 		icon: Claude,
 	},
 	{
 		name: "Factory Droid",
 		status: "supported",
-		install: "droid plugin marketplace add https://github.com/Nairon-AI/n-bench",
+		install: "droid plugin marketplace add https://github.com/Nairon-AI/flux",
 		icon: Replit,
 	},
 	{
 		name: "OpenAI Codex",
 		status: "supported",
-		install: "git clone + ./scripts/install-codex.sh nbench",
+		install: "git clone + ./scripts/install-codex.sh flux",
 		icon: OpenAI,
 	},
 	{
@@ -32,7 +32,7 @@ const platforms = [
 	},
 ];
 
-export function NBenchPlatforms() {
+export function FluxPlatforms() {
 	return (
 		<section className="bg-background py-16 md:py-24">
 			<div className="mx-auto max-w-5xl px-6">
@@ -45,7 +45,7 @@ export function NBenchPlatforms() {
 						One plugin. Every AI coding tool.
 					</h2>
 					<p className="text-muted-foreground mt-6 text-lg">
-						N-bench runs inside Claude Code, Factory Droid, and OpenAI Codex. Same workflow intelligence across every agent you use.
+						Flux runs inside Claude Code, Factory Droid, and OpenAI Codex. Same workflow intelligence across every agent you use.
 					</p>
 				</div>
 

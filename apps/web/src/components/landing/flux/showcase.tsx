@@ -1,5 +1,5 @@
-import { NBENCH_CAPABILITIES } from "@/data/nbench";
-import { LinearGlassCard, NBenchSection } from "@/components/landing/nbench/primitives";
+import { NBENCH_CAPABILITIES } from "@/data/flux";
+import { LinearGlassCard, FluxSection } from "@/components/landing/flux/primitives";
 
 function CapabilityCard({
 	title,
@@ -73,10 +73,10 @@ function CapabilityCard({
 	);
 }
 
-export function NBenchShowcase() {
+export function FluxShowcase() {
 	return (
 		<>
-			<NBenchSection className="pb-18 pt-0 md:pb-24 md:pt-2">
+			<FluxSection className="pb-18 pt-0 md:pb-24 md:pt-2">
 				<div className="pointer-events-none absolute inset-x-8 top-16 -z-10 h-[420px] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),transparent_48%,rgba(255,255,255,0.02))] blur-2xl" />
 				<div className="grid gap-8 md:grid-cols-[1fr_1fr] md:items-end md:gap-10">
 					<h2 className="max-w-[14ch] font-inter text-[34px] font-[530] leading-[1.12] tracking-[-0.022em] text-white md:text-[42px]">
@@ -97,7 +97,7 @@ export function NBenchShowcase() {
 						/>
 					))}
 				</div>
-			</NBenchSection>
+			</FluxSection>
 		</>
 	);
 }

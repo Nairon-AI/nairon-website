@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { TextAnimate } from '@/components/ui/text-animate'
 import { Check, Copy, ShieldCheck, Sparkles, Waypoints } from 'lucide-react'
 
-const installCommand = '/plugin marketplace add Nairon-AI/n-bench'
+const installCommand = '/plugin marketplace add Nairon-AI/flux'
 
 const highlights = [
   {
@@ -34,7 +34,7 @@ export default function HeroSection() {
   }
 
   const scrollToArchitecture = () => {
-    const node = document.getElementById('nbench-architecture')
+    const node = document.getElementById('flux-architecture')
     if (!node) return
     node.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
@@ -64,7 +64,7 @@ export default function HeroSection() {
                     delay={0.2}
                     duration={0.35}
                     className="text-muted-foreground mb-6 text-balance text-lg lg:text-xl">
-                    N-bench gives your team the structure to ship with AI reliably—while staying flexible enough to adopt better tools, MCPs, and optimizations the moment they drop.
+                    Flux gives your team the structure to ship with AI reliably—while staying flexible enough to adopt better tools, MCPs, and optimizations the moment they drop.
                   </TextAnimate>
 
                   <div className="mx-auto flex w-fit flex-wrap items-center justify-center gap-3">

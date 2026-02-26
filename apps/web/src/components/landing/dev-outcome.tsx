@@ -45,7 +45,7 @@ const metrics = [
 	},
 	{
 		label: "Architecture quality",
-		subtitle: "NBench arch score",
+		subtitle: "Flux arch score",
 		values: ["8.7", "5.4", "4.1"],
 		best: 0,
 		badge: "2.1x \u2191",
@@ -97,7 +97,7 @@ export function DevOutcome() {
 						The gap is measurable
 					</h2>
 					<p className="text-[#A39E96] text-sm md:text-base max-w-xl">
-						Across 2,000+ engineers assessed with NBench, AI-native engineers consistently outperform on every metric that matters.
+						Across 2,000+ engineers assessed with Flux, AI-native engineers consistently outperform on every metric that matters.
 					</p>
 				</GridCell>
 			</GridSection>
@@ -184,7 +184,7 @@ export function DevOutcome() {
 					</table>
 
 					<p className="text-[10px] text-[#A39E96]/40 mt-6">
-						Source: NBench aggregate data, 2,000+ assessed engineers, Q4 2025
+						Source: Flux aggregate data, 2,000+ assessed engineers, Q4 2025
 					</p>
 				</GridCell>
 			</GridSection>

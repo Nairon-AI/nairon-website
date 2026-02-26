@@ -40,7 +40,7 @@ export function AudienceSplit() {
 					</p>
 					<ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
 						{[
-							"NBench-scored candidate shortlist",
+							"Flux-scored candidate shortlist",
 							"Culture & team-fit matching",
 							"90-day placement guarantee",
 						].map((item) => (
@@ -76,7 +76,7 @@ export function AudienceSplit() {
 					</p>
 					<ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
 						{[
-							"Free NBench assessment & score",
+							"Free Flux assessment & score",
 							"Matched to companies that fit your style",
 							"Confidential process, always",
 						].map((item) => (

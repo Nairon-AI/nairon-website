@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
 import { TooltipProvider, Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 
-const plans = ['claude', 'nbench'] as const
+const plans = ['claude', 'flux'] as const
 
 type Plan = (typeof plans)[number]
 
@@ -17,7 +17,7 @@ const features: Feature[] = [
         description: 'Default slash-command workflow that enforces requirement clarity before coding.',
         plans: {
             claude: false,
-            nbench: true,
+            flux: true,
         },
     },
     {
@@ -25,7 +25,7 @@ const features: Feature[] = [
         description: 'Detect shallow prompts, blind acceptance, context loss, and undo loops from real sessions.',
         plans: {
             claude: false,
-            nbench: true,
+            flux: true,
         },
     },
     {
@@ -33,7 +33,7 @@ const features: Feature[] = [
         description: 'Maps each friction pattern to specific MCP servers, skills, or process upgrades.',
         plans: {
             claude: false,
-            nbench: true,
+            flux: true,
         },
     },
     {
@@ -41,7 +41,7 @@ const features: Feature[] = [
         description: 'Benchmarks collaboration quality and tracks score deltas over time.',
         plans: {
             claude: false,
-            nbench: true,
+            flux: true,
         },
     },
     {
@@ -49,7 +49,7 @@ const features: Feature[] = [
         description: 'Measures how teams use docs/tools/tests to validate model output before merge.',
         plans: {
             claude: false,
-            nbench: true,
+            flux: true,
         },
     },
     {
@@ -57,7 +57,7 @@ const features: Feature[] = [
         description: 'Session processing runs locally; exports are opt-in.',
         plans: {
             claude: true,
-            nbench: true,
+            flux: true,
         },
     },
     {
@@ -65,7 +65,7 @@ const features: Feature[] = [
         description: 'No context switching to external dashboards required for core workflow.',
         plans: {
             claude: true,
-            nbench: true,
+            flux: true,
         },
     },
     {
@@ -73,7 +73,7 @@ const features: Feature[] = [
         description: 'Same workflow intelligence can be applied across supported agent runtimes.',
         plans: {
             claude: false,
-            nbench: true,
+            flux: true,
         },
     },
 ]
@@ -86,14 +86,14 @@ const renderPlanColumn = (plan: Plan) => {
             </div>
         ) : (
             <div className="sticky top-0 flex h-14 flex-col items-center justify-center gap-1.5 px-4 pt-2 text-center lg:px-8">
-                <span className="text-sm font-semibold">Claude Code + N-bench</span>
+                <span className="text-sm font-semibold">Claude Code + Flux</span>
             </div>
         )
 
     return (
         <div
             data-plan={plan}
-            className={cn(plan === 'nbench' && 'ring-border bg-card/50 shadow-black/6.5 relative z-10 rounded-xl shadow-xl ring-1')}>
+            className={cn(plan === 'flux' && 'ring-border bg-card/50 shadow-black/6.5 relative z-10 rounded-xl shadow-xl ring-1')}>
             {header}
 
             <div>
@@ -117,8 +117,8 @@ export default function ComparatorSection() {
                 <div className="grid gap-12 lg:grid-cols-2">
                     <div className="max-w-lg max-md:px-6">
                         <div className="text-balance lg:max-w-xs">
-                            <h2 className="text-foreground text-3xl font-semibold md:text-4xl lg:text-5xl">Claude Code vs Claude Code + N-bench</h2>
-                            <p className="text-muted-foreground mt-4 text-balance lg:mt-6">N-bench keeps Claude Code in the same dev flow, but adds process intelligence, scoring, and recommendation loops.</p>
+                            <h2 className="text-foreground text-3xl font-semibold md:text-4xl lg:text-5xl">Claude Code vs Claude Code + Flux</h2>
+                            <p className="text-muted-foreground mt-4 text-balance lg:mt-6">Flux keeps Claude Code in the same dev flow, but adds process intelligence, scoring, and recommendation loops.</p>
                         </div>
                     </div>
 

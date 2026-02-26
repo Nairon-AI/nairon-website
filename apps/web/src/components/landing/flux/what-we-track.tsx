@@ -1,5 +1,5 @@
-import { NBENCH_WHAT_WE_TRACK } from "@/data/nbench";
-import { LinearGlassCard, NBenchSection } from "@/components/landing/nbench/primitives";
+import { NBENCH_WHAT_WE_TRACK } from "@/data/flux";
+import { LinearGlassCard, FluxSection } from "@/components/landing/flux/primitives";
 
 function CyclesMock() {
 	return (
@@ -72,9 +72,9 @@ function TriageMock() {
 	);
 }
 
-export function NBenchWhatWeTrack() {
+export function FluxWhatWeTrack() {
 	return (
-		<NBenchSection className="overflow-hidden pb-20 pt-10 md:pb-26 md:pt-14">
+		<FluxSection className="overflow-hidden pb-20 pt-10 md:pb-26 md:pt-14">
 			<div className="mx-auto max-w-4xl text-center">
 				<div className="inline-flex items-center rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 font-inter text-[11px] uppercase tracking-[0.12em] text-white/65">
 					{NBENCH_WHAT_WE_TRACK.badge}
@@ -107,6 +107,6 @@ export function NBenchWhatWeTrack() {
 					))}
 				</div>
 			</div>
-		</NBenchSection>
+		</FluxSection>
 	);
 }

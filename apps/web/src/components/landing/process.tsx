@@ -16,7 +16,7 @@ const steps = [
 	},
 	{
 		number: "03",
-		title: "NBench Assessment",
+		title: "Flux Assessment",
 		description:
 			"Each candidate goes through our proprietary benchmark — evaluating AI-nativeness, architecture decisions, team scaling experience, and technical debt philosophy.",
 	},

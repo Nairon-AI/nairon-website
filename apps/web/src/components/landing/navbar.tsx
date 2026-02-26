@@ -37,7 +37,7 @@ const UNIVERSE_TOOLS = [
 		icon: "M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z",
 	},
 	{
-		label: "NBench (Coming Soon)",
+		label: "Flux (Coming Soon)",
 		description: "AI-nativeness benchmark",
 		href: "#",
 		disabled: true,
@@ -154,7 +154,7 @@ export function Navbar() {
 	const [universeOpen, setUniverseOpen] = useState(false);
 	const { openHireModal } = useModals();
 	const location = useLocation();
-	const isNBenchPage = location.pathname === "/nbench";
+	const isFluxPage = location.pathname === "/flux";
 	const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
 	useEffect(() => {
@@ -192,7 +192,7 @@ export function Navbar() {
 			<div className="max-w-7xl mx-auto px-4 md:px-10 py-4 flex items-center justify-between">
 				{/* Logo */}
 				<a href="/" className="flex items-center shrink-0">
-					{isNBenchPage ? (
+					{isFluxPage ? (
 						<div className="flex items-center gap-3">
 							<img
 								src="/bench-logo.svg"
@@ -229,7 +229,7 @@ export function Navbar() {
 				{/* Desktop nav */}
 				<div className="hidden md:flex items-center gap-1">
 				<span className="px-4 py-2 rounded-full text-sm text-[#A39E96] cursor-not-allowed opacity-80">
-					NBench (Coming Soon)
+					Flux (Coming Soon)
 				</span>
 
 					<span className="px-4 py-2 rounded-full text-sm text-[#A39E96] cursor-not-allowed opacity-80">
@@ -268,7 +268,7 @@ export function Navbar() {
 			{mobileOpen && (
 				<div className="md:hidden bg-[#0C0C0C] border-t border-white/6 px-6 py-6 space-y-1">
 					<span className="block px-4 py-3 rounded-xl text-base text-[#A39E96] opacity-70 cursor-not-allowed">
-						NBench (Coming Soon)
+						Flux (Coming Soon)
 					</span>
 
 					<span className="block px-4 py-3 rounded-xl text-base text-[#A39E96] opacity-70 cursor-not-allowed">

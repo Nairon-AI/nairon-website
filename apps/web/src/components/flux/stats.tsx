@@ -33,7 +33,7 @@ const PlusDecorator = ({ className }: { className?: string }) => (
 	/>
 );
 
-export function NBenchStats() {
+export function FluxStats() {
 	return (
 		<section className="bg-background @container py-16 md:py-24">
 			<div className="mx-auto max-w-5xl px-6">
@@ -43,7 +43,7 @@ export function NBenchStats() {
 				<p className="text-muted-foreground mx-auto mt-6 max-w-xl text-pretty text-center text-lg">
 					You're using AI to code, but{" "}
 					<strong className="text-foreground font-semibold">are you actually good at it?</strong>{" "}
-					N-bench measures the patterns that matter.
+					Flux measures the patterns that matter.
 				</p>
 
 				<div className="relative mt-12">

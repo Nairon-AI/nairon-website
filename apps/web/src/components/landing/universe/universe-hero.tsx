@@ -294,7 +294,7 @@ export function UniverseHero() {
 				<p className="mt-7 text-lg md:text-xl text-[#A39E96] max-w-xl mx-auto leading-relaxed">
 					A daily feed, curated tool directory, and community for
 					engineers building with AI. Powered by data from thousands
-					of NBench assessments.
+					of Flux assessments.
 				</p>
 
 				{/* CTAs */}

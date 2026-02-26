@@ -57,7 +57,7 @@ const recommendations = [
 	},
 ];
 
-export function NBenchFriction() {
+export function FluxFriction() {
 	return (
 		<section className="bg-background py-16 md:py-24">
 			<div className="mx-auto max-w-6xl px-6">
@@ -68,7 +68,7 @@ export function NBenchFriction() {
 							Friction Detection
 						</div>
 						<h2 className="text-foreground text-3xl font-semibold md:text-4xl">
-							What N-bench detects
+							What Flux detects
 						</h2>
 						<p className="text-muted-foreground mt-4 text-lg mb-8">
 							Patterns that slow you down. Not model failures—<span className="text-foreground font-medium">process failures</span>.
@@ -101,7 +101,7 @@ export function NBenchFriction() {
 							Battle-tested Solutions
 						</div>
 						<h2 className="text-foreground text-3xl font-semibold md:text-4xl">
-							What N-bench recommends
+							What Flux recommends
 						</h2>
 						<p className="text-muted-foreground mt-4 text-lg mb-8">
 							A curated database of <span className="text-foreground font-medium">30+ tools</span> mapped to your specific friction.

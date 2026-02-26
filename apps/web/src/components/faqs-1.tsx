@@ -6,12 +6,12 @@ const faqItems = [
         items: [
             {
                 id: 'item-1',
-                question: 'Is N-bench a standalone CLI?',
-                answer: 'No. N-bench is a Claude Code plugin. You run slash commands like /nbench:setup and /nbench:improve directly inside the agent workflow.',
+                question: 'Is Flux a standalone CLI?',
+                answer: 'No. Flux is a Claude Code plugin. You run slash commands like /flux:setup and /flux:improve directly inside the agent workflow.',
             },
             {
                 id: 'item-2',
-                question: 'What does /nbench:improve actually do?',
+                question: 'What does /flux:improve actually do?',
                 answer: 'It analyzes your recent sessions, detects friction patterns (for example shallow prompts or blind acceptance), and recommends the best tools/process fixes for your workflow.',
             },
             {

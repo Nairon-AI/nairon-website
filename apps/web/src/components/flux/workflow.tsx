@@ -5,7 +5,7 @@ const steps = [
 		number: "1",
 		title: "Interview",
 		description: "Clarify requirements before writing code. The agent asks questions, you answer. No more scope drift.",
-		command: "/nbench:interview Add user notifications",
+		command: "/flux:interview Add user notifications",
 		icon: MessageSquare,
 		color: "text-blue-400",
 	},
@@ -13,7 +13,7 @@ const steps = [
 		number: "2",
 		title: "Plan",
 		description: "Break features into atomic tasks (30-90 min each). Dependencies mapped. Progress tracked.",
-		command: "/nbench:plan Add user notifications",
+		command: "/flux:plan Add user notifications",
 		icon: GitBranch,
 		color: "text-purple-400",
 	},
@@ -21,7 +21,7 @@ const steps = [
 		number: "3",
 		title: "Build",
 		description: "Execute tasks one by one. Context reloaded automatically. Human checkpoints maintained.",
-		command: "/nbench:work fn-1.1",
+		command: "/flux:work fn-1.1",
 		icon: Wrench,
 		color: "text-amber-400",
 	},
@@ -29,7 +29,7 @@ const steps = [
 		number: "4",
 		title: "Review",
 		description: "Catch issues before they compound. Implementation review, then epic-level verification.",
-		command: "/nbench:impl-review",
+		command: "/flux:impl-review",
 		icon: CheckCircle2,
 		color: "text-emerald-400",
 	},
@@ -37,13 +37,13 @@ const steps = [
 		number: "5",
 		title: "Improve",
 		description: "Analyze your sessions. Detect friction patterns. Get personalized tool recommendations.",
-		command: "/nbench:improve",
+		command: "/flux:improve",
 		icon: Sparkles,
 		color: "text-cyan-400",
 	},
 ];
 
-export function NBenchWorkflow() {
+export function FluxWorkflow() {
 	return (
 		<section id="workflow" className="bg-background @container py-16 md:py-24 lg:py-32">
 			<div className="mx-auto max-w-6xl px-6">

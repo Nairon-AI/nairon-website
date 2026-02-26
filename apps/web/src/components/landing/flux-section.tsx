@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { GridSection, GridCell, CornerNotches } from "./grid-system";
 
-const COMMAND = "> /nbench:improve";
+const COMMAND = "> /flux:improve";
 
 const outputLines = [
 	{ type: "blank" },
@@ -23,7 +23,7 @@ const features = [
 	{
 		title: "Detects friction patterns",
 		description:
-			"Shallow prompts, blind acceptance, context loss, undo loops. N-bench finds the patterns that slow you down, then recommends fixes.",
+			"Shallow prompts, blind acceptance, context loss, undo loops. Flux finds the patterns that slow you down, then recommends fixes.",
 	},
 	{
 		title: "Open source, verifiable",
@@ -101,7 +101,7 @@ function TerminalMockup() {
 				<div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
 				<div className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
 				<div className="w-3 h-3 rounded-full bg-[#28C840]" />
-				<span className="ml-3 text-[11px] text-[#A39E96]/50">nbench</span>
+				<span className="ml-3 text-[11px] text-[#A39E96]/50">flux</span>
 			</div>
 
 			{/* Terminal content */}
@@ -173,7 +173,7 @@ function TerminalMockup() {
 	);
 }
 
-export function NBenchSection() {
+export function FluxSection() {
 	return (
 		<div>
 			{/* Heading row */}
@@ -190,7 +190,7 @@ export function NBenchSection() {
 						<h2 className="text-3xl md:text-[48px] md:leading-[57.6px] font-normal tracking-[-0.48px] text-[#E8E4DE] max-w-3xl mb-3">
 							Your AI workflow has gaps.{" "}
 							<span className="font-serif italic text-[#C9A96E]">
-								N-bench
+								Flux
 							</span>{" "}
 							finds them.
 						</h2>
@@ -200,7 +200,7 @@ export function NBenchSection() {
 						</p>
 						</div>
 						<span className="hidden md:inline-flex items-center gap-2 border border-white/12 text-[#A39E96] font-medium text-sm px-6 py-3 rounded-full shrink-0 opacity-80 cursor-not-allowed">
-							NBench (Coming Soon)
+							Flux (Coming Soon)
 						</span>
 					</div>
 				</GridCell>
@@ -253,7 +253,7 @@ export function NBenchSection() {
 						>
 							<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
 						</svg>
-						NBench (Closed Source)
+						Flux (Closed Source)
 						<svg
 							width="14"
 							height="14"

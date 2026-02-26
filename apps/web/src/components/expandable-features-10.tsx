@@ -10,7 +10,7 @@ const AUTOPLAY_DURATION = 7000
 const features = [
     {
         title: 'CLI Runtime Layer',
-        description: 'N-bench runs inside Claude Code, captures slash-command workflows, and scores real execution patterns.',
+        description: 'Flux runs inside Claude Code, captures slash-command workflows, and scores real execution patterns.',
     },
     {
         title: 'Recommendation DB + Nightcrawler',
@@ -47,7 +47,7 @@ export default function ExpandableFeatures() {
     }
 
     return (
-        <section id="nbench-architecture" className="bg-background @container scroll-mt-28 pt-24">
+        <section id="flux-architecture" className="bg-background @container scroll-mt-28 pt-24">
             <div className="mx-auto max-w-5xl px-6">
                 <div className="max-w-lg">
                     <h2 className="text-foreground text-3xl font-semibold lg:text-4xl">Architecture</h2>

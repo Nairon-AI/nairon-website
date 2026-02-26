@@ -230,7 +230,7 @@ export function UniverseDirectory() {
 						</span>
 					</h2>
 					<p className="text-[#A39E96] text-base max-w-xl">
-						Auto-curated from NBench assessment data. Organized by
+						Auto-curated from Flux assessment data. Organized by
 						SDLC phase so you find the right tool for every stage of
 						development.
 					</p>

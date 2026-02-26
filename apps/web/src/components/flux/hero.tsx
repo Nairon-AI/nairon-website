@@ -3,7 +3,7 @@ import { Check, Copy, Github, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const TERMINAL_LINES = [
-	{ type: "command", text: "> /nbench:improve" },
+	{ type: "command", text: "> /flux:improve" },
 	{ type: "blank" },
 	{ type: "text", text: "Analyzing 23 sessions..." },
 	{ type: "blank" },
@@ -113,8 +113,8 @@ function TerminalDemo() {
 	);
 }
 
-export function NBenchHero() {
-	const installCommand = "/plugin marketplace add Nairon-AI/n-bench";
+export function FluxHero() {
+	const installCommand = "/plugin marketplace add Nairon-AI/flux";
 	const [copied, setCopied] = useState(false);
 
 	const handleCopy = async () => {
@@ -140,7 +140,7 @@ export function NBenchHero() {
 						<h1 className="text-foreground text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
 							Your AI workflow has gaps.
 							<span className="mt-2 block bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-								N-bench finds them.
+								Flux finds them.
 							</span>
 						</h1>
 

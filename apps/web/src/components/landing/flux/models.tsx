@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Check, ChevronRight } from "lucide-react";
-import { NBENCH_MODELS } from "@/data/nbench";
-import { NBenchSection } from "@/components/landing/nbench/primitives";
+import { NBENCH_MODELS } from "@/data/flux";
+import { FluxSection } from "@/components/landing/flux/primitives";
 import { cn } from "@/lib/utils";
 
 const MODEL_LOGOS: Record<string, string> = {
@@ -36,7 +36,7 @@ function ModelAvatar({ name }: { name: string }) {
 	);
 }
 
-export function NBenchModels() {
+export function FluxModels() {
 	const rowsRef = useRef<HTMLDivElement>(null);
 	const hasAnimatedRef = useRef(false);
 	const timerIdRef = useRef<number | null>(null);
@@ -86,7 +86,7 @@ export function NBenchModels() {
 	}, []);
 
 	return (
-		<NBenchSection className="overflow-hidden pb-24 pt-20 md:pb-32 md:pt-24">
+		<FluxSection className="overflow-hidden pb-24 pt-20 md:pb-32 md:pt-24">
 			<div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_12%,rgba(255,255,255,0.035),transparent_36%),radial-gradient(circle_at_76%_18%,rgba(115,146,255,0.04),transparent_34%),linear-gradient(180deg,rgba(4,5,7,0),rgb(5,5,6)_72%)]" />
 
 			<div className="mx-auto flex max-w-4xl flex-col items-center text-center">
@@ -162,6 +162,6 @@ export function NBenchModels() {
 					<div className="pointer-events-none absolute inset-x-0 bottom-0 h-[34%] bg-[radial-gradient(ellipse_at_bottom,rgba(0,0,0,0.78),rgba(0,0,0,0))]" />
 				</div>
 			</div>
-		</NBenchSection>
+		</FluxSection>
 	);
 }

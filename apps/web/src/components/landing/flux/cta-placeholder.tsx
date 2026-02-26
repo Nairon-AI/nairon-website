@@ -1,9 +1,9 @@
-import { NBENCH_CTA_PLACEHOLDER } from "@/data/nbench";
-import { LinearGlassCard, NBenchSection } from "@/components/landing/nbench/primitives";
+import { NBENCH_CTA_PLACEHOLDER } from "@/data/flux";
+import { LinearGlassCard, FluxSection } from "@/components/landing/flux/primitives";
 
-export function NBenchCtaPlaceholder() {
+export function FluxCtaPlaceholder() {
 	return (
-		<NBenchSection className="pb-16 pt-8 md:pb-22 md:pt-12">
+		<FluxSection className="pb-16 pt-8 md:pb-22 md:pt-12">
 			<LinearGlassCard
 				className="mx-auto max-w-5xl"
 				innerClassName="relative overflow-hidden bg-[linear-gradient(180deg,rgba(16,16,16,0.98)_0%,rgba(8,8,8,0.99)_100%)] px-6 py-10 text-center md:px-10 md:py-14"
@@ -35,6 +35,6 @@ export function NBenchCtaPlaceholder() {
 					</div>
 				</div>
 			</LinearGlassCard>
-		</NBenchSection>
+		</FluxSection>
 	);
 }

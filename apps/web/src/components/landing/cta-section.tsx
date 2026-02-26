@@ -48,7 +48,7 @@ export function CTASection() {
 							<ArrowUpRight className="w-4 h-4" />
 						</button>
 						<span className="inline-flex items-center gap-2 border border-white/10 text-[#A39E96] font-medium text-base px-6 py-3.5 rounded-full opacity-80 cursor-not-allowed">
-							NBench (Coming Soon)
+							Flux (Coming Soon)
 						</span>
 					</div>
 				</div>

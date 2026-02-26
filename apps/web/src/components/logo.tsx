@@ -9,7 +9,7 @@ export function Logo({ className, uniColor }: LogoProps) {
 	return (
 		<div className={cn("flex items-center gap-2", className)}>
 			<LogoIcon uniColor={uniColor} className="size-6" />
-			<span className="font-semibold text-foreground">N-bench</span>
+			<span className="font-semibold text-foreground">Flux</span>
 		</div>
 	);
 }

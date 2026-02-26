@@ -4,15 +4,15 @@ import {
 	NBENCH_HERO,
 	NBENCH_HERO_TERMINAL,
 	NBENCH_HERO_TERMINAL_BEFORE,
-} from "@/data/nbench";
+} from "@/data/flux";
 import {
 	GradientHeading,
-	NBenchSection,
+	FluxSection,
 	TerminalWindow,
-} from "@/components/landing/nbench/primitives";
+} from "@/components/landing/flux/primitives";
 
-export function NBenchHero() {
-	const installCommand = "/plugin marketplace add Nairon-AI/n-bench";
+export function FluxHero() {
+	const installCommand = "/plugin marketplace add Nairon-AI/flux";
 	const [copied, setCopied] = useState(false);
 	const [isDesktop, setIsDesktop] = useState(false);
 	const [viewportReady, setViewportReady] = useState(false);
@@ -347,7 +347,7 @@ export function NBenchHero() {
 	const terminalTextProgress = isDesktop ? animatedTerminalProgress : 1;
 
 	return (
-		<NBenchSection className="overflow-hidden pb-0 pt-36 md:pt-44">
+		<FluxSection className="overflow-hidden pb-0 pt-36 md:pt-44">
 			<div className="pointer-events-none absolute inset-0 -z-10 bg-[rgb(8,8,8)]" />
 			<div className="pointer-events-none absolute inset-x-0 top-[-24rem] -z-10 mx-auto h-[44rem] w-[44rem] rounded-full bg-[radial-gradient(circle,rgba(49,255,103,0.08)_0%,rgba(49,255,103,0.03)_28%,transparent_72%)] blur-3xl" />
 			<div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_10%,rgba(255,255,255,0.06),transparent_40%),radial-gradient(circle_at_80%_0%,rgba(34,219,24,0.05),transparent_34%)]" />
@@ -406,7 +406,7 @@ export function NBenchHero() {
 											className={`overflow-hidden transition-all duration-700 ease-out ${showComparison ? "w-[42%] opacity-100 translate-x-0" : "w-0 opacity-0 translate-x-6 pointer-events-none"}`}
 										>
 											<div className="mb-2 inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-inter text-[11px] uppercase tracking-[0.14em] text-white/55">
-												Without NBench
+												Without Flux
 											</div>
 											<TerminalWindow
 												title={NBENCH_HERO_TERMINAL_BEFORE.title}
@@ -429,6 +429,6 @@ export function NBenchHero() {
 					</div>
 				</div>
 			</div>
-		</NBenchSection>
+		</FluxSection>
 	);
 }

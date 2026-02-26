@@ -3,7 +3,7 @@ import { Footer, Navbar } from "@/components/landing";
 import { ModalProvider } from "@/components/landing/modal-provider";
 import { HireModal } from "@/components/landing/hire-modal";
 import { CandidateModal } from "@/components/landing/candidate-modal";
-import { seoHead, nbenchProductJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import { seoHead, fluxProductJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 // Tailark Pro components
 import HeroSection from "@/components/hero-section";
@@ -16,36 +16,36 @@ import IntegrationsSection from "@/components/integrations-6";
 import FAQs from "@/components/faqs-1";
 import Testimonials from "@/components/testimonials-7";
 
-const installCommand = "/plugin marketplace add Nairon-AI/n-bench";
+const installCommand = "/plugin marketplace add Nairon-AI/flux";
 
-const nbenchJsonLd = JSON.stringify(nbenchProductJsonLd());
+const fluxJsonLd = JSON.stringify(fluxProductJsonLd());
 const breadcrumbsJsonLd = JSON.stringify(
 	breadcrumbJsonLd([
 		{ name: "Home", path: "/" },
-		{ name: "N-bench", path: "/nbench" },
+		{ name: "Flux", path: "/flux" },
 	]),
 );
 
-export const Route = createFileRoute("/nbench")({
-	component: NBenchPage,
+export const Route = createFileRoute("/flux")({
+	component: FluxPage,
 	head: () => {
 		const base = seoHead({
-			title: "N-bench — Find the gaps in your AI workflow | Nairon AI",
+			title: "Flux — Find the gaps in your AI workflow | Nairon AI",
 			description:
 				"Open-source Claude Code plugin that analyzes your sessions, detects friction patterns, and recommends fixes. Interview, Plan, Build, Review, Improve.",
-			path: "/nbench",
-		});
+			path: "/flux",
+		})
 		return {
 			...base,
 			scripts: [
-				{ type: "application/ld+json", children: nbenchJsonLd },
+				{ type: "application/ld+json", children: fluxJsonLd },
 				{ type: "application/ld+json", children: breadcrumbsJsonLd },
 			],
-		};
+		}
 	},
 });
 
-function NBenchPage() {
+function FluxPage() {
 	return (
 		<ModalProvider>
 			<div className="min-h-screen bg-background font-inter text-foreground">
@@ -81,7 +81,7 @@ function NBenchPage() {
 				<section className="bg-background py-20">
 					<div className="mx-auto max-w-4xl px-6">
 						<div className="bg-card ring-border rounded-2xl p-8 text-center ring-1">
-							<p className="text-muted-foreground text-sm">Install N-bench in Claude Code</p>
+							<p className="text-muted-foreground text-sm">Install Flux in Claude Code</p>
 							<h3 className="mt-3 text-2xl font-semibold md:text-3xl">Copy this command and run it in your agent</h3>
 							<div className="bg-background mt-6 overflow-x-auto rounded-xl border px-4 py-3">
 								<code className="text-sm">{installCommand}</code>
@@ -95,5 +95,5 @@ function NBenchPage() {
 			<HireModal />
 			<CandidateModal />
 		</ModalProvider>
-	);
+	)
 }

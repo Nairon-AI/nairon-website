@@ -10,7 +10,7 @@ const features = [
 	},
 	{
 		icon: BarChart3,
-		title: "NBench Assessment",
+		title: "Flux Assessment",
 		description:
 			"Every candidate is scored with our proprietary AI-nativeness benchmark — measuring architecture, tooling, eval discipline, and engineering culture.",
 	},

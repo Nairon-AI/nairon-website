@@ -179,7 +179,7 @@ export function HireModal() {
 								/>
 								<div className="relative z-10 flex flex-col gap-3 p-6 h-full justify-center">
 									{[
-										{ icon: BarChart3, title: "NBench-scored shortlist", desc: "Every candidate benchmarked on real AI-nativeness" },
+										{ icon: BarChart3, title: "Flux-scored shortlist", desc: "Every candidate benchmarked on real AI-nativeness" },
 										{ icon: Shield, title: "90-day guarantee", desc: "Full replacement if the placement doesn't work out" },
 										{ icon: Zap, title: "30-day placement", desc: "From brief to signed offer in under a month" },
 									].map(({ icon: Icon, title, desc }) => (

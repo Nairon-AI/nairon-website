@@ -43,7 +43,7 @@ const blogPosts: BlogPost[] = [
 		image: "/backgrounds/rolling-hills.webp",
 	},
 	{
-		title: "How We Built NBench: Measuring What Matters",
+		title: "How We Built Flux: Measuring What Matters",
 		category: "Product",
 		date: "Jan 15, 2026",
 		author: {
