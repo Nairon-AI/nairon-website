@@ -36,20 +36,28 @@ export default function HeroSection() {
 
               <div className="mx-auto mb-12 mt-6 max-w-2xl">
                 <p className="text-muted-foreground mb-8 text-balance text-lg lg:text-xl">
-                  Flux gives your team the structure to ship with AI
-                  reliably—while staying flexible enough to adopt better tools,
-                  MCPs, and optimizations the moment they drop.
+                  Flux gives you the structure to ship with AI reliably - while
+                  staying flexible enough to adopt better tools, MCPs, and
+                  optimizations the moment they drop.
                 </p>
 
                 <div className="flex items-center justify-center gap-3">
-                  <Button 
-                    onClick={() => document.getElementById('flux-architecture')?.scrollIntoView({ behavior: 'smooth' })}
+                  <Button
+                    onClick={() =>
+                      document
+                        .getElementById("flux-architecture")
+                        ?.scrollIntoView({ behavior: "smooth" })
+                    }
                   >
                     See architecture
                   </Button>
-                  <Button 
+                  <Button
                     variant="outline"
-                    onClick={() => document.getElementById('flux-cta')?.scrollIntoView({ behavior: 'smooth' })}
+                    onClick={() =>
+                      document
+                        .getElementById("flux-cta")
+                        ?.scrollIntoView({ behavior: "smooth" })
+                    }
                   >
                     Install
                   </Button>
