@@ -1,0 +1,40 @@
+@keyframes beam-move {
+    to {
+        stroke-dashoffset: -780;
+    }
+}
+
+@keyframes beam-move-down {
+    to {
+        stroke-dashoffset: 780;
+    }
+}
+
+.beam-move {
+    animation: beam-move 4.4s linear infinite;
+}
+
+.beam-move-delay-1 {
+    animation: beam-move 5.4s linear infinite;
+    animation-delay: 1s;
+}
+
+.beam-move-delay-2 {
+    animation: beam-move 5.4s linear infinite;
+    animation-delay: 2s;
+}
+
+.beam-move-down {
+    animation: beam-move-down 4.4s linear infinite;
+    animation-delay: 1s;
+}
+
+.beam-move-down-delay-half {
+    animation: beam-move-down 5.4s linear infinite;
+    animation-delay: 0.5s;
+}
+
+.beam-move-down-delay-2 {
+    animation: beam-move-down 5.4s linear infinite;
+    animation-delay: 2s;
+}

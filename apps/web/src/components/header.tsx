@@ -1,3 +1,18 @@
+'use client'
+
+// Simple Link component that works with hash links and external URLs
+const Link = ({ href, to, children, className, onClick, ...props }: { 
+    href?: string
+    to?: string
+    children: React.ReactNode
+    className?: string
+    onClick?: () => void
+    [key: string]: unknown
+}) => (
+    <a href={href || to || '#'} className={className} onClick={onClick} {...props}>
+        {children}
+    </a>
+)
 import { Logo } from '@/components/logo'
 import { Button } from '@/components/ui/button'
 import React from 'react'
@@ -159,12 +174,12 @@ export default function HeaderOne() {
                             className="in-has-data-[state=open]:block absolute inset-x-0 bottom-0 hidden h-px bg-[length:4px_1px] bg-repeat-x opacity-20 [background-image:linear-gradient(90deg,var(--color-foreground)_1px,transparent_1px)]"
                         />
                         <div className="flex justify-between gap-8 max-lg:h-14 max-lg:w-full max-lg:border-b">
-                            <a
+                            <Link
                                 href="/"
                                 aria-label="home"
                                 className="flex items-center space-x-2">
                                 <Logo uniColor />
-                            </a>
+                            </Link>
 
                             {isLarge && (
                                 <div className="absolute inset-0 m-auto size-fit">
@@ -188,16 +203,16 @@ export default function HeaderOne() {
                                     asChild
                                     variant="outline"
                                     size="sm">
-                                    <a href="#">
+                                    <Link href="#">
                                         <span>Login</span>
-                                    </a>
+                                    </Link>
                                 </Button>
                                 <Button
                                     asChild
                                     size="sm">
-                                    <a href="#">
+                                    <Link href="#">
                                         <span>Get Started</span>
-                                    </a>
+                                    </Link>
                                 </Button>
                             </div>
                         </div>
@@ -229,7 +244,7 @@ const MobileMenu = ({ closeMenu }: { closeMenu: () => void }) => {
                                     <ul>
                                         {link.links.map((feature, featureIndex) => (
                                             <li key={featureIndex}>
-                                                <a
+                                                <Link
                                                     href={feature.href}
                                                     onClick={closeMenu}
                                                     className="grid grid-cols-[auto_1fr] items-center gap-2.5 px-4 py-2">
@@ -239,7 +254,7 @@ const MobileMenu = ({ closeMenu }: { closeMenu: () => void }) => {
                                                         {feature.icon}
                                                     </div>
                                                     <div className="text-base">{feature.name}</div>
-                                                </a>
+                                                </Link>
                                             </li>
                                         ))}
                                     </ul>
@@ -253,13 +268,13 @@ const MobileMenu = ({ closeMenu }: { closeMenu: () => void }) => {
             {mobileLinks.map((link, index) => {
                 if (link.name && link.href) {
                     return (
-                        <a
+                        <Link
                             key={index}
                             href={link.href}
                             onClick={closeMenu}
                             className="group relative block border-0 border-b py-4 text-lg">
                             {link.name}
-                        </a>
+                        </Link>
                     )
                 }
                 return null
@@ -346,7 +361,7 @@ const NavMenu = () => {
                                         <NavigationMenuLink
                                             asChild
                                             className="text-foreground p-0 text-sm font-medium before:absolute before:inset-0 hover:bg-transparent focus:bg-transparent">
-                                            <a href="#">Multimodal Learning</a>
+                                            <Link href="#">Multimodal Learning</Link>
                                         </NavigationMenuLink>
                                         <p className="text-muted-foreground line-clamp-1 text-xs">Explore how our platform integrates text, image, and audio processing into a unified framework.</p>
                                     </div>
@@ -380,12 +395,12 @@ const NavMenu = () => {
                                         <NavigationMenuLink
                                             key={index}
                                             asChild>
-                                            <a
+                                            <Link
                                                 href={content.href}
                                                 className="grid grid-cols-[auto_1fr] items-center gap-2.5">
                                                 {content.icon}
                                                 <div className="text-foreground text-sm font-medium">{content.name}</div>
-                                            </a>
+                                            </Link>
                                         </NavigationMenuLink>
                                     ))}
                                 </ul>
@@ -397,14 +412,14 @@ const NavMenu = () => {
                     <NavigationMenuLink
                         asChild
                         className={navigationMenuTriggerStyle()}>
-                        <a href="#">Pricing</a>
+                        <Link href="#">Pricing</Link>
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem value="company">
                     <NavigationMenuLink
                         asChild
                         className={navigationMenuTriggerStyle()}>
-                        <a href="#">Company</a>
+                        <Link href="#">Company</Link>
                     </NavigationMenuLink>
                 </NavigationMenuItem>
             </NavigationMenuList>
@@ -416,7 +431,7 @@ function ListItem({ title, description, children, href, ...props }: React.Compon
     return (
         <li {...props}>
             <NavigationMenuLink asChild>
-                <a
+                <Link
                     href={href}
                     className="grid grid-cols-[auto_1fr] gap-2.5">
                     <div className="bg-illustration ring-foreground/10 before:bg-radial before:to-foreground/3 *:drop-shadow-black/6.5 relative flex size-9 items-center justify-center rounded-lg border border-transparent shadow shadow-sm ring-1 *:drop-shadow before:absolute before:inset-0 before:rounded-lg">{children}</div>
@@ -424,7 +439,7 @@ function ListItem({ title, description, children, href, ...props }: React.Compon
                         <div className="text-foreground text-sm font-medium">{title}</div>
                         <p className="text-muted-foreground line-clamp-1 text-xs">{description}</p>
                     </div>
-                </a>
+                </Link>
             </NavigationMenuLink>
         </li>
     )

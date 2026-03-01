@@ -1,7 +1,7 @@
 import CodeBlock from "@/components/code-block"
 
 export const CodeBlockIllustration = () => {
-    const code = `// AI-augmented SDLC loop\nawait agent.run('/flux:interview feature-brief')\nawait agent.run('/flux:plan feature-brief')\n\nconst tasks = await orchestrator.spawn([\n  'implement-api',\n  'write-tests',\n  'review-edge-cases',\n])\n\nawait Promise.all(tasks)\nawait agent.run('/flux:improve') // score + recommendations\n`
+    const code = `const axios = require('axios');\n\nconst response = await axios.post('https://api.example.com/data', {\n  key: 'value',\n  anotherKey: 'anotherValue',\n});\n`
 
     return (
         <CodeBlock

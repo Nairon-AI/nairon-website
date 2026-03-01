@@ -29,7 +29,7 @@ type Props = {
     maxHeight?: number
     className?: string
     theme?: string
-    lineNumbers?: boolean // ← added
+    lineNumbers?: boolean
 }
 
 export default function CodeBlock({ code, lang, initial, maxHeight, preHighlighted, theme, className }: Props) {
