@@ -52,11 +52,11 @@ function FluxPage() {
 				{/* Hero Section - hero-section-16 */}
 				<HeroSection />
 				
-				{/* Command Reference - workflow with slash commands */}
-				<FluxWorkflow />
-				
 				{/* Architecture - expandable-features-10 */}
 				<ExpandableFeatures />
+				
+				{/* Command Reference - workflow with slash commands */}
+				<FluxWorkflow />
 				
 				{/* Features - bento-7 (hidden for now) */}
 				{/* <BentoSeven /> */}

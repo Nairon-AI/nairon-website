@@ -45,8 +45,6 @@ export const ImageIllustration = () => {
                                                     <div className="bg-linear-to-b to-card/50 size-full rounded-full border"></div>
                                                 </div>
                                             </div>
-
-                                            <span className="w-full pt-6 font-mono text-[10px] uppercase">Intent-first development.</span>
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-2 grid-rows-2 gap-2 rounded-l-2xl border-y border-l p-2">
@@ -379,8 +377,6 @@ export const ImageIllustration = () => {
                                                     <div className="bg-linear-to-b to-card/50 size-full rounded-full border"></div>
                                                 </div>
                                             </div>
-
-                                            <span className="w-full pt-6 font-mono text-[10px] uppercase">Agents execute reliably.</span>
                                         </div>
 
                                         <div>
@@ -471,7 +467,7 @@ const Card = () => {
                 <div className="space-y-0.5">
                     <div className="flex items-center gap-2">
                         <RefreshCw className="size-3 text-violet-500" />
-                        <span className="font-mono text-[10px] font-semibold tracking-wide">RECOMMENDATIONS ENGINE</span>
+                        <span className="font-mono text-[10px] font-semibold tracking-wide">Intent</span>
                     </div>
                     <p className="text-muted-foreground text-[8px]">Updated nightly</p>
                 </div>

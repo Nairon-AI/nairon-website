@@ -92,19 +92,9 @@ export function TerminalIllustration({ isActive }: { isActive: boolean }) {
 }
 
 /**
- * Layer 2: Recommendation DB + Nightcrawler - Database with polling and engine
+ * Layer 2: Recommendation DB + Nightcrawler - Database with polling
  */
 export function NightcrawlerIllustration({ isActive }: { isActive: boolean }) {
-  const [gearRotation, setGearRotation] = useState(0);
-
-  useEffect(() => {
-    if (!isActive) return;
-    const interval = setInterval(() => {
-      setGearRotation((r) => r + 15);
-    }, 100);
-    return () => clearInterval(interval);
-  }, [isActive]);
-
   return (
     <div className="w-56 h-[120px] relative">
       {/* Twitter/X source */}
@@ -183,45 +173,6 @@ export function NightcrawlerIllustration({ isActive }: { isActive: boolean }) {
           <line x1="8" y1="30" x2="32" y2="30" stroke="rgba(201,169,110,0.3)" strokeWidth="1" />
         </svg>
         <span className="text-[8px] text-white/40 mt-1">Recs DB</span>
-      </motion.div>
-
-      {/* Engine gears */}
-      <motion.div
-        initial={{ opacity: 0.3 }}
-        animate={{ opacity: isActive ? 1 : 0.3 }}
-        className="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col items-center"
-      >
-        <div className="relative size-12">
-          <motion.svg
-            className="absolute inset-0"
-            viewBox="0 0 48 48"
-            animate={{ rotate: gearRotation }}
-            transition={{ duration: 0, ease: "linear" }}
-          >
-            <path
-              d="M24 8 L26 12 L30 10 L30 14 L34 14 L32 18 L36 20 L32 22 L34 26 L30 26 L30 30 L26 28 L24 32 L22 28 L18 30 L18 26 L14 26 L16 22 L12 20 L16 18 L14 14 L18 14 L18 10 L22 12 Z"
-              fill="rgba(201,169,110,0.2)"
-              stroke="rgba(201,169,110,0.6)"
-              strokeWidth="1"
-            />
-            <circle cx="24" cy="20" r="4" fill="rgba(201,169,110,0.3)" stroke="rgba(201,169,110,0.6)" strokeWidth="1" />
-          </motion.svg>
-          <motion.svg
-            className="absolute inset-0 translate-x-3 translate-y-3 scale-75"
-            viewBox="0 0 48 48"
-            animate={{ rotate: -gearRotation * 1.2 }}
-            transition={{ duration: 0, ease: "linear" }}
-          >
-            <path
-              d="M24 8 L26 12 L30 10 L30 14 L34 14 L32 18 L36 20 L32 22 L34 26 L30 26 L30 30 L26 28 L24 32 L22 28 L18 30 L18 26 L14 26 L16 22 L12 20 L16 18 L14 14 L18 14 L18 10 L22 12 Z"
-              fill="rgba(255,255,255,0.1)"
-              stroke="rgba(255,255,255,0.3)"
-              strokeWidth="1"
-            />
-            <circle cx="24" cy="20" r="4" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-          </motion.svg>
-        </div>
-        <span className="text-[8px] text-white/40">Engine</span>
       </motion.div>
     </div>
   );
