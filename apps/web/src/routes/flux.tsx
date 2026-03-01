@@ -8,7 +8,7 @@ import { seoHead, fluxProductJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 // Tailark Pro components
 import HeroSection from "@/components/hero-section";
 import ExpandableFeatures from "@/components/expandable-features-10";
-import BentoSeven from "@/components/bento-7";
+// import BentoSeven from "@/components/bento-7"; // Hidden for now
 import { FluxWorkflow } from "@/components/flux/workflow";
 import { FluxCTA } from "@/components/flux/cta";
 import ComparatorSection from "@/components/comparator-7";
@@ -58,8 +58,8 @@ function FluxPage() {
 				{/* Architecture - expandable-features-10 */}
 				<ExpandableFeatures />
 				
-				{/* Features - bento-7 */}
-				<BentoSeven />
+				{/* Features - bento-7 (hidden for now) */}
+				{/* <BentoSeven /> */}
 				
 				{/* Comparator - comparator-7 */}
 				<ComparatorSection />
