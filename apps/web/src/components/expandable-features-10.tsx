@@ -12,8 +12,8 @@ const features = [
   {
     title: "CLI Runtime Layer",
     description:
-      "Slash commands run directly in your agent. Every prompt, every decision, every outcome gets captured and scored.",
-    callout: "Your terminal becomes the control plane—no context switching to external dashboards.",
+      "Slash commands guide you through structured workflows—Scope, Interview, Plan, Build, Review, Improve. Each phase re-anchors to your original intent so nothing drifts off course.",
+    callout: "Your terminal becomes the control plane—structured loops keep you in control while agents execute.",
   },
   {
     title: "Recommendation DB + Nightcrawler",
