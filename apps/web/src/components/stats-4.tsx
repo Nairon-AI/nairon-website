@@ -4,9 +4,12 @@ export default function StatsSection() {
     return (
         <section className="bg-background @container py-16 md:py-24">
             <div className="mx-auto max-w-5xl px-6">
-                <h2 className="mx-auto max-w-2xl text-balance text-center text-3xl font-semibold lg:text-4xl">Metrics that move engineering behavior</h2>
+                <div className="bg-[#C9A96E]/10 text-[#C9A96E] border border-[#C9A96E]/20 w-fit mx-auto rounded-full px-4 py-1.5 text-sm font-medium mb-6">
+                    Coming Soon
+                </div>
+                <h2 className="mx-auto max-w-2xl text-balance text-center text-3xl font-semibold lg:text-4xl">CTO-level observability</h2>
                 <p className="text-muted-foreground mx-auto mt-6 max-w-xl text-pretty text-center text-lg">
-                    Flux benchmarks the habits that separate AI-native teams from prompt-and-pray workflows.
+                    See which engineers are actually leveraging AI effectively, where the team needs development, and which workflows produce the highest quality output.
                 </p>
 
                 <div className="relative mt-12">
@@ -17,16 +20,16 @@ export default function StatsSection() {
 
                     <div className="**:text-center bg-card *:hover:bg-foreground/2 @xl:grid-cols-3 grid grid-cols-2 divide-x border *:p-8">
                         <div className="space-y-2">
-                            <div className="bg-linear-to-t from-foreground to-muted-foreground bg-clip-text text-3xl font-medium text-transparent md:text-5xl">3x</div>
-                            <p className="text-muted-foreground text-sm">Higher pushback ratio in top performers</p>
+                            <div className="bg-linear-to-t from-foreground to-muted-foreground bg-clip-text text-3xl font-medium text-transparent md:text-5xl">Team</div>
+                            <p className="text-muted-foreground text-sm">Benchmarks and improvement trends across your engineering org</p>
                         </div>
                         <div className="@max-xl:border-0 space-y-2">
-                            <div className="bg-linear-to-t from-foreground to-muted-foreground bg-clip-text text-3xl font-medium text-transparent md:text-5xl">30+</div>
-                            <p className="text-muted-foreground text-sm">Curated tools mapped to friction patterns</p>
+                            <div className="bg-linear-to-t from-foreground to-muted-foreground bg-clip-text text-3xl font-medium text-transparent md:text-5xl">Quality</div>
+                            <p className="text-muted-foreground text-sm">Thinking metrics, not just velocity — measure how engineers collaborate with AI</p>
                         </div>
                         <div className="@max-xl:hidden space-y-2">
-                            <div className="bg-linear-to-t from-foreground to-muted-foreground bg-clip-text text-3xl font-medium text-transparent md:text-5xl">5</div>
-                            <p className="text-muted-foreground text-sm">Scoring dimensions across collaboration quality</p>
+                            <div className="bg-linear-to-t from-foreground to-muted-foreground bg-clip-text text-3xl font-medium text-transparent md:text-5xl">Hiring</div>
+                            <p className="text-muted-foreground text-sm">Recruiting signals: identify candidates with sophisticated AI collaboration patterns</p>
                         </div>
                     </div>
                 </div>
