@@ -42,7 +42,7 @@ export function Navbar() {
 				<a href="/" className="flex items-center shrink-0">
 					{isFluxPage ? (
 						<div className="flex items-center gap-3">
-							<span className="font-mono text-xl font-bold tracking-tight text-white">
+							<span className="font-mono text-2xl font-bold tracking-tight text-white">
 								Flux
 							</span>
 							<span className="font-inter text-[12px] tracking-[0.02em] text-white/48">
