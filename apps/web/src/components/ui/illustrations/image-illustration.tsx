@@ -276,25 +276,23 @@ export const ImageIllustration = () => {
 
                                 <div className="relative mx-auto flex w-14 justify-center">
                                     <svg
-                                        width="48"
+                                        width="2"
                                         height="84"
-                                        viewBox="0 0 48 84"
+                                        viewBox="0 0 2 84"
                                         fill="none"
                                         xmlns="http://www.w3.org/2000/svg"
-                                        className="text-border mx-auto w-fit">
+                                        className="mx-auto">
                                         <path
-                                            d="M12 84L12 22.605C12 21.5749 11.6026 20.5845 10.8906 19.8401L2.10943 10.6599C1.3974 9.91547 0.999999 8.92507 0.999999 7.89497L0.999998 4.80825e-07"
+                                            d="M1 0L1 84"
                                             stroke="var(--color-border)"
                                         />
                                         <path
-                                            d="M24 84L24 21L24 9.5L24 0"
-                                            stroke="var(--color-border)"
+                                            d="M1 0L1 84"
+                                            stroke="var(--color-white)"
+                                            strokeLinecap="round"
+                                            strokeDasharray="42 278"
+                                            className="drop-shadow-emerald-100 drop-shadow-sm [animation:beam-move_4.4s_linear_infinite]"
                                         />
-                                        <path
-                                            d="M47.0078 0L47.0078 31.6955C47.0078 32.7586 46.5846 33.778 45.8316 34.5286L37.1771 43.1548C36.4241 43.9053 36.0009 44.9247 36.0009 45.9879L36.0009 84"
-                                            stroke="var(--color-border)"
-                                        />
-
                                     </svg>
                                 </div>
                                 <div className="relative flex items-center justify-center">
