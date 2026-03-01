@@ -1,4 +1,3 @@
-import HeroHeader from "@/components/header"
 import { ImageIllustration } from "@/components/ui/illustrations/image-illustration"
 import { Button } from '@/components/ui/button'
 import { Link } from '@tanstack/react-router'
@@ -24,9 +23,7 @@ const features = [
 
 export default function HeroSection() {
     return (
-        <>
-            <HeroHeader />
-            <main
+        <main
                 role="main"
                 className="overflow-hidden">
                 <section>
@@ -77,6 +74,5 @@ export default function HeroSection() {
                     </div>
                 </section>
             </main>
-        </>
     )
 }
