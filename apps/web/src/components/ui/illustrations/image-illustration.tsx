@@ -205,7 +205,7 @@ export const ImageIllustration = () => {
                                                 </div>
                                             </div>
                                             <div className="flex items-center justify-center px-2 py-1">
-                                                <span className="font-mono text-xs">FLUX</span>
+                                                <span className="font-mono text-xs">Intent</span>
                                             </div>
                                             <div className="grid grid-cols-[auto_1fr_auto] items-center gap-1">
                                                 <div className="flex size-2">
@@ -467,7 +467,7 @@ const Card = () => {
                 <div className="space-y-0.5">
                     <div className="flex items-center gap-2">
                         <RefreshCw className="size-3 text-violet-500" />
-                        <span className="font-mono text-[10px] font-semibold tracking-wide">Intent</span>
+                        <span className="font-mono text-[10px] font-semibold tracking-wide">FLUX</span>
                     </div>
                     <p className="text-muted-foreground text-[8px]">Updated nightly</p>
                 </div>
