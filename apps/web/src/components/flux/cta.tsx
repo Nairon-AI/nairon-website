@@ -70,13 +70,21 @@ Help me install the plugin and explain the core workflow (scope → build → re
           </div>
         </div>
 
-        {/* Post-install note */}
-        <p className="text-muted-foreground text-sm mt-4">
-          After installation, <span className="text-foreground">restart Claude Code</span> then run <code className="text-foreground">/flux:setup</code>
-        </p>
+        {/* Post-install steps */}
+        <div className="bg-card/30 ring-border rounded-xl p-6 ring-1 max-w-2xl mx-auto mt-6 text-left">
+          <p className="text-foreground text-sm font-medium mb-3">After installation:</p>
+          <ol className="text-muted-foreground text-sm space-y-2 list-decimal list-inside">
+            <li><span className="text-foreground">Restart Claude Code</span> (plugins load at session start)</li>
+            <li>Run <code className="text-foreground bg-card px-1.5 py-0.5 rounded">/flux:setup</code> to configure your project</li>
+            <li>Start your first feature: <code className="text-foreground bg-card px-1.5 py-0.5 rounded">/flux:scope Add user notifications</code></li>
+          </ol>
+          <p className="text-muted-foreground text-xs mt-3">
+            Then use <code className="text-foreground/70">/flux:work</code> to execute tasks and <code className="text-foreground/70">/flux:impl-review</code> to review.
+          </p>
+        </div>
 
         {/* Requirements note */}
-        <p className="text-muted-foreground text-sm mt-2">
+        <p className="text-muted-foreground text-sm mt-4">
           Requires{" "}
           <a
             href="https://claude.ai/pro"
