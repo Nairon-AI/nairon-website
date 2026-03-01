@@ -74,7 +74,9 @@ export default function HeroSection() {
                                         </Button>
                                     </div>
                                     
-                                    <CopyCommand />
+                                    <div className="flex justify-center">
+                                        <CopyCommand />
+                                    </div>
                                 </div>
                             </div>
                         </div>
