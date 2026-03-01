@@ -21,7 +21,7 @@ function SnapHandler() {
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			isInitialLoadRef.current = false;
-		}, 1000);
+		}, 2000); // Increased to 2 seconds
 		return () => clearTimeout(timer);
 	}, []);
 
@@ -96,9 +96,16 @@ function SnapHandler() {
 						return;
 					}
 					
-					// Don't snap when near the top of the page (within 100px)
-					if (lenis.scroll < 100 && value > lenis.scroll) {
+					// Don't snap when near the top of the page (within 200px)
+					// This prevents auto-scrolling away from the hero section
+					if (lenis.scroll < 200 && value > lenis.scroll) {
 						lenis.scrollTo(lenis.scroll, { immediate: true });
+						return;
+					}
+					
+					// Also prevent snapping TO the very top when scrolling up near the top
+					if (value < 50 && lenis.scroll < 300) {
+						// Allow natural scroll to top without snap interference
 						return;
 					}
 					
