@@ -10,6 +10,7 @@ import HeroSection from "@/components/hero-section";
 import ExpandableFeatures from "@/components/expandable-features-10";
 import BentoSeven from "@/components/bento-7";
 import FeaturesSection from "@/components/how-it-works-1";
+import { FluxWorkflow } from "@/components/flux/workflow";
 import ComparatorSection from "@/components/comparator-7";
 import StatsSection from "@/components/stats-4";
 import IntegrationsSection from "@/components/integrations-6";
@@ -53,6 +54,9 @@ function FluxPage() {
 
 				{/* Hero Section - hero-section-16 */}
 				<HeroSection />
+				
+				{/* Command Reference - workflow with slash commands */}
+				<FluxWorkflow />
 				
 				{/* Architecture - expandable-features-10 */}
 				<ExpandableFeatures />
