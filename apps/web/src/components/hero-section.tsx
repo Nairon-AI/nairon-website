@@ -1,7 +1,7 @@
 import { ImageIllustration } from "@/components/ui/illustrations/image-illustration"
 import { Button } from '@/components/ui/button'
-import { Link } from '@tanstack/react-router'
-import { Brain, Workflow, Rocket } from 'lucide-react'
+import { Brain, Workflow, Rocket, Copy } from 'lucide-react'
+import { useState } from 'react'
 
 const features = [
     {
@@ -21,6 +21,27 @@ const features = [
     },
 ]
 
+function CopyCommand() {
+    const [copied, setCopied] = useState(false)
+    const command = '/plugin marketplace add Nairon-AI/flux'
+    
+    const handleCopy = () => {
+        navigator.clipboard.writeText(command)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
+    }
+    
+    return (
+        <button
+            onClick={handleCopy}
+            className="bg-card ring-border flex items-center gap-3 rounded-lg px-4 py-2.5 font-mono text-sm ring-1 transition-colors hover:bg-card/80"
+        >
+            <span className="text-muted-foreground">{command}</span>
+            <Copy className={`size-4 ${copied ? 'text-emerald-500' : 'text-muted-foreground'}`} />
+        </button>
+    )
+}
+
 export default function HeroSection() {
     return (
         <main
@@ -31,27 +52,29 @@ export default function HeroSection() {
                         <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-12">
                             <div className="text-center">
                                 <h1 className="text-foreground mx-auto text-balance text-5xl font-semibold lg:text-6xl xl:text-7xl xl:tracking-tight">
-                                    The <span>Agentic SDLC</span> that ships features, not tokens
+                                    Stay AI-native, no matter how fast the industry evolves.
                                 </h1>
 
-                                <div className="mx-auto mb-20 mt-4 max-w-xl">
-                                    <p className="text-muted-foreground mb-6 text-balance text-lg lg:text-xl">From intent to shipped feature. Flux orchestrates AI agents that understand what you want, plan the implementation, and ship production-ready code.</p>
+                                <div className="mx-auto mb-12 mt-6 max-w-2xl">
+                                    <p className="text-muted-foreground mb-8 text-balance text-lg lg:text-xl">
+                                        Flux gives your team the structure to ship with AI reliably—while staying flexible enough to adopt better tools, MCPs, and optimizations the moment they drop.
+                                    </p>
 
-                                    <div className="flex items-center justify-center gap-3">
-                                        <div className="bg-foreground/5 ring-border-illustration rounded-lg p-1 ring-1">
-                                            <Button
-                                                asChild
-                                                className="[--color-primary:var(--color-violet-500)]">
-                                                <Link to="/flux">Get Started</Link>
-                                            </Button>
-                                        </div>
+                                    <div className="flex items-center justify-center gap-3 mb-6">
+                                        <Button
+                                            variant="outline"
+                                            className="text-muted-foreground"
+                                        >
+                                            Closed source (private beta)
+                                        </Button>
                                         <Button
                                             asChild
-                                            variant="ghost"
-                                            className="text-muted-foreground">
-                                            <a href="https://docs.flux.nairon.ai" target="_blank" rel="noopener noreferrer">Read the Docs</a>
+                                        >
+                                            <a href="https://docs.flux.nairon.ai/architecture" target="_blank" rel="noopener noreferrer">See architecture</a>
                                         </Button>
                                     </div>
+                                    
+                                    <CopyCommand />
                                 </div>
                             </div>
                         </div>
