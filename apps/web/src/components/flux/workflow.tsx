@@ -82,34 +82,42 @@ const commands: CommandItem[] = [
 	{
 		number: "2",
 		title: "Work",
-		description: "Execute a task with an explicit verify-retry loop.",
+		description: "Execute with a heartbeat loop: verify, diagnose why it failed, adapt, retry, then commit.",
 		command: "/flux:work fn-1.1",
 		icon: Wrench,
 		color: "text-amber-400",
 		scenarioTitle: "Execution flow",
-		scenarioSubtitle: "Run implement-verify cycles until checks pass, then commit and finish.",
+		scenarioSubtitle: "Cinematic loop cadence: pass/fail signals pulse through a heartbeat-shaped execution path.",
 		scenarioSteps: [
 			{ label: "Implement", detail: "Ship a small reversible code change" },
-			{ label: "Verify", detail: "Run tests and checks against acceptance" },
-			{ label: "Adapt", detail: "If checks fail, fix and retry immediately" },
-			{ label: "Commit", detail: "Passes checks, then finalize the task" },
+			{ label: "Verify", detail: "Checks emit a pass or fail signal" },
+			{ label: "Diagnose", detail: "Identify why validation failed before changing code" },
+			{ label: "Commit", detail: "After a clean pass, finalize and close" },
 		],
 		nodes: [
-			{ id: "task", x: 74, y: 100, label: "Task", size: "sm" },
-			{ id: "impl", x: 202, y: 100, label: "Implement", size: "md" },
-			{ id: "verify", x: 332, y: 100, label: "Verify", size: "md" },
-			{ id: "adapt", x: 268, y: 152, label: "Adapt", size: "sm" },
-			{ id: "retry", x: 174, y: 152, label: "Retry", size: "sm" },
-			{ id: "commit", x: 470, y: 100, label: "Commit", size: "md" },
-			{ id: "done", x: 596, y: 100, label: "Done", size: "sm" },
+			{ id: "task", x: 64, y: 100, label: "Task", size: "sm" },
+			{ id: "impl", x: 156, y: 100, label: "Implement", size: "md" },
+			{ id: "beat-up", x: 220, y: 72, render: "anchor" },
+			{ id: "beat-peak", x: 282, y: 44, render: "anchor" },
+			{ id: "beat-down", x: 346, y: 72, render: "anchor" },
+			{ id: "verify", x: 396, y: 100, label: "Verify", size: "md" },
+			{ id: "why", x: 506, y: 52, label: "Why fail", size: "sm" },
+			{ id: "adapt", x: 506, y: 136, label: "Adapt", size: "sm" },
+			{ id: "retry", x: 374, y: 156, label: "Retry", size: "sm" },
+			{ id: "commit", x: 538, y: 100, label: "Commit", size: "md" },
+			{ id: "done", x: 624, y: 100, label: "Done", size: "sm" },
 		],
 		connections: [
 			{ from: "task", to: "impl" },
-			{ from: "impl", to: "verify" },
+			{ from: "impl", to: "beat-up", route: "direct" },
+			{ from: "beat-up", to: "beat-peak", route: "direct" },
+			{ from: "beat-peak", to: "beat-down", route: "direct" },
+			{ from: "beat-down", to: "verify", route: "direct" },
 			{ from: "verify", to: "commit" },
-			{ from: "verify", to: "adapt" },
-			{ from: "adapt", to: "retry" },
-			{ from: "retry", to: "impl" },
+			{ from: "verify", to: "why", route: "direct" },
+			{ from: "why", to: "adapt", route: "direct" },
+			{ from: "adapt", to: "retry", route: "direct" },
+			{ from: "retry", to: "impl", route: "direct" },
 			{ from: "commit", to: "done" },
 		],
 	},
@@ -374,10 +382,10 @@ function CircuitDiagram({ item }: { item: CommandItem }) {
 		}
 
 		if (item.title === "Work") {
-			animatePulseSequence([0, 1], 500, 420, 1300);
-			animatePulseSequence([3, 4, 5], 2800, 380, 1200);
-			animatePulseSequence([1, 2], 5400, 420, 1300);
-			animatePulseSequence([6], 7600, 1, 1200);
+			animatePulseSequence([0, 1, 2, 3, 4], 420, 300, 1200);
+			animatePulseSequence([6, 7, 8, 9], 3000, 320, 1150);
+			animatePulseSequence([6, 7, 8, 9], 5100, 320, 1150);
+			animatePulseSequence([5, 10], 7600, 560, 1300);
 		}
 
 		if (item.title === "Review") {
