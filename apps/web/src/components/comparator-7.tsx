@@ -56,7 +56,7 @@ const features: Feature[] = [
     },
     {
         name: 'Zero context drift',
-        description: 'Persistent memory across sessions. Intent, decisions, and constraints survive context switches.',
+        description: 'Persistent memory across sessions. Intent, decisions, and constraints survive compaction.',
         plans: {
             claude: false,
             flux: true,
