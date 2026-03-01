@@ -1,9 +1,19 @@
 import { Card } from '@/components/ui/card'
 import { motion } from 'motion/react'
-import { Quote } from 'lucide-react'
+import { Quote, EyeOff } from 'lucide-react'
 
 // Luka Eric - Nairon co-founder
 const LUKA_AVATAR = 'https://avatars.githubusercontent.com/u/31113941?v=4'
+
+// Stealth logo component
+const StealthLogo = () => (
+    <div className="flex items-center gap-2 mb-6">
+        <div className="size-8 rounded-lg bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] border border-[#333] flex items-center justify-center">
+            <EyeOff className="size-4 text-[#666]" />
+        </div>
+        <span className="text-[#666] font-medium tracking-wide text-sm">STEALTH</span>
+    </div>
+)
 
 const testimonials = [
     {
@@ -11,7 +21,7 @@ const testimonials = [
         text: "I'm mostly a product person — not an engineer. But with Flux guiding my Claude Code sessions, I've been able to ship real features and help build a 6-figure ARR startup. The workflow loops keep me from making dumb mistakes and the recommendations actually make sense.",
         avatar: LUKA_AVATAR,
         name: 'Luka Eric',
-        title: 'Co-founder, Nairon AI',
+        title: 'Co-founder',
         highlight: '6-figure ARR',
         highlightLabel: 'Built with Flux',
     },
@@ -46,6 +56,9 @@ export default function Testimonials() {
                     <Card className="relative bg-[#141414] border-[#1a1a1a] rounded-2xl p-8 md:p-12 shadow-xl">
                         {/* Quote icon */}
                         <Quote className="absolute top-6 right-6 md:top-8 md:right-8 size-8 md:size-10 text-[#C9A96E]/20" />
+                        
+                        {/* Stealth company logo */}
+                        <StealthLogo />
                         
                         {/* Testimonial text */}
                         <blockquote className="text-lg md:text-xl text-[#E8E4DE] leading-relaxed mb-8 max-w-2xl">
