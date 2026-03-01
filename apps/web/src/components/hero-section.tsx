@@ -24,17 +24,37 @@ const features = [
 ];
 
 const platforms = [
-  { name: "Claude Code", shortName: "Claude", status: "primary", icon: "/icons/claude-code.png" },
-  { name: "Factory Droid", shortName: "Factory", status: "supported", icon: "/icons/factory.png" },
-  { name: "Codex", shortName: "Codex", status: "supported", icon: "/icons/codex.png" },
-  { name: "OpenCode", shortName: "OpenCode", status: "beta", icon: "/icons/opencode.png" },
+  {
+    name: "Claude Code",
+    shortName: "Claude",
+    status: "primary",
+    icon: "/icons/claude-code.png",
+  },
+  {
+    name: "Factory Droid",
+    shortName: "Factory",
+    status: "supported",
+    icon: "/icons/factory.png",
+  },
+  {
+    name: "Codex",
+    shortName: "Codex",
+    status: "supported",
+    icon: "/icons/codex.png",
+  },
+  {
+    name: "OpenCode",
+    shortName: "OpenCode",
+    status: "beta",
+    icon: "/icons/opencode.png",
+  },
 ];
 
 export default function HeroSection() {
   return (
     <main role="main" className="overflow-hidden">
       <section>
-        <div className="bg-background pt-24 sm:pt-32 lg:pt-44">
+        <div className="bg-[#0C0C0C] pt-24 sm:pt-32 lg:pt-44">
           <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-12">
             <div className="text-center">
               {/* Platform pills */}
@@ -55,7 +75,9 @@ export default function HeroSection() {
                       alt={platform.name}
                       className="size-3 sm:size-4 object-contain"
                     />
-                    <span className="hidden sm:inline">{platform.shortName}</span>
+                    <span className="hidden sm:inline">
+                      {platform.shortName}
+                    </span>
                     <span className="sm:hidden">{platform.shortName}</span>
                     {platform.status === "beta" && (
                       <span className="ml-0.5 sm:ml-1 rounded bg-amber-500/20 px-1 py-0.5 text-[8px] sm:text-[10px] uppercase tracking-wide">
@@ -68,13 +90,15 @@ export default function HeroSection() {
 
               <h1 className="mx-auto text-balance text-[32px] leading-[36px] sm:text-[40px] sm:leading-[44px] md:text-[56px] md:leading-[60px] lg:text-[72px] lg:leading-[76px] font-normal tracking-[-1.5px] md:tracking-[-2.4px] text-[#E8E4DE]">
                 Stay{" "}
-                <span className="font-serif italic text-[#C9A96E]">AI-native</span>
+                <span className="font-serif italic text-[#C9A96E]">
+                  AI-native
+                </span>
                 , no matter how fast the industry evolves.
               </h1>
 
               <div className="mx-auto mb-8 sm:mb-12 mt-6 max-w-2xl">
                 <p className="text-lg md:text-xl text-[#A39E96] leading-relaxed mb-6 sm:mb-8 px-2 sm:px-0">
-                  Flux is the missing Claude Code plugin that gives you the
+                  Flux is the missing Coding Agent plugin that gives you the
                   structure to ship with AI{" "}
                   <span className="font-serif italic text-[#C9A96E]">
                     reliably
@@ -122,10 +146,10 @@ export default function HeroSection() {
                 <div className="bg-card ring-border flex size-8 items-center justify-center rounded-md shadow ring-1 *:size-4">
                   {feature.icon}
                 </div>
-                <h2 className="text-base sm:text-lg font-medium text-[#E8E4DE]">{feature.title}</h2>
-                <p className="text-[#A39E96] text-sm">
-                  {feature.description}
-                </p>
+                <h2 className="text-base sm:text-lg font-medium text-[#E8E4DE]">
+                  {feature.title}
+                </h2>
+                <p className="text-[#A39E96] text-sm">{feature.description}</p>
               </div>
             ))}
           </div>

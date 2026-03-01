@@ -52,14 +52,14 @@ export default function ExpandableFeatures() {
   return (
     <section
       id="flux-architecture"
-      className="bg-background @container scroll-mt-28 pt-24"
+      className="bg-[#0C0C0C] @container scroll-mt-28 pt-24"
     >
       <div className="mx-auto max-w-5xl px-6">
         <div className="max-w-lg">
-          <h2 className="text-foreground text-3xl font-semibold lg:text-4xl">
-            Architecture
+          <h2 className="text-[28px] leading-[32px] md:text-[40px] md:leading-[44px] font-normal tracking-[-1px] text-[#E8E4DE]">
+            <span className="font-serif italic text-[#C9A96E]">Architecture</span>
           </h2>
-          <p className="text-muted-foreground mx-auto mt-3 max-w-lg text-lg">
+          <p className="text-[#A39E96] mx-auto mt-3 max-w-lg text-lg">
             Three connected layers: in-agent runtime, recommendation engine, and
             enterprise observability.
           </p>
@@ -177,8 +177,8 @@ export default function ExpandableFeatures() {
                               }}
                               className="px-6"
                             >
-                              <p className="text-muted-foreground max-w-md">
-                                <strong className="text-foreground font-medium">
+                              <p className="text-[#A39E96] max-w-md">
+                                <strong className="text-[#E8E4DE] font-medium">
                                   {feature.title}.
                                 </strong>{" "}
                                 {feature.description}
@@ -262,7 +262,7 @@ export default function ExpandableFeatures() {
                   <div className="bg-border h-px w-full"></div>
                   <div className="h-full w-4 rounded-l-lg border-y border-l"></div>
                 </div>
-                <p className="text-muted-foreground w-44 text-balance text-sm">
+                <p className="text-[#A39E96] w-44 text-balance text-sm">
                   Each layer reinforces the same loop: detect friction,
                   recommend fixes, measure improvement.
                 </p>

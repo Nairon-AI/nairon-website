@@ -766,16 +766,17 @@ export function FluxWorkflow() {
 	);
 
 	return (
-		<section id="workflow" className="bg-[rgb(8,8,8)] @container py-16 md:py-24 lg:py-32">
+		<section id="workflow" className="bg-[#0C0C0C] @container py-16 md:py-24 lg:py-32">
 			<div className="mx-auto max-w-5xl px-6">
 				<div className="mx-auto mb-12 max-w-2xl text-center">
-					<div className="mx-auto mb-6 w-fit rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-white/60">
+					<div className="mx-auto mb-6 w-fit rounded-full border border-[#C9A96E]/20 bg-[#C9A96E]/10 px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-[#C9A96E]">
 						Command Reference
 					</div>
-					<h2 className="text-3xl font-semibold text-white/95 md:text-4xl">
-						Click a command, see the flow
+					<h2 className="text-[28px] leading-[32px] md:text-[40px] md:leading-[44px] font-normal tracking-[-1px] text-[#E8E4DE]">
+						Click a command, see the{" "}
+						<span className="font-serif italic text-[#C9A96E]">flow</span>
 					</h2>
-					<p className="mt-4 text-base text-white/50">
+					<p className="mt-4 text-lg text-[#A39E96]">
 						Each slash command has its own execution pattern. Pick one and watch the step-by-step diagram.
 					</p>
 				</div>

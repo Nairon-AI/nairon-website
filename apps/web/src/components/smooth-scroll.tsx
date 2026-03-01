@@ -21,22 +21,31 @@ function SnapHandler() {
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			isInitialLoadRef.current = false;
-		}, 2000); // Increased to 2 seconds
+		}, 2000);
 		return () => clearTimeout(timer);
 	}, []);
 
-	// Track the user's real scroll direction
+	// Kill momentum when reaching the top to prevent spring-back
 	useEffect(() => {
 		if (!lenis) return;
 
 		function onScroll() {
 			if (!lenis) return;
+			
+			// When near the top and scrolling up, immediately stop all momentum
+			// This prevents the "spring back" effect
+			if (lenis.scroll < 50 && lenis.direction === -1) {
+				lenis.stop();
+				requestAnimationFrame(() => {
+					lenis.start();
+				});
+			}
+			
 			if (lenis.direction !== 0) {
 				lastDirectionRef.current = lenis.direction;
 			}
 
-			// Scale snap threshold with velocity:
-			// gentle scroll → 35%, big flick → up to 65%
+			// Scale snap threshold with velocity
 			const snap = snapRef.current;
 			if (snap) {
 				const speed = Math.abs(lenis.velocity);
@@ -96,16 +105,16 @@ function SnapHandler() {
 						return;
 					}
 					
-					// Don't snap when near the top of the page (within 200px)
-					// This prevents auto-scrolling away from the hero section
-					if (lenis.scroll < 200 && value > lenis.scroll) {
+					// Disable ALL snapping near the top of the page (within 400px)
+					// This completely prevents the spring-back bounce effect at the hero
+					if (lenis.scroll < 400) {
 						lenis.scrollTo(lenis.scroll, { immediate: true });
 						return;
 					}
 					
-					// Also prevent snapping TO the very top when scrolling up near the top
-					if (value < 50 && lenis.scroll < 300) {
-						// Allow natural scroll to top without snap interference
+					// Also prevent snapping TO targets near the top
+					if (value < 300) {
+						lenis.scrollTo(lenis.scroll, { immediate: true });
 						return;
 					}
 					
@@ -198,9 +207,15 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
 		<ReactLenis
 			root
 			options={{
-				lerp: 0.1,
-				duration: 1.2,
+				// Higher lerp = faster/snappier response (1 = instant, no spring)
+				lerp: 0.25,
+				// Shorter duration = less momentum
+				duration: 0.6,
 				smoothWheel: true,
+				wheelMultiplier: 1,
+				touchMultiplier: 1.2,
+				// Prevent momentum from overshooting at boundaries
+				infinite: false,
 			}}
 		>
 			<SnapHandler />

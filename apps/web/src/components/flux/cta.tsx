@@ -24,7 +24,7 @@ After running it, explain these 4 core commands:
   return (
     <section
       id="flux-cta"
-      className="bg-background relative overflow-hidden py-16 md:py-24"
+      className="bg-[#0C0C0C] relative overflow-hidden py-16 md:py-24"
     >
       {/* Background effects */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(201,169,110,0.08),transparent_60%)]" />
@@ -34,30 +34,30 @@ After running it, explain these 4 core commands:
           Get Started
         </div>
 
-        <h2 className="text-foreground text-3xl font-semibold md:text-4xl lg:text-5xl">
-          Find your gaps. Fix them.
+        <h2 className="text-[28px] leading-[32px] md:text-[40px] md:leading-[44px] lg:text-[48px] lg:leading-[52px] font-normal tracking-[-1px] text-[#E8E4DE]">
+          Find your gaps. <span className="font-serif italic text-[#C9A96E]">Fix them.</span>
         </h2>
 
-        <p className="text-muted-foreground mt-6 text-lg max-w-xl mx-auto">
+        <p className="text-[#A39E96] mt-6 text-lg max-w-xl mx-auto">
           Copy this prompt into your AI agent to get started with Flux.
         </p>
 
         {/* Install prompt card */}
         <div
           onClick={handleCopy}
-          className="bg-card/50 ring-border rounded-2xl p-8 ring-1 cursor-pointer transition-all hover:bg-card/70 hover:ring-muted-foreground/50 max-w-2xl mx-auto mt-8 text-left"
+          className="bg-white/[0.03] ring-white/10 rounded-2xl p-8 ring-1 cursor-pointer transition-all hover:bg-white/[0.05] hover:ring-white/20 max-w-2xl mx-auto mt-8 text-left"
         >
-          <p className="text-muted-foreground text-sm mb-2">
+          <p className="text-[#A39E96] text-sm mb-2">
             Install Flux in Claude Code
           </p>
-          <h3 className="text-foreground text-xl md:text-2xl font-semibold mb-6">
+          <h3 className="text-[#E8E4DE] text-xl md:text-2xl font-medium mb-6">
             {copied
               ? "Copied to clipboard!"
               : "Copy this prompt and paste it in your agent"}
           </h3>
 
-          <div className="bg-card ring-border rounded-xl px-6 py-4 font-mono text-sm ring-1 relative">
-            <pre className="text-muted-foreground whitespace-pre-wrap text-left">
+          <div className="bg-[#0C0C0C] ring-white/10 rounded-xl px-6 py-4 font-mono text-sm ring-1 relative">
+            <pre className="text-[#A39E96] whitespace-pre-wrap text-left">
               {installPrompt}
             </pre>
             <span className="absolute top-4 right-4 size-5">
@@ -76,45 +76,45 @@ After running it, explain these 4 core commands:
         </div>
 
         {/* Post-install steps */}
-        <div className="bg-card/30 ring-border rounded-xl p-6 ring-1 max-w-2xl mx-auto mt-6 text-left">
-          <p className="text-foreground text-sm font-medium mb-3">
+        <div className="bg-white/[0.02] ring-white/10 rounded-xl p-6 ring-1 max-w-2xl mx-auto mt-6 text-left">
+          <p className="text-[#E8E4DE] text-sm font-medium mb-3">
             After installation:
           </p>
-          <ol className="text-muted-foreground text-sm space-y-2 list-decimal list-inside">
+          <ol className="text-[#A39E96] text-sm space-y-2 list-decimal list-inside">
             <li>
-              <span className="text-foreground">Restart Claude Code</span>{" "}
+              <span className="text-[#E8E4DE]">Restart Claude Code</span>{" "}
               (plugins load at session start)
             </li>
             <li>
               Run{" "}
-              <code className="text-foreground bg-card px-1.5 py-0.5 rounded">
+              <code className="text-[#E8E4DE] bg-white/5 px-1.5 py-0.5 rounded">
                 /flux:setup
               </code>{" "}
               to configure your project
             </li>
             <li>
               Start your first feature:{" "}
-              <code className="text-foreground bg-card px-1.5 py-0.5 rounded">
+              <code className="text-[#E8E4DE] bg-white/5 px-1.5 py-0.5 rounded">
                 /flux:scope Add user notifications
               </code>
             </li>
           </ol>
-          <p className="text-muted-foreground text-xs mt-3">
-            Then use <code className="text-foreground/70">/flux:work</code> to
+          <p className="text-[#A39E96]/70 text-xs mt-3">
+            Then use <code className="text-[#E8E4DE]/70">/flux:work</code> to
             execute tasks and{" "}
-            <code className="text-foreground/70">/flux:impl-review</code> to
+            <code className="text-[#E8E4DE]/70">/flux:impl-review</code> to
             review.
           </p>
         </div>
 
         {/* Requirements note */}
-        <p className="text-muted-foreground text-sm mt-4">
+        <p className="text-[#A39E96] text-sm mt-4">
           Requires{" "}
           <a
             href="https://claude.ai/pro"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-foreground underline underline-offset-2 hover:text-muted-foreground"
+            className="text-[#E8E4DE] underline underline-offset-2 hover:text-[#A39E96]"
           >
             Claude Pro
           </a>{" "}
@@ -123,7 +123,7 @@ After running it, explain these 4 core commands:
             href="https://chatgpt.com/plus"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-foreground underline underline-offset-2 hover:text-muted-foreground"
+            className="text-[#E8E4DE] underline underline-offset-2 hover:text-[#A39E96]"
           >
             ChatGPT Plus
           </a>{" "}

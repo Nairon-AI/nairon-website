@@ -55,12 +55,12 @@ const faqItems = [
 ];
 export default function FAQs() {
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="bg-[#0C0C0C] py-16 md:py-24">
       <div className="mx-auto max-w-5xl px-1 md:px-6">
         <div className="grid gap-8 md:grid-cols-5 md:gap-12">
           <div className="max-w-lg max-md:px-6 md:col-span-2">
-            <h2 className="text-foreground text-4xl font-semibold">FAQs</h2>
-            <p className="text-muted-foreground mt-4 text-balance text-lg">
+            <h2 className="text-[32px] leading-[36px] md:text-[40px] md:leading-[44px] font-normal tracking-[-1px] text-[#E8E4DE]"><span className="font-serif italic text-[#C9A96E]">FAQs</span></h2>
+            <p className="text-[#A39E96] mt-4 text-balance text-lg">
               Answers for engineers and engineering leaders
             </p>
           </div>
@@ -68,7 +68,7 @@ export default function FAQs() {
           <div className="space-y-12 md:col-span-3">
             {faqItems.map((item) => (
               <div className="space-y-4" key={item.group}>
-                <h3 className="text-foreground pl-6 text-lg font-semibold">
+                <h3 className="text-[#E8E4DE] pl-6 text-lg font-medium">
                   {item.group}
                 </h3>
                 <Accordion type="single" collapsible className="-space-y-1">
@@ -82,7 +82,7 @@ export default function FAQs() {
                         {item.question}
                       </AccordionTrigger>
                       <AccordionContent>
-                        <p className="text-muted-foreground text-base">
+                        <p className="text-[#A39E96] text-base">
                           {item.answer}
                         </p>
                       </AccordionContent>
