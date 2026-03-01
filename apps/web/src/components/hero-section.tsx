@@ -1,12 +1,6 @@
 import { ImageIllustration } from "@/components/ui/illustrations/image-illustration";
 import { Button } from "@/components/ui/button";
 import { Anchor, Users, Eye } from "lucide-react";
-import {
-  AnthropicIcon,
-  FactoryDroidIcon,
-  OpenAIIcon,
-  OpenCodeIcon,
-} from "@/components/ui/icons/platform-icons";
 
 const features = [
   {
@@ -30,10 +24,10 @@ const features = [
 ];
 
 const platforms = [
-  { name: "Claude Code", status: "primary", icon: AnthropicIcon },
-  { name: "Factory Droid", status: "supported", icon: FactoryDroidIcon },
-  { name: "Codex", status: "supported", icon: OpenAIIcon },
-  { name: "OpenCode", status: "beta", icon: OpenCodeIcon },
+  { name: "Claude Code", shortName: "Claude", status: "primary", icon: "/icons/claude-code.png" },
+  { name: "Factory Droid", shortName: "Factory", status: "supported", icon: "/icons/factory.png" },
+  { name: "Codex", shortName: "Codex", status: "supported", icon: "/icons/codex.png" },
+  { name: "OpenCode", shortName: "OpenCode", status: "beta", icon: "/icons/opencode.png" },
 ];
 
 export default function HeroSection() {
@@ -45,33 +39,31 @@ export default function HeroSection() {
             <div className="text-center">
               {/* Platform pills */}
               <div className="mb-4 sm:mb-6 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-                {platforms.map((platform) => {
-                  const Icon = platform.icon;
-                  return (
-                    <span
-                      key={platform.name}
-                      className={`inline-flex items-center gap-1 sm:gap-1.5 rounded-full px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-medium ring-1 ring-inset ${
-                        platform.status === "primary"
-                          ? "bg-violet-500/10 text-violet-400 ring-violet-500/20"
-                          : platform.status === "beta"
-                            ? "bg-amber-500/10 text-amber-400 ring-amber-500/20"
-                            : "bg-zinc-500/10 text-zinc-400 ring-zinc-500/20"
-                      }`}
-                    >
-                      <Icon size={10} className="opacity-80 sm:hidden" />
-                      <Icon size={12} className="opacity-80 hidden sm:block" />
-                      <span className="hidden xs:inline">{platform.name}</span>
-                      <span className="xs:hidden">
-                        {platform.name.split(" ")[0]}
+                {platforms.map((platform) => (
+                  <span
+                    key={platform.name}
+                    className={`inline-flex items-center gap-1 sm:gap-1.5 rounded-full px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-medium ring-1 ring-inset ${
+                      platform.status === "primary"
+                        ? "bg-violet-500/10 text-violet-400 ring-violet-500/20"
+                        : platform.status === "beta"
+                          ? "bg-amber-500/10 text-amber-400 ring-amber-500/20"
+                          : "bg-zinc-500/10 text-zinc-400 ring-zinc-500/20"
+                    }`}
+                  >
+                    <img
+                      src={platform.icon}
+                      alt={platform.name}
+                      className="size-3 sm:size-4 object-contain"
+                    />
+                    <span className="hidden sm:inline">{platform.shortName}</span>
+                    <span className="sm:hidden">{platform.shortName}</span>
+                    {platform.status === "beta" && (
+                      <span className="ml-0.5 sm:ml-1 rounded bg-amber-500/20 px-1 py-0.5 text-[8px] sm:text-[10px] uppercase tracking-wide">
+                        exp
                       </span>
-                      {platform.status === "beta" && (
-                        <span className="ml-0.5 sm:ml-1 rounded bg-amber-500/20 px-1 py-0.5 text-[8px] sm:text-[10px] uppercase tracking-wide">
-                          exp
-                        </span>
-                      )}
-                    </span>
-                  );
-                })}
+                    )}
+                  </span>
+                ))}
               </div>
 
               <h1 className="text-foreground mx-auto text-balance text-3xl sm:text-4xl md:text-5xl font-semibold lg:text-6xl xl:text-7xl xl:tracking-tight">
