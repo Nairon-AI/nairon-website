@@ -18,7 +18,7 @@ const features = [
   {
     title: "Recommendation DB + Nightcrawler",
     description:
-      "Nightly jobs scrape Twitter, GitHub, and forums for emerging tools and workflow patterns worth adopting.",
+      "Nightly jobs scrape X & Gitub for emerging tools and workflow patterns worth adopting.",
     callout: "Friction/Optimization signals from the best AI-native engineers on the planet (on X & GitHub) → so you can stop doom scrolling and actually sleep at night.",
   },
   {
