@@ -19,7 +19,7 @@ const FOOTER_COLS: FooterCol[] = [
 		heading: "Services",
 		links: [
 			{ label: "AI-Native Recruiting", action: "hire" },
-			{ label: "Flux (Coming Soon)", href: "#", disabled: true },
+			{ label: "Flux", href: "/flux" },
 			{ label: "For Candidates", action: "candidate" },
 		],
 	},
@@ -127,18 +127,12 @@ export function Footer() {
 												{link.label}
 											</button>
 									) : (
-										link.disabled ? (
-											<span className="text-[#A39E96] text-sm opacity-70 cursor-not-allowed">
-												{link.label}
-											</span>
-										) : (
-											<a
-												href={link.href}
-												className="text-[#A39E96] text-sm hover:text-[#E8E4DE] transition-colors"
-											>
-												{link.label}
-											</a>
-										)
+										<a
+											href={link.href}
+											className="text-[#A39E96] text-sm hover:text-[#E8E4DE] transition-colors"
+										>
+											{link.label}
+										</a>
 									)}
 									</li>
 								))}

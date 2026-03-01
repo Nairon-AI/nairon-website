@@ -1,5 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
-
 export function UniverseCTA() {
 	return (
 		<div className="relative overflow-hidden">
@@ -44,9 +42,12 @@ export function UniverseCTA() {
 						<span className="inline-flex items-center gap-2 bg-[#C9A96E]/55 text-[#0C0C0C] font-semibold text-base px-8 py-3.5 rounded-full opacity-90 cursor-not-allowed">
 							Universe (Coming Soon)
 						</span>
-						<span className="inline-flex items-center gap-2 border border-white/10 text-[#A39E96] font-medium text-base px-6 py-3.5 rounded-full opacity-80 cursor-not-allowed">
-							Flux (Coming Soon)
-						</span>
+						<a 
+							href="/flux"
+							className="inline-flex items-center gap-2 border border-white/10 text-[#E8E4DE] hover:border-[#C9A96E]/50 hover:text-[#C9A96E] font-medium text-base px-6 py-3.5 rounded-full transition-colors"
+						>
+							Explore Flux
+						</a>
 					</div>
 				</div>
 			</div>

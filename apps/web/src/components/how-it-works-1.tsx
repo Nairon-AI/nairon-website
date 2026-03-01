@@ -3,54 +3,54 @@ import { Bot, ClipboardList, Gauge, GitCompareArrows, Hammer, SearchCode } from 
 const steps = [
     {
         id: '01',
-        title: 'Interview',
-        description: 'Clarify requirements, constraints, and edge-cases before implementation starts.',
+        title: 'Scope',
+        description: 'Anchor intent. Clarify requirements, constraints, and success criteria before any code.',
         icon: ClipboardList,
     },
     {
         id: '02',
         title: 'Plan',
-        description: 'Break work into executable tasks with explicit quality and verification checkpoints.',
+        description: 'Break work into tasks. HITL: one at a time. AFK: queue the whole epic.',
         icon: GitCompareArrows,
     },
     {
         id: '03',
-        title: 'Work',
-        description: 'Ship in tight loops while keeping context, tool selection, and diffs intentional.',
+        title: 'Execute',
+        description: 'Re-anchor at every checkpoint. Agents verify alignment before, during, and after.',
         icon: Hammer,
     },
     {
         id: '04',
         title: 'Review',
-        description: 'Validate outputs with tests, pushback, and specification checks before merging.',
+        description: 'Cross-model critique. Multiple models challenge assumptions and catch blind spots.',
         icon: SearchCode,
     },
     {
         id: '05',
-        title: 'Improve',
-        description: 'Run /flux:improve to detect friction patterns and install recommendation upgrades.',
-        icon: ClipboardList,
+        title: 'Evidence',
+        description: 'Nothing merges without proof. Tests pass, types check, builds succeed.',
+        icon: Gauge,
     },
 ]
 
 const snapshots = [
     {
-        title: 'Intent Layer',
-        subtitle: 'Clarify system goals before tasks',
-        lines: ['Goal: Multi-agent release workflow', 'Constraints: test gates + rollback plan', 'Success: stable deploy with score increase'],
-        metric: 'Clarity +31%',
+        title: 'Re-anchoring',
+        subtitle: 'Continuous alignment with original intent',
+        lines: ['Check intent before each task', 'Verify during implementation', 'Validate after completion'],
+        metric: 'Drift -89%',
     },
     {
-        title: 'Orchestration Layer',
-        subtitle: 'Coordinate agents with explicit roles',
-        lines: ['Planner -> Executor -> Verifier', 'Parallel research + focused implementation', 'Structured checkpoints per phase'],
-        metric: 'Cycle time -24%',
+        title: 'Evidence Gate',
+        subtitle: 'Proof required before merge',
+        lines: ['Tests pass on all changes', 'Types check with zero errors', 'Build succeeds in CI'],
+        metric: 'Rework -67%',
     },
     {
-        title: 'Observability Layer',
-        subtitle: 'Measure collaboration quality',
-        lines: ['Track pushback and edge-case depth', 'Detect context-loss and rework loops', 'Recommend tool/process upgrades'],
-        metric: 'Score 52 -> 78',
+        title: 'Cross-model Review',
+        subtitle: 'Multi-model critique catches blind spots',
+        lines: ['Reviewer model challenges assumptions', 'Edge cases surfaced automatically', 'Confidence scores per decision'],
+        metric: 'Bugs -54%',
     },
 ]
 
@@ -59,8 +59,8 @@ export default function FeaturesSection() {
         <section className="bg-background @container py-16 md:py-24 lg:py-32">
             <div className="mx-auto w-full max-w-5xl px-6">
                 <div className="mb-10 max-w-2xl">
-                    <h2 className="text-3xl font-semibold lg:text-4xl">How Flux fits your delivery loop</h2>
-                    <p className="text-muted-foreground mt-4 text-lg">A process-first workflow that keeps engineers in sync while AI agents execute quickly.</p>
+                    <h2 className="text-3xl font-semibold lg:text-4xl">Your choice: HITL or AFK</h2>
+                    <p className="text-muted-foreground mt-4 text-lg">Stay deeply involved with one task at a time, or throw the whole epic at it and walk away. Same guarantees either way.</p>
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-5">

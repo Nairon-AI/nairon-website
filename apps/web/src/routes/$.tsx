@@ -43,9 +43,12 @@ function NotFoundPage() {
 								Back to home
 								<ArrowUpRight className="w-4 h-4" />
 							</a>
-							<span className="inline-flex items-center gap-2 border border-white/10 text-[#A39E96] font-medium text-base px-6 py-3 rounded-full opacity-80 cursor-not-allowed">
-								Flux (Coming Soon)
-							</span>
+							<a 
+								href="/flux"
+								className="inline-flex items-center gap-2 border border-white/10 text-[#E8E4DE] hover:border-[#C9A96E]/50 hover:text-[#C9A96E] font-medium text-base px-6 py-3 rounded-full transition-colors"
+							>
+								Explore Flux
+							</a>
 						</div>
 					</div>
 				</main>

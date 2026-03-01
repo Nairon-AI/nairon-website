@@ -1,5 +1,4 @@
 import { useEffect, useRef, useCallback } from "react";
-import { ArrowUpRight } from "lucide-react";
 
 /* ─── Star field canvas — interactive universe ─────────────── */
 

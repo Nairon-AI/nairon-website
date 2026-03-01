@@ -9,15 +9,13 @@ import { seoHead, fluxProductJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import HeroSection from "@/components/hero-section";
 import ExpandableFeatures from "@/components/expandable-features-10";
 import BentoSeven from "@/components/bento-7";
-import FeaturesSection from "@/components/how-it-works-1";
 import { FluxWorkflow } from "@/components/flux/workflow";
+import { FluxCTA } from "@/components/flux/cta";
 import ComparatorSection from "@/components/comparator-7";
 import StatsSection from "@/components/stats-4";
 import IntegrationsSection from "@/components/integrations-6";
 import FAQs from "@/components/faqs-1";
 import Testimonials from "@/components/testimonials-7";
-
-const installCommand = "/plugin marketplace add Nairon-AI/flux";
 
 const fluxJsonLd = JSON.stringify(fluxProductJsonLd());
 const breadcrumbsJsonLd = JSON.stringify(
@@ -49,7 +47,7 @@ export const Route = createFileRoute("/flux")({
 function FluxPage() {
 	return (
 		<ModalProvider>
-			<div className="min-h-screen bg-background font-inter text-foreground">
+			<div className="dark min-h-screen bg-[#0C0C0C] font-inter text-[#E8E4DE]">
 				<Navbar />
 
 				{/* Hero Section - hero-section-16 */}
@@ -63,9 +61,6 @@ function FluxPage() {
 				
 				{/* Features - bento-7 */}
 				<BentoSeven />
-				
-				{/* Process/Steps - how-it-works-1 */}
-				<FeaturesSection />
 				
 				{/* Comparator - comparator-7 */}
 				<ComparatorSection />
@@ -82,17 +77,8 @@ function FluxPage() {
 				{/* FAQ - faqs-1 */}
 				<FAQs />
 
-				<section className="bg-background py-20">
-					<div className="mx-auto max-w-4xl px-6">
-						<div className="bg-card ring-border rounded-2xl p-8 text-center ring-1">
-							<p className="text-muted-foreground text-sm">Install Flux in Claude Code</p>
-							<h3 className="mt-3 text-2xl font-semibold md:text-3xl">Copy this command and run it in your agent</h3>
-							<div className="bg-background mt-6 overflow-x-auto rounded-xl border px-4 py-3">
-								<code className="text-sm">{installCommand}</code>
-							</div>
-						</div>
-					</div>
-				</section>
+				{/* CTA - Install Flux */}
+				<FluxCTA />
 				
 				<Footer />
 			</div>

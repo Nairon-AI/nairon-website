@@ -169,9 +169,11 @@ export function FluxHero() {
 
 						{/* CTAs */}
 						<div className="flex flex-wrap gap-4">
-							<Button size="lg" variant="secondary" disabled>
-								<Github className="mr-2 h-5 w-5" />
-								Closed source (private beta)
+							<Button asChild size="lg" variant="secondary">
+								<a href="https://github.com/Nairon-AI/flux" target="_blank" rel="noopener noreferrer">
+									<Github className="mr-2 h-5 w-5" />
+									Star on GitHub
+								</a>
 							</Button>
 							<Button asChild size="lg" variant="outline" className="border-white/20 hover:bg-white/5">
 								<a href="#workflow">

@@ -13,50 +13,50 @@ type Feature = {
 
 const features: Feature[] = [
     {
-        name: 'Structured Interview -> Plan -> Work loop',
-        description: 'Default slash-command workflow that enforces requirement clarity before coding.',
+        name: 'Re-anchoring at every checkpoint',
+        description: 'Agents verify alignment with original intent before, during, and after each task.',
         plans: {
             claude: false,
             flux: true,
         },
     },
     {
-        name: 'Friction pattern detection',
-        description: 'Detect shallow prompts, blind acceptance, context loss, and undo loops from real sessions.',
+        name: 'Evidence-based merge gates',
+        description: 'Nothing ships without proof: tests pass, types check, builds succeed.',
         plans: {
             claude: false,
             flux: true,
         },
     },
     {
-        name: 'Recommendations mapped to failures',
-        description: 'Maps each friction pattern to specific MCP servers, skills, or process upgrades.',
+        name: 'Cross-model review',
+        description: 'Multiple models critique each other. Blind spots and assumptions get caught automatically.',
         plans: {
             claude: false,
             flux: true,
         },
     },
     {
-        name: 'AI-native capability score',
-        description: 'Benchmarks collaboration quality and tracks score deltas over time.',
-        plans: {
-            claude: false,
-            flux: true,
-        },
-    },
-    {
-        name: 'Tooling breadth and verification guardrails',
-        description: 'Measures how teams use docs/tools/tests to validate model output before merge.',
-        plans: {
-            claude: false,
-            flux: true,
-        },
-    },
-    {
-        name: 'Local-first session analysis',
-        description: 'Session processing runs locally; exports are opt-in.',
+        name: 'HITL mode (one task at a time)',
+        description: 'Stay deeply involved. Review each task before the next one starts.',
         plans: {
             claude: true,
+            flux: true,
+        },
+    },
+    {
+        name: 'AFK mode (throw the epic at it)',
+        description: 'Queue an entire epic and walk away. Same re-anchoring and evidence guarantees.',
+        plans: {
+            claude: false,
+            flux: true,
+        },
+    },
+    {
+        name: 'Zero context drift',
+        description: 'Persistent memory across sessions. Intent, decisions, and constraints survive context switches.',
+        plans: {
+            claude: false,
             flux: true,
         },
     },

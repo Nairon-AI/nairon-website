@@ -9,16 +9,16 @@ const AUTOPLAY_DURATION = 7000
 
 const features = [
     {
-        title: 'CLI Runtime Layer',
-        description: 'Flux runs inside Claude Code, captures slash-command workflows, and scores real execution patterns.',
+        title: 'Re-anchoring Engine',
+        description: 'Continuously verifies agent output against original intent. Catches drift before it compounds across tasks.',
     },
     {
-        title: 'Recommendation DB + Nightcrawler',
-        description: 'Nightcrawler jobs continuously ingest proven tools, then map friction patterns to high-impact fixes.',
+        title: 'Evidence Pipeline',
+        description: 'Automated test runs, type checks, and build validation. Nothing merges without machine-verified proof.',
     },
     {
-        title: 'Observability Layer',
-        description: 'Benchmark scores, quality metrics, and trend visibility give engineering leaders a shared operating view.',
+        title: 'Cross-model Review',
+        description: 'Multiple models critique each other. Challenger models surface blind spots and edge cases automatically.',
     },
 ]
 

@@ -1,4 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { GridSection, GridCell, CornerNotches } from "./grid-system";
 
@@ -199,9 +198,12 @@ export function FluxSection() {
 							detects friction patterns, and recommends fixes that work.
 						</p>
 						</div>
-						<span className="hidden md:inline-flex items-center gap-2 border border-white/12 text-[#A39E96] font-medium text-sm px-6 py-3 rounded-full shrink-0 opacity-80 cursor-not-allowed">
-							Flux (Coming Soon)
-						</span>
+						<a 
+							href="/flux"
+							className="hidden md:inline-flex items-center gap-2 border border-white/12 text-[#E8E4DE] hover:border-[#C9A96E]/50 hover:text-[#C9A96E] font-medium text-sm px-6 py-3 rounded-full shrink-0 transition-colors"
+						>
+							Explore Flux
+						</a>
 					</div>
 				</GridCell>
 			</GridSection>

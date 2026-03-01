@@ -446,27 +446,91 @@ export const ImageIllustration = () => {
 }
 
 const Card = () => {
+    const tools = [
+        { name: 'context7', logo: 'context7', url: 'https://context7.com' },
+        { name: 'exa', logo: '/tool-logos/exa.png', url: 'https://exa.ai' },
+        { name: 'excalidraw', logo: '/tool-logos/excalidraw.png', url: 'https://excalidraw.com' },
+        { name: 'granola', logo: '/tool-logos/granola.png', url: 'https://www.granola.ai' },
+        { name: 'supermemory', logo: '/tool-logos/supermemory.png', url: 'https://supermemory.ai' },
+        { name: 'wispr-flow', logo: '/tool-logos/wispr-flow.png', url: 'https://www.wispr.ai' },
+    ]
+
+    const skills = [
+        'ui-skills',
+        'humanizer', 
+        'taste-skill',
+        'cartographer',
+        'remotion',
+        'agent-skills-vercel',
+    ]
+
     return (
-        <div className="ring-foreground/15 bg-card relative z-10 flex aspect-video w-full flex-col justify-between overflow-hidden rounded-2xl border border-transparent px-5 py-4 shadow-2xl shadow-violet-950/15 ring-1">
-            <div className="flex items-start justify-between">
-                <div className="space-y-1">
+        <div className="ring-foreground/15 bg-card relative z-10 flex w-full flex-col overflow-hidden rounded-2xl border border-transparent px-4 py-3 shadow-2xl shadow-violet-950/15 ring-1">
+            {/* Header */}
+            <div className="flex items-start justify-between mb-3">
+                <div className="space-y-0.5">
                     <div className="flex items-center gap-2">
-                        <RefreshCw className="size-3.5 text-violet-500" />
-                        <span className="font-mono text-xs font-semibold tracking-wide">RECOMMENDATIONS ENGINE</span>
+                        <RefreshCw className="size-3 text-violet-500" />
+                        <span className="font-mono text-[10px] font-semibold tracking-wide">RECOMMENDATIONS ENGINE</span>
                     </div>
-                    <p className="text-muted-foreground text-[10px]">Updated nightly from X signals</p>
+                    <p className="text-muted-foreground text-[8px]">Updated nightly from X signals</p>
                 </div>
                 <XIcon />
             </div>
 
-            <div className="space-y-2">
+            {/* Two column layout */}
+            <div className="grid grid-cols-2 gap-3 mb-3">
+                {/* Left: Tools */}
+                <div className="space-y-1.5">
+                    <span className="text-muted-foreground font-mono text-[8px] uppercase tracking-wider">Tools</span>
+                    <div className="grid grid-cols-3 gap-1.5">
+                        {tools.map((tool) => (
+                            <a 
+                                key={tool.name} 
+                                href={tool.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center justify-center rounded-md bg-foreground/5 p-1.5 hover:bg-foreground/10 transition-colors cursor-pointer"
+                            >
+                                {tool.logo === 'context7' ? (
+                                    <Context7Logo />
+                                ) : (
+                                    <img 
+                                        src={tool.logo} 
+                                        alt={tool.name} 
+                                        className="size-5 object-contain rounded-sm"
+                                    />
+                                )}
+                            </a>
+                        ))}
+                    </div>
+                    <span className="text-muted-foreground/50 font-mono text-[7px] italic">and more...</span>
+                </div>
+
+                {/* Right: Skills */}
+                <div className="space-y-1.5">
+                    <span className="text-muted-foreground font-mono text-[8px] uppercase tracking-wider">Skills</span>
+                    <div className="space-y-0.5">
+                        {skills.map((skill) => (
+                            <div key={skill} className="flex items-center gap-1.5 text-[8px] text-muted-foreground hover:text-foreground transition-colors">
+                                <div className="size-1 rounded-full bg-violet-500/60" />
+                                <span className="font-mono">{skill}</span>
+                            </div>
+                        ))}
+                    </div>
+                    <span className="text-muted-foreground/50 font-mono text-[7px] italic">and more...</span>
+                </div>
+            </div>
+
+            {/* Footer */}
+            <div className="space-y-1.5 pt-2 border-t border-foreground/5">
                 <div className="flex items-center gap-2">
                     <div className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-muted-foreground text-[10px]">Tracking 847 cutting-edge devs</span>
+                    <span className="text-muted-foreground text-[8px]">Tracking 847 cutting-edge signals</span>
                 </div>
-                <div className="flex gap-1.5">
-                    {['MCP patterns', 'Agent loops', 'Tool use'].map((tag) => (
-                        <span key={tag} className="bg-foreground/5 text-muted-foreground rounded px-1.5 py-0.5 font-mono text-[8px]">
+                <div className="flex gap-1">
+                    {['MCPs', 'Skills', 'CLIs', 'Agentic Strategies'].map((tag) => (
+                        <span key={tag} className="bg-foreground/5 text-muted-foreground rounded px-1 py-0.5 font-mono text-[7px]">
                             {tag}
                         </span>
                     ))}
@@ -475,6 +539,16 @@ const Card = () => {
         </div>
     )
 }
+
+const Context7Logo = () => (
+    <svg width="20" height="20" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="rounded-sm">
+        <rect width="28" height="28" rx="4" fill="black" />
+        <path d="M10.5724 15.2565C10.5724 17.5025 9.6613 19.3778 8.17805 21.1047H11.6319L11.6319 22.7786H6.33459V21.1895C7.95557 19.3566 8.58065 17.8628 8.58065 15.2565L10.5724 15.2565Z" fill="white" />
+        <path d="M17.4276 15.2565C17.4276 17.5025 18.3387 19.3778 19.822 21.1047H16.3681V22.7786H21.6654V21.1895C20.0444 19.3566 19.4194 17.8628 19.4194 15.2565H17.4276Z" fill="white" />
+        <path d="M10.5724 12.7435C10.5724 10.4975 9.66131 8.62224 8.17807 6.89532L11.6319 6.89532V5.22137L6.33461 5.22137V6.81056C7.95558 8.64343 8.58066 10.1373 8.58066 12.7435L10.5724 12.7435Z" fill="white" />
+        <path d="M17.4276 12.7435C17.4276 10.4975 18.3387 8.62224 19.822 6.89532L16.3681 6.89532L16.3681 5.22138L21.6654 5.22138V6.81056C20.0445 8.64343 19.4194 10.1373 19.4194 12.7435H17.4276Z" fill="white" />
+    </svg>
+)
 
 const XIcon = () => (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-muted-foreground">

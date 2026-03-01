@@ -3,17 +3,26 @@ import { Check, Copy, Github, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function FluxCTA() {
-	const installCommand = "/plugin marketplace add Nairon-AI/flux";
 	const [copied, setCopied] = useState(false);
 
+	const installPrompt = `I want to install and set up Flux for structured AI development.
+The plugin is at: https://github.com/Nairon-AI/flux
+
+Help me:
+1. Install the plugin
+2. Run /flux:setup to initialize
+3. Explain the core workflow (scope → build → review)
+
+Guide me step by step.`;
+
 	const handleCopy = async () => {
-		await navigator.clipboard.writeText(installCommand);
+		await navigator.clipboard.writeText(installPrompt);
 		setCopied(true);
 		setTimeout(() => setCopied(false), 2000);
 	};
 
 	return (
-		<section className="bg-background relative overflow-hidden py-16 md:py-24">
+		<section id="flux-cta" className="bg-background relative overflow-hidden py-16 md:py-24">
 			{/* Background effects */}
 			<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.08),transparent_60%)]" />
 
@@ -27,32 +36,52 @@ export function FluxCTA() {
 				</h2>
 
 				<p className="text-muted-foreground mt-6 text-lg max-w-xl mx-auto">
-					Install the plugin, run <code className="text-emerald-400 font-mono">/flux:improve</code>, and see what you're missing.
+					Copy this prompt into your AI agent to get started with Flux.
 				</p>
 
-				{/* Install command */}
-				<div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 p-1.5 max-w-lg mx-auto mt-8">
-					<code className="flex-1 px-4 py-2.5 font-mono text-sm text-white/80 overflow-x-auto text-left">
-						{installCommand}
-					</code>
-					<button
-						onClick={handleCopy}
-						className="flex items-center justify-center h-10 w-10 rounded-lg bg-white/10 hover:bg-white/20 transition-colors shrink-0"
-						aria-label="Copy install command"
-					>
-						{copied ? (
-							<Check className="h-4 w-4 text-emerald-400" />
-						) : (
-							<Copy className="h-4 w-4 text-white/60" />
-						)}
-					</button>
+				{/* Install prompt card */}
+				<div 
+					onClick={handleCopy}
+					className="bg-card/50 ring-border rounded-2xl p-8 ring-1 cursor-pointer transition-all hover:bg-card/70 hover:ring-muted-foreground/50 max-w-2xl mx-auto mt-8 text-left"
+				>
+					<p className="text-muted-foreground text-sm mb-2">Install Flux in Claude Code</p>
+					<h3 className="text-foreground text-xl md:text-2xl font-semibold mb-6">
+						{copied ? "Copied to clipboard!" : "Copy this prompt and paste it in your agent"}
+					</h3>
+					
+					<div className="bg-card ring-border rounded-xl px-6 py-4 font-mono text-sm ring-1 relative">
+						<pre className="text-muted-foreground whitespace-pre-wrap text-left">{installPrompt}</pre>
+						<span className="absolute top-4 right-4 size-5">
+							<Copy
+								className={`absolute inset-0 size-5 text-muted-foreground transition-all duration-300 ${
+									copied ? "scale-0 opacity-0" : "scale-100 opacity-100"
+								}`}
+							/>
+							<Check
+								className={`absolute inset-0 size-5 text-emerald-500 transition-all duration-300 ${
+									copied ? "scale-100 opacity-100" : "scale-0 opacity-0"
+								}`}
+							/>
+						</span>
+					</div>
 				</div>
+
+				{/* Requirements note */}
+				<p className="text-muted-foreground text-sm mt-4">
+					Requires{" "}
+					<a href="https://claude.ai/pro" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-2 hover:text-muted-foreground">Claude Pro</a>
+					{" "}and{" "}
+					<a href="https://chatgpt.com/plus" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-2 hover:text-muted-foreground">ChatGPT Plus</a>
+					{" "}($20/mo each) for cross-model review.
+				</p>
 
 				{/* CTAs */}
 				<div className="flex flex-wrap justify-center gap-4 mt-8">
-					<Button size="lg" variant="secondary" disabled>
-						<Github className="mr-2 h-5 w-5" />
-						Closed source (private beta)
+					<Button asChild size="lg" variant="secondary">
+						<a href="https://github.com/Nairon-AI/flux" target="_blank" rel="noopener noreferrer">
+							<Github className="mr-2 h-5 w-5" />
+							Star on GitHub
+						</a>
 					</Button>
 					<Button asChild size="lg" variant="outline" className="border-white/20 hover:bg-white/5">
 						<a

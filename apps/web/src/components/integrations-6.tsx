@@ -114,8 +114,10 @@ export default function IntegrationsSection() {
                     <Button
                         size="sm"
                         variant="outline"
-                        disabled>
-                        Closed source (private beta)
+                        asChild>
+                        <a href="https://github.com/Nairon-AI/flux" target="_blank" rel="noopener noreferrer">
+                            View on GitHub
+                        </a>
                     </Button>
                 </div>
             </div>

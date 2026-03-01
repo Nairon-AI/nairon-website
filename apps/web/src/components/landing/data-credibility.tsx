@@ -127,9 +127,12 @@ export function DataCredibility() {
 			{/* Flux link row */}
 			<GridSection columns="1fr" border>
 				<GridCell className="py-5 md:py-6 text-center">
-					<span className="inline-flex items-center gap-2 text-[#A39E96] text-sm font-medium opacity-80 cursor-not-allowed">
-						Flux (Coming Soon)
-					</span>
+					<a 
+						href="/flux"
+						className="inline-flex items-center gap-2 text-[#E8E4DE] hover:text-[#C9A96E] text-sm font-medium transition-colors"
+					>
+						Explore Flux
+					</a>
 				</GridCell>
 			</GridSection>
 		</div>
