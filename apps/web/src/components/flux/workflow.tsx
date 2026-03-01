@@ -25,6 +25,9 @@ type DiagramConnection = {
 	to: string;
 	dashed?: boolean;
 	route?: "orthogonal" | "direct";
+	label?: string;
+	labelX?: number;
+	labelY?: number;
 };
 
 type CommandItem = {
@@ -87,11 +90,11 @@ const commands: CommandItem[] = [
 		icon: Wrench,
 		color: "text-amber-400",
 		scenarioTitle: "Execution flow",
-		scenarioSubtitle: "Clean execution lane with a visible diagnose-adapt-retry loop before commit.",
+		scenarioSubtitle: "State-machine loop: pass commits forward; fail drops to why-fix-rerun then re-verify.",
 		scenarioSteps: [
 			{ label: "Implement", detail: "Ship a small reversible code change" },
 			{ label: "Verify", detail: "Checks emit a pass or fail signal" },
-			{ label: "Diagnose", detail: "Identify why validation failed before changing code" },
+			{ label: "Diagnose", detail: "Capture why failed, fix, and rerun checks" },
 			{ label: "Commit", detail: "After a clean pass, finalize and close" },
 		],
 		nodes: [
@@ -100,19 +103,19 @@ const commands: CommandItem[] = [
 			{ id: "verify", x: 320, y: 100, label: "Verify", size: "md" },
 			{ id: "commit", x: 468, y: 100, label: "Commit", size: "md" },
 			{ id: "done", x: 596, y: 100, label: "Done", size: "sm" },
-			{ id: "why", x: 320, y: 152, label: "Why fail", size: "sm" },
-			{ id: "adapt", x: 430, y: 152, label: "Adapt", size: "sm" },
-			{ id: "retry", x: 220, y: 152, label: "Retry", size: "sm" },
+			{ id: "why", x: 320, y: 148, label: "Why failed?", size: "sm" },
+			{ id: "adapt", x: 430, y: 148, label: "Fix", size: "sm" },
+			{ id: "retry", x: 320, y: 178, label: "Re-run", size: "sm" },
 		],
 		connections: [
 			{ from: "task", to: "impl" },
 			{ from: "impl", to: "verify" },
-			{ from: "verify", to: "commit" },
+			{ from: "verify", to: "commit", label: "pass", labelX: 392, labelY: 88 },
 			{ from: "commit", to: "done" },
-			{ from: "verify", to: "why" },
+			{ from: "verify", to: "why", label: "fail", labelX: 334, labelY: 126 },
 			{ from: "why", to: "adapt" },
 			{ from: "adapt", to: "retry" },
-			{ from: "retry", to: "impl" },
+			{ from: "retry", to: "verify" },
 		],
 	},
 	{
@@ -255,10 +258,15 @@ function CircuitDiagram({ item }: { item: CommandItem }) {
 		return item.connections.map((conn) => {
 			const from = nodeMap.get(conn.from);
 			const to = nodeMap.get(conn.to);
-			if (!from || !to) return { d: "", dashed: Boolean(conn.dashed) };
+			if (!from || !to) {
+				return { d: "", dashed: Boolean(conn.dashed), label: conn.label, labelX: conn.labelX, labelY: conn.labelY };
+			}
 			return {
 				d: conn.route === "direct" ? calculateDirectPath(from, to) : calculatePath(from, to, nodeMap),
 				dashed: Boolean(conn.dashed),
+				label: conn.label,
+				labelX: conn.labelX,
+				labelY: conn.labelY,
 			};
 		});
 	}, [item.connections, nodeMap]);
@@ -376,10 +384,10 @@ function CircuitDiagram({ item }: { item: CommandItem }) {
 		}
 
 		if (item.title === "Work") {
-			animatePulseSequence([0, 1, 2], 420, 360, 1150);
-			animatePulseSequence([4, 5, 6, 7], 2650, 360, 1100);
-			animatePulseSequence([4, 5, 6, 7], 4700, 360, 1100);
-			animatePulseSequence([2, 3], 7100, 520, 1300);
+			animatePulseSequence([0, 1], 420, 360, 1100);
+			animatePulseSequence([4, 5, 6, 7], 2300, 360, 1080);
+			animatePulseSequence([4, 5, 6, 7], 4400, 360, 1080);
+			animatePulseSequence([2, 3], 6900, 520, 1280);
 		}
 
 		if (item.title === "Review") {
@@ -503,6 +511,17 @@ function CircuitDiagram({ item }: { item: CommandItem }) {
 								strokeDashoffset="500"
 								filter={`url(#glow-${item.number})`}
 							/>
+							{entry.label && typeof entry.labelX === "number" && typeof entry.labelY === "number" ? (
+								<text
+									x={entry.labelX}
+									y={entry.labelY}
+									textAnchor="middle"
+									className="fill-white/45 font-mono"
+									style={{ fontSize: "9px", letterSpacing: "0.08em" }}
+								>
+									{entry.label}
+								</text>
+							) : null}
 						</g>
 					))}
 
