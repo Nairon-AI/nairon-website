@@ -67,8 +67,8 @@ function FluxPage() {
 				{/* Stats - stats-4 */}
 				<StatsSection />
 				
-				{/* Platforms/Integrations - integrations-6 */}
-				<IntegrationsSection />
+				{/* Platforms/Integrations - integrations-6 (hidden for now) */}
+				{/* <IntegrationsSection /> */}
 				
 				{/* FAQ - faqs-1 */}
 				<FAQs />

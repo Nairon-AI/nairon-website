@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { AnimatePresence, motion, LayoutGroup } from "motion/react";
 import { ChevronDown, ChevronUp, PlusCircle } from "lucide-react";
 import { ServerIllustration } from "@/components/ui/illustrations/server-illustration";
+import { ArchitectureIllustration } from "@/components/ui/illustrations/architecture-illustrations";
 import { Button } from "@/components/ui/button";
 
 const AUTOPLAY_DURATION = 7000;
@@ -11,17 +12,21 @@ const features = [
   {
     title: "CLI Runtime Layer",
     description:
-      "Flux runs inside Claude Code, captures slash-command workflows, and scores real execution patterns.",
+      "Slash commands run directly in your agent. Every prompt, every decision, every outcome gets captured and scored.",
+    callout: "Your terminal becomes the control plane—no context switching to external dashboards.",
   },
   {
     title: "Recommendation DB + Nightcrawler",
     description:
-      "Nightcrawler jobs continuously ingest proven tools, then map friction patterns to high-impact fixes.",
+      "Nightly jobs scrape Twitter, GitHub, and forums for emerging tools and workflow patterns worth adopting.",
+    callout: "Friction signals in → battle-tested recommendations out. The engine never stops learning.",
   },
   {
     title: "Observability Layer",
     description:
-      "Benchmark scores, quality metrics, and trend visibility give engineering leaders a shared operating view.",
+      "Team-wide dashboards show who's improving, where friction clusters, and which workflows produce the best output.",
+    callout: "Engineering leaders get shared visibility—quality metrics, not just velocity numbers.",
+    comingSoon: true,
   },
 ];
 
@@ -140,12 +145,20 @@ export default function ExpandableFeatures() {
                               }}
                               exit={{ opacity: 0, filter: "blur(4px)", y: -4 }}
                               transition={{ duration: 0.5 }}
-                              className="flex h-10 cursor-pointer items-center gap-2 px-4"
+                              className={cn(
+                                "flex h-10 cursor-pointer items-center gap-2 px-4",
+                                feature.comingSoon && "opacity-50"
+                              )}
                             >
                               <PlusCircle className="size-3.5" />
                               <h3 className="text-nowrap text-sm font-medium">
                                 {feature.title}
                               </h3>
+                              {feature.comingSoon && (
+                                <span className="ml-1 rounded-full bg-[#C9A96E]/20 px-2 py-0.5 text-[9px] font-medium text-[#C9A96E]">
+                                  Soon
+                                </span>
+                              )}
                             </motion.button>
                           )}
 
@@ -175,8 +188,13 @@ export default function ExpandableFeatures() {
                                 type: "spring",
                                 bounce: 0.2,
                               }}
-                              className="px-6"
+                              className={cn("px-6", feature.comingSoon && "opacity-60")}
                             >
+                              {feature.comingSoon && (
+                                <span className="mb-2 inline-block rounded-full bg-[#C9A96E]/20 px-2.5 py-1 text-[10px] font-medium text-[#C9A96E]">
+                                  Coming Soon
+                                </span>
+                              )}
                               <p className="text-[#A39E96] max-w-md">
                                 <strong className="text-[#E8E4DE] font-medium">
                                   {feature.title}.
@@ -262,10 +280,21 @@ export default function ExpandableFeatures() {
                   <div className="bg-border h-px w-full"></div>
                   <div className="h-full w-4 rounded-l-lg border-y border-l"></div>
                 </div>
-                <p className="text-[#A39E96] w-44 text-balance text-sm">
-                  Each layer reinforces the same loop: detect friction,
-                  recommend fixes, measure improvement.
-                </p>
+                <div className="w-56">
+                  <ArchitectureIllustration activeIndex={expandedIndex} />
+                  <AnimatePresence mode="wait">
+                    <motion.p
+                      key={expandedIndex}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.25 }}
+                      className="text-[#A39E96] text-balance text-xs mt-3"
+                    >
+                      {features[expandedIndex].callout}
+                    </motion.p>
+                  </AnimatePresence>
+                </div>
               </motion.div>
             </div>
           </div>

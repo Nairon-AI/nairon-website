@@ -2,7 +2,7 @@
 
 import { ReactLenis, useLenis } from "lenis/react";
 import Snap from "lenis/snap";
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 /**
  * Uses the Lenis Snap plugin for reliable proximity snapping,
@@ -25,21 +25,12 @@ function SnapHandler() {
 		return () => clearTimeout(timer);
 	}, []);
 
-	// Kill momentum when reaching the top to prevent spring-back
+	// Track scroll direction for snap gating
 	useEffect(() => {
 		if (!lenis) return;
 
 		function onScroll() {
 			if (!lenis) return;
-			
-			// When near the top and scrolling up, immediately stop all momentum
-			// This prevents the "spring back" effect
-			if (lenis.scroll < 50 && lenis.direction === -1) {
-				lenis.stop();
-				requestAnimationFrame(() => {
-					lenis.start();
-				});
-			}
 			
 			if (lenis.direction !== 0) {
 				lastDirectionRef.current = lenis.direction;
@@ -152,7 +143,13 @@ function SnapHandler() {
 			const sections = document.querySelectorAll(
 				"section, header, footer, [data-snap-align]",
 			);
+			// Skip the first section (hero) from snap to prevent spring-back at top
+			let isFirst = true;
 			for (const el of sections) {
+				if (isFirst) {
+					isFirst = false;
+					continue; // Skip hero section entirely
+				}
 				const align = (el as HTMLElement).dataset.snapAlign ?? "center";
 				snap.addElement(el as HTMLElement, { align: [align] });
 			}
@@ -203,22 +200,33 @@ function SnapHandler() {
 }
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
+	const [isFluxPage, setIsFluxPage] = useState(false);
+	
+	useEffect(() => {
+		// Check on mount and on route changes
+		const checkRoute = () => {
+			setIsFluxPage(window.location.pathname.startsWith("/flux"));
+		};
+		checkRoute();
+		
+		// Listen for route changes (popstate for back/forward)
+		window.addEventListener("popstate", checkRoute);
+		return () => window.removeEventListener("popstate", checkRoute);
+	}, []);
+	
 	return (
 		<ReactLenis
 			root
 			options={{
-				// Higher lerp = faster/snappier response (1 = instant, no spring)
-				lerp: 0.25,
-				// Shorter duration = less momentum
-				duration: 0.6,
+				lerp: 0.35,
+				duration: 0.5,
 				smoothWheel: true,
 				wheelMultiplier: 1,
 				touchMultiplier: 1.2,
-				// Prevent momentum from overshooting at boundaries
 				infinite: false,
 			}}
 		>
-			<SnapHandler />
+			{!isFluxPage && <SnapHandler />}
 			{children}
 		</ReactLenis>
 	);

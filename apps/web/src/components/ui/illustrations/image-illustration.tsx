@@ -457,7 +457,7 @@ const Card = () => {
 
     const skills = [
         'ui-skills',
-        'humanizer', 
+        'humanizer',
         'taste-skill',
         'cartographer',
         'remotion',
@@ -473,7 +473,7 @@ const Card = () => {
                         <RefreshCw className="size-3 text-violet-500" />
                         <span className="font-mono text-[10px] font-semibold tracking-wide">RECOMMENDATIONS ENGINE</span>
                     </div>
-                    <p className="text-muted-foreground text-[8px]">Updated nightly from X signals</p>
+                    <p className="text-muted-foreground text-[8px]">Updated nightly</p>
                 </div>
                 <XIcon />
             </div>
@@ -485,8 +485,8 @@ const Card = () => {
                     <span className="text-muted-foreground font-mono text-[8px] uppercase tracking-wider">Tools</span>
                     <div className="grid grid-cols-3 gap-1.5">
                         {tools.map((tool) => (
-                            <a 
-                                key={tool.name} 
+                            <a
+                                key={tool.name}
                                 href={tool.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -495,9 +495,9 @@ const Card = () => {
                                 {tool.logo === 'context7' ? (
                                     <Context7Logo />
                                 ) : (
-                                    <img 
-                                        src={tool.logo} 
-                                        alt={tool.name} 
+                                    <img
+                                        src={tool.logo}
+                                        alt={tool.name}
                                         className="size-5 object-contain rounded-sm"
                                     />
                                 )}

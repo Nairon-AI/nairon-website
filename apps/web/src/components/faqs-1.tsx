@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -5,7 +6,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqItems = [
+const faqItems: {
+  group: string;
+  items: { id: string; question: string; answer: ReactNode }[];
+}[] = [
   {
     group: "Product",
     items: [
@@ -40,15 +44,33 @@ const faqItems = [
       },
       {
         id: "item-2",
-        question: "Which platforms are supported?",
-        answer:
-          "Claude Code is first-class. The same scoring and recommendation model is being applied across Factory Droid and OpenAI Codex environments.",
+        question: "Which agents are supported?",
+        answer: (
+          <>
+            Claude Code is first-class, but it works in Factory Droid and OpenAI's Codex agent. The{" "}
+            <a
+              href="https://github.com/Nairon-AI/flux-opencode"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#C9A96E] underline underline-offset-2 hover:text-[#E8E4DE]"
+            >
+              OpenCode port
+            </a>{" "}
+            is currently experimental.
+          </>
+        ),
       },
       {
         id: "item-3",
         question: "Can enterprise teams run this across multiple engineers?",
         answer:
-          "Yes. Enterprise mode adds observability views, capability trend tracking, and shared recommendations to standardize high-quality agent collaboration.",
+          "Coming soon. Enterprise mode will add observability dashboards, team-wide capability tracking, and shared recommendations to help standardize high-quality agent collaboration across your org.",
+      },
+      {
+        id: "item-4",
+        question: "When is the Observability Layer launching?",
+        answer:
+          "We're actively building it. Join the waitlist above to get early access when it's ready. The CLI Runtime and Recommendation Engine are available now.",
       },
     ],
   },

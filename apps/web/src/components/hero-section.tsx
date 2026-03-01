@@ -103,8 +103,7 @@ export default function HeroSection() {
                   <span className="font-serif italic text-[#C9A96E]">
                     reliably
                   </span>
-                  —while staying flexible enough to adopt better tools, MCPs,
-                  and optimizations the moment they drop.
+                  —while staying flexible enough to adopt optimizations the moment they drop.
                 </p>
 
                 <div className="flex items-center justify-center gap-2 sm:gap-3">
