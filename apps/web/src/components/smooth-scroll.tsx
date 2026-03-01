@@ -96,6 +96,12 @@ function SnapHandler() {
 						return;
 					}
 					
+					// Don't snap when near the top of the page (within 100px)
+					if (lenis.scroll < 100 && value > lenis.scroll) {
+						lenis.scrollTo(lenis.scroll, { immediate: true });
+						return;
+					}
+					
 					// Allow redirected snaps through without interference
 					if (isRedirectingRef.current) return;
 

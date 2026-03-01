@@ -294,27 +294,7 @@ export const ImageIllustration = () => {
                                             d="M47.0078 0L47.0078 31.6955C47.0078 32.7586 46.5846 33.778 45.8316 34.5286L37.1771 43.1548C36.4241 43.9053 36.0009 44.9247 36.0009 45.9879L36.0009 84"
                                             stroke="var(--color-border)"
                                         />
-                                        <path
-                                            d="M12 84L12 22.605C12 21.5749 11.6026 20.5845 10.8906 19.8401L2.10943 10.6599C1.3974 9.91547 0.999999 8.92507 0.999999 7.89497L0.999998 4.80825e-07"
-                                            stroke="var(--color-white)"
-                                            strokeLinecap="round"
-                                            strokeDasharray="42 278"
-                                            className="drop-shadow-emerald-100 drop-shadow-sm delay-[1s] [animation:beam-move-down_4.4s_linear_infinite]"
-                                        />
-                                        <path
-                                            d="M24 84L24 21L24 9.5L24 0"
-                                            stroke="var(--color-white)"
-                                            strokeLinecap="round"
-                                            strokeDasharray="42 278"
-                                            className="drop-shadow-blue-100 drop-shadow-sm delay-[0.5s] [animation:beam-move-down_5.4s_linear_infinite]"
-                                        />
-                                        <path
-                                            d="M47.0078 0L47.0078 31.6955C47.0078 32.7586 46.5846 33.778 45.8316 34.5286L37.1771 43.1548C36.4241 43.9053 36.0009 44.9247 36.0009 45.9879L36.0009 84"
-                                            stroke="var(--color-white)"
-                                            strokeLinecap="round"
-                                            strokeDasharray="42 278"
-                                            className="drop-shadow-purple-300 drop-shadow-sm delay-[2s] [animation:beam-move-down_5.4s_linear_infinite]"
-                                        />
+
                                     </svg>
                                 </div>
                                 <div className="relative flex items-center justify-center">
@@ -332,7 +312,7 @@ export const ImageIllustration = () => {
                                             <div className="flex items-center justify-center px-2">
                                                 <span className="flex items-center gap-2 font-mono text-xs">
                                                     <CheckCircle2 className="size-3 stroke-emerald-800 *:first:fill-emerald-500/35" />
-                                                    <span>Feature Shipped</span>
+                                                    <span>Shipped Features</span>
                                                 </span>
                                             </div>
                                             <div className="grid grid-cols-[auto_1fr_auto] items-center gap-1">
@@ -347,27 +327,7 @@ export const ImageIllustration = () => {
                                         </div>
                                     </div>
 
-                                    <div className="absolute inset-y-0 -right-4 my-auto translate-x-px translate-y-2">
-                                        <svg
-                                            width="120"
-                                            height="18"
-                                            viewBox="0 0 120 18"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className="mt-4">
-                                            <path
-                                                d="M0 1L45.9706 1C47.0458 1 48.0757 1.43285 48.8281 2.20094L62.1482 15.7991C62.9005 16.5671 63.9305 17 65.0057 17L120 17"
-                                                stroke="var(--color-border)"
-                                            />
-                                            <path
-                                                d="M0 1L45.9706 1C47.0458 1 48.0757 1.43285 48.8281 2.20094L62.1482 15.7991C62.9005 16.5671 63.9305 17 65.0057 17L120 17"
-                                                stroke="var(--color-white)"
-                                                strokeLinecap="round"
-                                                strokeDasharray="42 278"
-                                                className="drop-shadow-green-300 drop-shadow-sm delay-[2s] [animation:beam-move_5.4s_linear_infinite]"
-                                            />
-                                        </svg>
-                                    </div>
+
                                 </div>
                             </div>
                             <div className="grid grid-rows-[1fr_auto]">
