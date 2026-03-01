@@ -1,284 +1,87 @@
 import { Card } from '@/components/ui/card'
-import { Stripe } from '@/components/ui/svgs/stripe'
-import { Hulu } from '@/components/ui/svgs/hulu'
-import { Primevideo } from '@/components/ui/svgs/prime'
-import { motion, AnimatePresence } from 'motion/react'
-import { useState, useCallback, useRef } from 'react'
-import { ChevronDown, ChevronRight, ChevronUp, Star, Zap } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { TextEffect } from '@/components/ui/text-effect'
-import { cn } from '@/lib/utils'
+import { motion } from 'motion/react'
+import { Quote } from 'lucide-react'
 
-const MESCHAC_AVATAR = 'https://avatars.githubusercontent.com/u/47919550?v=4'
-const BERNARD_AVATAR = 'https://avatars.githubusercontent.com/u/31113941?v=4'
-const GLODIE_AVATAR = 'https://avatars.githubusercontent.com/u/99137927?v=4'
+// Luka Eric - Nairon co-founder
+const LUKA_AVATAR = 'https://avatars.githubusercontent.com/u/31113941?v=4'
 
-const testimonialsData = [
+const testimonials = [
     {
-        id: 'stripe' as const,
-        LogoComponent: Stripe,
-        cardLogoProps: { className: 'h-7 w-16' },
-        buttonLogoProps: { height: 20, width: 56 },
-        text: 'Flux changed how our team works with Claude Code. We stopped jumping straight into implementation and now run interview, plan, and review loops that catch misses early.',
-        avatar: BERNARD_AVATAR,
-        name: 'Platform Team Lead',
-        title: 'Fintech Scale-up',
-        brandColor: '#635bff',
-        resultText: '34% fewer rework loops per feature',
-        resultText2: '2.7x higher pushback quality in reviews',
-    },
-    {
-        id: 'hulu' as const,
-        LogoComponent: Hulu,
-        cardLogoProps: { className: 'h-7 w-16' },
-        buttonLogoProps: { height: 20, width: 44 },
-        text: 'The /flux:improve recommendations were practical, not generic. We installed two MCPs and immediately saw better context retention across long sessions.',
-        avatar: MESCHAC_AVATAR,
-        name: 'Staff Engineer',
-        title: 'Developer Productivity',
-        brandColor: '#1CE783',
-        resultText: '41% reduction in context reset events',
-        resultText2: '22% faster story completion',
-    },
-    {
-        id: 'prime' as const,
-        LogoComponent: Primevideo,
-        cardLogoProps: { className: 'h-7 w-20' },
-        buttonLogoProps: { height: 24, width: 64 },
-        text: 'For leadership, Flux gives a clear picture of AI collaboration maturity. We can now coach teams using data instead of anecdotes.',
-        avatar: GLODIE_AVATAR,
-        name: 'VP Engineering',
-        title: 'B2B SaaS',
-        brandColor: '#00A8E1',
-        resultText: 'Score improved from 52 -> 78 in 4 weeks',
-        resultText2: 'Shared workflow adopted by 5 squads',
+        id: 'luka',
+        text: "I'm mostly a product person — not an engineer. But with Flux guiding my Claude Code sessions, I've been able to ship real features and help build a 6-figure ARR startup. The workflow loops keep me from making dumb mistakes and the recommendations actually make sense.",
+        avatar: LUKA_AVATAR,
+        name: 'Luka Eric',
+        title: 'Co-founder, Nairon AI',
+        highlight: '6-figure ARR',
+        highlightLabel: 'Built with Flux',
     },
 ]
 
-const animationVariants = {
-    exit: { opacity: 0, scale: 1, y: -18 },
-    initial: { opacity: 0, scale: 0.95, y: 18 },
-    animate: { opacity: 1, scale: 1, y: 0 },
-}
-
 export default function Testimonials() {
-    const [currentIndex, setCurrentIndex] = useState(1)
-    const touchStartY = useRef<number | null>(null)
-    const touchEndY = useRef<number | null>(null)
-    const savedScrollY = useRef<number>(0)
-
-    const handlePrevious = useCallback(() => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonialsData.length) % testimonialsData.length)
-    }, [])
-
-    const handleNext = useCallback(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonialsData.length)
-    }, [])
-
-    const handleTouchStart = useCallback((e: React.TouchEvent) => {
-        e.preventDefault()
-        touchEndY.current = null
-        touchStartY.current = e.targetTouches[0].clientY
-
-        const documentElement = document.documentElement
-        const body = document.body
-        savedScrollY.current = window.scrollY
-
-        documentElement.style.overflow = 'hidden'
-        body.style.overflow = 'hidden'
-        documentElement.style.position = 'fixed'
-        documentElement.style.top = `-${savedScrollY.current}px`
-        documentElement.style.width = '100%'
-        body.style.position = 'fixed'
-        body.style.width = '100%'
-    }, [])
-
-    const handleTouchMove = useCallback((e: React.TouchEvent) => {
-        e.preventDefault()
-        e.stopPropagation()
-        touchEndY.current = e.targetTouches[0].clientY
-    }, [])
-
-    const handleTouchEnd = useCallback(
-        (e: React.TouchEvent) => {
-            if (touchStartY.current === null) return
-            touchEndY.current = e.changedTouches[0].clientY
-
-            const distance = touchStartY.current - touchEndY.current
-            const isSwipeUp = distance > 50
-
-            if (isSwipeUp) {
-                handleNext()
-            }
-
-            const documentElement = document.documentElement
-            const body = document.body
-
-            documentElement.style.overflow = 'auto'
-            documentElement.style.position = 'static'
-            documentElement.style.top = '0'
-            documentElement.style.width = 'auto'
-
-            body.style.overflow = 'auto'
-            body.style.position = 'static'
-            body.style.width = 'auto'
-
-            window.scrollTo(0, savedScrollY.current)
-        },
-        [handleNext]
-    )
+    const testimonial = testimonials[0]
 
     return (
-        <section className="bg-background relative py-16 md:py-24">
-            <div className="mx-auto max-w-5xl px-6">
-                <div className="relative mx-auto max-w-xl">
-                    <Button
-                        onClick={handlePrevious}
-                        size="icon"
-                        variant="outline"
-                        aria-label="Previous testimonial"
-                        className="absolute inset-y-0 -left-16 my-auto rounded-full max-md:hidden">
-                        <ChevronUp className="-translate-y-px" />
-                    </Button>
-
-                    <Button
-                        onClick={handleNext}
-                        size="icon"
-                        variant="outline"
-                        aria-label="Next testimonial"
-                        className="absolute inset-y-0 -right-16 my-auto rounded-full max-md:hidden">
-                        <ChevronDown className="translate-y-px" />
-                    </Button>
-                    <AnimatePresence
-                        initial={false}
-                        mode="popLayout">
-                        <motion.div
-                            key={`layer-1-${testimonialsData[currentIndex].id}`}
-                            variants={animationVariants}
-                            exit={{ scale: 0.5, y: -32 }}
-                            initial={{ opacity: 0, scale: 1.025, y: -32 }}
-                            animate={{ opacity: 1, scale: 0.9, y: 0, transition: { delay: 0.2, duration: 0.5, ease: 'easeInOut' } }}
-                            transition={{ duration: 0.4, ease: 'easeInOut' }}
-                            className="ring-border bg-card shadow-black/6.5 absolute inset-0 origin-bottom translate-y-6 rounded-2xl border border-transparent shadow-md ring-1"
-                        />
-                        <motion.div
-                            key={`layer-2-${testimonialsData[currentIndex].id}`}
-                            variants={animationVariants}
-                            exit="exit"
-                            initial="initial"
-                            animate="animate"
-                            transition={{ duration: 0.4, ease: 'easeInOut' }}
-                            className="ring-border bg-card shadow-black/6.5 absolute inset-0 origin-bottom translate-y-3 scale-95 rounded-2xl border border-transparent shadow-md ring-1"
-                        />
-                        {(() => {
-                            const currentTestimonialData = testimonialsData[currentIndex]
-                            if (!currentTestimonialData) return null
-                            const { LogoComponent, cardLogoProps, text, avatar, name, title, id } = currentTestimonialData
-                            return (
-                                <motion.div
-                                    key={id}
-                                    variants={animationVariants}
-                                    exit="exit"
-                                    initial="initial"
-                                    animate="animate"
-                                    transition={{ duration: 0.4, ease: 'easeInOut' }}
-                                    className="relative z-10 origin-bottom">
-                                    <Card
-                                        className="relative space-y-8 rounded-2xl p-10 shadow-lg shadow-black/10"
-                                        style={{ touchAction: 'none' }}
-                                        onTouchStart={handleTouchStart}
-                                        onTouchMove={handleTouchMove}
-                                        onTouchEnd={handleTouchEnd}
-                                        onTouchCancel={handleTouchEnd}>
-                                        <div>
-                                            <LogoComponent {...cardLogoProps} />
-                                        </div>
-                                        <p className='text-lg before:mr-1 before:font-serif before:content-["\201C"] after:ml-1 after:font-serif after:content-["\201D"]'>{text}</p>
-                                        <div className="grid grid-cols-[auto_1fr] items-center gap-3 pl-px">
-                                            <div className="ring-foreground/10 aspect-square size-12 overflow-hidden rounded-xl border border-transparent shadow-md shadow-black/15 ring-1">
-                                                <img
-                                                    src={avatar}
-                                                    alt={`Avatar of ${name}`}
-                                                    className="size-full object-cover"
-                                                />
-                                            </div>
-                                            <div className="space-y-0.5 text-base *:block">
-                                                <span className="text-foreground font-medium">{name}</span>
-                                                <span className="text-muted-foreground text-sm">{title}</span>
-                                            </div>
-                                        </div>
-                                    </Card>
-                                </motion.div>
-                            )
-                        })()}
-                    </AnimatePresence>
-                </div>
-
-                <div className="relative mx-auto mb-9 mt-20 w-fit max-w-xl">
-                    <PlusDecorator className="-translate-[calc(50%-0.5px)]" />
-                    <PlusDecorator className="right-0 -translate-y-[calc(50%-0.5px)] translate-x-[calc(50%-0.5px)]" />
-                    <PlusDecorator className="bottom-0 right-0 translate-x-[calc(50%-0.5px)] translate-y-[calc(50%-0.5px)]" />
-                    <PlusDecorator className="bottom-0 -translate-x-[calc(50%-0.5px)] translate-y-[calc(50%-0.5px)]" />
-                    <div className="relative grid grid-cols-2 border py-6">
-                        <span className="bg-foreground/10 border-background pointer-events-none absolute inset-y-4 left-1/2 w-0.5 rounded border-r"></span>
-
-                        <div className="space-y-4 px-6">
-                            <div
-                                aria-hidden
-                                className="flex justify-center gap-1 dark:opacity-75">
-                                <Star className="fill-card dark:fill-muted-foreground stroke-card dark:stroke-muted-foreground size-5 drop-shadow" />
-                                <Star className="fill-card dark:fill-muted-foreground stroke-card dark:stroke-muted-foreground size-5 drop-shadow" />
-                                <Star className="fill-card dark:fill-muted-foreground stroke-card dark:stroke-muted-foreground size-5 drop-shadow" />
-                                <Star className="fill-card dark:fill-muted-foreground stroke-card dark:stroke-muted-foreground size-5 drop-shadow" />
-                                <Star className="fill-card dark:fill-muted-foreground stroke-card dark:stroke-muted-foreground size-5 drop-shadow" />
-                            </div>
-                            <TextEffect
-                                preset="fade"
-                                per="char"
-                                delay={0.25}
-                                speedReveal={5}
-                                key={testimonialsData[currentIndex].id}
-                                className="text-muted-foreground text-balance text-center text-sm font-medium">
-                                {testimonialsData[currentIndex].resultText}
-                            </TextEffect>
-                        </div>
-                        <div className="space-y-4 px-6">
-                            <div
-                                aria-hidden
-                                className="flex justify-center gap-1 dark:opacity-75">
-                                <Zap className="fill-card dark:fill-muted-foreground stroke-card dark:stroke-muted-foreground size-5 drop-shadow" />
-                                <Zap className="fill-card dark:fill-muted-foreground stroke-card dark:stroke-muted-foreground size-5 drop-shadow" />
-                                <Zap className="fill-card dark:fill-muted-foreground stroke-card dark:stroke-muted-foreground size-5 drop-shadow" />
-                                <Zap className="fill-card dark:fill-muted-foreground stroke-card dark:stroke-muted-foreground size-5 drop-shadow" />
-                                <Zap className="fill-card dark:fill-muted-foreground stroke-card dark:stroke-muted-foreground size-5 drop-shadow" />
-                            </div>
-                            <TextEffect
-                                preset="fade"
-                                per="char"
-                                delay={0.25}
-                                speedReveal={5}
-                                key={testimonialsData[currentIndex].id}
-                                className="text-muted-foreground text-balance text-center text-sm font-medium">
-                                {testimonialsData[currentIndex].resultText2}
-                            </TextEffect>
-                        </div>
+        <section className="bg-[#0C0C0C] relative py-16 md:py-24">
+            <div className="mx-auto max-w-4xl px-6">
+                {/* Section header */}
+                <div className="text-center mb-12">
+                    <div className="flex items-center justify-center gap-3 mb-4">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#C9A96E]" />
+                        <span className="text-[#A39E96] text-xs font-medium uppercase tracking-[0.16em]">
+                            Real Usage
+                        </span>
                     </div>
+                    <h2 className="text-[28px] leading-[32px] md:text-[48px] md:leading-[52px] font-normal tracking-[-1px] md:tracking-[-1.5px] text-[#E8E4DE]">
+                        Built by <span className="font-serif italic text-[#C9A96E]">builders</span>
+                    </h2>
                 </div>
 
-                <Button
-                    variant="link"
-                    className="mx-auto flex w-fit"
-                    disabled>
-                    Private beta stories <ChevronRight />
-                </Button>
+                {/* Featured testimonial */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <Card className="relative bg-[#141414] border-[#1a1a1a] rounded-2xl p-8 md:p-12 shadow-xl">
+                        {/* Quote icon */}
+                        <Quote className="absolute top-6 right-6 md:top-8 md:right-8 size-8 md:size-10 text-[#C9A96E]/20" />
+                        
+                        {/* Testimonial text */}
+                        <blockquote className="text-lg md:text-xl text-[#E8E4DE] leading-relaxed mb-8 max-w-2xl">
+                            "{testimonial.text}"
+                        </blockquote>
+
+                        {/* Author info */}
+                        <div className="flex items-center justify-between flex-wrap gap-6">
+                            <div className="flex items-center gap-4">
+                                <div className="ring-[#C9A96E]/30 aspect-square size-14 md:size-16 overflow-hidden rounded-full border-2 border-[#C9A96E]/20 shadow-lg">
+                                    <img
+                                        src={testimonial.avatar}
+                                        alt={`Avatar of ${testimonial.name}`}
+                                        className="size-full object-cover"
+                                    />
+                                </div>
+                                <div>
+                                    <span className="block text-[#E8E4DE] font-medium text-base md:text-lg">{testimonial.name}</span>
+                                    <span className="block text-[#A39E96] text-sm md:text-base">{testimonial.title}</span>
+                                </div>
+                            </div>
+
+                            {/* Highlight stat */}
+                            <div className="bg-[#C9A96E]/10 border border-[#C9A96E]/20 rounded-xl px-5 py-3 text-center">
+                                <span className="block text-[#C9A96E] font-semibold text-lg md:text-xl">{testimonial.highlight}</span>
+                                <span className="block text-[#A39E96] text-xs md:text-sm">{testimonial.highlightLabel}</span>
+                            </div>
+                        </div>
+                    </Card>
+                </motion.div>
+
+                {/* Social proof note */}
+                <p className="text-center text-[#A39E96] text-sm mt-8">
+                    Flux is used daily by the team building Nairon AI
+                </p>
             </div>
         </section>
     )
 }
-
-const PlusDecorator = ({ className }: { className?: string }) => (
-    <div
-        aria-hidden
-        className={cn('mask-radial-from-15% z-1 before:bg-foreground/25 after:bg-foreground/25 absolute size-3 before:absolute before:inset-0 before:m-auto before:h-px after:absolute after:inset-0 after:m-auto after:w-px', className)}
-    />
-)

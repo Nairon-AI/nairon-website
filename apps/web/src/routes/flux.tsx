@@ -15,6 +15,7 @@ import ComparatorSection from "@/components/comparator-7";
 import StatsSection from "@/components/stats-4";
 import IntegrationsSection from "@/components/integrations-6";
 import FAQs from "@/components/faqs-1";
+import Testimonials from "@/components/testimonials-7";
 
 const fluxJsonLd = JSON.stringify(fluxProductJsonLd());
 const breadcrumbsJsonLd = JSON.stringify(
@@ -63,6 +64,9 @@ function FluxPage() {
 				
 				{/* Comparator - comparator-7 */}
 				<ComparatorSection />
+				
+				{/* Testimonials - testimonials-7 */}
+				<Testimonials />
 				
 				{/* Stats - stats-4 */}
 				<StatsSection />

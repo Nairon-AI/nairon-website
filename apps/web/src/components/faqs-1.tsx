@@ -29,7 +29,7 @@ const faqItems: {
         id: "item-3",
         question: "What is the default workflow?",
         answer:
-          "Interview -> Plan -> Build/Work -> Review -> Improve. The workflow keeps humans in control while agents execute quickly.",
+          "Scope -> Interview -> Plan -> Build/Work -> Review -> Improve. The workflow keeps humans in control while agents execute quickly.",
       },
     ],
   },
