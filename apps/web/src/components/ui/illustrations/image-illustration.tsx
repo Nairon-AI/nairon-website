@@ -469,7 +469,6 @@ const Card = () => {
                         <RefreshCw className="size-3 text-violet-500" />
                         <span className="font-mono text-[10px] font-semibold tracking-wide">FLUX</span>
                     </div>
-                    <p className="text-muted-foreground text-[8px]">Updated nightly</p>
                 </div>
                 <XIcon />
             </div>
