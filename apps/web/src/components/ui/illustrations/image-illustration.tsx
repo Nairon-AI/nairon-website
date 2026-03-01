@@ -466,11 +466,9 @@ const Card = () => {
             <div className="flex items-start justify-between mb-3">
                 <div className="space-y-0.5">
                     <div className="flex items-center gap-2">
-                        <RefreshCw className="size-3 text-violet-500" />
                         <span className="font-mono text-[10px] font-semibold tracking-wide">FLUX</span>
                     </div>
                 </div>
-                <XIcon />
             </div>
 
             {/* Two column layout */}
@@ -542,11 +540,5 @@ const Context7Logo = () => (
         <path d="M17.4276 15.2565C17.4276 17.5025 18.3387 19.3778 19.822 21.1047H16.3681V22.7786H21.6654V21.1895C20.0444 19.3566 19.4194 17.8628 19.4194 15.2565H17.4276Z" fill="white" />
         <path d="M10.5724 12.7435C10.5724 10.4975 9.66131 8.62224 8.17807 6.89532L11.6319 6.89532V5.22137L6.33461 5.22137V6.81056C7.95558 8.64343 8.58066 10.1373 8.58066 12.7435L10.5724 12.7435Z" fill="white" />
         <path d="M17.4276 12.7435C17.4276 10.4975 18.3387 8.62224 19.822 6.89532L16.3681 6.89532L16.3681 5.22138L21.6654 5.22138V6.81056C20.0445 8.64343 19.4194 10.1373 19.4194 12.7435H17.4276Z" fill="white" />
-    </svg>
-)
-
-const XIcon = () => (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-muted-foreground">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
 )
