@@ -505,7 +505,7 @@ function CircuitDiagram({ item }: { item: CommandItem }) {
 
 			{/* Circuit Board SVG */}
 			<div className="relative overflow-hidden rounded-xl border border-white/[0.06] bg-[rgba(8,8,8,0.8)] p-4">
-				<svg viewBox="0 0 660 200" className="w-full" style={{ overflow: "visible" }}>
+				<svg viewBox="0 0 660 230" className="w-full" style={{ overflow: "visible" }}>
 					<defs>
 						{/* Grid pattern */}
 						<pattern id={`grid-${item.number}`} width="20" height="20" patternUnits="userSpaceOnUse">
@@ -523,7 +523,7 @@ function CircuitDiagram({ item }: { item: CommandItem }) {
 					</defs>
 
 					{/* Grid background */}
-					<rect width="660" height="200" fill={`url(#grid-${item.number})`} />
+					<rect width="660" height="230" fill={`url(#grid-${item.number})`} />
 
 					{item.title === "Scope" ? (
 						<>
