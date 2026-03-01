@@ -24,10 +24,10 @@ Guide me step by step.`;
 	return (
 		<section id="flux-cta" className="bg-background relative overflow-hidden py-16 md:py-24">
 			{/* Background effects */}
-			<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.08),transparent_60%)]" />
+			<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(201,169,110,0.08),transparent_60%)]" />
 
 			<div className="relative mx-auto max-w-3xl px-6 text-center">
-				<div className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 w-fit mx-auto rounded-full px-4 py-1.5 text-sm font-medium mb-6">
+				<div className="bg-[#C9A96E]/10 text-[#C9A96E] border border-[#C9A96E]/20 w-fit mx-auto rounded-full px-4 py-1.5 text-sm font-medium mb-6">
 					Get Started
 				</div>
 
@@ -58,7 +58,7 @@ Guide me step by step.`;
 								}`}
 							/>
 							<Check
-								className={`absolute inset-0 size-5 text-emerald-500 transition-all duration-300 ${
+								className={`absolute inset-0 size-5 text-[#C9A96E] transition-all duration-300 ${
 									copied ? "scale-100 opacity-100" : "scale-0 opacity-0"
 								}`}
 							/>
