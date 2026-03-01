@@ -66,4 +66,11 @@ export default defineSchema({
 		message: v.string(),
 		createdAt: v.number(),
 	}).index("by_email", ["email"]),
+
+	// Flux CTO observability waitlist
+	fluxWaitlist: defineTable({
+		email: v.string(),
+		source: v.optional(v.string()), // e.g., "cto-observability", "landing-page"
+		createdAt: v.number(),
+	}).index("by_email", ["email"]),
 });

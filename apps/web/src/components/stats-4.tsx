@@ -1,4 +1,93 @@
 import { cn } from '@/lib/utils'
+import { useState } from 'react'
+import { Loader2, CheckCircle2 } from 'lucide-react'
+
+function WaitlistForm() {
+    const [email, setEmail] = useState('')
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+    const [message, setMessage] = useState('')
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        if (!email || status === 'loading') return
+
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if (!emailRegex.test(email)) {
+            setStatus('error')
+            setMessage('Please enter a valid email address')
+            return
+        }
+
+        setStatus('loading')
+        try {
+            const convexSiteUrl = import.meta.env.VITE_CONVEX_SITE_URL
+            const response = await fetch(`${convexSiteUrl}/waitlist`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, source: 'cto-observability' }),
+            })
+            const result = await response.json()
+            
+            if (result.success) {
+                setStatus('success')
+                setMessage(result.message || "You're on the waitlist!")
+                setEmail('')
+            } else {
+                setStatus('error')
+                setMessage(result.message || 'Something went wrong. Please try again.')
+            }
+        } catch (error) {
+            setStatus('error')
+            setMessage('Something went wrong. Please try again.')
+            console.error('Waitlist error:', error)
+        }
+    }
+
+    if (status === 'success') {
+        return (
+            <div className="flex items-center justify-center gap-2 text-emerald-500 mt-8">
+                <CheckCircle2 className="size-5" />
+                <span className="text-sm font-medium">{message}</span>
+            </div>
+        )
+    }
+
+    return (
+        <form onSubmit={handleSubmit} className="mt-8 mx-auto max-w-md">
+            <div className="flex gap-2">
+                <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => {
+                        setEmail(e.target.value)
+                        if (status === 'error') setStatus('idle')
+                    }}
+                    placeholder="Enter your work email"
+                    className="flex-1 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#C9A96E]/50 focus:outline-none focus:ring-1 focus:ring-[#C9A96E]/50"
+                    disabled={status === 'loading'}
+                />
+                <button
+                    type="submit"
+                    disabled={status === 'loading' || !email}
+                    className="rounded-lg bg-[#C9A96E] px-5 py-2.5 text-sm font-medium text-black transition-colors hover:bg-[#B8944F] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                >
+                    {status === 'loading' ? (
+                        <>
+                            <Loader2 className="size-4 animate-spin" />
+                            <span>Joining...</span>
+                        </>
+                    ) : (
+                        'Join waitlist'
+                    )}
+                </button>
+            </div>
+            {status === 'error' && (
+                <p className="mt-2 text-sm text-red-400">{message}</p>
+            )}
+        </form>
+    )
+}
 
 export default function StatsSection() {
     return (
@@ -11,6 +100,8 @@ export default function StatsSection() {
                 <p className="text-muted-foreground mx-auto mt-6 max-w-xl text-pretty text-center text-lg">
                     See which engineers are actually leveraging AI effectively, where the team needs development, and which workflows produce the highest quality output.
                 </p>
+
+                <WaitlistForm />
 
                 <div className="relative mt-12">
                     <PlusDecorator className="-translate-[calc(50%-0.5px)]" />
