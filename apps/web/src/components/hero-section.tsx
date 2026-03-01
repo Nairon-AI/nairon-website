@@ -60,6 +60,11 @@ export default function HeroSection() {
                     >
                       <Icon size={12} className="opacity-80" />
                       {platform.name}
+                      {platform.status === "beta" && (
+                        <span className="ml-1 rounded bg-amber-500/20 px-1 py-0.5 text-[10px] uppercase tracking-wide">
+                          exp
+                        </span>
+                      )}
                     </span>
                   );
                 })}
