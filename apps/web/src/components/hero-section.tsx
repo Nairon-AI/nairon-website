@@ -1,6 +1,6 @@
 import { ImageIllustration } from "@/components/ui/illustrations/image-illustration"
 import { Button } from '@/components/ui/button'
-import { Brain, Workflow, Rocket, Copy } from 'lucide-react'
+import { Brain, Workflow, Rocket, Copy, Check } from 'lucide-react'
 import { useState } from 'react'
 
 const features = [
@@ -37,7 +37,18 @@ function CopyCommand() {
             className="bg-card ring-border flex items-center gap-3 rounded-lg px-4 py-2.5 font-mono text-sm ring-1 transition-colors hover:bg-card/80"
         >
             <span className="text-muted-foreground">{command}</span>
-            <Copy className={`size-4 ${copied ? 'text-emerald-500' : 'text-muted-foreground'}`} />
+            <span className="relative size-4">
+                <Copy 
+                    className={`absolute inset-0 size-4 text-muted-foreground transition-all duration-300 ${
+                        copied ? 'scale-0 opacity-0' : 'scale-100 opacity-100'
+                    }`} 
+                />
+                <Check 
+                    className={`absolute inset-0 size-4 text-emerald-500 transition-all duration-300 ${
+                        copied ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
+                    }`} 
+                />
+            </span>
         </button>
     )
 }
