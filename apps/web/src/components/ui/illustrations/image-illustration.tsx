@@ -1,6 +1,5 @@
 import { CheckCircle2, RefreshCw } from 'lucide-react'
 import { LogoIcon } from '@/components/logo'
-import { CodeBlockIllustration } from "@/components/ui/illustrations/code-block-illustration"
 import '@/styles/hero-animations.css'
 
 export const ImageIllustration = () => {
@@ -471,11 +470,7 @@ export const ImageIllustration = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="relative pb-2 pr-2">
-                                    <div className="bg-card/75 ring-border relative h-40 overflow-hidden rounded-xl shadow-lg ring-1 backdrop-blur">
-                                        <CodeBlockIllustration />
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
