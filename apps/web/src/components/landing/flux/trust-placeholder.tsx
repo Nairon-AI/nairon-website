@@ -1,4 +1,4 @@
-import { NBENCH_TRUST_PLACEHOLDER } from "@/data/flux";
+import { FLUX_TRUST_PLACEHOLDER } from "@/data/flux";
 import { FluxSection } from "@/components/landing/flux/primitives";
 
 export function FluxTrustPlaceholder() {
@@ -7,17 +7,17 @@ export function FluxTrustPlaceholder() {
 			<div className="grid gap-10 border border-white/[0.08] p-6 md:p-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
 				<div>
 					<div className="inline-flex items-center rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 font-inter text-[11px] uppercase tracking-[0.12em] text-white/62">
-						{NBENCH_TRUST_PLACEHOLDER.badge}
+						{FLUX_TRUST_PLACEHOLDER.badge}
 					</div>
 					<h2 className="mt-5 max-w-[13ch] font-inter text-[38px] font-[540] leading-[1.03] tracking-[-0.03em] text-white md:text-[56px]">
-						{NBENCH_TRUST_PLACEHOLDER.title}
+						{FLUX_TRUST_PLACEHOLDER.title}
 					</h2>
 					<p className="mt-5 max-w-[48ch] font-inter text-[18px] leading-[1.5] text-white/54">
-						{NBENCH_TRUST_PLACEHOLDER.description}
+						{FLUX_TRUST_PLACEHOLDER.description}
 					</p>
 
 					<div className="mt-9 divide-y divide-white/[0.08] border-y border-white/[0.08]">
-						{NBENCH_TRUST_PLACEHOLDER.rows.map((row) => (
+						{FLUX_TRUST_PLACEHOLDER.rows.map((row) => (
 							<div key={row.title} className="grid gap-2 py-5 md:grid-cols-[220px_1fr] md:gap-6">
 								<p className="font-inter text-[26px] leading-[1.08] tracking-[-0.02em] text-white md:text-[30px]">
 									{row.title}

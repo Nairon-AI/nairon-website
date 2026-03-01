@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Globe, Lightbulb, Paperclip } from "lucide-react";
-import { NBENCH_FEATURE_SPLIT } from "@/data/flux";
+import { FLUX_FEATURE_SPLIT } from "@/data/flux";
 import { LinearGlassCard, FluxSection } from "@/components/landing/flux/primitives";
 import { cn } from "@/lib/utils";
 
@@ -61,7 +61,7 @@ function DashboardTerminal({ revealPromptCard }: { revealPromptCard: boolean }) 
 }
 
 export function FluxFeatureSplit() {
-	const { left, right } = NBENCH_FEATURE_SPLIT;
+	const { left, right } = FLUX_FEATURE_SPLIT;
 	const sequenceRef = useRef<HTMLDivElement>(null);
 	const hasRunRef = useRef(false);
 	const timerIdsRef = useRef<number[]>([]);

@@ -1,4 +1,4 @@
-import { NBENCH_WHAT_WE_TRACK } from "@/data/flux";
+import { FLUX_WHAT_WE_TRACK } from "@/data/flux";
 import { LinearGlassCard, FluxSection } from "@/components/landing/flux/primitives";
 
 function CyclesMock() {
@@ -77,13 +77,13 @@ export function FluxWhatWeTrack() {
 		<FluxSection className="overflow-hidden pb-20 pt-10 md:pb-26 md:pt-14">
 			<div className="mx-auto max-w-4xl text-center">
 				<div className="inline-flex items-center rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 font-inter text-[11px] uppercase tracking-[0.12em] text-white/65">
-					{NBENCH_WHAT_WE_TRACK.badge}
+					{FLUX_WHAT_WE_TRACK.badge}
 				</div>
 				<h2 className="mt-5 font-inter text-[32px] font-[530] leading-[1.1] tracking-[-0.025em] text-white md:text-[42px]">
-					{NBENCH_WHAT_WE_TRACK.title}
+					{FLUX_WHAT_WE_TRACK.title}
 				</h2>
 				<p className="mt-4 font-inter text-[15px] leading-[1.55] text-white/58 md:text-[16px]">
-					{NBENCH_WHAT_WE_TRACK.description}
+					{FLUX_WHAT_WE_TRACK.description}
 				</p>
 			</div>
 
@@ -91,7 +91,7 @@ export function FluxWhatWeTrack() {
 				<div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),transparent_30%)]" />
 				<div className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-white/[0.08] lg:block" />
 				<div className="grid lg:grid-cols-2">
-					{NBENCH_WHAT_WE_TRACK.cards.map((card, index) => (
+					{FLUX_WHAT_WE_TRACK.cards.map((card, index) => (
 						<div key={card.title} className="px-6 py-7 md:px-7 md:py-9 lg:px-8">
 							<h3 className="max-w-[18ch] font-inter text-[30px] font-[530] leading-[1.05] tracking-[-0.03em] text-white md:text-[36px]">
 								{card.title}

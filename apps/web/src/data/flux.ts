@@ -1,15 +1,15 @@
-export const NBENCH_HERO = {
-	badge: "Open Source AI Workflow Intelligence",
+export const FLUX_HERO = {
+	badge: "Zero-Dep Agent Orchestration",
 	headline:
-		"Your AI workflow has gaps. Flux finds them.",
+		"Agents that actually finish what they start.",
 	description:
-		"Analyze your Claude Code sessions. Detect friction patterns. Get fixes that actually work.",
+		"Pre-sized tasks + re-anchoring + cross-model review. Minimal drift, maximum reliability.",
 	placeholder: "you@company.com",
 	cta: "Join Waitlist",
 	note: "Private beta for product and engineering teams.",
 } as const;
 
-export const NBENCH_HERO_TERMINAL = {
+export const FLUX_HERO_TERMINAL = {
 	title: "claude code - my-startup-app",
 	lines: [
 		"> /flux:improve",
@@ -53,7 +53,7 @@ export const NBENCH_HERO_TERMINAL = {
 	],
 } as const;
 
-export const NBENCH_HERO_TERMINAL_BEFORE = {
+export const FLUX_HERO_TERMINAL_BEFORE = {
 	title: "claude code - my-startup-app",
 	lines: [
 		"> implement the stripe webhook",
@@ -73,7 +73,7 @@ export const NBENCH_HERO_TERMINAL_BEFORE = {
 	],
 } as const;
 
-export const NBENCH_MODELS = {
+export const FLUX_MODELS = {
 	badge: "Works everywhere you code",
 	title: "One plugin. Every AI coding tool.",
 	description:
@@ -90,7 +90,7 @@ export const NBENCH_MODELS = {
 	] as const,
 } as const;
 
-export const NBENCH_FEATURE_SPLIT = {
+export const FLUX_FEATURE_SPLIT = {
 	left: {
 		title: "Detect friction. Fix it.",
 		description:
@@ -133,7 +133,7 @@ export const NBENCH_FEATURE_SPLIT = {
 	},
 } as const;
 
-export const NBENCH_SOCIAL_PROOF = {
+export const FLUX_SOCIAL_PROOF = {
 	lead:
 		"Powering AI readiness programs for modern engineering teams. From startup squads to global product organizations.",
 	cta: "See benchmark outcomes",
@@ -149,7 +149,7 @@ export const NBENCH_SOCIAL_PROOF = {
 	],
 } as const;
 
-export const NBENCH_CAPABILITIES = {
+export const FLUX_CAPABILITIES = {
 	title: "Process beats vibes",
 	description:
 		"You're using AI to code, but are you good at it? Flux measures your actual collaboration patterns and shows you where the gaps are.",
@@ -172,7 +172,7 @@ export const NBENCH_CAPABILITIES = {
 	],
 } as const;
 
-export const NBENCH_WHAT_WE_TRACK = {
+export const FLUX_WHAT_WE_TRACK = {
 	badge: "5 dimensions",
 	title: "What separates top performers",
 	description:
@@ -197,7 +197,7 @@ export const NBENCH_WHAT_WE_TRACK = {
 	],
 } as const;
 
-export const NBENCH_SHAREABLE_REPORTS = {
+export const FLUX_SHAREABLE_REPORTS = {
 	badge: "Shareable profiles",
 	title: "Export your setup. Share what works.",
 	description:
@@ -251,7 +251,7 @@ export const NBENCH_SHAREABLE_REPORTS = {
 	cta: "View example profile",
 } as const;
 
-export const NBENCH_TRUST_PLACEHOLDER = {
+export const FLUX_TRUST_PLACEHOLDER = {
 	badge: "Privacy first",
 	title: "Your data stays yours",
 	description:
@@ -272,7 +272,7 @@ export const NBENCH_TRUST_PLACEHOLDER = {
 	],
 } as const;
 
-export const NBENCH_CTA_PLACEHOLDER = {
+export const FLUX_CTA_PLACEHOLDER = {
 	badge: "Get started",
 	title: "Find your gaps. Fix them.",
 	description:

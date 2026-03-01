@@ -1,9 +1,9 @@
-/* ─── NBench Page Styles ────────────────────────────────────────
-   Isolated from globals.css so homepage redesign doesn't break NBench.
-   Imported only by the /nbench route.
+/* ─── Flux Page Styles ────────────────────────────────────────
+   Isolated from globals.css so homepage redesign doesn't break Flux.
+   Imported only by the /flux route.
    ──────────────────────────────────────────────────────────────── */
 
-/* Gradient text for NBench headings */
+/* Gradient text for Flux headings */
 .text-gradient-linear {
 	background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 56%, rgba(255, 255, 255, 0.58) 100%);
 	-webkit-background-clip: text;
@@ -132,7 +132,7 @@
 	opacity: 0;
 }
 
-/* ─── Benchmark widget enter/exit (homepage widget, kept for NBench) */
+/* ─── Benchmark widget enter/exit (homepage widget, kept for Flux) */
 
 @keyframes benchmark-slide-in {
 	0% {

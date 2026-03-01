@@ -1,9 +1,9 @@
 import { Check, Copy } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import {
-	NBENCH_HERO,
-	NBENCH_HERO_TERMINAL,
-	NBENCH_HERO_TERMINAL_BEFORE,
+	FLUX_HERO,
+	FLUX_HERO_TERMINAL,
+	FLUX_HERO_TERMINAL_BEFORE,
 } from "@/data/flux";
 import {
 	GradientHeading,
@@ -132,7 +132,7 @@ export function FluxHero() {
 	const canRenderTerminal = viewportReady && (!isDesktop || hasInitialPose);
 	const beforeAngryLine = "> WE WERE LITERALLY JUST DOING THIS";
 	const beforePanelLines = [
-		...NBENCH_HERO_TERMINAL_BEFORE.lines,
+		...FLUX_HERO_TERMINAL_BEFORE.lines,
 		beforeAngryLine.slice(0, beforeTypedChars),
 		...(beforeShowMetrics
 			? [
@@ -354,13 +354,13 @@ export function FluxHero() {
 
 			<div className="md:px-4">
 				<div className="inline-flex items-center rounded-full border border-white/12 bg-white/[0.03] px-4 py-1.5 font-inter text-[11px] uppercase tracking-[0.16em] text-white/70">
-					{NBENCH_HERO.badge}
+					{FLUX_HERO.badge}
 				</div>
 				<GradientHeading className="mt-8 max-w-[18ch] overflow-visible pb-[0.08em] text-center text-[2rem] leading-[1.06] sm:max-w-none sm:text-[2.65rem] md:text-left md:text-[3.5rem] lg:text-[3.75rem]">
-					{NBENCH_HERO.headline}
+					{FLUX_HERO.headline}
 				</GradientHeading>
 				<p className="mt-6 max-w-xl text-center font-inter text-[17px] leading-[1.6] text-[#8f8f8f] md:max-w-none md:text-left md:whitespace-nowrap">
-					{NBENCH_HERO.description}
+					{FLUX_HERO.description}
 				</p>
 				<div className="mx-auto mt-8 w-full max-w-[680px] md:mx-0">
 					<div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.015))] px-5 py-4 shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
@@ -394,8 +394,8 @@ export function FluxHero() {
 											className={`transition-all duration-700 ease-out ${showComparison ? "w-[58%]" : "w-full"}`}
 										>
 											<TerminalWindow
-												title={NBENCH_HERO_TERMINAL.title}
-												lines={NBENCH_HERO_TERMINAL.lines}
+												title={FLUX_HERO_TERMINAL.title}
+												lines={FLUX_HERO_TERMINAL.lines}
 												animateLines={isDesktop && !showComparison}
 												showStatic={!isDesktop || showComparison}
 												revealProgress={terminalTextProgress}
@@ -409,7 +409,7 @@ export function FluxHero() {
 												Without Flux
 											</div>
 											<TerminalWindow
-												title={NBENCH_HERO_TERMINAL_BEFORE.title}
+												title={FLUX_HERO_TERMINAL_BEFORE.title}
 												lines={beforePanelLines}
 												animateLines={false}
 												showStatic

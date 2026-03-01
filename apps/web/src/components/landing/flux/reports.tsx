@@ -1,11 +1,11 @@
 import { BarChart3, Lightbulb, Trophy, Wrench } from "lucide-react";
-import { NBENCH_SHAREABLE_REPORTS } from "@/data/flux";
+import { FLUX_SHAREABLE_REPORTS } from "@/data/flux";
 import { LinearGlassCard, FluxSection } from "@/components/landing/flux/primitives";
 
 const FEATURE_ICONS = [BarChart3, Wrench, Lightbulb, Trophy] as const;
 
 function ReportBrowserMock() {
-	const { report } = NBENCH_SHAREABLE_REPORTS;
+	const { report } = FLUX_SHAREABLE_REPORTS;
 
 	return (
 		<LinearGlassCard
@@ -22,7 +22,7 @@ function ReportBrowserMock() {
 					<span className="size-3 rounded-full bg-[#28c840]" />
 				</div>
 				<div className="min-w-0 flex-1 rounded-[8px] border border-white/[0.07] bg-white/[0.05] px-3 py-1.5 font-mono text-[12px] text-white/52 md:text-[13px]">
-					<p className="truncate">{NBENCH_SHAREABLE_REPORTS.url}</p>
+					<p className="truncate">{FLUX_SHAREABLE_REPORTS.url}</p>
 				</div>
 				<button
 					type="button"
@@ -108,7 +108,7 @@ function ReportBrowserMock() {
 function ReportFeatureList() {
 	return (
 		<div className="space-y-3 lg:self-center">
-			{NBENCH_SHAREABLE_REPORTS.features.map((feature, index) => {
+			{FLUX_SHAREABLE_REPORTS.features.map((feature, index) => {
 				const Icon = FEATURE_ICONS[index];
 				return (
 					<LinearGlassCard
@@ -143,10 +143,10 @@ export function FluxReports() {
 			<div className="grid gap-8 md:grid-cols-[1fr_1fr] md:items-end md:gap-10">
 				<div>
 					<div className="inline-flex items-center rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 font-inter text-[11px] uppercase tracking-[0.12em] text-white/65">
-					{NBENCH_SHAREABLE_REPORTS.badge}
+					{FLUX_SHAREABLE_REPORTS.badge}
 					</div>
 					<h2 className="mt-5 max-w-[22ch] text-balance font-inter text-[34px] font-[530] leading-[1.12] tracking-[-0.022em] text-white md:text-[42px]">
-						{NBENCH_SHAREABLE_REPORTS.title}
+						{FLUX_SHAREABLE_REPORTS.title}
 					</h2>
 				</div>
 			</div>

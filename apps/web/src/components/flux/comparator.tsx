@@ -5,7 +5,7 @@ type Feature = {
 	name: string;
 	description?: string;
 	claudeCode: boolean | string;
-	withNbench: boolean | string;
+	withFlux: boolean | string;
 };
 
 const features: Feature[] = [
@@ -13,49 +13,49 @@ const features: Feature[] = [
 		name: "AI code generation",
 		description: "Generate code from natural language prompts",
 		claudeCode: true,
-		withNbench: true,
+		withFlux: true,
 	},
 	{
 		name: "Multi-file editing",
 		description: "Edit multiple files in a single session",
 		claudeCode: true,
-		withNbench: true,
+		withFlux: true,
 	},
 	{
 		name: "Structured requirements gathering",
 		description: "Interview-based requirements clarification before coding",
 		claudeCode: false,
-		withNbench: true,
+		withFlux: true,
 	},
 	{
 		name: "Atomic task breakdown",
 		description: "Break features into 30-90 min tasks with dependencies",
 		claudeCode: false,
-		withNbench: true,
+		withFlux: true,
 	},
 	{
 		name: "Session analysis",
 		description: "Analyze your coding sessions for friction patterns",
 		claudeCode: false,
-		withNbench: true,
+		withFlux: true,
 	},
 	{
 		name: "AI-native scoring",
 		description: "Measure collaboration quality across 5 dimensions",
 		claudeCode: false,
-		withNbench: true,
+		withFlux: true,
 	},
 	{
 		name: "Tool recommendations",
 		description: "Get personalized MCP and skill recommendations",
 		claudeCode: false,
-		withNbench: true,
+		withFlux: true,
 	},
 	{
 		name: "Context preservation",
 		description: "Maintain understanding across sessions",
 		claudeCode: false,
-		withNbench: true,
+		withFlux: true,
 	},
 ];
 
@@ -153,7 +153,7 @@ export function FluxComparator() {
 									key={index}
 									className="odd:bg-card flex h-14 items-center justify-center px-4 text-sm last:rounded-b-xl"
 								>
-									<Indicator checked={feature.withNbench === true} />
+									<Indicator checked={feature.withFlux === true} />
 								</div>
 							))}
 						</div>

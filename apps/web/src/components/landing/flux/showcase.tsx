@@ -1,4 +1,4 @@
-import { NBENCH_CAPABILITIES } from "@/data/flux";
+import { FLUX_CAPABILITIES } from "@/data/flux";
 import { LinearGlassCard, FluxSection } from "@/components/landing/flux/primitives";
 
 function CapabilityCard({
@@ -79,15 +79,15 @@ export function FluxShowcase() {
 			<FluxSection className="pb-18 pt-0 md:pb-24 md:pt-2">
 				<div className="pointer-events-none absolute inset-x-8 top-16 -z-10 h-[420px] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),transparent_48%,rgba(255,255,255,0.02))] blur-2xl" />
 				<div className="grid gap-8 md:grid-cols-[1fr_1fr] md:items-end md:gap-10">
-					<h2 className="max-w-[14ch] font-inter text-[34px] font-[530] leading-[1.12] tracking-[-0.022em] text-white md:text-[42px]">
-						{NBENCH_CAPABILITIES.title}
-					</h2>
-					<p className="max-w-lg font-inter text-[16px] leading-[1.5] tracking-[-0.004em] text-white/66 md:justify-self-end md:text-[18px]">
-						{NBENCH_CAPABILITIES.description}
-					</p>
+				<h2 className="max-w-[14ch] font-inter text-[34px] font-[530] leading-[1.12] tracking-[-0.022em] text-white md:text-[42px]">
+					{FLUX_CAPABILITIES.title}
+				</h2>
+				<p className="max-w-lg font-inter text-[16px] leading-[1.5] tracking-[-0.004em] text-white/66 md:justify-self-end md:text-[18px]">
+					{FLUX_CAPABILITIES.description}
+				</p>
 				</div>
 				<div className="mt-12 grid gap-5 md:mt-14 md:grid-cols-3 md:[grid-auto-rows:1fr]">
-					{NBENCH_CAPABILITIES.cards.map((card, index) => (
+					{FLUX_CAPABILITIES.cards.map((card, index) => (
 						<CapabilityCard
 							key={card.title}
 							title={card.title}

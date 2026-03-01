@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Check, ChevronRight } from "lucide-react";
-import { NBENCH_MODELS } from "@/data/flux";
+import { FLUX_MODELS } from "@/data/flux";
 import { FluxSection } from "@/components/landing/flux/primitives";
 import { cn } from "@/lib/utils";
 
@@ -92,19 +92,19 @@ export function FluxModels() {
 			<div className="mx-auto flex max-w-4xl flex-col items-center text-center">
 				<div className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.02] px-3 py-1 font-inter text-[12px] text-white/72">
 					<span className="h-2 w-2 rounded-full bg-[#2bdbff]" />
-					{NBENCH_MODELS.badge}
+					{FLUX_MODELS.badge}
 				</div>
 				<h2 className="mt-5 max-w-[16ch] font-inter text-[42px] font-[530] leading-[1.02] tracking-[-0.03em] text-white sm:max-w-none sm:text-[58px] md:text-[72px]">
 					Insights across all AI tools
 				</h2>
 				<p className="mt-4 max-w-3xl font-inter text-[18px] leading-[1.45] tracking-[-0.01em] text-white/52 md:text-[19px]">
-					{NBENCH_MODELS.description}
+					{FLUX_MODELS.description}
 				</p>
 				<button
 					type="button"
 					className="mt-8 inline-flex items-center gap-2 rounded-[13px] border border-white/14 bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.06))] px-5 py-2.5 font-inter text-[18px] font-[520] tracking-[-0.02em] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_10px_28px_rgba(0,0,0,0.42)]"
 				>
-					{NBENCH_MODELS.cta}
+					{FLUX_MODELS.cta}
 					<ChevronRight className="size-4 text-white/80" />
 				</button>
 			</div>
@@ -122,12 +122,12 @@ export function FluxModels() {
 
 					<div className="relative px-5 pt-5 md:px-8 md:pt-6">
 						<div className="rounded-[12px] border border-white/[0.1] bg-[linear-gradient(180deg,rgba(255,255,255,0.045),rgba(255,255,255,0.015))] px-5 py-2.5 font-inter text-[20px] italic tracking-[-0.01em] text-white/48 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] md:text-[17px]">
-							{NBENCH_MODELS.placeholder}
+							{FLUX_MODELS.placeholder}
 						</div>
 
 						<div className="mt-3 overflow-visible rounded-[14px] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(13,14,16,0.7),rgba(7,7,8,0.74))] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
 							<div ref={rowsRef} className="relative px-3 py-2">
-								{NBENCH_MODELS.rows.map((model, index) => {
+								{FLUX_MODELS.rows.map((model, index) => {
 									const isSelected = highlightedIndex === index;
 									return (
 										<div
