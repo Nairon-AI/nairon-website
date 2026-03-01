@@ -1,6 +1,12 @@
 import { ImageIllustration } from "@/components/ui/illustrations/image-illustration";
 import { Button } from "@/components/ui/button";
 import { Anchor, Users, Eye } from "lucide-react";
+import {
+  AnthropicIcon,
+  FactoryDroidIcon,
+  OpenAIIcon,
+  OpenCodeIcon,
+} from "@/components/ui/icons/platform-icons";
 
 const features = [
   {
@@ -23,6 +29,13 @@ const features = [
   },
 ];
 
+const platforms = [
+  { name: "Claude Code", status: "primary", icon: AnthropicIcon },
+  { name: "Factory Droid", status: "supported", icon: FactoryDroidIcon },
+  { name: "Codex", status: "supported", icon: OpenAIIcon },
+  { name: "OpenCode", status: "beta", icon: OpenCodeIcon },
+];
+
 export default function HeroSection() {
   return (
     <main role="main" className="overflow-hidden">
@@ -30,15 +43,42 @@ export default function HeroSection() {
         <div className="bg-background pt-32 lg:pt-44">
           <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-12">
             <div className="text-center">
+              {/* Platform pills */}
+              <div className="mb-6 flex flex-wrap items-center justify-center gap-2">
+                {platforms.map((platform) => {
+                  const Icon = platform.icon;
+                  return (
+                    <span
+                      key={platform.name}
+                      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium ring-1 ring-inset ${
+                        platform.status === "primary"
+                          ? "bg-violet-500/10 text-violet-400 ring-violet-500/20"
+                          : platform.status === "beta"
+                            ? "bg-amber-500/10 text-amber-400 ring-amber-500/20"
+                            : "bg-zinc-500/10 text-zinc-400 ring-zinc-500/20"
+                      }`}
+                    >
+                      <Icon size={12} className="opacity-80" />
+                      {platform.name}
+                    </span>
+                  );
+                })}
+              </div>
+
               <h1 className="text-foreground mx-auto text-balance text-5xl font-semibold lg:text-6xl xl:text-7xl xl:tracking-tight">
                 Stay AI-native, no matter how fast the industry evolves.
               </h1>
 
               <div className="mx-auto mb-12 mt-6 max-w-2xl">
                 <p className="text-muted-foreground mb-8 text-balance text-lg lg:text-xl">
-                  Flux gives you the structure to ship with AI reliably - while
-                  staying flexible enough to adopt better tools, MCPs, and
-                  optimizations the moment they drop.
+                  Flux is the missing Claude Code plugin that gives you the
+                  structure to ship with AI{" "}
+                  <span className="relative inline-block text-emerald-400">
+                    reliably
+                    <span className="absolute -bottom-0.5 left-0 h-px w-full bg-emerald-400/60" />
+                  </span>
+                  —while staying flexible enough to adopt better tools, MCPs,
+                  and optimizations the moment they drop.
                 </p>
 
                 <div className="flex items-center justify-center gap-3">
