@@ -12,7 +12,7 @@ const features = [
   {
     title: "CLI Runtime Layer",
     description:
-      "Slash commands guide you through structured workflows—Scope, Interview, Plan, Build, Review, Improve. Each phase re-anchors to your original intent so nothing drifts off course.",
+      "Slash commands guide you through structured workflows—Scope/Plan, Build, Review, Improve. Each phase re-anchors to your original intent so nothing drifts off course.",
     callout: "Your terminal becomes the control plane—structured loops keep you in control while agents execute.",
   },
   {
