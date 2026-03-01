@@ -62,14 +62,6 @@ const features: Feature[] = [
             flux: true,
         },
     },
-    {
-        name: 'Factory Droid and Codex support',
-        description: 'Same workflow intelligence can be applied across supported agent runtimes.',
-        plans: {
-            claude: false,
-            flux: true,
-        },
-    },
 ]
 
 const renderPlanColumn = (plan: Plan) => {
