@@ -21,14 +21,6 @@ const features: Feature[] = [
             flux: true,
         },
     },
-    {
-        name: 'Works directly in Claude Code',
-        description: 'No context switching to external dashboards required for core workflow.',
-        plans: {
-            claude: true,
-            flux: true,
-        },
-    },
     // Features only Flux adds
     {
         name: 'Re-anchoring at every checkpoint',
