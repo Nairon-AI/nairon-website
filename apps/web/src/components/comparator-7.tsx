@@ -12,6 +12,24 @@ type Feature = {
 }
 
 const features: Feature[] = [
+    // Features Claude Code already has (checks first)
+    {
+        name: 'HITL mode (one task at a time)',
+        description: 'Stay deeply involved. Review each task before the next one starts.',
+        plans: {
+            claude: true,
+            flux: true,
+        },
+    },
+    {
+        name: 'Works directly in Claude Code',
+        description: 'No context switching to external dashboards required for core workflow.',
+        plans: {
+            claude: true,
+            flux: true,
+        },
+    },
+    // Features only Flux adds
     {
         name: 'Re-anchoring at every checkpoint',
         description: 'Agents verify alignment with original intent before, during, and after each task.',
@@ -37,14 +55,6 @@ const features: Feature[] = [
         },
     },
     {
-        name: 'HITL mode (one task at a time)',
-        description: 'Stay deeply involved. Review each task before the next one starts.',
-        plans: {
-            claude: true,
-            flux: true,
-        },
-    },
-    {
         name: 'AFK mode (throw the epic at it)',
         description: 'Queue an entire epic and walk away. Same re-anchoring and evidence guarantees.',
         plans: {
@@ -57,14 +67,6 @@ const features: Feature[] = [
         description: 'Persistent memory across sessions. Intent, decisions, and constraints survive context switches.',
         plans: {
             claude: false,
-            flux: true,
-        },
-    },
-    {
-        name: 'Works directly in Claude Code',
-        description: 'No context switching to external dashboards required for core workflow.',
-        plans: {
-            claude: true,
             flux: true,
         },
     },
