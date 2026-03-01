@@ -166,3 +166,103 @@ Notes:
 - Retry lane y-axis: ~40-56px below centerline (shallow, not deep).
 - `Verify -> Why failed?` edge should be vertical first, then horizontal.
 - Keep nodes static; animate pulses only.
+
+---
+
+## Iteration 2 - Fail Loop Layout Fixes
+
+**Problem identified:** The current fail loop has nodes in illogical order (Re-run LEFT of Fix) causing crossing lines.
+
+### Variation 2A - Linear fail loop (flows right, returns left)
+
+```
+Main:    Task → Implement → Verify ----→ Commit → Done
+                              ↓    pass
+                              fail
+                              ↓
+Fail:                    Why failed? → Fix → Re-run
+                              ↑__________________|
+```
+
+Node positions:
+- Why failed?: x=320, y=165 (directly below Verify)
+- Fix: x=420, y=165 (to the right)
+- Re-run: x=520, y=165 (further right)
+- Re-run connects back to Verify with an orthogonal path going up
+
+**Pros:** Clear left-to-right reading, no crossing lines
+**Cons:** Re-run is far right, return path is long
+
+---
+
+### Variation 2B - Compact clockwise loop (below Verify)
+
+```
+Main:    Task → Implement → Verify ----→ Commit → Done
+                              ↓    pass
+                              fail
+                         Why failed?
+                              ↓
+                    Re-run ← Fix
+                      ↑______|
+```
+
+Node positions:
+- Why failed?: x=320, y=155 (below Verify)
+- Fix: x=380, y=195 (down-right)
+- Re-run: x=260, y=195 (down-left)
+- Re-run connects back up to Verify
+
+**Pros:** Compact, clear clockwise flow, loop is self-contained
+**Cons:** Slightly deeper vertical drop
+
+---
+
+### Variation 2C - Inline retry lane (same depth, logical order)
+
+```
+Main:    Task → Implement → Verify ----→ Commit → Done
+                              ↓    pass
+Fail:            Re-run ← Fix ← Why?
+                   |_____________↑ (returns to Verify)
+```
+
+Node positions:
+- Why failed?: x=320, y=160
+- Fix: x=250, y=160 (LEFT of Why - reverse visual order)
+- Re-run: x=180, y=160 (further left)
+- Re-run connects to Verify going right
+
+**Pros:** Very shallow, all on one line
+**Cons:** Reads right-to-left which is counterintuitive
+
+---
+
+### Variation 2D - Stacked vertical loop
+
+```
+Main:    Task → Implement → Verify ----→ Commit → Done
+                              |    pass
+                              fail
+                              ↓
+                         Why failed?
+                              ↓
+                             Fix
+                              ↓
+                           Re-run
+                              ↓
+                         (back to Verify)
+```
+
+**Pros:** Very clear sequential flow
+**Cons:** Takes more vertical space, may look unbalanced
+
+---
+
+## Recommended: Variation 2B (Compact clockwise loop)
+
+Rationale:
+- Keeps the loop visually contained below Verify
+- Clear clockwise reading pattern
+- No line crossings
+- Moderate depth (not too deep, not too shallow)
