@@ -65,8 +65,8 @@ function FluxPage() {
 				{/* Comparator - comparator-7 */}
 				<ComparatorSection />
 				
-				{/* Testimonials - testimonials-7 */}
-				<Testimonials />
+				{/* Testimonials - testimonials-3 (hidden for now) */}
+				{/* <Testimonials /> */}
 				
 				{/* Stats - stats-4 */}
 				<StatsSection />
