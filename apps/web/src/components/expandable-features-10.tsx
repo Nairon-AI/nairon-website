@@ -10,13 +10,13 @@ const AUTOPLAY_DURATION = 7000;
 
 const features = [
   {
-    title: "CLI Runtime Layer",
+    title: "CLI Runtime",
     description:
       "Slash commands guide you through structured workflows—Scope/Plan, Build, Review, Improve. Each phase re-anchors to your original intent so nothing drifts off course.",
     callout: "Your terminal becomes the control plane—structured loops keep you in control while agents execute.",
   },
   {
-    title: "Recommendation DB + Nightcrawler",
+    title: "Recommendations Engine",
     description:
       "Nightly jobs scrape X & Gitub for emerging tools and workflow patterns worth adopting.",
     callout: "Friction/Optimization signals from the best AI-native engineers on the planet (on X & GitHub) → so you can stop doom scrolling and actually sleep at night.",
