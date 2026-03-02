@@ -76,38 +76,6 @@ Guide me on anything I need to do manually and do the rest automatically.`;
           </div>
         </div>
 
-        {/* Post-install steps */}
-        <div className="bg-white/[0.02] ring-white/10 rounded-xl p-6 ring-1 max-w-2xl mx-auto mt-6 text-left">
-          <p className="text-[#E8E4DE] text-sm font-medium mb-3">
-            After installation:
-          </p>
-          <ol className="text-[#A39E96] text-sm space-y-2 list-decimal list-inside">
-            <li>
-              <span className="text-[#E8E4DE]">Restart Claude Code</span>{" "}
-              (plugins load at session start)
-            </li>
-            <li>
-              Run{" "}
-              <code className="text-[#E8E4DE] bg-white/5 px-1.5 py-0.5 rounded">
-                /flux:setup
-              </code>{" "}
-              to configure your project
-            </li>
-            <li>
-              Start your first feature:{" "}
-              <code className="text-[#E8E4DE] bg-white/5 px-1.5 py-0.5 rounded">
-                /flux:scope Add user notifications
-              </code>
-            </li>
-          </ol>
-          <p className="text-[#A39E96]/70 text-xs mt-3">
-            Then use <code className="text-[#E8E4DE]/70">/flux:work</code> to
-            execute tasks and{" "}
-            <code className="text-[#E8E4DE]/70">/flux:impl-review</code> to
-            review.
-          </p>
-        </div>
-
         {/* Requirements note */}
         <p className="text-[#A39E96] text-sm mt-4">
           Requires{" "}
