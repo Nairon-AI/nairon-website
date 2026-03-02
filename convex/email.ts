@@ -22,11 +22,15 @@ export const sendWaitlistConfirmation = internalAction({
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #0C0C0C; color: #E8E4DE; padding: 40px 20px; margin: 0;">
   <div style="max-width: 560px; margin: 0 auto;">
     <h1 style="font-size: 28px; font-weight: normal; margin-bottom: 32px;">
-      You're on the <span style="color: #C9A96E; font-style: italic;">Flux</span> waitlist
+      You're on the <span style="color: #C9A96E; font-style: italic;">Observability</span> waitlist
     </h1>
     
     <p style="font-size: 16px; line-height: 1.7; color: #A39E96; margin-bottom: 32px;">
-      We're building the best tooling for improving and measuring AI-Nativeness—dashboards that show which engineers are leveraging AI effectively, where friction clusters, and which workflows produce the highest quality output.
+      We're building CTO-level dashboards for AI-native engineering teams—see which engineers are leveraging AI effectively, where friction clusters, and which workflows produce the highest quality output.
+    </p>
+    
+    <p style="font-size: 16px; line-height: 1.7; color: #A39E96; margin-bottom: 32px;">
+      In the meantime, you can use <a href="https://github.com/Nairon-AI/flux" style="color: #C9A96E; text-decoration: none;">Flux</a> (our free Claude Code plugin) to start improving your AI workflow today.
     </p>
     
     <p style="font-size: 16px; line-height: 1.7; color: #A39E96; margin-bottom: 32px;">
@@ -43,9 +47,9 @@ export const sendWaitlistConfirmation = internalAction({
 
 		await resend.sendEmail(
 			ctx,
-			"Flux by Nairon <flux@naironai.com>",
+			"Nairon <hello@naironai.com>",
 			email,
-			"You're on the Flux waitlist!",
+			"You're on the Observability waitlist",
 			emailHtml
 		);
 	},
