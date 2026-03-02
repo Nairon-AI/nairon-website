@@ -48,6 +48,11 @@ http.route({
 				});
 			}
 
+			// Send confirmation email via Resend component
+			await ctx.scheduler.runAfter(0, internal.email.sendWaitlistConfirmation, {
+				email: email.toLowerCase(),
+			});
+
 			return new Response(JSON.stringify({ success: true, message: "You're on the waitlist!" }), {
 				status: 200,
 				headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },

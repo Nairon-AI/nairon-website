@@ -26,5 +26,9 @@
 		"turbo": "^2.4.0",
 		"typescript": "catalog:"
 	},
-	"packageManager": "bun@1.2.0"
+	"packageManager": "bun@1.2.0",
+	"dependencies": {
+		"@convex-dev/resend": "^0.2.3",
+		"resend": "^6.9.3"
+	}
 }
