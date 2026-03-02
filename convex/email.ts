@@ -26,11 +26,15 @@ export const sendWaitlistConfirmation = internalAction({
     </h1>
     
     <p style="font-size: 16px; line-height: 1.7; color: #A39E96; margin-bottom: 32px;">
-      We're building CTO-level dashboards for AI-native engineering teams—see which engineers are leveraging AI effectively, where friction clusters, and which workflows produce the highest quality output.
+      We're building the developer productivity platform for the AI era—think DORA metrics, but for AI-native engineering. Measure how your teams are actually adopting agentic workflows, where friction lives in your SDLC, and which patterns produce the highest quality output.
     </p>
     
     <p style="font-size: 16px; line-height: 1.7; color: #A39E96; margin-bottom: 32px;">
-      In the meantime, you can use <a href="https://github.com/Nairon-AI/flux" style="color: #C9A96E; text-decoration: none;">Flux</a> (our free Claude Code plugin) to start improving your AI workflow today.
+      Org-level visibility into AI-Nativeness: team benchmarks, workflow quality scores, and actionable recommendations—not just dashboards, but the full tooling layer to improve how your engineering org collaborates with AI.
+    </p>
+    
+    <p style="font-size: 16px; line-height: 1.7; color: #A39E96; margin-bottom: 32px;">
+      In the meantime, your engineers can use <a href="https://github.com/Nairon-AI/flux" style="color: #C9A96E; text-decoration: none;">Flux</a> (our free Claude Code plugin) to start building structured AI workflows today.
     </p>
     
     <p style="font-size: 16px; line-height: 1.7; color: #A39E96; margin-bottom: 32px;">
