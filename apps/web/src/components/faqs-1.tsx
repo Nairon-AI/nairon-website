@@ -29,7 +29,7 @@ const faqItems: {
         id: "item-3",
         question: "What is the default workflow?",
         answer:
-          "Scope -> Interview -> Plan -> Build/Work -> Review -> Improve. The workflow keeps humans in control while agents execute quickly.",
+          "Scope -> Build/Work -> Review -> Improve. The workflow keeps humans in control while agents execute quickly.",
       },
     ],
   },
@@ -47,7 +47,8 @@ const faqItems: {
         question: "Which agents are supported?",
         answer: (
           <>
-            Claude Code is first-class, but it works in Factory Droid and OpenAI's Codex agent. The{" "}
+            Claude Code is first-class, but it works in Factory Droid and
+            OpenAI's Codex agent. The{" "}
             <a
               href="https://github.com/Nairon-AI/flux-opencode"
               target="_blank"
@@ -81,7 +82,9 @@ export default function FAQs() {
       <div className="mx-auto max-w-5xl px-1 md:px-6">
         <div className="grid gap-8 md:grid-cols-5 md:gap-12">
           <div className="max-w-lg max-md:px-6 md:col-span-2">
-            <h2 className="text-[32px] leading-[36px] md:text-[40px] md:leading-[44px] font-normal tracking-[-1px] text-[#E8E4DE]"><span className="font-serif italic text-[#C9A96E]">FAQs</span></h2>
+            <h2 className="text-[32px] leading-[36px] md:text-[40px] md:leading-[44px] font-normal tracking-[-1px] text-[#E8E4DE]">
+              <span className="font-serif italic text-[#C9A96E]">FAQs</span>
+            </h2>
             <p className="text-[#A39E96] mt-4 text-balance text-lg">
               Answers for engineers and engineering leaders
             </p>
