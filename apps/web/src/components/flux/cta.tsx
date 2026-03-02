@@ -5,15 +5,16 @@ import { Button } from "@/components/ui/button";
 export function FluxCTA() {
   const [copied, setCopied] = useState(false);
 
-  const installPrompt = `Install the Flux plugin by running this slash command:
+  const installPrompt = `I want to install Flux for structured AI development.
+The plugin is at: https://github.com/Nairon-AI/flux
 
-/plugin add https://github.com/Nairon-AI/flux
+Help me install and setup the plugin.
 
-After running it, explain these 4 core commands:
-1. /flux:scope <idea> — Start any feature with structured scoping
-2. /flux:work <task-id> — Execute tasks with full context
-3. /flux:impl-review — Review before moving on
-4. /flux:improve — Analyze sessions and recommend workflow optimizations`;
+Then explain the core workflow (scope → build → review).
+
+See its README for installation instructions.
+
+Guide me on anything I need to do manually and do the rest automatically.`;
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(installPrompt);
