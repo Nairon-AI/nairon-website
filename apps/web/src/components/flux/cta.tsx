@@ -12,7 +12,7 @@ Help me install and setup the plugin.
 
 Then explain the core workflow (scope → build → review).
 
-See its README for installation instructions.
+The install command is: /plugin add https://github.com/Nairon-AI/flux
 
 Guide me on anything I need to do manually and do the rest automatically.`;
 
