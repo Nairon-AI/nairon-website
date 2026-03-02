@@ -21,30 +21,21 @@ export const sendWaitlistConfirmation = internalAction({
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #0C0C0C; color: #E8E4DE; padding: 40px 20px; margin: 0;">
   <div style="max-width: 560px; margin: 0 auto;">
-    <h1 style="font-size: 28px; font-weight: normal; margin-bottom: 24px;">
+    <h1 style="font-size: 28px; font-weight: normal; margin-bottom: 32px;">
       You're on the <span style="color: #C9A96E; font-style: italic;">Flux</span> waitlist
     </h1>
     
-    <p style="font-size: 16px; line-height: 1.6; color: #A39E96; margin-bottom: 24px;">
-      Thanks for your interest in CTO-level observability for AI-native engineering teams.
+    <p style="font-size: 16px; line-height: 1.7; color: #A39E96; margin-bottom: 32px;">
+      We're building the best tooling for improving and measuring AI-Nativeness—dashboards that show which engineers are leveraging AI effectively, where friction clusters, and which workflows produce the highest quality output.
     </p>
     
-    <p style="font-size: 16px; line-height: 1.6; color: #A39E96; margin-bottom: 24px;">
-      We're building dashboards that show which engineers are leveraging AI effectively, where friction clusters, and which workflows produce the highest quality output.
-    </p>
-    
-    <p style="font-size: 16px; line-height: 1.6; color: #A39E96; margin-bottom: 32px;">
+    <p style="font-size: 16px; line-height: 1.7; color: #A39E96; margin-bottom: 32px;">
       We'll reach out when we're ready to onboard early users.
     </p>
     
-    <div style="border-top: 1px solid #333; padding-top: 24px; margin-top: 32px;">
-      <p style="font-size: 14px; color: #666; margin: 0;">
-        — The Nairon team
-      </p>
-      <p style="font-size: 12px; color: #555; margin-top: 16px;">
-        <a href="https://naironai.com/flux" style="color: #C9A96E; text-decoration: none;">naironai.com/flux</a>
-      </p>
-    </div>
+    <p style="font-size: 14px; color: #666; margin-top: 48px;">
+      — The Nairon team
+    </p>
   </div>
 </body>
 </html>
