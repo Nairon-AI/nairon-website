@@ -519,7 +519,7 @@ const Card = () => {
             <div className="space-y-1.5 pt-2 border-t border-foreground/5">
                 <div className="flex items-center gap-2">
                     <div className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-muted-foreground text-[8px]">Tracking 847 cutting-edge signals</span>
+                    <span className="text-muted-foreground text-[8px]">Tracking 128 cutting-edge signals</span>
                 </div>
                 <div className="flex gap-1">
                     {['MCPs', 'Skills', 'CLIs', 'Agentic Strategies'].map((tag) => (
