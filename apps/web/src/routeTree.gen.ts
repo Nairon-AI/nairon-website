@@ -13,6 +13,8 @@ import { Route as UniverseRouteImport } from './routes/universe'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as FluxRouteImport } from './routes/flux'
+import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
+import { Route as AcceptableUseRouteImport } from './routes/acceptable-use'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -36,6 +38,16 @@ const FluxRoute = FluxRouteImport.update({
   path: '/flux',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CookiePolicyRoute = CookiePolicyRouteImport.update({
+  id: '/cookie-policy',
+  path: '/cookie-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcceptableUseRoute = AcceptableUseRouteImport.update({
+  id: '/acceptable-use',
+  path: '/acceptable-use',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SplatRoute = SplatRouteImport.update({
   id: '/$',
   path: '/$',
@@ -50,6 +62,8 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/acceptable-use': typeof AcceptableUseRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/flux': typeof FluxRoute
   '/privacy': typeof PrivacyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -58,6 +72,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/acceptable-use': typeof AcceptableUseRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/flux': typeof FluxRoute
   '/privacy': typeof PrivacyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -67,6 +83,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/acceptable-use': typeof AcceptableUseRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/flux': typeof FluxRoute
   '/privacy': typeof PrivacyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -77,16 +95,28 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/$'
+    | '/acceptable-use'
+    | '/cookie-policy'
     | '/flux'
     | '/privacy'
     | '/terms-and-conditions'
     | '/universe'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$' | '/flux' | '/privacy' | '/terms-and-conditions' | '/universe'
+  to:
+    | '/'
+    | '/$'
+    | '/acceptable-use'
+    | '/cookie-policy'
+    | '/flux'
+    | '/privacy'
+    | '/terms-and-conditions'
+    | '/universe'
   id:
     | '__root__'
     | '/'
     | '/$'
+    | '/acceptable-use'
+    | '/cookie-policy'
     | '/flux'
     | '/privacy'
     | '/terms-and-conditions'
@@ -96,6 +126,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SplatRoute: typeof SplatRoute
+  AcceptableUseRoute: typeof AcceptableUseRoute
+  CookiePolicyRoute: typeof CookiePolicyRoute
   FluxRoute: typeof FluxRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
@@ -132,6 +164,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FluxRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cookie-policy': {
+      id: '/cookie-policy'
+      path: '/cookie-policy'
+      fullPath: '/cookie-policy'
+      preLoaderRoute: typeof CookiePolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/acceptable-use': {
+      id: '/acceptable-use'
+      path: '/acceptable-use'
+      fullPath: '/acceptable-use'
+      preLoaderRoute: typeof AcceptableUseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/$': {
       id: '/$'
       path: '/$'
@@ -152,6 +198,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SplatRoute: SplatRoute,
+  AcceptableUseRoute: AcceptableUseRoute,
+  CookiePolicyRoute: CookiePolicyRoute,
   FluxRoute: FluxRoute,
   PrivacyRoute: PrivacyRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,

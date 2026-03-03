@@ -4,7 +4,6 @@ import {
 	HeadContent,
 	Outlet,
 	Scripts,
-	useMatch,
 } from "@tanstack/react-router";
 import type { QueryClient } from "@tanstack/react-query";
 import type { ConvexReactClient } from "convex/react";
@@ -15,25 +14,6 @@ import { Toaster } from "sonner";
 import { organizationJsonLd, websiteJsonLd, serviceJsonLd } from "@/lib/seo";
 import "@/styles/globals.css";
 
-// Lazy-load dashboard components so they're excluded from landing page bundles
-const AppSidebar = lazy(() =>
-	import("@/components/app-sidebar").then((m) => ({ default: m.AppSidebar })),
-);
-const SidebarProvider = lazy(() =>
-	import("@/components/ui/sidebar").then((m) => ({
-		default: m.SidebarProvider,
-	})),
-);
-const SidebarInset = lazy(() =>
-	import("@/components/ui/sidebar").then((m) => ({
-		default: m.SidebarInset,
-	})),
-);
-const SidebarTrigger = lazy(() =>
-	import("@/components/ui/sidebar").then((m) => ({
-		default: m.SidebarTrigger,
-	})),
-);
 const SmoothScroll = lazy(() =>
 	import("@/components/smooth-scroll").then((m) => ({
 		default: m.SmoothScroll,
@@ -121,30 +101,21 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 
 function RootComponent() {
 	const { convex } = Route.useRouteContext();
-	const isHomePage = useMatch({ from: "/", shouldThrow: false });
-	const isFluxPage = useMatch({ from: "/flux", shouldThrow: false });
-	const isUniversePage = useMatch({ from: "/universe", shouldThrow: false });
-	const isLandingPage = isHomePage || isFluxPage || isUniversePage;
 	const [enableSmoothScroll, setEnableSmoothScroll] = useState(false);
 
 	useEffect(() => {
-		if (!isLandingPage) {
-			setEnableSmoothScroll(false);
-			return;
-		}
-
 		const smoothTimeoutId = window.setTimeout(() => setEnableSmoothScroll(true), 1200);
 		return () => {
 			window.clearTimeout(smoothTimeoutId);
 		};
-	}, [isLandingPage]);
+	}, []);
 
 	return (
-		<html lang="en" suppressHydrationWarning className={isLandingPage ? "dark" : ""} style={isLandingPage ? { backgroundColor: "#0C0C0C" } : undefined}>
+		<html lang="en" suppressHydrationWarning className="dark" style={{ backgroundColor: "#0C0C0C" }}>
 			<head>
 				<HeadContent />
 			</head>
-			<body className="min-h-screen bg-background font-sans antialiased" style={isLandingPage ? { backgroundColor: "#0C0C0C" } : undefined}>
+			<body className="min-h-screen bg-background font-sans antialiased" style={{ backgroundColor: "#0C0C0C" }}>
 				<a
 					href="#main-content"
 					className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-lg focus:bg-[#C9A96E] focus:px-4 focus:py-2 focus:text-[#0C0C0C] focus:font-medium"
@@ -158,50 +129,28 @@ function RootComponent() {
 						enableSystem
 						disableTransitionOnChange
 					>
-						{isLandingPage ? (
-							<ViewModeProvider>
-								{enableSmoothScroll ? (
-									<Suspense
-										fallback={
-											<main id="main-content">
-												<Outlet />
-											</main>
-										}
-									>
-										<SmoothScroll>
-											<main id="main-content">
-												<Outlet />
-											</main>
-										</SmoothScroll>
-									</Suspense>
-								) : (
-									<main id="main-content">
-										<Outlet />
-									</main>
-								)}
-							{/* ViewModeToggle hidden for now */}
-							</ViewModeProvider>
-						) : (
-							<Suspense
-								fallback={
-									<div className="flex min-h-screen items-center justify-center">
-										Loading...
-									</div>
-								}
-							>
-								<SidebarProvider>
-									<AppSidebar />
-									<SidebarInset>
-										<header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-											<SidebarTrigger className="-ml-1" />
-										</header>
-										<main id="main-content" className="flex-1">
+						<ViewModeProvider>
+							{enableSmoothScroll ? (
+								<Suspense
+									fallback={
+										<main id="main-content">
 											<Outlet />
 										</main>
-									</SidebarInset>
-								</SidebarProvider>
-							</Suspense>
-						)}
+									}
+								>
+									<SmoothScroll>
+										<main id="main-content">
+											<Outlet />
+										</main>
+									</SmoothScroll>
+								</Suspense>
+							) : (
+								<main id="main-content">
+									<Outlet />
+								</main>
+							)}
+						{/* ViewModeToggle hidden for now */}
+						</ViewModeProvider>
 						<Toaster />
 					</ThemeProvider>
 				</ConvexProvider>
