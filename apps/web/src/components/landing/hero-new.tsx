@@ -57,7 +57,7 @@ export function HeroNew() {
 					))}
 				</div>
 				<span className="text-[#A39E96] text-sm">
-					Trusted by thousands of engineers
+					Trusted by hundreds of engineers
 				</span>
 			</div>
 

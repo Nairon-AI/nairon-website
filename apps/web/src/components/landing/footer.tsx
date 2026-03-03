@@ -2,8 +2,8 @@ import { ArrowUpRight } from "lucide-react";
 import { useModals } from "./modal-provider";
 
 type FooterLink =
-	| { label: string; href: string; disabled?: boolean; action?: never }
-	| { label: string; action: string; href?: never };
+	| { label: string; href: string; external?: boolean; action?: never }
+	| { label: string; action: string; href?: never; external?: never };
 
 type FooterCol = { heading: string; links: FooterLink[] };
 
@@ -26,9 +26,10 @@ const FOOTER_COLS: FooterCol[] = [
 	{
 		heading: "Universe",
 		links: [
-			{ label: "Daily Feed (Coming Soon)", href: "#", disabled: true },
-			{ label: "AI Tool Directory (Coming Soon)", href: "#", disabled: true },
-			{ label: "Community (Coming Soon)", href: "#", disabled: true },
+			{ label: "Signals & Trends", href: "https://universe.naironai.com", external: true },
+			{ label: "AI Tool Directory", href: "https://universe.naironai.com", external: true },
+			{ label: "Jobs", href: "https://universe.naironai.com", external: true },
+			{ label: "Community", href: "https://universe.naironai.com", external: true },
 		],
 	},
 	{
@@ -129,6 +130,7 @@ export function Footer() {
 									) : (
 										<a
 											href={link.href}
+											{...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
 											className="text-[#A39E96] text-sm hover:text-[#E8E4DE] transition-colors"
 										>
 											{link.label}

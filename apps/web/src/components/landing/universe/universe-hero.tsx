@@ -298,9 +298,9 @@ export function UniverseHero() {
 
 				{/* CTAs */}
 				<div className="flex flex-wrap justify-center gap-4 mt-10 pointer-events-auto">
-					<span className="inline-flex items-center gap-2 bg-[#C9A96E]/55 text-[#0C0C0C] font-semibold text-base px-7 py-3.5 rounded-full opacity-90 cursor-not-allowed">
-						Universe (Coming Soon)
-					</span>
+					<a href="https://universe.naironai.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#C9A96E]/55 text-[#0C0C0C] font-semibold text-base px-7 py-3.5 rounded-full hover:bg-[#C9A96E]/70 transition-colors">
+						Universe
+					</a>
 					<span className="inline-flex items-center gap-2 border border-white/10 text-[#A39E96] font-medium text-base px-7 py-3.5 rounded-full opacity-80 cursor-not-allowed">
 						Feed (Coming Soon)
 					</span>

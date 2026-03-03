@@ -40,10 +40,14 @@ export function LogoStrip() {
 			for (const [key, el] of entries) {
 				if (!key.startsWith(`${visibleName}-`)) continue;
 				const rect = el.getBoundingClientRect();
-				const center = rect.left + rect.width / 2;
+				const elCenter = rect.left + rect.width / 2;
 				// Pick the first instance that's within the visible container area
-				if (center > containerRect.left && center < containerRect.right) {
-					setTooltipPos({ x: center - containerRect.left });
+				if (elCenter > containerRect.left && elCenter < containerRect.right) {
+					// Use the img center if available, otherwise the container center
+					const img = el.querySelector("img");
+					const imgRect = img ? img.getBoundingClientRect() : rect;
+					const imgCenter = imgRect.left + imgRect.width / 2;
+					setTooltipPos({ x: imgCenter - containerRect.left });
 					break;
 				}
 			}
@@ -71,22 +75,6 @@ export function LogoStrip() {
 				</p>
 			</div>
 			<div ref={containerRef} className="relative">
-				{/* Tooltip — positioned above the marquee, tracks the active logo */}
-				{tooltipPos && visibleTagline && (
-					<div
-						key={visibleName}
-						className="absolute -top-8 z-10 pointer-events-none animate-fade-in"
-						style={{
-							left: tooltipPos.x,
-							transform: "translateX(-50%)",
-						}}
-					>
-						<div className="px-3 py-1.5 rounded-md bg-white/10 backdrop-blur-sm border border-white/10 text-[#E8E4DE] text-xs whitespace-nowrap">
-							{visibleTagline}
-						</div>
-					</div>
-				)}
-
 				{/* Marquee with overflow hidden + mask */}
 				<div
 					className="overflow-hidden"
@@ -128,6 +116,18 @@ export function LogoStrip() {
 						))}
 					</div>
 				</div>
+				{/* Tooltip — follows the active logo, centered below it */}
+				{tooltipPos && visibleTagline && (
+					<div
+						key={visibleName}
+						className="absolute -bottom-8 z-10 pointer-events-none animate-tooltip-fade-in"
+						style={{ left: tooltipPos.x }}
+					>
+						<div className="px-3 py-1.5 rounded-md bg-white/10 backdrop-blur-sm border border-white/10 text-[#E8E4DE] text-xs whitespace-nowrap">
+							{visibleTagline}
+						</div>
+					</div>
+				)}
 			</div>
 		</div>
 	);

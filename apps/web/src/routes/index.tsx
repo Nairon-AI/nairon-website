@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
 	component: HomePage,
 	head: () =>
 		seoHead({
-			title: "Nairon — Data-Driven Technical Recruiting",
+			title: "Nairon — AI-Native Recruiting",
 			description:
 				"Data-driven recruiting powered by AI-nativeness benchmarks. We match companies with engineers who ship using Flux.",
 			path: "/",
