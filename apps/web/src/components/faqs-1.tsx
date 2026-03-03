@@ -75,6 +75,32 @@ const faqItems: {
       },
     ],
   },
+  {
+    group: "Community",
+    items: [
+      {
+        id: "item-1",
+        question: "Can I contribute to Flux?",
+        answer: (
+          <>
+            Yes! Flux is open source. But we have strict contribution guidelines
+            to filter out low-effort AI slop. You must use AI, export your
+            conversation history, include a demo video, and post to social media.
+            PRs that don't follow the{" "}
+            <a
+              href="https://github.com/Nairon-AI/flux/blob/main/CONTRIBUTING.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#C9A96E] underline underline-offset-2 hover:text-[#E8E4DE]"
+            >
+              contributing guidelines
+            </a>{" "}
+            are automatically closed.
+          </>
+        ),
+      },
+    ],
+  },
 ];
 export default function FAQs() {
   return (
