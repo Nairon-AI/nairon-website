@@ -57,6 +57,16 @@ export default function HeroSection() {
         <div className="bg-[#0C0C0C] pt-24 sm:pt-32 lg:pt-44">
           <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-12">
             <div className="text-center">
+              {/* Version pill */}
+              <a
+                href="https://github.com/Nairon-AI/flux/releases"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mb-4 sm:mb-5 inline-flex items-center gap-1.5 rounded-full bg-[#C9A96E]/10 px-3 py-1 text-xs font-medium text-[#C9A96E] ring-1 ring-inset ring-[#C9A96E]/20 transition-colors hover:bg-[#C9A96E]/15"
+              >
+                v1.9.0
+              </a>
+
               {/* Platform pills */}
               <div className="mb-4 sm:mb-6 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
                 {platforms.map((platform) => (
