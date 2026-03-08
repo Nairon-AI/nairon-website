@@ -1,8 +1,37 @@
-import { CheckCircle2, RefreshCw } from 'lucide-react'
+import { CheckCircle2 } from 'lucide-react'
+import { useEffect, useState } from 'react'
 import { LogoIcon } from '@/components/logo'
+import { getFluxSignalCount } from '@/server/flux-signals'
 import '@/styles/hero-animations.css'
 
+const SIGNALS_FALLBACK = 128
+
 export const ImageIllustration = () => {
+    const [signalCount, setSignalCount] = useState(SIGNALS_FALLBACK)
+
+    useEffect(() => {
+        let mounted = true
+
+        const loadSignalCount = async () => {
+            try {
+                const result = await getFluxSignalCount()
+                if (mounted && result?.count) {
+                    setSignalCount(result.count)
+                }
+            } catch {
+                if (mounted) {
+                    setSignalCount(SIGNALS_FALLBACK)
+                }
+            }
+        }
+
+        loadSignalCount()
+
+        return () => {
+            mounted = false
+        }
+    }, [])
+
     return (
         <>
             <div className="max-lg:hidden">
@@ -270,7 +299,7 @@ export const ImageIllustration = () => {
                                     </svg>
                                 </div>
 
-                                <Card />
+                                <Card signalCount={signalCount} />
 
                                 <div className="relative mx-auto flex w-14 justify-center">
                                     <svg
@@ -441,7 +470,7 @@ export const ImageIllustration = () => {
     )
 }
 
-const Card = () => {
+const Card = ({ signalCount }: { signalCount: number }) => {
     const tools = [
         { name: 'context7', logo: 'context7', url: 'https://context7.com' },
         { name: 'exa', logo: '/tool-logos/exa.png', url: 'https://exa.ai' },
@@ -519,7 +548,7 @@ const Card = () => {
             <div className="space-y-1.5 pt-2 border-t border-foreground/5">
                 <div className="flex items-center gap-2">
                     <div className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-muted-foreground text-[8px]">Tracking 128 cutting-edge signals</span>
+                    <span className="text-muted-foreground text-[8px]">Tracking {signalCount} cutting-edge signals</span>
                 </div>
                 <div className="flex gap-1">
                     {['MCPs', 'Skills', 'CLIs', 'Agentic Strategies'].map((tag) => (
