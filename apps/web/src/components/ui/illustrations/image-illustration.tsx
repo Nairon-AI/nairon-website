@@ -7,7 +7,8 @@ import '@/styles/hero-animations.css'
 const SIGNALS_FALLBACK = 128
 
 export const ImageIllustration = () => {
-    const [signalCount, setSignalCount] = useState(SIGNALS_FALLBACK)
+    const [signalCount, setSignalCount] = useState<number | null>(null)
+    const [isSignalCountLoading, setIsSignalCountLoading] = useState(true)
 
     useEffect(() => {
         let mounted = true
@@ -21,6 +22,10 @@ export const ImageIllustration = () => {
             } catch {
                 if (mounted) {
                     setSignalCount(SIGNALS_FALLBACK)
+                }
+            } finally {
+                if (mounted) {
+                    setIsSignalCountLoading(false)
                 }
             }
         }
@@ -299,7 +304,7 @@ export const ImageIllustration = () => {
                                     </svg>
                                 </div>
 
-                                <Card signalCount={signalCount} />
+                                <Card signalCount={signalCount} isSignalCountLoading={isSignalCountLoading} />
 
                                 <div className="relative mx-auto flex w-14 justify-center">
                                     <svg
@@ -470,7 +475,13 @@ export const ImageIllustration = () => {
     )
 }
 
-const Card = ({ signalCount }: { signalCount: number }) => {
+const Card = ({
+    signalCount,
+    isSignalCountLoading,
+}: {
+    signalCount: number | null
+    isSignalCountLoading: boolean
+}) => {
     const tools = [
         { name: 'context7', logo: 'context7', url: 'https://context7.com' },
         { name: 'exa', logo: '/tool-logos/exa.png', url: 'https://exa.ai' },
@@ -548,7 +559,15 @@ const Card = ({ signalCount }: { signalCount: number }) => {
             <div className="space-y-1.5 pt-2 border-t border-foreground/5">
                 <div className="flex items-center gap-2">
                     <div className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-muted-foreground text-[8px]">Tracking {signalCount} cutting-edge signals</span>
+                    <span className="text-muted-foreground text-[8px]">
+                        {isSignalCountLoading ? (
+                            <>
+                                Tracking <span className="inline-block min-w-4 animate-pulse text-center">...</span> cutting-edge signals
+                            </>
+                        ) : (
+                            <>Tracking {signalCount ?? SIGNALS_FALLBACK} cutting-edge signals</>
+                        )}
+                    </span>
                 </div>
                 <div className="flex gap-1">
                     {['MCPs', 'Skills', 'CLIs', 'Agentic Strategies'].map((tag) => (
