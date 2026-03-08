@@ -560,13 +560,22 @@ const Card = ({
                 <div className="flex items-center gap-2">
                     <div className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     <span className="text-muted-foreground text-[8px]">
-                        {isSignalCountLoading ? (
-                            <>
-                                Tracking <span className="inline-block min-w-4 animate-pulse text-center">...</span> cutting-edge signals
-                            </>
-                        ) : (
-                            <>Tracking {signalCount ?? SIGNALS_FALLBACK} cutting-edge signals</>
-                        )}
+                        Tracking{' '}
+                        <span className="relative inline-block min-w-6 text-center align-middle">
+                            <span
+                                className={`absolute inset-0 transition-opacity duration-200 ${
+                                    isSignalCountLoading ? 'animate-pulse opacity-100' : 'opacity-0'
+                                }`}>
+                                ...
+                            </span>
+                            <span
+                                className={`inline-block transition-opacity duration-300 ${
+                                    isSignalCountLoading ? 'opacity-0' : 'opacity-100'
+                                }`}>
+                                {signalCount ?? SIGNALS_FALLBACK}
+                            </span>
+                        </span>{' '}
+                        cutting-edge signals
                     </span>
                 </div>
                 <div className="flex gap-1">
