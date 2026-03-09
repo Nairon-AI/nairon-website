@@ -10,9 +10,10 @@ import {
 	FluxSection,
 	TerminalWindow,
 } from "@/components/landing/flux/primitives";
+import { FLUX_INSTALL_COMMAND } from "@/components/flux/install-prompt";
 
 export function FluxHero() {
-	const installCommand = "/plugin marketplace add Nairon-AI/flux";
+	const installCommand = FLUX_INSTALL_COMMAND;
 	const [copied, setCopied] = useState(false);
 	const [isDesktop, setIsDesktop] = useState(false);
 	const [viewportReady, setViewportReady] = useState(false);
@@ -376,6 +377,7 @@ export function FluxHero() {
 							{copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
 						</button>
 					</div>
+					<p className="mt-2 text-xs text-white/45">Run this slash command in Claude chat input, not in terminal bash.</p>
 				</div>
 			</div>
 

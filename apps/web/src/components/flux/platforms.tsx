@@ -3,13 +3,14 @@ import { Claude } from "@/components/ui/svgs/claude";
 import { OpenAI } from "@/components/ui/svgs/open-ai";
 import { Replit } from "@/components/ui/svgs/replit";
 import { VisualStudioCode as VSCode } from "@/components/ui/svgs/vs-code";
+import { FLUX_INSTALL_COMMAND } from "@/components/flux/install-prompt";
 import { Check, Clock } from "lucide-react";
 
 const platforms = [
 	{
 		name: "Claude Code",
 		status: "recommended",
-		install: "/plugin marketplace add Nairon-AI/flux",
+		install: FLUX_INSTALL_COMMAND,
 		icon: Claude,
 	},
 	{

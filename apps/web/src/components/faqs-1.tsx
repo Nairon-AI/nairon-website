@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { FLUX_CLAUDE_INSTALL_PROMPT } from "@/components/flux/install-prompt";
 
 const faqItems: {
   group: string;
@@ -15,9 +16,21 @@ const faqItems: {
     items: [
       {
         id: "item-1",
-        question: "Is Flux a standalone CLI?",
-        answer:
-          "No. Flux is a Claude Code plugin. You run slash commands like /flux:setup and /flux:improve directly inside the agent workflow.",
+        question: "Open up Claude Code and paste these instructions.",
+        answer: (
+          <>
+            <p>Copy-paste this prompt into Claude Code:</p>
+            <div className="mt-3 rounded-xl border border-white/10 bg-black/35 p-4">
+              <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed text-[#CFCAC2]">
+                {FLUX_CLAUDE_INSTALL_PROMPT}
+              </pre>
+            </div>
+            <p className="mt-3 text-sm text-[#A39E96]">
+              You only run slash commands in chat when Claude asks, then reply
+              "done". Claude should handle the rest automatically.
+            </p>
+          </>
+        ),
       },
       {
         id: "item-2",
@@ -133,9 +146,9 @@ export default function FAQs() {
                         {item.question}
                       </AccordionTrigger>
                       <AccordionContent>
-                        <p className="text-[#A39E96] text-base">
+                        <div className="text-[#A39E96] text-base">
                           {item.answer}
-                        </p>
+                        </div>
                       </AccordionContent>
                     </AccordionItem>
                   ))}

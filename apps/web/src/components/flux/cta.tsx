@@ -1,20 +1,12 @@
 import { useState } from "react";
 import { Check, Copy, Github, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { FLUX_CLAUDE_INSTALL_PROMPT } from "@/components/flux/install-prompt";
 
 export function FluxCTA() {
   const [copied, setCopied] = useState(false);
 
-  const installPrompt = `I want to install Flux for structured AI development.
-The plugin is at: https://github.com/Nairon-AI/flux
-
-Help me install and setup the plugin.
-
-Then explain the core workflow (scope → build → review).
-
-The install command is: /plugin add https://github.com/Nairon-AI/flux@latest
-
-Guide me on anything I need to do manually and do the rest automatically.`;
+  const installPrompt = FLUX_CLAUDE_INSTALL_PROMPT;
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(installPrompt);
@@ -40,7 +32,7 @@ Guide me on anything I need to do manually and do the rest automatically.`;
         </h2>
 
         <p className="text-[#A39E96] mt-6 text-lg max-w-xl mx-auto">
-          Copy this prompt into your AI agent to get started with Flux.
+          Copy this prompt into Claude Code for a hardened install flow.
         </p>
 
         {/* Install prompt card */}

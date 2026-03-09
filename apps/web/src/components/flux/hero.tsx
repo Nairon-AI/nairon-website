@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Check, Copy, Github, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { FLUX_INSTALL_COMMAND } from "@/components/flux/install-prompt";
 
 const TERMINAL_LINES = [
 	{ type: "command", text: "> /flux:improve" },
@@ -114,7 +115,7 @@ function TerminalDemo() {
 }
 
 export function FluxHero() {
-	const installCommand = "/plugin marketplace add Nairon-AI/flux";
+	const installCommand = FLUX_INSTALL_COMMAND;
 	const [copied, setCopied] = useState(false);
 
 	const handleCopy = async () => {
@@ -166,6 +167,7 @@ export function FluxHero() {
 								)}
 							</button>
 						</div>
+						<p className="mt-2 text-xs text-white/45">Run in Claude Code chat input (slash command), not terminal bash.</p>
 
 						{/* CTAs */}
 						<div className="flex flex-wrap gap-4">
