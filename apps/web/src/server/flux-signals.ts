@@ -18,6 +18,7 @@ const isSignalFile = (item: GitTreeItem) => {
 	return (
 		item.type === "blob" &&
 		(path.endsWith(".yaml") || path.endsWith(".yml")) &&
+		!path.startsWith(".github/") &&
 		!path.endsWith("schema.yaml") &&
 		!path.endsWith("accounts.yaml") &&
 		!path.includes("/pending/")
