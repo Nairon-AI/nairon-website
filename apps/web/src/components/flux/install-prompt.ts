@@ -17,5 +17,6 @@ After I reply "done", continue automatically:
 1) Run /flux:setup (or load flux-setup skill and execute setup workflow)
 2) Complete setup questions
 3) Confirm setup is complete and list the next Flux commands
+4) Tell me (the user) to fully restart Claude Code once /flux:setup succeeds, then continue after I reply "done"
 
 Guide me on anything I need to do manually and do the rest automatically.`;
