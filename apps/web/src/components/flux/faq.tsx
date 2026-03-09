@@ -7,7 +7,7 @@ const faqItems = [
 			{
 				id: "install",
 				question: "How do I install Flux?",
-				answer: "In Claude Code chat, run `/plugin add https://github.com/Nairon-AI/flux@latest` (not in bash), then run `/flux:setup`. When setup finishes successfully, you (the user) should fully restart Claude Code once before using Flux commands.",
+				answer: "In Claude Code chat (not bash), run `/plugin marketplace add https://github.com/Nairon-AI/flux`, then `/plugin install flux@nairon-flux`, then run `/flux:setup`. When setup finishes successfully, you (the user) should fully restart Claude Code once before using Flux commands.",
 			},
 			{
 				id: "prereqs",

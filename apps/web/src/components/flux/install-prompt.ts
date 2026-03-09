@@ -1,22 +1,19 @@
 export const FLUX_INSTALL_COMMAND =
 	"/plugin add https://github.com/Nairon-AI/flux@latest";
 
-export const FLUX_CLAUDE_INSTALL_PROMPT = `I want to install Flux for structured AI development.
-The plugin is at: https://github.com/Nairon-AI/flux
+export const FLUX_CLAUDE_INSTALL_PROMPT = `Help me install Flux inside this Claude Code session.
 
-Help me install and setup the plugin.
+Ask me to run one slash command at a time in chat and wait for my "done":
+1) /plugin marketplace add https://github.com/Nairon-AI/flux
+2) /plugin install flux@nairon-flux
 
-Then explain the core workflow (scope -> build -> review).
+If Flux is already installed, skip install and continue.
 
-The install command is: /plugin add https://github.com/Nairon-AI/flux@latest
+Then run /flux:setup, complete setup questions, and explain the core loop:
+/flux:scope -> /flux:work -> /flux:impl-review.
 
-Do NOT run /plugin add in bash or via claude plugin add in a nested shell session.
-Ask me to run that slash command in this Claude chat and wait for my "done" reply.
+After /flux:setup succeeds, tell me to fully restart Claude Code once and wait for my "done".
 
-After I reply "done", continue automatically:
-1) Run /flux:setup (or load flux-setup skill and execute setup workflow)
-2) Complete setup questions
-3) Confirm setup is complete and list the next Flux commands
-4) Tell me (the user) to fully restart Claude Code once /flux:setup succeeds, then continue after I reply "done"
+Do the rest automatically.
 
-Guide me on anything I need to do manually and do the rest automatically.`;
+Important: slash commands run in Claude chat input, not terminal bash.`;
