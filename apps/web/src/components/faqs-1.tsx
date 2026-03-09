@@ -40,6 +40,12 @@ const faqItems: {
       },
       {
         id: "item-3",
+        question: "Is it free?",
+        answer:
+          "Yes — Flux itself is free and open-source because it is a plugin/workflow layer. You still use your own model plans. In practice, the strongest setup is having both a Claude Code plan and a Codex plan so you can use the best of both labs.",
+      },
+      {
+        id: "item-4",
         question: "What is the default workflow?",
         answer:
           "Scope -> Build/Work -> Review -> Improve. The workflow keeps humans in control while agents execute quickly.",
