@@ -1,4 +1,5 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
+import { Check, Copy } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -6,6 +7,48 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { FLUX_CLAUDE_INSTALL_PROMPT } from "@/components/flux/install-prompt";
+
+function InstallPromptBlock() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(FLUX_CLAUDE_INSTALL_PROMPT);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      setCopied(false);
+    }
+  };
+
+  return (
+    <div className="mt-3 rounded-xl border border-white/10 bg-black/35 p-4">
+      <div className="mb-3 flex justify-end">
+        <button
+          type="button"
+          onClick={handleCopy}
+          className="inline-flex items-center gap-1.5 rounded-md border border-white/15 bg-white/5 px-2.5 py-1.5 text-xs text-[#CFCAC2] transition-colors hover:bg-white/10"
+          aria-label="Copy install prompt to clipboard"
+        >
+          {copied ? (
+            <>
+              <Check className="size-3.5" />
+              Copied
+            </>
+          ) : (
+            <>
+              <Copy className="size-3.5" />
+              Copy
+            </>
+          )}
+        </button>
+      </div>
+      <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed text-[#CFCAC2]">
+        {FLUX_CLAUDE_INSTALL_PROMPT}
+      </pre>
+    </div>
+  );
+}
 
 const faqItems: {
   group: string;
@@ -20,15 +63,7 @@ const faqItems: {
         answer: (
           <>
             <p>Copy-paste this prompt into Claude Code:</p>
-            <div className="mt-3 rounded-xl border border-white/10 bg-black/35 p-4">
-              <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed text-[#CFCAC2]">
-                {FLUX_CLAUDE_INSTALL_PROMPT}
-              </pre>
-            </div>
-            <p className="mt-3 text-sm text-[#A39E96]">
-              You only run slash commands in chat when Claude asks, then reply
-              "done". Claude should handle the rest automatically.
-            </p>
+            <InstallPromptBlock />
           </>
         ),
       },
@@ -104,8 +139,8 @@ const faqItems: {
           <>
             Yes! Flux is open source. But we have strict contribution guidelines
             to filter out low-effort AI slop. You must use AI, export your
-            conversation history, include a demo video, and post to social media.
-            PRs that don't follow the{" "}
+            conversation history, include a demo video, and post to social media
+            (on X, tag @_7obaid_). PRs that don't follow the{" "}
             <a
               href="https://github.com/Nairon-AI/flux/blob/main/CONTRIBUTING.md"
               target="_blank"
