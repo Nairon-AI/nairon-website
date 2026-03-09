@@ -36,7 +36,7 @@ const faqItems: {
         id: "item-2",
         question: "What does /flux:improve actually do?",
         answer:
-          "It analyzes your recent sessions, detects friction patterns (for example shallow prompts or blind acceptance), and recommends the best tools/process fixes for your workflow.",
+          "It audits your real agent harness: recent conversation history, current tools, MCP servers, skills, project structure, and what you are building. Flux then searches its recommendations engine to find the highest-impact optimizations for your exact project and helps apply them (tools, libraries, MCPs, skills, and workflow upgrades) so your agents become more accurate, reliable, and effective.",
       },
       {
         id: "item-3",
