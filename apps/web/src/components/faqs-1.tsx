@@ -59,7 +59,13 @@ const faqItems: {
     items: [
       {
         id: "item-1",
-        question: "Open up Claude Code and paste these instructions.",
+        question: "Is it free?",
+        answer:
+          "Yes - Flux itself is free and open-source because it is a plugin/workflow layer. You still use your own model plans. In practice, the strongest setup is having both a Claude Code plan and a Codex plan: Claude can use Codex for deep implementation review and spin up Codex sub-agents for codebase discovery/research when needed.",
+      },
+      {
+        id: "item-2",
+        question: "How do I install it?",
         answer: (
           <>
             <p>Copy-paste this prompt into Claude Code:</p>
@@ -68,22 +74,65 @@ const faqItems: {
         ),
       },
       {
-        id: "item-2",
+        id: "item-3",
         question: "What does /flux:improve actually do?",
         answer:
           "It audits your real agent harness: recent conversation history, current tools, MCP servers, skills, project structure, and what you are building. It then gives a concrete breakdown of what you do most, what should become skills/plugins/agents, and what belongs in CLAUDE.md, then recommends and helps apply the highest-impact upgrades.",
       },
       {
-        id: "item-3",
-        question: "Is it free?",
-        answer:
-          "Yes — Flux itself is free and open-source because it is a plugin/workflow layer. You still use your own model plans. In practice, the strongest setup is having both a Claude Code plan and a Codex plan: Claude can use Codex for deep implementation review and spin up Codex sub-agents for codebase discovery/research when needed.",
-      },
-      {
         id: "item-4",
         question: "What is the default workflow?",
-        answer:
-          "Prime first, then Scope -> Build/Work -> Review -> Improve. End each session with Reflect. The workflow keeps humans in control while agents execute quickly.",
+        answer: (
+          <div className="space-y-3">
+            <p>
+              <span className="font-medium text-[#E8E4DE]">1. Install Flux (once)</span>{" "}
+              Add the plugin in Claude Code chat.
+            </p>
+            <p>
+              <span className="font-medium text-[#E8E4DE]">2. Setup Flux (once)</span>{" "}
+              Run{" "}
+              <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">
+                /flux:setup
+              </code>{" "}
+              to configure your environment.
+            </p>
+            <p>
+              <span className="font-medium text-[#E8E4DE]">3. Audit agent readiness</span>{" "}
+              Run{" "}
+              <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">
+                /flux:prime
+              </code>{" "}
+              to audit your codebase, find inefficiencies, and surface improvements.
+            </p>
+            <p>
+              <span className="font-medium text-[#E8E4DE]">4. Execute the core loop</span>{" "}
+              <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">
+                /flux:scope
+              </code>{" "}
+              -&gt;{" "}
+              <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">
+                /flux:work
+              </code>{" "}
+              -&gt;{" "}
+              <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">
+                /flux:impl-review
+              </code>{" "}
+              -&gt;{" "}
+              <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">
+                /flux:improve
+              </code>
+              .
+            </p>
+            <p>
+              <span className="font-medium text-[#E8E4DE]">5. End each session with Reflect</span>{" "}
+              Run{" "}
+              <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">
+                /flux:reflect
+              </code>{" "}
+              to capture learnings and continuously improve your agent workflow.
+            </p>
+          </div>
+        ),
       },
     ],
   },
