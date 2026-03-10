@@ -71,7 +71,7 @@ const faqItems: {
         id: "item-2",
         question: "What does /flux:improve actually do?",
         answer:
-          "It audits your real agent harness: recent conversation history, current tools, MCP servers, skills, project structure, and what you are building. Flux then searches its recommendations engine to find the highest-impact optimizations for your exact project and helps apply them (tools, libraries, MCPs, skills, and workflow upgrades) so your agents become more accurate, reliable, and effective.",
+          "It audits your real agent harness: recent conversation history, current tools, MCP servers, skills, project structure, and what you are building. It then gives a concrete breakdown of what you do most, what should become skills/plugins/agents, and what belongs in CLAUDE.md, then recommends and helps apply the highest-impact upgrades.",
       },
       {
         id: "item-3",
@@ -83,7 +83,7 @@ const faqItems: {
         id: "item-4",
         question: "What is the default workflow?",
         answer:
-          "Scope -> Build/Work -> Review -> Improve. The workflow keeps humans in control while agents execute quickly.",
+          "Prime first, then Scope -> Build/Work -> Review -> Improve. End each session with Reflect. The workflow keeps humans in control while agents execute quickly.",
       },
     ],
   },

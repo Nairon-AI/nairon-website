@@ -17,7 +17,7 @@ const faqItems = [
 			{
 				id: "first-feature",
 				question: "How do I build my first feature with Flux?",
-				answer: "Start with `/flux:interview Add user notifications` to clarify requirements, then `/flux:plan` to break it into tasks, then `/flux:work fn-1.1` to execute each task.",
+				answer: "After `/flux:setup` and restart, run `/flux:prime` first. Then use `/flux:scope Add user notifications`, execute with `/flux:work fn-1.1`, review with `/flux:impl-review`, optimize with `/flux:improve`, and end the session with `/flux:reflect`.",
 			},
 		],
 	},
@@ -47,7 +47,7 @@ const faqItems = [
 			{
 				id: "improve",
 				question: "What does /flux:improve do?",
-				answer: "It analyzes your actual coding sessions to find friction patterns (shallow prompts, blind acceptance, etc.), then recommends specific tools that would help. The agent handles installation.",
+				answer: "It analyzes your real sessions + environment, identifies inefficiencies, and gives a concrete breakdown: what you do most, what should become skills/plugins/agents, and what belongs in CLAUDE.md. Then it recommends and helps install the highest-impact upgrades.",
 			},
 			{
 				id: "score",

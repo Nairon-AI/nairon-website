@@ -9,8 +9,12 @@ Ask me to run one slash command at a time in chat and wait for my "done":
 
 If Flux is already installed, skip install and continue.
 
-Then run /flux:setup, complete setup questions, and explain the core loop:
-/flux:scope -> /flux:work -> /flux:impl-review.
+Then run /flux:setup and complete setup questions.
+
+After restart, guide me through:
+1) /flux:prime first (agent-readiness + inefficiency audit)
+2) /flux:scope -> /flux:work -> /flux:impl-review -> /flux:improve
+3) /flux:reflect at the end of each session
 
 After /flux:setup succeeds, tell me to fully restart Claude Code once and wait for my "done".
 
