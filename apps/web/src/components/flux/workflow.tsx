@@ -48,17 +48,17 @@ const commands: CommandItem[] = [
 	{
 		number: "1",
 		title: "Scope",
-		description: "Clarify requirements before code starts.",
+		description: "Clarify requirements with deterministic state and visible progress.",
 		command: "/flux:scope Add user notifications",
 		icon: MessageSquare,
 		color: "text-blue-400",
 		scenarioTitle: "Requirement discovery flow",
-		scenarioSubtitle: "Runs a full double-diamond for complex features, or a fast default path for small changes.",
+		scenarioSubtitle: "Product OS-style scoping with active-objective memory, phase gates, and a progress card. Shallow mode compresses the flow; deep mode walks the full staged path.",
 		scenarioSteps: [
-			{ label: "Discover", detail: "Explore constraints, context, and unknowns" },
-			{ label: "Define", detail: "Converge to a precise problem statement" },
-			{ label: "Develop", detail: "Expand solution options as needed" },
-			{ label: "Deliver", detail: "Converge to an execution-ready brief (deep or fast path)" },
+			{ label: "Start", detail: "Classify feature, bug, or refactor and choose shallow or deep" },
+			{ label: "Discover", detail: "Explore context, constraints, risks, and unknowns" },
+			{ label: "Define", detail: "Lock the problem before solutioning" },
+			{ label: "Deliver", detail: "Generate an execution-ready brief and next action" },
 		],
 		nodes: [
 			{ id: "discover", x: 72, y: 100, label: "Discover", render: "dot", labelSide: "bottom" },

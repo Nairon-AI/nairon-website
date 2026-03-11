@@ -121,10 +121,18 @@ const faqItems: {
               <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">
                 /flux:improve
               </code>
-              .
+              . Flux keeps the active objective in <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">.flux/</code>, so natural requests like “fix this bug” or “continue this feature” can realign to the correct workflow state.
             </p>
             <p>
-              <span className="font-medium text-[#E8E4DE]">5. End each session with Reflect</span>{" "}
+              <span className="font-medium text-[#E8E4DE]">5. Track scoping progress</span>{" "}
+              During{" "}
+              <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">
+                /flux:scope
+              </code>{" "}
+              Flux shows phase progress so you always know whether you are in Start, Discover, Define, Develop, Deliver, or Handoff.
+            </p>
+            <p>
+              <span className="font-medium text-[#E8E4DE]">6. End each session with Reflect</span>{" "}
               Run{" "}
               <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">
                 /flux:reflect

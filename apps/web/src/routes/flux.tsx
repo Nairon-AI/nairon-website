@@ -13,9 +13,7 @@ import { FluxWorkflow } from "@/components/flux/workflow";
 import { FluxCTA } from "@/components/flux/cta";
 import ComparatorSection from "@/components/comparator-7";
 import StatsSection from "@/components/stats-4";
-import IntegrationsSection from "@/components/integrations-6";
 import FAQs from "@/components/faqs-1";
-import Testimonials from "@/components/testimonials-3";
 
 const fluxJsonLd = JSON.stringify(fluxProductJsonLd());
 const breadcrumbsJsonLd = JSON.stringify(
@@ -31,7 +29,7 @@ export const Route = createFileRoute("/flux")({
 		const base = seoHead({
 			title: "Flux — Find the gaps in your AI workflow | Nairon AI",
 			description:
-				"Open-source Claude Code plugin that analyzes your sessions, detects friction patterns, and recommends fixes. Interview, Plan, Build, Review, Improve.",
+				"Open-source Claude Code workflow layer with a deterministic state engine. Flux keeps features, bugs, and refactors aligned through scoping progress, implementation state, and review routing.",
 			path: "/flux",
 		})
 		return {

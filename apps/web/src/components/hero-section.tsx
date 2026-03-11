@@ -4,9 +4,9 @@ import { Anchor, Users, Eye } from "lucide-react";
 
 const features = [
   {
-    title: "Re-anchoring",
+    title: "Deterministic state",
     description:
-      "Every task loops back to original intent. Agents verify alignment before, during, and after execution—no silent drift.",
+      "Flux tracks the active feature, bug, or refactor in .flux so Claude can realign before scoping, during implementation, and when sessions resume.",
     icon: <Anchor className="stroke-foreground fill-violet-500/15" />,
   },
   {
@@ -64,7 +64,7 @@ export default function HeroSection() {
                 rel="noopener noreferrer"
                 className="mb-4 sm:mb-5 inline-flex items-center gap-1.5 rounded-full bg-[#C9A96E]/10 px-3 py-1 text-xs font-medium text-[#C9A96E] ring-1 ring-inset ring-[#C9A96E]/20 transition-colors hover:bg-[#C9A96E]/15"
               >
-                v1.9.3
+                v1.9.4
               </a>
 
               {/* Platform pills */}
@@ -108,7 +108,7 @@ export default function HeroSection() {
 
               <div className="mx-auto mb-8 sm:mb-12 mt-6 max-w-2xl">
                 <p className="text-lg md:text-xl text-[#A39E96] leading-relaxed mb-6 sm:mb-8 px-2 sm:px-0">
-                  Flux is the missing Coding Agent plugin that gives you the
+                  Flux is the missing Coding Agent plugin that gives you a deterministic workflow state engine, plus the
                   structure to ship with AI{" "}
                   <span className="font-serif italic text-[#C9A96E]">
                     reliably

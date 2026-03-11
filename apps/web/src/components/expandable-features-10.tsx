@@ -12,7 +12,7 @@ const features = [
   {
     title: "CLI Runtime",
     description:
-      "Slash commands guide you through structured workflows—Scope/Plan, Build, Review, Improve. Each phase re-anchors to your original intent so nothing drifts off course.",
+      "Slash commands guide you through structured workflows, backed by a deterministic state engine in .flux. Flux remembers the active objective, current phase, and next action so scope and implementation stay aligned.",
     callout: "Your terminal becomes the control plane—structured loops keep you in control while agents execute.",
   },
   {
