@@ -11,10 +11,16 @@ Only stop when I need to run a slash command, approve something, or restart the 
 If Flux is already installed, verify it and continue.
 After install, run /flux:setup if this platform supports it and complete setup.
 
-Then guide me through:
-1) /flux:prime first (agent-readiness + inefficiency audit)
-2) /flux:scope -> /flux:work -> /flux:impl-review -> /flux:improve
-3) /flux:reflect at the end of each session
+After setup and any required restart, check whether this repository has been primed yet.
+If not, run /flux:prime automatically before any scoping or implementation work.
+
+Once Flux is ready, I should be able to describe what I want naturally:
+- build a feature
+- fix a bug
+- refactor something
+- continue existing work
+
+Flux should route to the right workflow automatically based on state and intent.
 
 Tell me exactly what you need from me, one step at a time, and do the rest automatically.`;
 

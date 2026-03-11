@@ -22,7 +22,7 @@ const faqItems = [
 			{
 				id: "first-feature",
 				question: "How do I build my first feature with Flux?",
-				answer: "After `/flux:setup` and restart, run `/flux:prime` first. Then use `/flux:scope Add user notifications`, execute with `/flux:work fn-1.1`, review with `/flux:impl-review`, optimize with `/flux:improve`, and end the session with `/flux:reflect`.",
+				answer: "After Flux is installed and setup is complete, the first thing the agent should do is check whether the repo has been primed yet. If not, it should run prime automatically. After that, you should just be able to describe the feature naturally and Flux should route into the right workflow based on state and intent.",
 			},
 		],
 	},

@@ -103,38 +103,15 @@ const faqItems: {
             </p>
             <p>
               <span className="font-medium text-[#E8E4DE]">2. Setup Flux (once)</span>{" "}
-              Run{" "}
-              <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">
-                /flux:setup
-              </code>{" "}
-              to configure your environment.
+              Let your agent finish the first-run setup for this environment.
             </p>
             <p>
-              <span className="font-medium text-[#E8E4DE]">3. Audit agent readiness</span>{" "}
-              Run{" "}
-              <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">
-                /flux:prime
-              </code>{" "}
-              to audit your codebase, find inefficiencies, and surface improvements.
+              <span className="font-medium text-[#E8E4DE]">3. Prime automatically</span>{" "}
+              Once setup is done, the agent should check whether this repository has already been primed. If not, Flux should run prime first automatically before any scoping or implementation work.
             </p>
             <p>
-              <span className="font-medium text-[#E8E4DE]">4. Execute the core loop</span>{" "}
-              <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">
-                /flux:scope
-              </code>{" "}
-              -&gt;{" "}
-              <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">
-                /flux:work
-              </code>{" "}
-              -&gt;{" "}
-              <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">
-                /flux:impl-review
-              </code>{" "}
-              -&gt;{" "}
-              <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">
-                /flux:improve
-              </code>
-              . Flux keeps the active objective in <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">.flux/</code>, so natural requests like “fix this bug” or “continue this feature” can realign to the correct workflow state.
+              <span className="font-medium text-[#E8E4DE]">4. Work by intent</span>{" "}
+              After prime, just tell the agent what you want to do. Flux keeps the active objective in <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-xs text-[#E8E4DE]">.flux/</code>, so natural requests like “fix this bug” or “continue this feature” can realign to the correct workflow state.
             </p>
             <p>
               <span className="font-medium text-[#E8E4DE]">5. Track scoping progress</span>{" "}
