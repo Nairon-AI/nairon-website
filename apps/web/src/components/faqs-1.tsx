@@ -6,14 +6,17 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FLUX_CLAUDE_INSTALL_PROMPT } from "@/components/flux/install-prompt";
+import {
+  FLUX_INSTALL_PROMPT,
+  FLUX_UNINSTALL_PROMPT,
+} from "@/components/flux/install-prompt";
 
-function InstallPromptBlock() {
+function PromptBlock({ text, label }: { text: string; label: string }) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(FLUX_CLAUDE_INSTALL_PROMPT);
+      await navigator.clipboard.writeText(text);
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
     } catch {
@@ -28,7 +31,7 @@ function InstallPromptBlock() {
           type="button"
           onClick={handleCopy}
           className="inline-flex items-center gap-1.5 rounded-md border border-white/15 bg-white/5 px-2.5 py-1.5 text-xs text-[#CFCAC2] transition-colors hover:bg-white/10"
-          aria-label="Copy install prompt to clipboard"
+          aria-label={`Copy ${label} prompt to clipboard`}
         >
           {copied ? (
             <>
@@ -44,7 +47,7 @@ function InstallPromptBlock() {
         </button>
       </div>
       <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed text-[#CFCAC2]">
-        {FLUX_CLAUDE_INSTALL_PROMPT}
+        {text}
       </pre>
     </div>
   );
@@ -68,8 +71,18 @@ const faqItems: {
         question: "How do I install it?",
         answer: (
           <>
-            <p>Copy-paste this prompt into Claude Code:</p>
-            <InstallPromptBlock />
+            <p>Copy-paste this prompt into your current agent session:</p>
+            <PromptBlock text={FLUX_INSTALL_PROMPT} label="install" />
+          </>
+        ),
+      },
+      {
+        id: "item-2b",
+        question: "How do I uninstall it?",
+        answer: (
+          <>
+            <p>Copy-paste this prompt into your current agent session:</p>
+            <PromptBlock text={FLUX_UNINSTALL_PROMPT} label="uninstall" />
           </>
         ),
       },
@@ -86,7 +99,7 @@ const faqItems: {
           <div className="space-y-3">
             <p>
               <span className="font-medium text-[#E8E4DE]">1. Install Flux (once)</span>{" "}
-              Add the plugin in Claude Code chat.
+              Let your agent install Flux in the current environment and handle the right platform-specific path for you.
             </p>
             <p>
               <span className="font-medium text-[#E8E4DE]">2. Setup Flux (once)</span>{" "}

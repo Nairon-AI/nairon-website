@@ -7,7 +7,12 @@ const faqItems = [
 			{
 				id: "install",
 				question: "How do I install Flux?",
-				answer: "In Claude Code chat (not bash), run `/plugin marketplace add https://github.com/Nairon-AI/flux`, then `/plugin install flux@nairon-flux`, then run `/flux:setup`. When setup finishes successfully, you (the user) should fully restart Claude Code once before using Flux commands.",
+				answer: "Use the agent-driven install prompt from the main Flux page. Flux should be installed by the current agent environment itself: the agent detects whether you are in Claude Code, Factory Droid, Codex, or another supported setup, uses the right install path, runs `/flux:setup` where supported, and only asks you to step in for commands, confirmations, or restarts.",
+			},
+			{
+				id: "uninstall",
+				question: "How do I uninstall Flux?",
+				answer: "Use the uninstall prompt from the main Flux page. The agent should detect the current platform, remove Flux using the right uninstall path, clean project-local `.flux` state unless you want to keep it, and separately ask before removing machine-level caches or global Flux data.",
 			},
 			{
 				id: "prereqs",

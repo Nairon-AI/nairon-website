@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Check, Copy, Github, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FLUX_CLAUDE_INSTALL_PROMPT } from "@/components/flux/install-prompt";
+import { FLUX_INSTALL_PROMPT } from "@/components/flux/install-prompt";
 
 export function FluxCTA() {
   const [copied, setCopied] = useState(false);
 
-  const installPrompt = FLUX_CLAUDE_INSTALL_PROMPT;
+  const installPrompt = FLUX_INSTALL_PROMPT;
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(installPrompt);
@@ -32,7 +32,7 @@ export function FluxCTA() {
         </h2>
 
         <p className="text-[#A39E96] mt-6 text-lg max-w-xl mx-auto">
-          Copy this prompt into Claude Code for a hardened install flow.
+          Copy this prompt into your current agent session for an autonomous install flow.
         </p>
 
         {/* Install prompt card */}
@@ -41,7 +41,7 @@ export function FluxCTA() {
           className="bg-white/[0.03] ring-white/10 rounded-2xl p-8 ring-1 cursor-pointer transition-all hover:bg-white/[0.05] hover:ring-white/20 max-w-2xl mx-auto mt-8 text-left"
         >
           <p className="text-[#A39E96] text-sm mb-2">
-            Install Flux in Claude Code
+            Install Flux in your agent
           </p>
           <h3 className="text-[#E8E4DE] text-xl md:text-2xl font-medium mb-6">
             {copied
