@@ -38,19 +38,19 @@ export const ImageIllustration = () => {
     }, [])
 
     return (
-        <>
-            <div className="max-lg:hidden">
-                <div className="relative [--color-border-illustration:--alpha(var(--color-foreground)/12.5%)] [--color-border:--alpha(var(--color-foreground)/10%)]">
-                    <div className="mask-t-from-65% mask-t-to-85% absolute inset-0">
-                        <img
-                            src="https://res.cloudinary.com/dohqjvu9k/image/upload/v1757918054/16-bg_kkevzx.webp"
-                            alt="hero section background"
-                            className="opacity-7.5 dark:opacity-2.5 size-full -scale-100 object-bottom"
-                            loading="lazy"
-                        />
-                    </div>
-                    <div className="border-b">
-                        <div className="relative mx-auto grid aspect-video max-w-6xl grid-cols-3 overflow-hidden rounded-2xl lg:px-12">
+        <div className="relative [--color-border-illustration:--alpha(var(--color-foreground)/12.5%)] [--color-border:--alpha(var(--color-foreground)/10%)]">
+            <div className="mask-t-from-65% mask-t-to-85% absolute inset-0">
+                <img
+                    src="https://res.cloudinary.com/dohqjvu9k/image/upload/v1757918054/16-bg_kkevzx.webp"
+                    alt="hero section background"
+                    className="opacity-7.5 dark:opacity-2.5 size-full -scale-100 object-bottom"
+                    loading="lazy"
+                />
+            </div>
+            <div className="border-b">
+                <div className="relative mx-auto h-[230px] overflow-hidden sm:h-[320px] md:h-[420px] lg:h-auto lg:overflow-visible">
+                    <div className="absolute left-1/2 top-0 w-[1040px] -translate-x-1/2 origin-top scale-[0.34] sm:scale-[0.47] md:scale-[0.62] lg:static lg:w-auto lg:translate-x-0 lg:scale-100 lg:px-12">
+                        <div className="relative mx-auto grid aspect-video max-w-6xl grid-cols-3 overflow-hidden rounded-2xl">
                             <div className="grid grid-cols-2 pr-6">
                                 <div className="grid h-full grid-rows-3 border-r">
                                     <div className="flex flex-col justify-end p-6">
@@ -464,14 +464,7 @@ export const ImageIllustration = () => {
                     </div>
                 </div>
             </div>
-            <div className="aspect-72/41 lg:hidden">
-                <img
-                    src="https://res.cloudinary.com/dohqjvu9k/image/upload/v1757917121/hero-illustration_nl1gdn.png"
-                    alt="hero section"
-                    className="size-full object-cover"
-                />
-            </div>
-        </>
+        </div>
     )
 }
 
