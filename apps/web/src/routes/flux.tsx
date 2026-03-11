@@ -54,7 +54,7 @@ function FluxPage() {
 				{/* Architecture - expandable-features-10 */}
 				<ExpandableFeatures />
 				
-				{/* Command Reference - workflow with slash commands */}
+				{/* Deterministic workflow layer explainer */}
 				<FluxWorkflow />
 				
 				{/* Features - bento-7 (hidden for now) */}

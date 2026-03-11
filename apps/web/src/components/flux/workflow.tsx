@@ -47,166 +47,134 @@ type CommandItem = {
 const commands: CommandItem[] = [
 	{
 		number: "1",
-		title: "Scope",
-		description: "Clarify requirements with deterministic state and visible progress.",
-		command: "/flux:scope Add user notifications",
+		title: "Detect state",
+		description: "Flux reads .flux first, so the agent knows whether to prime, resume, review, or start fresh.",
+		command: "Read repo state before acting",
 		icon: MessageSquare,
 		color: "text-blue-400",
-		scenarioTitle: "Requirement discovery flow",
-		scenarioSubtitle: "Product OS-style scoping with active-objective memory, phase gates, and a progress card. Shallow mode compresses the flow; deep mode walks the full staged path.",
+		scenarioTitle: "Deterministic workflow routing",
+		scenarioSubtitle: "Flux treats .flux as the canonical workflow memory, then routes the agent based on what is already in motion.",
 		scenarioSteps: [
-			{ label: "Start", detail: "Classify feature, bug, or refactor and choose shallow or deep" },
-			{ label: "Discover", detail: "Explore context, constraints, risks, and unknowns" },
-			{ label: "Define", detail: "Lock the problem before solutioning" },
-			{ label: "Deliver", detail: "Generate an execution-ready brief and next action" },
+			{ label: "Session", detail: "A new message or resumed session enters Flux" },
+			{ label: "Read .flux", detail: "Flux checks prime state, active objective, and next action" },
+			{ label: "Route", detail: "Prime first, resume work, resume scope, or start fresh" },
+			{ label: "Re-anchor", detail: "The agent continues with the correct context instead of drifting" },
 		],
 		nodes: [
-			{ id: "discover", x: 72, y: 100, label: "Discover", render: "dot", labelSide: "bottom" },
-			{ id: "problem-top", x: 170, y: 28, render: "anchor" },
-			{ id: "define", x: 268, y: 100, label: "Define", render: "dot", labelSide: "bottom" },
-			{ id: "problem-bottom", x: 170, y: 172, render: "anchor" },
-			{ id: "develop", x: 392, y: 100, label: "Develop", render: "dot", labelSide: "bottom" },
-			{ id: "solution-top", x: 490, y: 28, render: "anchor" },
-			{ id: "deliver", x: 588, y: 100, label: "Deliver", render: "dot", labelSide: "right", accent: "success" },
-			{ id: "solution-bottom", x: 490, y: 172, render: "anchor" },
+			{ id: "session", x: 78, y: 84, label: "Session", size: "sm" },
+			{ id: "state", x: 210, y: 84, label: ".flux", size: "md" },
+			{ id: "prime", x: 374, y: 40, label: "Prime", size: "sm" },
+			{ id: "resume", x: 374, y: 128, label: "Resume", size: "md" },
+			{ id: "fresh", x: 374, y: 196, label: "Fresh", size: "sm" },
+			{ id: "aligned", x: 560, y: 84, label: "Aligned", size: "lg" },
 		],
 		connections: [
-			{ from: "discover", to: "problem-top", route: "direct" },
-			{ from: "problem-top", to: "define", route: "direct" },
-			{ from: "discover", to: "problem-bottom", route: "direct" },
-			{ from: "problem-bottom", to: "define", route: "direct" },
-			{ from: "define", to: "develop", dashed: true, route: "direct" },
-			{ from: "develop", to: "solution-top", route: "direct" },
-			{ from: "solution-top", to: "deliver", route: "direct" },
-			{ from: "develop", to: "solution-bottom", route: "direct" },
-			{ from: "solution-bottom", to: "deliver", route: "direct" },
+			{ from: "session", to: "state" },
+			{ from: "state", to: "prime", route: "direct" },
+			{ from: "state", to: "resume", route: "direct" },
+			{ from: "state", to: "fresh", route: "direct" },
+			{ from: "prime", to: "aligned", route: "direct" },
+			{ from: "resume", to: "aligned", route: "direct" },
+			{ from: "fresh", to: "aligned", route: "direct" },
 		],
 	},
 	{
 		number: "2",
-		title: "Work",
-		description: "Execute with a heartbeat loop: verify, diagnose why it failed, adapt, retry, then commit.",
-		command: "/flux:work fn-1.1",
+		title: "Prime first",
+		description: "Flux treats prime as the first real workflow step in a repository, not an optional extra.",
+		command: "Prime before scope or code",
 		icon: Wrench,
 		color: "text-amber-400",
-		scenarioTitle: "Execution flow",
-		scenarioSubtitle: "State-machine loop: pass commits forward; fail drops to why-fix-rerun then re-verify.",
+		scenarioTitle: "Prime-first onboarding",
+		scenarioSubtitle: "After install and setup, Flux checks whether the repo has been primed. If not, prime runs before any other workflow route.",
 		scenarioSteps: [
-			{ label: "Implement", detail: "Ship a small reversible code change" },
-			{ label: "Verify", detail: "Checks emit a pass or fail signal" },
-			{ label: "Diagnose", detail: "Capture why failed, fix, and rerun checks" },
-			{ label: "Commit", detail: "After a clean pass, finalize and close" },
+			{ label: "Install", detail: "Flux is added to the current agent environment" },
+			{ label: "Setup", detail: "Flux prepares repo-local state and instructions" },
+			{ label: "Prime check", detail: "Flux asks whether this repo has been primed yet" },
+			{ label: "Prime", detail: "The audit runs before feature, bug, or refactor work begins" },
 		],
 		nodes: [
-			{ id: "task", x: 62, y: 80, label: "Task", size: "sm" },
-			{ id: "impl", x: 175, y: 80, label: "Implement", size: "lg" },
-			{ id: "verify", x: 310, y: 80, label: "Verify", size: "md" },
-			{ id: "commit", x: 440, y: 80, label: "Commit", size: "md" },
-			{ id: "done", x: 560, y: 80, label: "Done", size: "sm" },
-			// Fail loop - circular arrangement
-			{ id: "why", x: 310, y: 145, label: "Why?", size: "sm" },
-			{ id: "fix", x: 375, y: 190, label: "Fix", size: "sm" },
-			{ id: "rerun", x: 245, y: 190, label: "Rerun", size: "md" },
+			{ id: "install", x: 72, y: 84, label: "Install", size: "sm" },
+			{ id: "setup", x: 192, y: 84, label: "Setup", size: "md" },
+			{ id: "check", x: 324, y: 84, label: "Prime?", size: "md" },
+			{ id: "prime-run", x: 456, y: 84, label: "Prime", size: "md" },
+			{ id: "ready", x: 576, y: 84, label: "Ready", size: "sm" },
+			{ id: "already", x: 456, y: 168, label: "Already", size: "sm" },
 		],
 		connections: [
-			{ from: "task", to: "impl" },
-			{ from: "impl", to: "verify" },
-			{ from: "verify", to: "commit", label: "pass", labelX: 374, labelY: 68 },
-			{ from: "commit", to: "done" },
-			// Fail loop: circular arcs (clockwise)
-			{ from: "verify", to: "why", label: "fail", labelX: 336, labelY: 112 },
-			{ from: "why", to: "fix", route: "arc-cw" },
-			{ from: "fix", to: "rerun", route: "arc-cw" },
-			{ from: "rerun", to: "verify", route: "arc-cw" },
+			{ from: "install", to: "setup" },
+			{ from: "setup", to: "check" },
+			{ from: "check", to: "prime-run", label: "no", labelX: 392, labelY: 68 },
+			{ from: "prime-run", to: "ready" },
+			{ from: "check", to: "already", label: "yes", labelX: 388, labelY: 136 },
+			{ from: "already", to: "ready", route: "direct" },
 		],
 	},
 	{
 		number: "3",
-		title: "Review",
-		description: "Catch defects before they compound.",
-		command: "/flux:impl-review",
+		title: "Route by intent",
+		description: "Developers talk naturally; Flux maps the message to the correct next move.",
+		command: "Intent + state -> correct route",
 		icon: CheckCircle2,
 		color: "text-emerald-400",
-		scenarioTitle: "Review flow",
-		scenarioSubtitle: "Multiple adversarial reviewers stress-test code and reach consensus.",
+		scenarioTitle: "Natural-language routing",
+		scenarioSubtitle: "The user should be able to say what they want in plain English. Flux combines that request with repo state and chooses the right path.",
 		scenarioSteps: [
-			{ label: "Submit", detail: "Send implementation to review panel" },
-			{ label: "Adversarial", detail: "Multiple models review independently" },
-			{ label: "Consensus", detail: "Reviewers converge on a verdict" },
-			{ label: "Ship", detail: "Unanimous approval required to merge" },
+			{ label: "Intent", detail: "The user says build, fix, refactor, or continue" },
+			{ label: "Check state", detail: "Flux reads the active objective and workflow phase" },
+			{ label: "Choose route", detail: "Flux sends the agent to scope, work, or review" },
+			{ label: "Stay aligned", detail: "The session keeps the right context instead of drifting" },
 		],
 		nodes: [
-			// Submit
-			{ id: "submit", x: 70, y: 80, label: "Submit", size: "md" },
-			// Two reviewers
-			{ id: "r1", x: 200, y: 40, label: "Reviewer", size: "md" },
-			{ id: "r2", x: 200, y: 120, label: "Reviewer", size: "md" },
-			// Waypoints for reviewer→consensus routing
-			{ id: "wp1", x: 290, y: 40, render: "anchor" },
-			{ id: "wp2", x: 290, y: 120, render: "anchor" },
-			// Consensus
-			{ id: "consensus", x: 380, y: 80, label: "Consensus", size: "lg" },
-			// Outcomes
-			{ id: "ship", x: 520, y: 40, label: "SHIP", size: "sm" },
-			{ id: "rethink", x: 520, y: 120, label: "Rethink", size: "md" },
-			// Fix loop - positioned below everything
-			{ id: "fix", x: 380, y: 185, label: "Fix", size: "sm" },
-			// Waypoints to route fix→submit BELOW all boxes
-			{ id: "fix-wp1", x: 70, y: 185, render: "anchor" },
+			{ id: "intent", x: 74, y: 84, label: "Intent", size: "sm" },
+			{ id: "state-check", x: 214, y: 84, label: "State", size: "md" },
+			{ id: "scope", x: 394, y: 40, label: "Scope", size: "sm" },
+			{ id: "work", x: 394, y: 128, label: "Work", size: "md" },
+			{ id: "review", x: 394, y: 196, label: "Review", size: "sm" },
+			{ id: "aligned-route", x: 572, y: 84, label: "Aligned", size: "lg" },
 		],
 		connections: [
-			// Fan out to reviewers
-			{ from: "submit", to: "r1", route: "direct" },
-			{ from: "submit", to: "r2", route: "direct" },
-			// Route through waypoints
-			{ from: "r1", to: "wp1", route: "direct" },
-			{ from: "wp1", to: "consensus", route: "direct" },
-			{ from: "r2", to: "wp2", route: "direct" },
-			{ from: "wp2", to: "consensus", route: "direct" },
-			// Outcomes
-			{ from: "consensus", to: "ship", route: "direct", label: "pass", labelX: 455, labelY: 28 },
-			{ from: "consensus", to: "rethink", route: "direct" },
-			// Fix loop - goes DOWN then LEFT along bottom then UP to submit
-			{ from: "consensus", to: "fix", label: "fail", labelX: 405, labelY: 138 },
-			{ from: "fix", to: "fix-wp1", route: "direct" },
-			{ from: "fix-wp1", to: "submit", route: "direct" },
+			{ from: "intent", to: "state-check" },
+			{ from: "state-check", to: "scope", route: "direct" },
+			{ from: "state-check", to: "work", route: "direct" },
+			{ from: "state-check", to: "review", route: "direct" },
+			{ from: "scope", to: "aligned-route", route: "direct" },
+			{ from: "work", to: "aligned-route", route: "direct" },
+			{ from: "review", to: "aligned-route", route: "direct" },
 		],
 	},
 	{
 		number: "4",
-		title: "Improve",
-		description: "Analyze sessions, then upgrade tooling.",
-		command: "/flux:improve",
+		title: "Close the loop",
+		description: "Flux keeps review, improvement, and reflection tied back to the same workflow state.",
+		command: "Work -> review -> improve -> reflect",
 		icon: Sparkles,
 		color: "text-cyan-400",
-		scenarioTitle: "Improvement flow",
-		scenarioSubtitle: "Continuous cycle: analyze friction, recommend tools, install, repeat.",
+		scenarioTitle: "Continuous agent loop",
+		scenarioSubtitle: "Flux is not just a planner. It keeps the full build-review-improve cycle attached to the same objective over time.",
 		scenarioSteps: [
-			{ label: "Analyze", detail: "Scan sessions and environment for friction" },
-			{ label: "Match", detail: "AI matches friction to tools in database" },
-			{ label: "Install", detail: "Install tools, verify, loop back for more" },
+			{ label: "Work", detail: "Implementation happens with the active objective loaded" },
+			{ label: "Review", detail: "Checks and reviews validate what changed" },
+			{ label: "Improve", detail: "Flux learns where the workflow can get stronger" },
+			{ label: "Reflect", detail: "The next session starts with better state and context" },
 		],
 		nodes: [
-			// Simple horizontal flow with loop below
-			{ id: "analyze", x: 100, y: 90, label: "Analyze", size: "md" },
-			{ id: "match", x: 280, y: 90, label: "Match", size: "md" },
-			{ id: "install", x: 460, y: 90, label: "Install", size: "md" },
-			// Database node above Match (cylinder icon)
-			{ id: "database", x: 370, y: 30, label: "Recs DB", render: "database" },
-			// Loop waypoints below
-			{ id: "loop-wp1", x: 460, y: 165, render: "anchor" },
-			{ id: "loop-wp2", x: 100, y: 165, render: "anchor" },
+			{ id: "work-loop", x: 94, y: 90, label: "Work", size: "md" },
+			{ id: "review-loop", x: 254, y: 90, label: "Review", size: "md" },
+			{ id: "improve-loop", x: 414, y: 90, label: "Improve", size: "md" },
+			{ id: "memory", x: 414, y: 28, label: ".flux", render: "database" },
+			{ id: "reflect-loop", x: 574, y: 90, label: "Reflect", size: "md" },
+			{ id: "loop-back-1", x: 574, y: 168, render: "anchor" },
+			{ id: "loop-back-2", x: 94, y: 168, render: "anchor" },
 		],
 		connections: [
-			// Main horizontal flow
-			{ from: "analyze", to: "match" },
-			{ from: "match", to: "install" },
-			// Database connection (dotted)
-			{ from: "database", to: "match", dashed: true, route: "direct" },
-			// Loop back along bottom
-			{ from: "install", to: "loop-wp1", route: "direct" },
-			{ from: "loop-wp1", to: "loop-wp2", route: "direct" },
-			{ from: "loop-wp2", to: "analyze", route: "direct" },
+			{ from: "work-loop", to: "review-loop" },
+			{ from: "review-loop", to: "improve-loop" },
+			{ from: "memory", to: "improve-loop", dashed: true, route: "direct" },
+			{ from: "improve-loop", to: "reflect-loop" },
+			{ from: "reflect-loop", to: "loop-back-1", route: "direct" },
+			{ from: "loop-back-1", to: "loop-back-2", route: "direct" },
+			{ from: "loop-back-2", to: "work-loop", route: "direct" },
 		],
 	},
 ];
@@ -770,18 +738,18 @@ export function FluxWorkflow() {
 			<div className="mx-auto max-w-5xl px-6">
 				<div className="mx-auto mb-12 max-w-2xl text-center">
 					<div className="mx-auto mb-6 w-fit rounded-full border border-[#C9A96E]/20 bg-[#C9A96E]/10 px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-[#C9A96E]">
-						Command Reference
+						Deterministic SDLC Layer
 					</div>
 					<h2 className="text-[28px] leading-[32px] md:text-[40px] md:leading-[44px] font-normal tracking-[-1px] text-[#E8E4DE]">
-						Click a command, see the{" "}
+						Flux steers the agent with{" "}
 						<span className="font-serif italic text-[#C9A96E]">flow</span>
 					</h2>
 					<p className="mt-4 text-lg text-[#A39E96]">
-						Each slash command has its own execution pattern. Pick one and watch the step-by-step diagram.
+						You should not have to remember slash commands. Flux reads repo state, primes first, routes natural-language intent, and keeps the software loop aligned over time.
 					</p>
 				</div>
 
-				{/* Command buttons */}
+				{/* Workflow layer buttons */}
 				<div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
 					{commands.map((item) => {
 						const Icon = item.icon;
@@ -810,15 +778,9 @@ export function FluxWorkflow() {
 								<p className={`text-sm font-medium ${active ? "text-white/90" : "text-white/70"}`}>
 									{item.title}
 								</p>
-								<code
-									className={`mt-2 block rounded border px-2 py-1 font-mono text-[10px] ${
-										active
-											? "border-white/[0.12] bg-white/[0.06] text-white/70"
-											: "border-white/[0.06] bg-white/[0.02] text-white/50"
-									}`}
-								>
+								<p className={`mt-2 text-[11px] leading-5 ${active ? "text-white/55" : "text-white/40"}`}>
 									{item.command}
-								</code>
+								</p>
 							</button>
 						);
 					})}
@@ -835,10 +797,10 @@ export function FluxWorkflow() {
 						<p className="text-sm text-white/50">{activeItem.description}</p>
 					</div>
 					<div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
-						<p className="font-mono text-[10px] uppercase tracking-wider text-white/40">Active command</p>
-						<code className="mt-2 block rounded border border-white/[0.08] bg-white/[0.04] px-3 py-2 font-mono text-xs text-white/70">
+						<p className="font-mono text-[10px] uppercase tracking-wider text-white/40">Current behavior</p>
+						<p className="mt-2 rounded border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-white/70">
 							{activeItem.command}
-						</code>
+						</p>
 					</div>
 				</div>
 			</div>
